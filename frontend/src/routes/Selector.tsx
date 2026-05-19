@@ -12,8 +12,14 @@ interface Filters {
   spi: number;
   can: number;
   pwm: number;
+  usb: number;
+  powerInputs: number;
   imus: number;
   canfd: boolean;
+  ethernet: boolean;
+  sdcard: boolean;
+  sbusOut: boolean;
+  iomcu: boolean;
   minFlash: number;
 }
 
@@ -26,8 +32,14 @@ const DEFAULTS: Filters = {
   spi: 0,
   can: 0,
   pwm: 0,
+  usb: 0,
+  powerInputs: 0,
   imus: 1,
   canfd: false,
+  ethernet: false,
+  sdcard: false,
+  sbusOut: false,
+  iomcu: false,
   minFlash: 0,
 };
 
@@ -111,6 +123,12 @@ function passes(b: Board, f: Filters): boolean {
   if (b.io.spi_count < f.spi) return false;
   if (b.io.can_count < f.can) return false;
   if (b.io.pwm.total < f.pwm) return false;
+  if (b.io.usb_count < f.usb) return false;
+  if (b.power.monitor_inputs < f.powerInputs) return false;
+  if (f.ethernet && !b.io.ethernet) return false;
+  if (f.sdcard && !b.io.sdcard) return false;
+  if (f.sbusOut && !b.io.sbus_out) return false;
+  if (f.iomcu && !b.io.iomcu) return false;
   if (b.imus.length < f.imus) return false;
   if (f.canfd && !b.io.canfd) return false;
   if (f.minFlash && (b.flash_kb ?? 0) < f.minFlash) return false;
@@ -223,6 +241,8 @@ export default function Selector() {
           <Stepper label="SPI"    value={f.spi}  max={8}  onChange={(v) => set("spi", v)} />
           <Stepper label="CAN"    value={f.can}  max={4}  onChange={(v) => set("can", v)} />
           <Stepper label="PWM"    value={f.pwm}  max={16} onChange={(v) => set("pwm", v)} />
+          <Stepper label="USB"    value={f.usb}  max={2}  onChange={(v) => set("usb", v)} />
+          <Stepper label="Power"  value={f.powerInputs} max={4} onChange={(v) => set("powerInputs", v)} />
           <Stepper label="IMU"    value={f.imus} max={5}  min={1} onChange={(v) => set("imus", v)} />
         </div>
 
@@ -232,6 +252,26 @@ export default function Selector() {
             <input type="checkbox" checked={f.canfd} onChange={(e) => set("canfd", e.target.checked)} />
             <span className="toggle-mark" aria-hidden />
             <span className="toggle-label">CAN-FD capable</span>
+          </label>
+          <label className="toggle">
+            <input type="checkbox" checked={f.ethernet} onChange={(e) => set("ethernet", e.target.checked)} />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">Ethernet</span>
+          </label>
+          <label className="toggle">
+            <input type="checkbox" checked={f.sdcard} onChange={(e) => set("sdcard", e.target.checked)} />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">microSD slot</span>
+          </label>
+          <label className="toggle">
+            <input type="checkbox" checked={f.sbusOut} onChange={(e) => set("sbusOut", e.target.checked)} />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">SBUS out</span>
+          </label>
+          <label className="toggle">
+            <input type="checkbox" checked={f.iomcu} onChange={(e) => set("iomcu", e.target.checked)} />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">IOMCU (16 PWM)</span>
           </label>
         </div>
 
