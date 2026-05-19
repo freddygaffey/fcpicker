@@ -144,7 +144,7 @@ AUTOBUILD_RE = re.compile(r"^\s*AUTOBUILD_TARGETS\s+(.+)$", re.MULTILINE)
 PHY_RE = re.compile(r"^\s*define\s+BOARD_PHY_ID\b", re.MULTILINE)
 SDMMC_RE = re.compile(r"\bSDMMC\d?_(?:CK|CMD)\b")
 FATFS_RE = re.compile(r"^\s*define\s+HAL_OS_FATFS_IO\s+1\b", re.MULTILINE)
-IOMCU_RE = re.compile(r"^\s*IOMCU_UART\b|^\s*define\s+HAL_WITH_IO_MCU(?:_BIDIR_DSHOT)?\s+1\b", re.MULTILINE)
+IOMCU_RE = re.compile(r"^\s*IOMCU_UART\b|^\s*define\s+HAL_WITH_IO_MCU\w*\s+1\b", re.MULTILINE)
 # nVALID brick pins. Boards typically declare one per power input as
 # VDD_BRICK_nVALID, VDD_BRICK2_nVALID, VDD_BRICK3_nVALID, etc.
 BRICK_RE = re.compile(r"\bVDD_BRICK\d*_n?VALID\b")
@@ -152,8 +152,9 @@ SBUS_OUT_RE = re.compile(
     r"^\s*define\s+HAL_GPIO_PIN_SBUS_OUT\b|^\s*PINIO_PIN\s+\S+\s+SBUS_OUT\b|\bSBUS_OUT\b",
     re.MULTILINE,
 )
-# ADC1 channel pin definitions — count distinct ADC pins by their PIN token.
-ADC_PIN_RE = re.compile(r"^\s*P[A-K]\d{1,2}\s+\S+\s+ADC1\b", re.MULTILINE)
+# ADC channel pin definitions — count distinct ADC pins by their PIN token,
+# across ADC1/ADC2/ADC3.
+ADC_PIN_RE = re.compile(r"^\s*(P[A-K]\d{1,2})\s+\S+\s+ADC[123]\b", re.MULTILINE)
 
 ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"]
 

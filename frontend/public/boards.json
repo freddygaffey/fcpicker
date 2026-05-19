@@ -407,7 +407,7 @@
         "sdcard": false,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 1
+        "adc_inputs": 2
       },
       "power": {
         "monitor_inputs": 0
@@ -1356,7 +1356,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 5
+        "adc_inputs": 6
       },
       "power": {
         "monitor_inputs": 1
@@ -1439,7 +1439,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 5
+        "adc_inputs": 6
       },
       "power": {
         "monitor_inputs": 3
@@ -3452,7 +3452,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 8
+        "adc_inputs": 9
       },
       "power": {
         "monitor_inputs": 0
@@ -3778,7 +3778,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 6
+        "adc_inputs": 7
       },
       "power": {
         "monitor_inputs": 2
@@ -4053,13 +4053,13 @@
         "usb_count": 0,
         "pwm": {
           "fmu": 0,
-          "io": 0,
-          "total": 0
+          "io": 8,
+          "total": 8
         },
         "ethernet": false,
         "sdcard": false,
         "sbus_out": false,
-        "iomcu": false,
+        "iomcu": true,
         "adc_inputs": 2
       },
       "power": {
@@ -4474,13 +4474,13 @@
         "usb_count": 0,
         "pwm": {
           "fmu": 0,
-          "io": 0,
-          "total": 0
+          "io": 8,
+          "total": 8
         },
         "ethernet": false,
         "sdcard": false,
         "sbus_out": false,
-        "iomcu": false,
+        "iomcu": true,
         "adc_inputs": 2
       },
       "power": {
@@ -4570,7 +4570,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": true,
-        "adc_inputs": 3
+        "adc_inputs": 7
       },
       "power": {
         "monitor_inputs": 2
@@ -8043,7 +8043,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4-mini.html"
     },
     {
       "slug": "KakuteF4-Wing",
@@ -8358,7 +8358,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7-v2.html"
     },
     {
       "slug": "KakuteH7-Wing",
@@ -11164,7 +11164,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 7
+        "adc_inputs": 8
       },
       "power": {
         "monitor_inputs": 1
@@ -12196,7 +12196,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 1
+        "adc_inputs": 2
       },
       "power": {
         "monitor_inputs": 0
@@ -13161,13 +13161,13 @@
         "usb_count": 0,
         "pwm": {
           "fmu": 0,
-          "io": 0,
-          "total": 0
+          "io": 8,
+          "total": 8
         },
         "ethernet": false,
         "sdcard": false,
         "sbus_out": false,
-        "iomcu": false,
+        "iomcu": true,
         "adc_inputs": 0
       },
       "power": {
@@ -13313,13 +13313,13 @@
         "usb_count": 0,
         "pwm": {
           "fmu": 0,
-          "io": 0,
-          "total": 0
+          "io": 8,
+          "total": 8
         },
         "ethernet": false,
         "sdcard": false,
         "sbus_out": false,
-        "iomcu": false,
+        "iomcu": true,
         "adc_inputs": 0
       },
       "power": {
@@ -14013,7 +14013,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6.html"
     },
     {
       "slug": "PixPilot-V6PRO",
@@ -15934,7 +15934,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 2
+        "adc_inputs": 4
       },
       "power": {
         "monitor_inputs": 0
@@ -17412,7 +17412,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 0
+        "adc_inputs": 3
       },
       "power": {
         "monitor_inputs": 0
@@ -17830,7 +17830,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": true,
-        "adc_inputs": 6
+        "adc_inputs": 7
       },
       "power": {
         "monitor_inputs": 0
@@ -19263,7 +19263,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": true,
-        "adc_inputs": 1
+        "adc_inputs": 2
       },
       "power": {
         "monitor_inputs": 0
@@ -19365,7 +19365,7 @@
         "sdcard": true,
         "sbus_out": false,
         "iomcu": false,
-        "adc_inputs": 1
+        "adc_inputs": 2
       },
       "power": {
         "monitor_inputs": 0
@@ -19628,7 +19628,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se-h743.html"
     },
     {
       "slug": "YJUAV_A6SE",
