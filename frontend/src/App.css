@@ -178,11 +178,34 @@
   font-family: var(--mono);
   font-size: 12px;
   color: var(--ink);
-  padding: 0 8px;
-  min-width: 42px;
-  text-align: center;
+  padding: 0 6px;
+  min-width: 52px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
+}
+.stepper-prefix {
+  color: var(--ink-mute);
+}
+.stepper-input {
+  font: inherit;
+  color: inherit;
+  width: 32px;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  -moz-appearance: textfield;
+}
+.stepper-input:focus { outline: none; color: var(--ap-blue-dark); }
+.stepper-input::-webkit-outer-spin-button,
+.stepper-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .toggle {
@@ -529,12 +552,15 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   background: #fff;
-  overflow: hidden;
+  overflow-x: auto;
+  /* Stop two-finger horizontal swipe from triggering browser back-nav. */
+  overscroll-behavior-x: contain;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .ttable {
   width: 100%;
+  min-width: 1100px;
   border-collapse: collapse;
   font-size: 14px;
 }
@@ -555,7 +581,24 @@
 .th:hover { color: var(--ap-blue-dark); }
 .th-active { color: var(--ap-blue-dark); }
 .th-right { text-align: right; }
+.th-center { text-align: center; }
 .th-caret { margin-left: 6px; color: var(--ap-blue); font-size: 10px; }
+
+.th-handle {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--ink-dim);
+  cursor: grab;
+  user-select: none;
+  font-size: 11px;
+  letter-spacing: -1px;
+  padding: 0 2px;
+}
+.th-handle:hover { color: var(--ap-blue-dark); }
+.th-handle:active { cursor: grabbing; }
+.th.th-dragging { opacity: 0.45; }
+.th.th-drop-left  { box-shadow: inset 3px 0 0 var(--ap-blue); }
+.th.th-drop-right { box-shadow: inset -3px 0 0 var(--ap-blue); }
 
 .trow {
   border-bottom: 1px solid var(--border-soft);
@@ -563,7 +606,16 @@
 }
 .trow:hover { background: var(--ap-blue-soft); }
 .trow:last-child { border-bottom: 0; }
-.trow td { padding: 10px 12px; color: var(--ink); }
+.trow td { padding: 10px 14px; color: var(--ink); }
+
+/* Boolean yes/no cell (Ethernet, microSD, SBUS, IOMCU, CAN-FD) */
+.td-bool {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.td-bool-yes { color: var(--ap-blue-dark); font-weight: 600; }
+.td-bool-no  { color: var(--ink-dim); }
 
 .td-name { white-space: nowrap; }
 .row-link {
@@ -788,6 +840,38 @@
 }
 .bd-sensor-chip { color: var(--ink); }
 .bd-sensor-bus  { color: var(--ink-mute); }
+
+/* BEC rails (hand-curated) */
+.bd-bec {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bd-bec-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 12px;
+  font-size: 14px;
+  align-items: baseline;
+}
+.bd-bec-rail {
+  font-weight: 600;
+  color: var(--ap-navy);
+}
+.bd-bec-spec {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+}
+.bd-bec-note {
+  grid-column: 2;
+  font-size: 12px;
+  color: var(--ink-mute);
+  font-style: italic;
+}
 
 /* Variant-grouped sensor blocks (Pixhawk6X etc.) */
 .bd-sensor-variants {

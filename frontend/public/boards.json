@@ -50,7 +50,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -152,7 +153,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -252,7 +254,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -337,7 +340,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -428,7 +432,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -505,7 +510,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -588,7 +594,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -695,7 +702,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -798,7 +806,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -881,7 +890,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -959,7 +969,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1050,7 +1061,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1153,7 +1165,8 @@
         "adc_inputs": 1
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1239,7 +1252,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1320,7 +1334,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1420,7 +1435,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -1506,7 +1522,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -1604,7 +1621,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -1720,7 +1738,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -1824,7 +1843,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1907,7 +1927,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -1984,7 +2005,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2059,7 +2081,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2130,7 +2153,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2206,7 +2230,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2281,7 +2306,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2360,7 +2386,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2443,7 +2470,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2534,7 +2562,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2604,7 +2633,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2676,7 +2706,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2758,7 +2789,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2836,7 +2868,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -2918,7 +2951,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3016,7 +3050,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3100,7 +3135,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3194,7 +3230,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3275,7 +3312,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3365,7 +3403,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3432,7 +3471,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3514,7 +3554,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3598,7 +3639,8 @@
         "adc_inputs": 9
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -3715,7 +3757,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -3842,7 +3885,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -3948,7 +3992,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -4054,7 +4099,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -4172,7 +4218,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -4253,7 +4300,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -4364,7 +4412,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -4440,7 +4489,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -4515,7 +4565,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -4608,7 +4659,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -4703,7 +4755,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -4796,7 +4849,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -4900,7 +4954,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -4967,7 +5022,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5089,7 +5145,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -5188,7 +5245,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5276,7 +5334,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5364,7 +5423,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5446,7 +5506,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5527,7 +5588,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -5629,7 +5691,8 @@
         "adc_inputs": 9
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -5731,7 +5794,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5813,7 +5877,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -5903,7 +5968,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6004,7 +6070,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6108,7 +6175,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6193,7 +6261,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6294,7 +6363,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6393,7 +6463,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6470,7 +6541,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6547,7 +6619,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6631,7 +6704,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6731,7 +6805,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -6820,7 +6895,8 @@
         "adc_inputs": 9
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -6924,7 +7000,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7013,7 +7090,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7098,7 +7176,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7183,7 +7262,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7279,7 +7359,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -7378,7 +7459,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7449,7 +7531,8 @@
         "adc_inputs": 1
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7535,7 +7618,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7632,7 +7716,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -7716,7 +7801,8 @@
         "adc_inputs": 11
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -7817,7 +7903,8 @@
         "adc_inputs": 12
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -7919,7 +8006,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8005,7 +8093,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8082,7 +8171,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8163,7 +8253,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8241,7 +8332,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8321,7 +8413,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8402,7 +8495,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8484,7 +8578,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8562,7 +8657,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8640,7 +8736,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8718,7 +8815,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8816,7 +8914,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -8904,7 +9003,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -8981,7 +9081,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9043,7 +9144,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9118,7 +9220,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9212,7 +9315,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9295,7 +9399,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9372,7 +9477,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -9464,7 +9570,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -9542,7 +9649,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9620,7 +9728,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9695,7 +9804,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9782,7 +9892,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9884,7 +9995,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -9963,7 +10075,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10034,7 +10147,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10105,7 +10219,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10184,7 +10299,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10271,7 +10387,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10348,7 +10465,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10446,7 +10564,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10550,7 +10669,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10625,7 +10745,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10724,7 +10845,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10808,7 +10930,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10886,7 +11009,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -10967,7 +11091,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11061,7 +11186,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11145,7 +11271,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11226,7 +11353,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11324,7 +11452,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11415,7 +11544,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -11505,7 +11635,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11590,7 +11721,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -11683,7 +11815,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -11778,7 +11911,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -11873,7 +12007,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -11971,7 +12106,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -12064,7 +12200,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12156,7 +12293,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -12240,7 +12378,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12332,7 +12471,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12416,7 +12556,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -12549,7 +12690,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12625,7 +12767,8 @@
         "adc_inputs": 1
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12695,7 +12838,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12773,7 +12917,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12854,7 +12999,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -12936,7 +13082,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13014,7 +13161,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13096,7 +13244,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13177,7 +13326,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13258,7 +13408,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13343,7 +13494,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13429,7 +13581,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13518,7 +13671,8 @@
         "adc_inputs": 9
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -13610,7 +13764,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -13699,7 +13854,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -13785,7 +13941,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13866,7 +14023,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -13947,7 +14105,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -14049,7 +14208,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -14152,7 +14312,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -14269,7 +14430,21 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": [
+          {
+            "rail": "Servo",
+            "voltage_v": 5.0,
+            "current_a": 3.0,
+            "note": null
+          },
+          {
+            "rail": "Peripheral",
+            "voltage_v": 5.0,
+            "current_a": 3.0,
+            "note": null
+          }
+        ]
       },
       "imus": [
         {
@@ -14446,7 +14621,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -14538,7 +14714,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -14641,7 +14818,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -14743,7 +14921,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -14838,7 +15017,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -14941,7 +15121,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -15043,7 +15224,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -15138,7 +15320,8 @@
         "adc_inputs": 5
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15228,7 +15411,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15328,7 +15512,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15455,7 +15640,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15581,7 +15767,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15668,7 +15855,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15763,7 +15951,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -15853,7 +16042,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -15930,7 +16120,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16015,7 +16206,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16088,7 +16280,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16171,7 +16364,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16262,7 +16456,8 @@
         "adc_inputs": 9
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -16364,7 +16559,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16447,7 +16643,8 @@
         "adc_inputs": 1
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16534,7 +16731,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -16634,7 +16832,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16720,7 +16919,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16815,7 +17015,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16897,7 +17098,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -16979,7 +17181,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17054,7 +17257,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17130,7 +17334,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17206,7 +17411,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -17287,7 +17493,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -17373,7 +17580,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17457,7 +17665,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17540,7 +17749,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17621,7 +17831,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17699,7 +17910,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17777,7 +17989,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17855,7 +18068,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -17932,7 +18146,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18010,7 +18225,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18088,7 +18304,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18167,7 +18384,8 @@
         "adc_inputs": 4
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18248,7 +18466,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18325,7 +18544,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18416,7 +18636,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18512,7 +18733,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18593,7 +18815,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18684,7 +18907,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18796,7 +19020,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -18899,7 +19124,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -18979,7 +19205,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19043,7 +19270,8 @@
         "adc_inputs": 0
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19120,7 +19348,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19204,7 +19433,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -19294,7 +19524,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -19383,7 +19614,8 @@
         "adc_inputs": 3
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19467,7 +19699,8 @@
         "adc_inputs": 1
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19549,7 +19782,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19636,7 +19870,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19718,7 +19953,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19805,7 +20041,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19887,7 +20124,8 @@
         "adc_inputs": 1
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -19973,7 +20211,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 1
+        "monitor_inputs": 1,
+        "bec": []
       },
       "imus": [
         {
@@ -20076,7 +20315,8 @@
         "adc_inputs": 8
       },
       "power": {
-        "monitor_inputs": 2
+        "monitor_inputs": 2,
+        "bec": []
       },
       "imus": [
         {
@@ -20185,7 +20425,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -20294,7 +20535,8 @@
         "adc_inputs": 2
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -20396,7 +20638,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -20499,7 +20742,8 @@
         "adc_inputs": 6
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -20576,7 +20820,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se-h743.html"
     },
     {
       "slug": "YJUAV_A6SE",
@@ -20629,7 +20873,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -20749,7 +20994,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -20869,7 +21115,8 @@
         "adc_inputs": 9
       },
       "power": {
-        "monitor_inputs": 0
+        "monitor_inputs": 0,
+        "bec": []
       },
       "imus": [
         {
@@ -20996,7 +21243,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {
@@ -21112,7 +21360,8 @@
         "adc_inputs": 7
       },
       "power": {
-        "monitor_inputs": 3
+        "monitor_inputs": 3,
+        "bec": []
       },
       "imus": [
         {

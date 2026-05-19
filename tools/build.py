@@ -20,7 +20,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from sqlalchemy import (
-    Column, Integer, String, ForeignKey, create_engine, select,
+    Column, Integer, String, Float, ForeignKey, create_engine, select,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, Session
 
@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 FRONTEND_PUBLIC = ROOT / "frontend" / "public"
 ARDUPILOT_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
+BEC_OVERRIDES = ROOT / "data" / "bec_overrides.json"
 ARDUPILOT_WIKI_ROOT = Path.home() / "ardupilot_wiki"
 ARDUPILOT_WIKI_DOCS = ARDUPILOT_WIKI_ROOT / "common" / "source" / "docs"
 DOCS_BASE = "https://ardupilot.org"
@@ -78,6 +79,7 @@ class Board(Base):
 
     sensors: Mapped[list["Sensor"]] = relationship(back_populates="board", cascade="all, delete-orphan")
     firmware_support: Mapped[list["FirmwareSupport"]] = relationship(back_populates="board", cascade="all, delete-orphan")
+    bec_rails: Mapped[list["BecRail"]] = relationship(back_populates="board", cascade="all, delete-orphan")
 
 
 class Sensor(Base):
@@ -103,6 +105,20 @@ class FirmwareSupport(Base):
     maturity: Mapped[str] = mapped_column(String)   # official | community | experimental
 
     board: Mapped[Board] = relationship(back_populates="firmware_support")
+
+
+class BecRail(Base):
+    """Hand-curated BEC output rail. Loaded from data/bec_overrides.json,
+    keyed by board slug. Not derivable from hwdef."""
+    __tablename__ = "bec_rails"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    board_id: Mapped[int] = mapped_column(ForeignKey("boards.id"))
+    rail: Mapped[str] = mapped_column(String)         # "Servo", "Peripheral", "VTX", ...
+    voltage_v: Mapped[float] = mapped_column(Float)
+    current_a: Mapped[float] = mapped_column(Float)
+    note: Mapped[str | None] = mapped_column(String, nullable=True)
+
+    board: Mapped[Board] = relationship(back_populates="bec_rails")
 
 
 @dataclass
@@ -427,7 +443,17 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -
     return None
 
 
+def load_bec_overrides() -> dict[str, list[dict]]:
+    """Load hand-curated BEC rails per slug. Keys starting with `_` are
+    metadata (e.g. _README) and ignored."""
+    if not BEC_OVERRIDES.exists():
+        return {}
+    raw = json.loads(BEC_OVERRIDES.read_text())
+    return {k: v for k, v in raw.items() if not k.startswith("_") and isinstance(v, list)}
+
+
 def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str, tuple[str, list[str], str]]) -> None:
+    bec_map = load_bec_overrides()
     for p in parsed:
         p.docs_url = match_docs_url(p.slug, docs_map)
         b = Board(
@@ -462,6 +488,13 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
         for chip, bus, variant in p.compasses:
             b.sensors.append(Sensor(kind="compass", chip=chip, bus=bus, variant=variant))
         b.firmware_support.append(FirmwareSupport(firmware="ardupilot", maturity="official"))
+        for entry in bec_map.get(p.slug, []):
+            b.bec_rails.append(BecRail(
+                rail=str(entry["rail"]),
+                voltage_v=float(entry["voltage_v"]),
+                current_a=float(entry["current_a"]),
+                note=entry.get("note"),
+            ))
         session.add(b)
     session.commit()
 
@@ -504,6 +537,15 @@ def export_json(session: Session, out_path: Path) -> None:
             },
             "power": {
                 "monitor_inputs": b.power_inputs,
+                "bec": [
+                    {
+                        "rail": r.rail,
+                        "voltage_v": r.voltage_v,
+                        "current_a": r.current_a,
+                        "note": r.note,
+                    }
+                    for r in b.bec_rails
+                ],
             },
             "imus":     [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "imu"],
             "baros":    [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "baro"],

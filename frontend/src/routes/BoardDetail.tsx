@@ -89,6 +89,23 @@ export default function BoardDetail() {
         <SensorRow label="Compasses"   items={b.compasses} />
       </section>
 
+      {/* Power output (BEC rails) — only when curated data exists */}
+      {b.power.bec.length > 0 && (
+        <section className="bd-section">
+          <h2 className="bd-h2">Power output</h2>
+          <ul className="bd-bec">
+            {b.power.bec.map((r, i) => (
+              <li key={i} className="bd-bec-item">
+                <span className="bd-bec-rail">{r.rail}</span>
+                <span className="bd-bec-spec">{r.voltage_v} V · {r.current_a} A</span>
+                {r.note && <span className="bd-bec-note">{r.note}</span>}
+              </li>
+            ))}
+          </ul>
+          <p className="bd-aside">Hand-curated from vendor docs.</p>
+        </section>
+      )}
+
       {/* Vehicles — inline row of pills, NOT stacked */}
       <section className="bd-section">
         <h2 className="bd-h2">Vehicle support</h2>

@@ -1,0 +1,16 @@
+{
+  "_README": [
+    "Hand-curated BEC (battery eliminator circuit) data per board.",
+    "Source-of-truth: vendor datasheets / ArduPilot wiki. Not parseable from hwdef.",
+    "Keys are board slugs (must match hwdef directory names).",
+    "Each entry is a list of rails. Fields:",
+    "  rail       — short label shown in UI (e.g. 'Servo', 'Peripheral', 'VTX')",
+    "  voltage_v  — nominal output voltage (number)",
+    "  current_a  — max continuous current in amps (number)",
+    "  note       — optional free-text caveat (string)"
+  ],
+  "Pixhawk6X": [
+    { "rail": "Servo",      "voltage_v": 5,  "current_a": 3 },
+    { "rail": "Peripheral", "voltage_v": 5,  "current_a": 3 }
+  ]
+}

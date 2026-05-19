@@ -29,8 +29,16 @@ export interface BoardIO {
   adc_inputs: number;
 }
 
+export interface BecRail {
+  rail: string;
+  voltage_v: number;
+  current_a: number;
+  note: string | null;
+}
+
 export interface BoardPower {
   monitor_inputs: number;
+  bec: BecRail[];
 }
 
 export type VehicleType = "copter" | "plane" | "rover" | "sub" | "tracker" | "blimp";

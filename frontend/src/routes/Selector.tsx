@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { mcuFamilyLabel, useBoards } from "../data";
 import type { Board, VehicleType } from "../types";
@@ -52,7 +52,74 @@ const VEHICLES: { id: VehicleType; label: string }[] = [
   { id: "blimp",   label: "Blimp" },
 ];
 
-type SortKey = "slug" | "mcu" | "flash" | "uart" | "i2c" | "spi" | "can" | "pwm" | "imus";
+type SortKey =
+  | "slug" | "mcu" | "flash"
+  | "uart" | "i2c" | "spi" | "can" | "pwm" | "usb"
+  | "imus" | "power" | "ethernet" | "sdcard" | "sbus" | "iomcu";
+
+interface TableColumn {
+  id: string;
+  label: string;
+  sortKey: SortKey;
+  align?: "right" | "center";
+  cell: (b: Board) => ReactNode;
+}
+
+// Reorderable data columns. The BOARD slug column is fixed leftmost and the
+// open-arrow column is fixed rightmost (both rendered outside this list).
+const TABLE_COLUMNS: TableColumn[] = [
+  { id: "mcu",      label: "MCU",   sortKey: "mcu",
+    cell: (b) => <td className="td-mcu">{mcuFamilyLabel(b.mcu.family)}</td> },
+  { id: "flash",    label: "FLASH", sortKey: "flash", align: "right",
+    cell: (b) => <td className="td-num">{b.flash_kb ? `${b.flash_kb}K` : "—"}</td> },
+  { id: "uart",     label: "UART",  sortKey: "uart",  align: "right",
+    cell: (b) => <td className="td-num">{b.io.uart_count}</td> },
+  { id: "i2c",      label: "I²C",   sortKey: "i2c",   align: "right",
+    cell: (b) => <td className="td-num">{b.io.i2c_count}</td> },
+  { id: "spi",      label: "SPI",   sortKey: "spi",   align: "right",
+    cell: (b) => <td className="td-num">{b.io.spi_count}</td> },
+  { id: "can",      label: "CAN",   sortKey: "can",   align: "right",
+    cell: (b) => (
+      <td className="td-num">
+        {b.io.can_count}{b.io.canfd && <span className="canfd-tag">FD</span>}
+      </td>
+    ) },
+  { id: "pwm",      label: "PWM",   sortKey: "pwm",   align: "right",
+    cell: (b) => <td className="td-num">{b.io.pwm.total}</td> },
+  { id: "usb",      label: "USB",   sortKey: "usb",   align: "right",
+    cell: (b) => <td className="td-num">{b.io.usb_count}</td> },
+  { id: "imus",     label: "IMU",   sortKey: "imus",  align: "right",
+    cell: (b) => <td className="td-num">{b.imus.length}</td> },
+  { id: "power",    label: "POWER", sortKey: "power", align: "right",
+    cell: (b) => <td className="td-num">{b.power.monitor_inputs}</td> },
+  { id: "ethernet", label: "ETH",   sortKey: "ethernet", align: "center",
+    cell: (b) => <BoolCell on={b.io.ethernet} /> },
+  { id: "sdcard",   label: "SD",    sortKey: "sdcard",   align: "center",
+    cell: (b) => <BoolCell on={b.io.sdcard} /> },
+  { id: "sbus",     label: "SBUS",  sortKey: "sbus",     align: "center",
+    cell: (b) => <BoolCell on={b.io.sbus_out} /> },
+  { id: "iomcu",    label: "IOMCU", sortKey: "iomcu",    align: "center",
+    cell: (b) => <BoolCell on={b.io.iomcu} /> },
+];
+const DEFAULT_COL_ORDER = TABLE_COLUMNS.map((c) => c.id);
+const COL_ORDER_KEY = "fcpicker.columnOrder.v1";
+
+function loadColumnOrder(): string[] {
+  try {
+    const raw = sessionStorage.getItem(COL_ORDER_KEY);
+    if (!raw) return DEFAULT_COL_ORDER;
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return DEFAULT_COL_ORDER;
+    // Keep only known ids, then append any missing ones (forward-compat
+    // when new columns are added between sessions).
+    const known = new Set(DEFAULT_COL_ORDER);
+    const filtered = parsed.filter((x): x is string => typeof x === "string" && known.has(x));
+    for (const id of DEFAULT_COL_ORDER) if (!filtered.includes(id)) filtered.push(id);
+    return filtered;
+  } catch {
+    return DEFAULT_COL_ORDER;
+  }
+}
 
 interface CsvColumn {
   id: string;
@@ -145,6 +212,32 @@ export default function Selector() {
     () => new Set(CSV_COLUMNS.map((c) => c.id)),
   );
 
+  const [columnOrder, setColumnOrder] = useState<string[]>(loadColumnOrder);
+  const [dragColId, setDragColId] = useState<string | null>(null);
+  const [dropTarget, setDropTarget] = useState<{ id: string; side: "left" | "right" } | null>(null);
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(COL_ORDER_KEY, JSON.stringify(columnOrder));
+    } catch { /* ignore quota */ }
+  }, [columnOrder]);
+
+  const orderedColumns = useMemo(() => {
+    const byId = new Map(TABLE_COLUMNS.map((c) => [c.id, c]));
+    return columnOrder.map((id) => byId.get(id)).filter((c): c is TableColumn => !!c);
+  }, [columnOrder]);
+
+  const moveColumn = (fromId: string, toId: string, side: "left" | "right") => {
+    if (fromId === toId) return;
+    setColumnOrder((prev) => {
+      const next = prev.filter((x) => x !== fromId);
+      const idx = next.indexOf(toId);
+      if (idx === -1) return prev;
+      next.splice(side === "left" ? idx : idx + 1, 0, fromId);
+      return next;
+    });
+  };
+
   const mcuOptions = useMemo(() => {
     if (!boards) return [];
     const set = new Set<string>();
@@ -155,18 +248,24 @@ export default function Selector() {
   const filtered = useMemo(() => {
     if (!boards) return [];
     const out = boards.filter((b) => passes(b, f));
+    const dir = sort.dir;
     out.sort((a, b) => {
-      const dir = sort.dir;
       switch (sort.key) {
-        case "slug": return a.slug.localeCompare(b.slug) * dir;
-        case "mcu":  return mcuFamilyLabel(a.mcu.family).localeCompare(mcuFamilyLabel(b.mcu.family)) * dir;
+        case "slug":  return a.slug.localeCompare(b.slug) * dir;
+        case "mcu":   return mcuFamilyLabel(a.mcu.family).localeCompare(mcuFamilyLabel(b.mcu.family)) * dir;
         case "flash": return ((a.flash_kb ?? 0) - (b.flash_kb ?? 0)) * dir;
-        case "uart": return (a.io.uart_count - b.io.uart_count) * dir;
-        case "i2c":  return (a.io.i2c_count - b.io.i2c_count) * dir;
-        case "spi":  return (a.io.spi_count - b.io.spi_count) * dir;
-        case "can":  return (a.io.can_count - b.io.can_count) * dir;
-        case "pwm":  return (a.io.pwm.total - b.io.pwm.total) * dir;
-        case "imus": return (a.imus.length - b.imus.length) * dir;
+        case "uart":  return (a.io.uart_count - b.io.uart_count) * dir;
+        case "i2c":   return (a.io.i2c_count - b.io.i2c_count) * dir;
+        case "spi":   return (a.io.spi_count - b.io.spi_count) * dir;
+        case "can":   return (a.io.can_count - b.io.can_count) * dir;
+        case "pwm":   return (a.io.pwm.total - b.io.pwm.total) * dir;
+        case "usb":   return (a.io.usb_count - b.io.usb_count) * dir;
+        case "imus":  return (a.imus.length - b.imus.length) * dir;
+        case "power": return (a.power.monitor_inputs - b.power.monitor_inputs) * dir;
+        case "ethernet": return ((a.io.ethernet ? 1 : 0) - (b.io.ethernet ? 1 : 0)) * dir;
+        case "sdcard":   return ((a.io.sdcard   ? 1 : 0) - (b.io.sdcard   ? 1 : 0)) * dir;
+        case "sbus":     return ((a.io.sbus_out ? 1 : 0) - (b.io.sbus_out ? 1 : 0)) * dir;
+        case "iomcu":    return ((a.io.iomcu    ? 1 : 0) - (b.io.iomcu    ? 1 : 0)) * dir;
       }
     });
     return out;
@@ -331,15 +430,34 @@ export default function Selector() {
             <table className="ttable">
               <thead>
                 <tr>
-                  <Th label="BOARD"     k="slug"  sort={sort} onClick={toggleSort} />
-                  <Th label="MCU"       k="mcu"   sort={sort} onClick={toggleSort} />
-                  <Th label="FLASH"     k="flash" sort={sort} onClick={toggleSort} align="right" />
-                  <Th label="UART"      k="uart"  sort={sort} onClick={toggleSort} align="right" />
-                  <Th label="I²C"       k="i2c"   sort={sort} onClick={toggleSort} align="right" />
-                  <Th label="SPI"       k="spi"   sort={sort} onClick={toggleSort} align="right" />
-                  <Th label="CAN"       k="can"   sort={sort} onClick={toggleSort} align="right" />
-                  <Th label="PWM"       k="pwm"   sort={sort} onClick={toggleSort} align="right" />
-                  <Th label="IMU"       k="imus"  sort={sort} onClick={toggleSort} align="right" />
+                  <Th label="BOARD" k="slug" sort={sort} onClick={toggleSort} />
+                  {orderedColumns.map((c) => (
+                    <Th
+                      key={c.id}
+                      label={c.label}
+                      k={c.sortKey}
+                      sort={sort}
+                      onClick={toggleSort}
+                      align={c.align}
+                      draggableId={c.id}
+                      dragColId={dragColId}
+                      dropTarget={dropTarget}
+                      onDragStartCol={(id) => setDragColId(id)}
+                      onDragOverCol={(id, side) => setDropTarget({ id, side })}
+                      onDragLeaveCol={(id) =>
+                        setDropTarget((cur) => (cur && cur.id === id ? null : cur))
+                      }
+                      onDropCol={(toId, side) => {
+                        if (dragColId) moveColumn(dragColId, toId, side);
+                        setDragColId(null);
+                        setDropTarget(null);
+                      }}
+                      onDragEndCol={() => {
+                        setDragColId(null);
+                        setDropTarget(null);
+                      }}
+                    />
+                  ))}
                   <th aria-label="open" />
                 </tr>
               </thead>
@@ -353,23 +471,20 @@ export default function Selector() {
                         <span className="row-bracket">]</span>
                       </Link>
                     </td>
-                    <td className="td-mcu">{mcuFamilyLabel(b.mcu.family)}</td>
-                    <td className="td-num">{b.flash_kb ? `${b.flash_kb}K` : "—"}</td>
-                    <td className="td-num">{b.io.uart_count}</td>
-                    <td className="td-num">{b.io.i2c_count}</td>
-                    <td className="td-num">{b.io.spi_count}</td>
-                    <td className="td-num">
-                      {b.io.can_count}{b.io.canfd && <span className="canfd-tag">FD</span>}
-                    </td>
-                    <td className="td-num">{b.io.pwm.total}</td>
-                    <td className="td-num">{b.imus.length}</td>
+                    {orderedColumns.map((c) => (
+                      <Cell key={c.id} col={c} board={b} />
+                    ))}
                     <td className="td-open">
                       <Link to={`/board/${b.slug}`} aria-label={`Open ${b.slug}`}>→</Link>
                     </td>
                   </tr>
                 ))}
                 {filtered.length === 0 && (
-                  <tr><td colSpan={10} className="empty">— NO BOARDS MATCH CURRENT PARAMETERS —</td></tr>
+                  <tr>
+                    <td colSpan={orderedColumns.length + 2} className="empty">
+                      — NO BOARDS MATCH CURRENT PARAMETERS —
+                    </td>
+                  </tr>
                 )}
               </tbody>
             </table>
@@ -504,28 +619,109 @@ function CsvDialog({
 
 function Th({
   label, k, sort, onClick, align,
+  draggableId, dragColId, dropTarget,
+  onDragStartCol, onDragOverCol, onDragLeaveCol, onDropCol, onDragEndCol,
 }: {
   label: string;
   k: SortKey;
   sort: { key: SortKey; dir: 1 | -1 };
   onClick: (k: SortKey) => void;
-  align?: "right";
+  align?: "right" | "center";
+  draggableId?: string;
+  dragColId?: string | null;
+  dropTarget?: { id: string; side: "left" | "right" } | null;
+  onDragStartCol?: (id: string) => void;
+  onDragOverCol?: (id: string, side: "left" | "right") => void;
+  onDragLeaveCol?: (id: string) => void;
+  onDropCol?: (id: string, side: "left" | "right") => void;
+  onDragEndCol?: () => void;
 }) {
   const active = sort.key === k;
+  const alignClass = align === "right" ? " th-right" : align === "center" ? " th-center" : "";
+  const isDragging = draggableId && dragColId === draggableId;
+  const isDropTarget = draggableId && dropTarget?.id === draggableId;
+  const dropClass = isDropTarget
+    ? dropTarget!.side === "left" ? " th-drop-left" : " th-drop-right"
+    : "";
   return (
     <th
-      className={`th${align === "right" ? " th-right" : ""}${active ? " th-active" : ""}`}
+      className={`th${alignClass}${active ? " th-active" : ""}${isDragging ? " th-dragging" : ""}${dropClass}`}
       onClick={() => onClick(k)}
+      onDragOver={draggableId ? (e) => {
+        if (!dragColId) return;
+        e.preventDefault();
+        const rect = e.currentTarget.getBoundingClientRect();
+        const side = (e.clientX - rect.left) < rect.width / 2 ? "left" : "right";
+        onDragOverCol?.(draggableId, side);
+      } : undefined}
+      onDragLeave={draggableId ? () => onDragLeaveCol?.(draggableId) : undefined}
+      onDrop={draggableId ? (e) => {
+        if (!dragColId) return;
+        e.preventDefault();
+        const rect = e.currentTarget.getBoundingClientRect();
+        const side = (e.clientX - rect.left) < rect.width / 2 ? "left" : "right";
+        onDropCol?.(draggableId, side);
+      } : undefined}
     >
+      {draggableId && (
+        <span
+          className="th-handle"
+          draggable
+          aria-label="Drag to reorder column"
+          title="Drag to reorder"
+          onClick={(e) => e.stopPropagation()}
+          onDragStart={(e) => {
+            e.dataTransfer.effectAllowed = "move";
+            e.dataTransfer.setData("text/plain", draggableId);
+            onDragStartCol?.(draggableId);
+          }}
+          onDragEnd={() => onDragEndCol?.()}
+        >
+          ⋮⋮
+        </span>
+      )}
       <span>{label}</span>
       <span className="th-caret">{active ? (sort.dir === 1 ? "▲" : "▼") : "·"}</span>
     </th>
   );
 }
 
+function Cell({ col, board }: { col: TableColumn; board: Board }) {
+  return col.cell(board);
+}
+
+function BoolCell({ on }: { on: boolean }) {
+  return (
+    <td className={"td-bool " + (on ? "td-bool-yes" : "td-bool-no")}>
+      {on ? "✓" : "—"}
+    </td>
+  );
+}
+
 function Stepper({
   label, value, onChange, min = 0, max,
 }: { label: string; value: number; min?: number; max: number; onChange: (v: number) => void }) {
+  const clamp = (n: number) => Math.max(min, Math.min(max, n));
+  const [text, setText] = useState(String(value));
+  // Resync the input buffer when value changes externally (e.g. Reset filters)
+  // using React's "store previous value" pattern — avoids an effect.
+  const [lastSeenValue, setLastSeenValue] = useState(value);
+  if (lastSeenValue !== value) {
+    setLastSeenValue(value);
+    setText(String(value));
+  }
+
+  const commit = (raw: string) => {
+    const n = parseInt(raw, 10);
+    if (Number.isFinite(n)) {
+      const c = clamp(n);
+      onChange(c);
+      setText(String(c));
+    } else {
+      setText(String(value));
+    }
+  };
+
   return (
     <div className="stepper">
       <span className="stepper-label">{label}</span>
@@ -535,7 +731,27 @@ function Stepper({
           onClick={() => onChange(Math.max(min, value - 1))}
           aria-label={`${label} decrease`}
         >−</button>
-        <span className="stepper-value">≥ {value}</span>
+        <span className="stepper-value">
+          <span className="stepper-prefix">≥</span>
+          <input
+            type="number"
+            inputMode="numeric"
+            className="stepper-input"
+            min={min}
+            max={max}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onBlur={(e) => commit(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                commit((e.target as HTMLInputElement).value);
+                (e.target as HTMLInputElement).blur();
+              }
+            }}
+            aria-label={`${label} minimum`}
+          />
+        </span>
         <button
           className="stepper-btn"
           onClick={() => onChange(Math.min(max, value + 1))}
