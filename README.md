@@ -63,6 +63,13 @@ Create a Pages project pointing at this repo with:
 doesn't run our Python pipeline) can find it. Regenerate locally and commit
 whenever the ArduPilot hwdef sources change.
 
+## Contact
+
+Found a bug or have a board that's parsing incorrectly? Get in touch:
+
+- GitHub: [@fredgaffey](https://github.com/fredgaffey) — open an issue on this repo
+- Email: fredgaffey08@gmail.com
+
 ## Roadmap
 
 - Manufacturer + pretty-name extraction from wiki pages

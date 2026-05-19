@@ -13,8 +13,11 @@ venv/
 
 # Generated data
 data/*.db
-data/*.sqlite
 data/*.sqlite-journal
+data/*.sqlite
+# fcpicker.sqlite is committed so contributors can browse the catalog
+# without re-running the Python build pipeline.
+!data/fcpicker.sqlite
 
 # OS
 .DS_Store

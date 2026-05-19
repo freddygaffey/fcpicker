@@ -60,6 +60,18 @@ export default function Layout() {
             </a>{" "}
             before purchasing hardware.
           </p>
+          <p className="footer-line footer-contact">
+            Spotted an issue?{" "}
+            <a href="https://github.com/freddygaffey/fcpicker" target="_blank" rel="noreferrer">
+              Source on GitHub
+            </a>{" "}
+            &middot;{" "}
+            <a href="https://github.com/fredgaffey" target="_blank" rel="noreferrer">
+              @fredgaffey
+            </a>{" "}
+            &middot;{" "}
+            <a href="mailto:fredgaffey08@gmail.com">fredgaffey08@gmail.com</a>
+          </p>
         </div>
       </footer>
     </div>
