@@ -87,6 +87,10 @@ class Sensor(Base):
     kind: Mapped[str] = mapped_column(String)   # "imu" | "baro" | "compass"
     chip: Mapped[str] = mapped_column(String)
     bus: Mapped[str | None] = mapped_column(String, nullable=True)
+    # BOARD_MATCH(...) token if the sensor line is gated to a hardware variant,
+    # else NULL. Multiple sensors sharing the same variant token belong to the
+    # same physical board revision.
+    variant: Mapped[str | None] = mapped_column(String, nullable=True)
 
     board: Mapped[Board] = relationship(back_populates="sensors")
 
@@ -107,9 +111,10 @@ class ParsedBoard:
     mcu_family: str | None = None
     mcu_part: str | None = None
     flash_kb: int | None = None
-    imus: list[tuple[str, str]] = None
-    baros: list[tuple[str, str]] = None
-    compasses: list[tuple[str, str]] = None
+    # (chip, bus, variant_or_None)
+    imus: list[tuple[str, str, str | None]] = None
+    baros: list[tuple[str, str, str | None]] = None
+    compasses: list[tuple[str, str, str | None]] = None
     uart_buses: list[str] = None
     i2c_buses: list[str] = None
     spi_buses: list[str] = None
@@ -131,9 +136,11 @@ class ParsedBoard:
 
 MCU_RE = re.compile(r"^\s*MCU\s+(\S+)\s+(\S+)", re.MULTILINE)
 FLASH_RE = re.compile(r"^\s*FLASH_SIZE_KB\s+(\d+)", re.MULTILINE)
-IMU_RE = re.compile(r"^\s*IMU\s+(\S+)\s+(\S+)", re.MULTILINE)
-BARO_RE = re.compile(r"^\s*BARO\s+(\S+)\s+(\S+)", re.MULTILINE)
-COMPASS_RE = re.compile(r"^\s*COMPASS\s+(\S+)\s+(\S+)", re.MULTILINE)
+# Sensor lines capture chip + bus + the rest of the line (for BOARD_MATCH extraction).
+IMU_RE = re.compile(r"^\s*IMU\s+(\S+)\s+(\S+)(.*)$", re.MULTILINE)
+BARO_RE = re.compile(r"^\s*BARO\s+(\S+)\s+(\S+)(.*)$", re.MULTILINE)
+COMPASS_RE = re.compile(r"^\s*COMPASS\s+(\S+)\s+(\S+)(.*)$", re.MULTILINE)
+BOARD_MATCH_RE = re.compile(r"\bBOARD_MATCH\(([^)]+)\)")
 SERIAL_ORDER_RE = re.compile(r"^\s*SERIAL_ORDER\s+(.+)$", re.MULTILINE)
 I2C_ORDER_RE = re.compile(r"^\s*I2C_ORDER\s+(.+)$", re.MULTILINE)
 SPIDEV_RE = re.compile(r"^\s*SPIDEV\s+\S+\s+(SPI\d+)", re.MULTILINE)
@@ -190,9 +197,19 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
 
     mcu_m = MCU_RE.search(text)
     flash_m = FLASH_RE.search(text)
-    imus = [(m.group(1), m.group(2)) for m in IMU_RE.finditer(text)]
-    baros = [(m.group(1), m.group(2)) for m in BARO_RE.finditer(text)]
-    compasses = [(m.group(1), m.group(2)) for m in COMPASS_RE.finditer(text)]
+
+    def _sensors(rx):
+        out = []
+        for m in rx.finditer(text):
+            tail = m.group(3) or ""
+            bm = BOARD_MATCH_RE.search(tail)
+            variant = bm.group(1).strip() if bm else None
+            out.append((m.group(1), m.group(2), variant))
+        return out
+
+    imus = _sensors(IMU_RE)
+    baros = _sensors(BARO_RE)
+    compasses = _sensors(COMPASS_RE)
 
     if not imus:
         return None
@@ -438,12 +455,12 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
             docs_url=p.docs_url,
             readme=p.readme,
         )
-        for chip, bus in p.imus:
-            b.sensors.append(Sensor(kind="imu", chip=chip, bus=bus))
-        for chip, bus in p.baros:
-            b.sensors.append(Sensor(kind="baro", chip=chip, bus=bus))
-        for chip, bus in p.compasses:
-            b.sensors.append(Sensor(kind="compass", chip=chip, bus=bus))
+        for chip, bus, variant in p.imus:
+            b.sensors.append(Sensor(kind="imu", chip=chip, bus=bus, variant=variant))
+        for chip, bus, variant in p.baros:
+            b.sensors.append(Sensor(kind="baro", chip=chip, bus=bus, variant=variant))
+        for chip, bus, variant in p.compasses:
+            b.sensors.append(Sensor(kind="compass", chip=chip, bus=bus, variant=variant))
         b.firmware_support.append(FirmwareSupport(firmware="ardupilot", maturity="official"))
         session.add(b)
     session.commit()
@@ -488,9 +505,9 @@ def export_json(session: Session, out_path: Path) -> None:
             "power": {
                 "monitor_inputs": b.power_inputs,
             },
-            "imus":     [{"chip": s.chip, "bus": s.bus} for s in b.sensors if s.kind == "imu"],
-            "baros":    [{"chip": s.chip, "bus": s.bus} for s in b.sensors if s.kind == "baro"],
-            "compasses":[{"chip": s.chip, "bus": s.bus} for s in b.sensors if s.kind == "compass"],
+            "imus":     [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "imu"],
+            "baros":    [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "baro"],
+            "compasses":[{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "compass"],
             "firmware_support": [
                 {"firmware": f.firmware, "maturity": f.maturity}
                 for f in b.firmware_support

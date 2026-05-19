@@ -55,27 +55,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -152,31 +157,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688-2"
+          "bus": "SPI:icm42688-2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -246,19 +257,22 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -328,23 +342,27 @@
       "imus": [
         {
           "chip": "BMI160",
-          "bus": "SPI:bmi160"
+          "bus": "SPI:bmi160",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -415,13 +433,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -490,13 +510,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:42688"
+          "bus": "SPI:42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -571,31 +593,37 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:16470"
+          "bus": "SPI:16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:42688_1"
+          "bus": "SPI:42688_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:42688_2"
+          "bus": "SPI:42688_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -672,31 +700,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-3"
+          "bus": "SPI:icm45686-3",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-2"
+          "bus": "SPI:icm45686-2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-1"
+          "bus": "SPI:icm45686-1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x63"
+          "bus": "I2C:0:0x63",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -769,21 +803,25 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_0"
+          "bus": "SPI:icm42688_0",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -848,13 +886,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000_cs"
+          "bus": "SPI:mpu6000_cs",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -924,19 +964,22 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LIS2MDL",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -1012,35 +1055,42 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250_fpc"
+          "bus": "SPI:mpu9250_fpc",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250_board"
+          "bus": "SPI:mpu9250_board",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         },
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "1"
+          "bus": "1",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -1108,17 +1158,20 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm42688_ext"
+          "bus": "SPI:icm42688_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "SPI:bmp390"
+          "bus": "SPI:bmp390",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -1191,13 +1244,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -1270,29 +1325,35 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270_1"
+          "bus": "SPI:bmi270_1",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270_2"
+          "bus": "SPI:bmi270_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -1364,19 +1425,22 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653"
+          "bus": "SPI:iim42653",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IIS2MDC",
-          "bus": "I2C:2:0x1E"
+          "bus": "I2C:2:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -1447,23 +1511,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_2"
+          "bus": "SPI:icm42688_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:2:0x76"
+          "bus": "I2C:2:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IIS2MDC",
-          "bus": "I2C:2:0x1E"
+          "bus": "I2C:2:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -1541,39 +1609,47 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652"
+          "bus": "SPI:iim42652",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_ext"
+          "bus": "SPI:icm42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653"
+          "bus": "SPI:iim42653",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653_ext"
+          "bus": "SPI:iim42653_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653_ext2"
+          "bus": "SPI:iim42653_ext2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -1649,35 +1725,42 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689_board"
+          "bus": "SPI:icm20689_board",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_imu"
+          "bus": "SPI:ms5611_imu",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_board"
+          "bus": "SPI:ms5611_board",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100-2"
+          "bus": "SPI:rm3100-2",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -1746,17 +1829,20 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -1826,13 +1912,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -1901,13 +1989,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -1974,7 +2064,8 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [],
@@ -2044,13 +2135,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2118,13 +2211,15 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2191,17 +2286,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "SPI:baro1"
+          "bus": "SPI:baro1",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "SPI:baro2"
+          "bus": "SPI:baro2",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2267,17 +2365,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2347,21 +2448,25 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2434,17 +2539,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2501,7 +2609,8 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [],
@@ -2572,19 +2681,22 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963",
-          "bus": "I2C:0:0x0c"
+          "bus": "I2C:0:0x0c",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -2651,13 +2763,15 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2727,13 +2841,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2807,25 +2923,30 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a2"
+          "bus": "SPI:bmi088_a2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2900,13 +3021,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42670"
+          "bus": "SPI:icm42670",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -2982,27 +3105,32 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_2"
+          "bus": "SPI:icm42688_2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42670"
+          "bus": "SPI:icm42670",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3071,13 +3199,15 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "SPI:spl06"
+          "bus": "SPI:spl06",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -3150,27 +3280,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3235,13 +3370,15 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -3300,21 +3437,25 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "I2C:0:0x18"
+          "bus": "I2C:0:0x18",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "I2C:0:0x69"
+          "bus": "I2C:0:0x69",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         },
         {
           "chip": "LPS2XH:probe_InvensenseIMU",
-          "bus": "I2C:0:0x5D"
+          "bus": "I2C:0:0x5D",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -3378,13 +3519,15 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -3460,39 +3603,47 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652"
+          "bus": "SPI:iim42652",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653"
+          "bus": "SPI:iim42653",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP581",
-          "bus": "SPI:bmp581"
+          "bus": "SPI:bmp581",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:1:0x63"
+          "bus": "I2C:1:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IIS2MDC",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3569,47 +3720,57 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689_board"
+          "bus": "SPI:icm20689_board",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_imu"
+          "bus": "SPI:ms5611_imu",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_board"
+          "bus": "SPI:ms5611_board",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3686,31 +3847,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652"
+          "bus": "SPI:iim42652",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP581",
-          "bus": "I2C:2:0x47"
+          "bus": "I2C:2:0x47",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3786,31 +3953,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652"
+          "bus": "SPI:iim42652",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653_1"
+          "bus": "SPI:iim42653_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653_2"
+          "bus": "SPI:iim42653_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP581",
-          "bus": "SPI:bmp581"
+          "bus": "SPI:bmp581",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x63"
+          "bus": "I2C:0:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3886,55 +4059,67 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689_board"
+          "bus": "SPI:icm20689_board",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_imu"
+          "bus": "SPI:ms5611_imu",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_board"
+          "bus": "SPI:ms5611_board",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100-1"
+          "bus": "SPI:rm3100-1",
+          "variant": null
         },
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100-2"
+          "bus": "SPI:rm3100-2",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -3992,23 +4177,28 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI055",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         }
       ],
       "baros": [],
@@ -4027,7 +4217,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5plus-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html"
     },
     {
       "slug": "CubeBlack",
@@ -4068,51 +4258,62 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250_ext"
+          "bus": "SPI:mpu9250_ext",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_ext_g"
+          "bus": "SPI:lsm9ds0_ext_g",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_ext"
+          "bus": "SPI:icm20602_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_ext"
+          "bus": "SPI:icm20948_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LSM303D",
-          "bus": "SPI:lsm9ds0_ext_am"
+          "bus": "SPI:lsm9ds0_ext_am",
+          "variant": null
         },
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "1"
+          "bus": "1",
+          "variant": null
         },
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4168,15 +4369,18 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_ext"
+          "bus": "SPI:icm20602_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_ext"
+          "bus": "SPI:icm20948_ext",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [],
@@ -4241,7 +4445,8 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         }
       ],
       "baros": [],
@@ -4315,31 +4520,37 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_ext"
+          "bus": "SPI:icm20602_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_ext"
+          "bus": "SPI:icm20948_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4402,38 +4613,46 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_ext"
+          "bus": "SPI:icm42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_ext2"
+          "bus": "SPI:icm42688_ext2",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_ext"
+          "bus": "SPI:icm20948_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_aux"
+          "bus": "SPI:icm20948_aux",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_aux"
+          "bus": "SPI:icm45686_aux",
+          "variant": null
         }
       ],
       "baros": [],
       "compasses": [
         {
           "chip": "AK09916",
-          "bus": "I2C:2:0x0C"
+          "bus": "I2C:2:0x0C",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4489,23 +4708,27 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4578,35 +4801,42 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_0"
+          "bus": "SPI:icm42688_0",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_0"
+          "bus": "SPI:ms5611_0",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_1"
+          "bus": "SPI:ms5611_1",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4675,13 +4905,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -4740,51 +4972,62 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250_ext"
+          "bus": "SPI:mpu9250_ext",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_ext_g"
+          "bus": "SPI:lsm9ds0_ext_g",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_ext"
+          "bus": "SPI:icm20602_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_ext"
+          "bus": "SPI:icm20948_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LSM303D",
-          "bus": "SPI:lsm9ds0_ext_am"
+          "bus": "SPI:lsm9ds0_ext_am",
+          "variant": null
         },
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "1"
+          "bus": "1",
+          "variant": null
         },
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4851,31 +5094,37 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_ext"
+          "bus": "SPI:icm20602_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948_ext"
+          "bus": "SPI:icm20948_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -4944,17 +5193,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -5029,17 +5281,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -5114,17 +5369,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -5193,13 +5451,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -5272,27 +5532,32 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         },
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5369,35 +5634,42 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "BMI055",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_2"
+          "bus": "SPI:icm20602_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5464,19 +5736,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "SPI:bmp280"
+          "bus": "SPI:bmp280",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5543,23 +5818,27 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5629,31 +5908,37 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         },
         {
           "chip": "QMC5883P",
-          "bus": "I2C:0:0x2C"
+          "bus": "I2C:0:0x2C",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5724,35 +6009,42 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         },
         {
           "chip": "QMC5883P",
-          "bus": "I2C:0:0x2C"
+          "bus": "I2C:0:0x2C",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5821,19 +6113,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:1:0x77"
+          "bus": "I2C:1:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5903,31 +6198,37 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -5998,31 +6299,37 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -6091,13 +6398,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6166,13 +6475,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6241,21 +6552,25 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6321,29 +6636,35 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6415,17 +6736,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6501,35 +6825,42 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "BMI055",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -6598,21 +6929,25 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6683,17 +7018,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6765,17 +7103,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6847,21 +7188,25 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -6939,31 +7284,37 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_u12_a"
+          "bus": "SPI:bmi088_u12_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_u11_a"
+          "bus": "SPI:bmi088_u11_a",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8308",
-          "bus": "I2C:1:0x0E"
+          "bus": "I2C:1:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:1:0x0E"
+          "bus": "I2C:1:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -7032,13 +7383,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7101,19 +7454,22 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -7184,29 +7540,35 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270_0"
+          "bus": "SPI:bmi270_0",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_0"
+          "bus": "SPI:icm42688_0",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270_1"
+          "bus": "SPI:bmi270_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7275,13 +7637,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7357,27 +7721,32 @@
       "imus": [
         {
           "chip": "SCHA63T",
-          "bus": "SPI:scha63t_a"
+          "bus": "SPI:scha63t_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -7453,35 +7822,42 @@
       "imus": [
         {
           "chip": "SCHA63T",
-          "bus": "SPI:scha63t_a"
+          "bus": "SPI:scha63t_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652_1"
+          "bus": "SPI:iim42652_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652_2"
+          "bus": "SPI:iim42652_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_1"
+          "bus": "SPI:ms5611_1",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_2"
+          "bus": "SPI:ms5611_2",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -7548,21 +7924,25 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7630,13 +8010,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7705,17 +8087,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688p"
+          "bus": "SPI:icm42688p",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688p2"
+          "bus": "SPI:icm42688p2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7783,13 +8168,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7859,13 +8246,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -7937,17 +8326,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8015,17 +8407,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8043,7 +8438,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4-mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4.html"
     },
     {
       "slug": "KakuteF4-Wing",
@@ -8094,13 +8489,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8170,13 +8567,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8194,7 +8593,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7aio.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html"
     },
     {
       "slug": "KakuteF7Mini",
@@ -8246,13 +8645,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8322,25 +8723,30 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8358,7 +8764,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7-v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7mini.html"
     },
     {
       "slug": "KakuteH7-Wing",
@@ -8415,21 +8821,25 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8499,21 +8909,25 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8572,7 +8986,8 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [],
@@ -8633,7 +9048,8 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [],
@@ -8707,27 +9123,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -8796,13 +9217,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8877,13 +9300,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -8952,23 +9377,27 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_int"
+          "bus": "SPI:ms5611_int",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "SPI:hmc5843"
+          "bus": "SPI:hmc5843",
+          "variant": null
         },
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -9040,23 +9469,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "SPI:hmc5843"
+          "bus": "SPI:hmc5843",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -9114,13 +9547,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9190,13 +9625,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9263,17 +9700,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9347,33 +9787,40 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000_2"
+          "bus": "SPI:mpu6000_2",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_2"
+          "bus": "SPI:icm42688_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9442,13 +9889,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9519,19 +9968,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -9587,7 +10039,8 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [],
@@ -9657,13 +10110,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9734,21 +10189,25 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9817,7 +10276,8 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [],
@@ -9893,25 +10353,30 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -9986,33 +10451,40 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -10083,13 +10555,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -10156,27 +10630,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -10250,19 +10729,22 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:1:0x77"
+          "bus": "I2C:1:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LIS3MDL",
-          "bus": "I2C:ALL_INTERNAL:0x1C"
+          "bus": "I2C:ALL_INTERNAL:0x1C",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -10331,13 +10813,15 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -10407,13 +10891,15 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "SPI:spl06"
+          "bus": "SPI:spl06",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -10486,27 +10972,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -10575,17 +11066,20 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -10656,13 +11150,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -10735,27 +11231,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "QMC5883L",
-          "bus": "I2C:ALL_EXTERNAL:0x0D"
+          "bus": "I2C:ALL_EXTERNAL:0x0D",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:ALL_INTERNAL:0x0D"
+          "bus": "I2C:ALL_INTERNAL:0x0D",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -10828,27 +11329,32 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6500"
+          "bus": "SPI:mpu6500",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_g"
+          "bus": "SPI:lsm9ds0_g",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1e"
+          "bus": "I2C:0:0x1e",
+          "variant": null
         },
         {
           "chip": "LSM303D",
-          "bus": "SPI:lsm9ds0_am"
+          "bus": "SPI:lsm9ds0_am",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -10914,19 +11420,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "LPS2XH",
-          "bus": "SPI:lps22h"
+          "bus": "SPI:lps22h",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11001,17 +11510,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -11083,23 +11595,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IIS2MDC",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0xd"
+          "bus": "I2C:0:0xd",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11172,27 +11688,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11262,27 +11783,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11352,27 +11878,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11445,27 +11976,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11533,23 +12069,27 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm40609d"
+          "bus": "SPI:icm40609d",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11621,27 +12161,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11700,33 +12245,40 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI055",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_board"
+          "bus": "SPI:ms5611_board",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -11785,11 +12337,13 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_a"
+          "bus": "SPI:icm45686_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_b"
+          "bus": "SPI:icm45686_b",
+          "variant": null
         }
       ],
       "baros": [],
@@ -11867,55 +12421,67 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689_board"
+          "bus": "SPI:icm20689_board",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_imu"
+          "bus": "SPI:ms5611_imu",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_board"
+          "bus": "SPI:ms5611_board",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100-1"
+          "bus": "SPI:rm3100-1",
+          "variant": null
         },
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100-2"
+          "bus": "SPI:rm3100-2",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -11988,17 +12554,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12061,13 +12630,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "I2C:0:0x69"
+          "bus": "I2C:0:0x69",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12129,19 +12700,22 @@
       "imus": [
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20948"
+          "bus": "SPI:icm20948",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK09916:probe_ICM20948",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -12204,17 +12778,20 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:imu0_a"
+          "bus": "SPI:imu0_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:imu1_a"
+          "bus": "SPI:imu1_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12282,17 +12859,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "SPI:bmp280"
+          "bus": "SPI:bmp280",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12361,13 +12941,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "SPI:bmp280"
+          "bus": "SPI:bmp280",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12437,17 +13019,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6500"
+          "bus": "SPI:mpu6500",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "SPI:bmp280"
+          "bus": "SPI:bmp280",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12516,13 +13101,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "SPI:bmp280"
+          "bus": "SPI:bmp280",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12595,17 +13182,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_2"
+          "bus": "SPI:icm42688_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12673,17 +13263,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12755,17 +13348,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:1:0x77"
+          "bus": "I2C:1:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12838,17 +13434,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_0"
+          "bus": "SPI:icm42688_0",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -12924,27 +13523,32 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_2"
+          "bus": "SPI:icm20602_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13011,23 +13615,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42670"
+          "bus": "SPI:icm42670",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_g"
+          "bus": "SPI:lsm9ds0_g",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13096,31 +13704,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42670"
+          "bus": "SPI:icm42670",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6500"
+          "bus": "SPI:mpu6500",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_int"
+          "bus": "SPI:ms5611_int",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "SPI:bmp280"
+          "bus": "SPI:bmp280",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13176,27 +13790,32 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_g"
+          "bus": "SPI:lsm9ds0_g",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "SPI:hmc5843"
+          "bus": "SPI:hmc5843",
+          "variant": null
         },
         {
           "chip": "LSM303D",
-          "bus": "SPI:lsm9ds0_am"
+          "bus": "SPI:lsm9ds0_am",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13252,27 +13871,32 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_g"
+          "bus": "SPI:lsm9ds0_g",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "SPI:hmc5843"
+          "bus": "SPI:hmc5843",
+          "variant": null
         },
         {
           "chip": "LSM303D",
-          "bus": "SPI:lsm9ds0_am"
+          "bus": "SPI:lsm9ds0_am",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13328,27 +13952,32 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         },
         {
           "chip": "LSM9DS0",
-          "bus": "SPI:lsm9ds0_g"
+          "bus": "SPI:lsm9ds0_g",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "SPI:hmc5843"
+          "bus": "SPI:hmc5843",
+          "variant": null
         },
         {
           "chip": "LSM303D",
-          "bus": "SPI:lsm9ds0_am"
+          "bus": "SPI:lsm9ds0_am",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13425,31 +14054,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:2:0x76"
+          "bus": "I2C:2:0x76",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13522,39 +14157,47 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "LSM6DSV",
-          "bus": "SPI:lsm6dsv"
+          "bus": "SPI:lsm6dsv",
+          "variant": null
         },
         {
           "chip": "BMI055",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0C"
+          "bus": "I2C:0:0x0C",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13631,91 +14274,112 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X"
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X"
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42670"
+          "bus": "SPI:icm42670",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": "FMUV6_BOARD_CUAV_6X"
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": "FMUV6_BOARD_CUAV_6X"
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649_2"
+          "bus": "SPI:icm20649_2",
+          "variant": "FMUV6_BOARD_CUAV_6X"
         },
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X_REV6"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652"
+          "bus": "SPI:iim42652",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X_REV6"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X_REV6"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-2"
+          "bus": "SPI:icm45686-2",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X_45686"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-3"
+          "bus": "SPI:icm45686-3",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X_45686"
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-1"
+          "bus": "SPI:icm45686-1",
+          "variant": "FMUV6_BOARD_HOLYBRO_6X_45686"
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:2:0x76"
+          "bus": "I2C:2:0x76",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         },
         {
           "chip": "BMP581",
-          "bus": "I2C:2:0x46"
+          "bus": "I2C:2:0x46",
+          "variant": null
         },
         {
           "chip": "BMP581",
-          "bus": "I2C:0:0x46"
+          "bus": "I2C:0:0x46",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         },
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13787,21 +14451,25 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688"
+          "bus": "SPI:ICM42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688_ext"
+          "bus": "SPI:ICM42688_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "SPI:BMP388"
+          "bus": "SPI:BMP388",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "SPI:BMP388_ext"
+          "bus": "SPI:BMP388_ext",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -13875,31 +14543,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688"
+          "bus": "SPI:ICM42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688_ext"
+          "bus": "SPI:ICM42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM40605_ext"
+          "bus": "SPI:ICM40605_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -13972,31 +14646,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688"
+          "bus": "SPI:ICM42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688_ext"
+          "bus": "SPI:ICM42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM40605_ext"
+          "bus": "SPI:ICM40605_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14013,7 +14693,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html"
     },
     {
       "slug": "PixPilot-V6PRO",
@@ -14068,25 +14748,30 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688"
+          "bus": "SPI:ICM42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688_ext"
+          "bus": "SPI:ICM42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM40605_ext"
+          "bus": "SPI:ICM40605_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "SPI:BMP388"
+          "bus": "SPI:BMP388",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "SPI:BMP388_ext"
+          "bus": "SPI:BMP388_ext",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -14158,31 +14843,37 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20608"
+          "bus": "SPI:icm20608",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_int"
+          "bus": "SPI:ms5611_int",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "SPI:hmc5843"
+          "bus": "SPI:hmc5843",
+          "variant": null
         },
         {
           "chip": "LIS3MDL",
-          "bus": "SPI:lis3mdl"
+          "bus": "SPI:lis3mdl",
+          "variant": null
         },
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14255,31 +14946,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688"
+          "bus": "SPI:ICM42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688_ext"
+          "bus": "SPI:ICM42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM40605_ext"
+          "bus": "SPI:ICM40605_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_ext"
+          "bus": "SPI:ms5611_ext",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14351,25 +15048,30 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688"
+          "bus": "SPI:ICM42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM42688_ext"
+          "bus": "SPI:ICM42688_ext",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:ICM40605_ext"
+          "bus": "SPI:ICM40605_ext",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "SPI:BMP388"
+          "bus": "SPI:BMP388",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "SPI:BMP388_ext"
+          "bus": "SPI:BMP388_ext",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -14441,23 +15143,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42653"
+          "bus": "SPI:iim42653",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IIS2MDC",
-          "bus": "I2C:1:0x1E"
+          "bus": "I2C:1:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14527,31 +15233,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "SPI:baro1"
+          "bus": "SPI:baro1",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14621,51 +15333,62 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "BMI055",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi055_a"
+          "bus": "SPI:bmi055_a",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14737,51 +15460,62 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS280",
-          "bus": "SPI:baro1"
+          "bus": "SPI:baro1",
+          "variant": null
         },
         {
           "chip": "DPS280",
-          "bus": "SPI:baro2"
+          "bus": "SPI:baro2",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0x0D"
+          "bus": "I2C:0:0x0D",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -14852,21 +15586,25 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "SPI:spl06"
+          "bus": "SPI:spl06",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -14935,25 +15673,30 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu"
+          "bus": "SPI:imu",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu"
+          "bus": "SPI:imu",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:imu"
+          "bus": "SPI:imu",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -15025,23 +15768,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -15111,13 +15858,15 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -15186,15 +15935,18 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [],
@@ -15268,13 +16020,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -15339,19 +16093,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -15419,19 +16176,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1E"
+          "bus": "I2C:0:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -15507,39 +16267,47 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_2"
+          "bus": "SPI:icm42688_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_1"
+          "bus": "SPI:ms5611_1",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611_2"
+          "bus": "SPI:ms5611_2",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "SPI:bmp390_1"
+          "bus": "SPI:bmp390_1",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "SPI:bmp390_2"
+          "bus": "SPI:bmp390_2",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -15601,21 +16369,25 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -15680,19 +16452,22 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -15764,27 +16539,32 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0e"
+          "bus": "I2C:0:0x0e",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -15859,17 +16639,20 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -15942,27 +16725,32 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:iim42652"
+          "bus": "SPI:iim42652",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x63"
+          "bus": "I2C:0:0x63",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -16032,13 +16820,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -16112,17 +16902,20 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270_1"
+          "bus": "SPI:bmi270_1",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270_2"
+          "bus": "SPI:bmi270_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -16191,11 +16984,13 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_1"
+          "bus": "SPI:icm42688_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688_2"
+          "bus": "SPI:icm42688_2",
+          "variant": null
         }
       ],
       "baros": [],
@@ -16264,19 +17059,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20789"
+          "bus": "SPI:icm20789",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICM20789",
-          "bus": "I2C:1:0x63"
+          "bus": "I2C:1:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -16337,19 +17135,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "I2C:1:0x68"
+          "bus": "I2C:1:0x68",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICM20789",
-          "bus": "I2C:1:0x63"
+          "bus": "I2C:1:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -16410,19 +17211,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICM20789",
-          "bus": "I2C:1:0x63"
+          "bus": "I2C:1:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -16488,23 +17292,27 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42652"
+          "bus": "SPI:icm42652",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:1:0x1E"
+          "bus": "I2C:1:0x1E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -16570,19 +17378,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -16651,13 +17462,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -16732,17 +17545,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -16810,13 +17626,15 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP085",
-          "bus": "I2C:0:0x77"
+          "bus": "I2C:0:0x77",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -16886,13 +17704,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -16962,13 +17782,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17038,13 +17860,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42605"
+          "bus": "SPI:icm42605",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17113,13 +17937,15 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17189,13 +18015,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17265,13 +18093,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17342,17 +18172,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_1"
+          "bus": "SPI:icm20602_1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602_2"
+          "bus": "SPI:icm20602_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17370,7 +18203,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-extreme.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-rf.html"
     },
     {
       "slug": "SPRacingH7RF",
@@ -17420,13 +18253,15 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:1:0x76"
+          "bus": "I2C:1:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17495,25 +18330,30 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17581,25 +18421,30 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17672,17 +18517,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         },
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17750,17 +18598,20 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689_1"
+          "bus": "SPI:icm20689_1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689_2"
+          "bus": "SPI:icm20689_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP280",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -17838,35 +18689,42 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20689"
+          "bus": "SPI:icm20689",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP581",
-          "bus": "SPI:bmp581"
+          "bus": "SPI:bmp581",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:1:0x63"
+          "bus": "I2C:1:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -17943,31 +18801,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev2",
-          "bus": "SPI:icm20649"
+          "bus": "SPI:icm20649",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18040,25 +18904,30 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000_1"
+          "bus": "SPI:mpu6000_1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000_2"
+          "bus": "SPI:mpu6000_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -18115,11 +18984,13 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [],
@@ -18177,11 +19048,13 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [],
@@ -18252,17 +19125,20 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "BMP388",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -18333,23 +19209,27 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18419,23 +19299,27 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:icm20602"
+          "bus": "SPI:icm20602",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu9250"
+          "bus": "SPI:mpu9250",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "AK8963:probe_mpu9250",
-          "bus": "0"
+          "bus": "0",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18504,17 +19388,20 @@
       "imus": [
         {
           "chip": "BMI270",
-          "bus": "SPI:bmi270"
+          "bus": "SPI:bmi270",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm42688"
+          "bus": "SPI:icm42688",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [],
@@ -18585,19 +19472,22 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686"
+          "bus": "SPI:icm45686",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM150",
-          "bus": "I2C:0:0x10"
+          "bus": "I2C:0:0x10",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18664,23 +19554,27 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:1:0x1e"
+          "bus": "I2C:1:0x1e",
+          "variant": null
         },
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1e"
+          "bus": "I2C:0:0x1e",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18747,19 +19641,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:1:0x1e"
+          "bus": "I2C:1:0x1e",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18826,23 +19723,27 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:1:0x1e"
+          "bus": "I2C:1:0x1e",
+          "variant": null
         },
         {
           "chip": "HMC5843",
-          "bus": "I2C:0:0x1e"
+          "bus": "I2C:0:0x1e",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18909,19 +19810,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:1:0x1e"
+          "bus": "I2C:1:0x1e",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -18988,19 +19892,22 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:mpu6000"
+          "bus": "SPI:mpu6000",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "HMC5843",
-          "bus": "I2C:1:0x1e"
+          "bus": "I2C:1:0x1e",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19071,27 +19978,32 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x63"
+          "bus": "I2C:0:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "QMC5883L",
-          "bus": "I2C:0:0xD"
+          "bus": "I2C:0:0xD",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19169,35 +20081,42 @@
       "imus": [
         {
           "chip": "ADIS1647x",
-          "bus": "SPI:adis16470"
+          "bus": "SPI:adis16470",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1_res"
+          "bus": "SPI:imu1_res",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "MS5611",
-          "bus": "SPI:baro1"
+          "bus": "SPI:baro1",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:baro2"
+          "bus": "SPI:baro2",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19271,35 +20190,42 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu0"
+          "bus": "SPI:imu0",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:imu0"
+          "bus": "SPI:imu0",
+          "variant": null
         },
         {
           "chip": "BMI270",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "SPL06",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "QMC5883P",
-          "bus": "I2C:ALL_EXTERNAL:0x2C"
+          "bus": "I2C:ALL_EXTERNAL:0x2C",
+          "variant": null
         },
         {
           "chip": "QMC5883P",
-          "bus": "I2C:ALL_INTERNAL:0x2C"
+          "bus": "I2C:ALL_INTERNAL:0x2C",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19373,27 +20299,32 @@
       "imus": [
         {
           "chip": "BMI088",
-          "bus": "SPI:imu0_a"
+          "bus": "SPI:imu0_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "I2C:0:0x76"
+          "bus": "I2C:0:0x76",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19470,31 +20401,37 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-3"
+          "bus": "SPI:icm45686-3",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-2"
+          "bus": "SPI:icm45686-2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686-1"
+          "bus": "SPI:icm45686-1",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "BMM350",
-          "bus": "I2C:0:0x15"
+          "bus": "I2C:0:0x15",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19567,51 +20504,62 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         },
         {
           "chip": "BMP388",
-          "bus": "SPI:bmp388"
+          "bus": "SPI:bmp388",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "SPI:rm3100"
+          "bus": "SPI:rm3100",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_INTERNAL:0x0E"
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19628,7 +20576,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se-h743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html"
     },
     {
       "slug": "YJUAV_A6SE",
@@ -19686,43 +20634,52 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19797,43 +20754,52 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310"
+          "bus": "SPI:dps310",
+          "variant": null
         },
         {
           "chip": "MS5611",
-          "bus": "SPI:ms5611"
+          "bus": "SPI:ms5611",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -19908,47 +20874,57 @@
       "imus": [
         {
           "chip": "Invensense",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu1"
+          "bus": "SPI:imu1",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu2"
+          "bus": "SPI:imu2",
+          "variant": null
         },
         {
           "chip": "Invensense",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:imu3"
+          "bus": "SPI:imu3",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310_1"
+          "bus": "SPI:dps310_1",
+          "variant": null
         },
         {
           "chip": "DPS310",
-          "bus": "SPI:dps310_2"
+          "bus": "SPI:dps310_2",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "IST8310",
-          "bus": "I2C:ALL_EXTERNAL:0x0E"
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -20025,39 +21001,47 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_1"
+          "bus": "SPI:icm45686_1",
+          "variant": null
         },
         {
           "chip": "BMI088",
-          "bus": "SPI:bmi088_a"
+          "bus": "SPI:bmi088_a",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_2"
+          "bus": "SPI:icm45686_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "BMM350",
-          "bus": "I2C:0:0x15"
+          "bus": "I2C:0:0x15",
+          "variant": null
         }
       ],
       "firmware_support": [
@@ -20133,35 +21117,42 @@
       "imus": [
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_1"
+          "bus": "SPI:icm45686_1",
+          "variant": null
         },
         {
           "chip": "Invensensev3",
-          "bus": "SPI:icm45686_2"
+          "bus": "SPI:icm45686_2",
+          "variant": null
         }
       ],
       "baros": [
         {
           "chip": "ICP201XX",
-          "bus": "I2C:0:0x64"
+          "bus": "I2C:0:0x64",
+          "variant": null
         },
         {
           "chip": "ICP201XX",
-          "bus": "I2C:2:0x63"
+          "bus": "I2C:2:0x63",
+          "variant": null
         }
       ],
       "compasses": [
         {
           "chip": "RM3100",
-          "bus": "I2C:0:0x20"
+          "bus": "I2C:0:0x20",
+          "variant": null
         },
         {
           "chip": "IST8310",
-          "bus": "I2C:0:0x0E"
+          "bus": "I2C:0:0x0E",
+          "variant": null
         },
         {
           "chip": "BMM350",
-          "bus": "I2C:0:0x15"
+          "bus": "I2C:0:0x15",
+          "variant": null
         }
       ],
       "firmware_support": [

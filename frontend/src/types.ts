@@ -1,6 +1,8 @@
 export interface SensorEntry {
   chip: string;
   bus: string;
+  // BOARD_MATCH(...) token if this sensor is gated to a hardware variant.
+  variant: string | null;
 }
 
 export interface FirmwareSupport {

@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { mcuFamilyLabel, useBoards } from "../data";
+import type { SensorEntry } from "../types";
 
 const ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"] as const;
 const VEHICLE_LABEL: Record<string, string> = {
@@ -26,7 +27,6 @@ export default function BoardDetail() {
   }
 
   const docsCommon = "https://ardupilot.org/copter/docs/common-autopilots.html";
-  const docsSearch = `https://ardupilot.org/search.html?q=${encodeURIComponent(b.slug)}&check_keywords=yes&area=default`;
   const hwdefUrl = `https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef/${b.slug}`;
   const firmware = b.firmware_support[0];
 
@@ -52,8 +52,7 @@ export default function BoardDetail() {
         </a>
       ) : (
         <div className="bd-doc-cta bd-doc-cta-missing">
-          <span>No dedicated ArduPilot wiki page found for this board.</span>
-          <a href={docsSearch} target="_blank" rel="noreferrer">Search the docs ↗</a>
+          <span>Unable to find the documentation link.</span>
         </div>
       )}
 
@@ -70,7 +69,7 @@ export default function BoardDetail() {
             value={b.io.pwm.total}
             hint={b.io.iomcu ? `${b.io.pwm.fmu} FMU + ${b.io.pwm.io} IO` : "FMU only"}
           />
-          <Stat label="IMUs" value={b.imus.length} />
+          <Stat label="IMUs" value={imuStatValue(b.imus)} hint={imuStatHint(b.imus)} />
         </div>
         <div className="bd-feature-row">
           <FeatureChip on={b.io.ethernet} label="Ethernet" />
@@ -149,7 +148,7 @@ function Stat({ label, value, hint }: { label: string; value: number | string; h
   );
 }
 
-function SensorRow({ label, items }: { label: string; items: { chip: string; bus: string }[] }) {
+function SensorRow({ label, items }: { label: string; items: SensorEntry[] }) {
   if (items.length === 0) {
     return (
       <div className="bd-sensor-row">
@@ -158,17 +157,96 @@ function SensorRow({ label, items }: { label: string; items: { chip: string; bus
       </div>
     );
   }
+
+  const hasVariants = items.some((s) => s.variant);
+  if (!hasVariants) {
+    return (
+      <div className="bd-sensor-row">
+        <span className="bd-sensor-label">{label} <span className="bd-sensor-count">×{items.length}</span></span>
+        <ul className="bd-sensor-list">
+          {items.map((s, i) => (
+            <li key={i}>
+              <span className="bd-sensor-chip">{s.chip}</span>
+              <span className="bd-sensor-bus"> @ {s.bus}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  // Group sensors by variant. Preserve first-seen order for both variants
+  // and the sensors within them. Ungated sensors (variant=null) come first
+  // under a "Common" group if both gated and ungated exist on the same kind.
+  const groups: { variant: string | null; entries: SensorEntry[] }[] = [];
+  for (const s of items) {
+    const key = s.variant ?? null;
+    let g = groups.find((x) => x.variant === key);
+    if (!g) {
+      g = { variant: key, entries: [] };
+      groups.push(g);
+    }
+    g.entries.push(s);
+  }
+
   return (
     <div className="bd-sensor-row">
-      <span className="bd-sensor-label">{label} <span className="bd-sensor-count">×{items.length}</span></span>
-      <ul className="bd-sensor-list">
-        {items.map((s, i) => (
-          <li key={i}>
-            <span className="bd-sensor-chip">{s.chip}</span>
-            <span className="bd-sensor-bus"> @ {s.bus}</span>
-          </li>
+      <span className="bd-sensor-label">{label}</span>
+      <div className="bd-sensor-variants">
+        <p className="bd-aside">
+          This board ships in multiple hardware variants; sensors differ per revision.
+        </p>
+        {groups.map((g, gi) => (
+          <div className="bd-sensor-variant" key={gi}>
+            <div className="bd-sensor-variant-label">
+              {g.variant ? prettyVariant(g.variant) : "Common to all variants"}
+              <span className="bd-sensor-count"> ×{g.entries.length}</span>
+            </div>
+            <ul className="bd-sensor-list">
+              {g.entries.map((s, i) => (
+                <li key={i}>
+                  <span className="bd-sensor-chip">{s.chip}</span>
+                  <span className="bd-sensor-bus"> @ {s.bus}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
+  );
+}
+
+function imuStatValue(items: SensorEntry[]): string {
+  const counts = perVariantCounts(items);
+  if (counts.length <= 1) return String(items.length);
+  const min = Math.min(...counts);
+  const max = Math.max(...counts);
+  return min === max ? String(min) : `${min}–${max}`;
+}
+
+function imuStatHint(items: SensorEntry[]): string | undefined {
+  const counts = perVariantCounts(items);
+  return counts.length > 1 ? "per hardware variant" : undefined;
+}
+
+function perVariantCounts(items: SensorEntry[]): number[] {
+  if (!items.some((s) => s.variant)) return [items.length];
+  const byVariant = new Map<string, number>();
+  let ungated = 0;
+  for (const s of items) {
+    if (s.variant) byVariant.set(s.variant, (byVariant.get(s.variant) ?? 0) + 1);
+    else ungated += 1;
+  }
+  return [...byVariant.values()].map((n) => n + ungated);
+}
+
+function prettyVariant(token: string): string {
+  // FMUV6_BOARD_HOLYBRO_6X → Holybro 6X
+  // FMUV6_BOARD_HOLYBRO_6X_REV6 → Holybro 6X Rev6
+  let s = token.replace(/^FMUV\d+_BOARD_/i, "");
+  s = s.replace(/_/g, " ");
+  return s.replace(/\b([a-z])([a-z]*)/gi, (_, a: string, rest: string) =>
+    a.toUpperCase() + rest.toLowerCase(),
   );
 }
