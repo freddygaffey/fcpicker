@@ -42,6 +42,52 @@ const VEHICLES: { id: VehicleType; label: string }[] = [
 
 type SortKey = "slug" | "mcu" | "flash" | "uart" | "i2c" | "spi" | "can" | "pwm" | "imus";
 
+interface CsvColumn {
+  id: string;
+  label: string;
+  get: (b: Board) => string | number;
+}
+
+const CSV_COLUMNS: CsvColumn[] = [
+  { id: "slug",       label: "Board name",         get: (b) => b.slug },
+  { id: "mcu_family", label: "MCU family",         get: (b) => b.mcu.family ?? "" },
+  { id: "mcu_part",   label: "MCU part",           get: (b) => b.mcu.part ?? "" },
+  { id: "flash_kb",   label: "Flash (KB)",         get: (b) => b.flash_kb ?? "" },
+  { id: "uart",       label: "UART count",         get: (b) => b.io.uart },
+  { id: "i2c",        label: "I²C count",          get: (b) => b.io.i2c },
+  { id: "spi",        label: "SPI count",          get: (b) => b.io.spi },
+  { id: "can",        label: "CAN count",          get: (b) => b.io.can },
+  { id: "canfd",      label: "CAN-FD support",     get: (b) => (b.io.canfd ? "yes" : "no") },
+  { id: "pwm",        label: "PWM count (FMU)",    get: (b) => b.io.pwm },
+  { id: "imus",       label: "IMU count",          get: (b) => b.imus.length },
+  { id: "baros",      label: "Baro count",         get: (b) => b.baros.length },
+  { id: "compasses",  label: "Compass count",      get: (b) => b.compasses.length },
+  { id: "vehicles",   label: "Supported vehicles", get: (b) => b.vehicles.join("|") },
+  { id: "docs_url",   label: "ArduPilot docs URL", get: (b) => b.docs_url ?? "" },
+];
+
+function csvCell(v: string | number): string {
+  const s = String(v);
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+function downloadCsv(boards: Board[], columnIds: string[]) {
+  const cols = CSV_COLUMNS.filter((c) => columnIds.includes(c.id));
+  if (cols.length === 0) return;
+  const header = cols.map((c) => c.id).join(",");
+  const rows = boards.map((b) => cols.map((c) => csvCell(c.get(b))).join(","));
+  const csv = [header, ...rows].join("\n") + "\n";
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `fcpicker-boards-${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function passes(b: Board, f: Filters): boolean {
   if (f.query) {
     const q = f.query.trim().toLowerCase();
@@ -68,6 +114,11 @@ export default function Selector() {
   const { boards, loading, error } = useBoards();
   const [f, setF] = useState<Filters>(DEFAULTS);
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: "slug", dir: 1 });
+  const [csvOpen, setCsvOpen] = useState(false);
+  const [csvScope, setCsvScope] = useState<"filtered" | "all">("filtered");
+  const [csvCols, setCsvCols] = useState<Set<string>>(
+    () => new Set(CSV_COLUMNS.map((c) => c.id)),
+  );
 
   const mcuOptions = useMemo(() => {
     if (!boards) return [];
@@ -208,9 +259,20 @@ export default function Selector() {
               match your filters.
             </p>
           </div>
-          <div className="results-legend">
-            <span><i className="dot dot-green" /> ArduPilot official</span>
-            <span><i className="dot dot-blue" /> CAN-FD</span>
+          <div className="results-actions">
+            <button
+              type="button"
+              className="btn-csv"
+              onClick={() => setCsvOpen(true)}
+              disabled={(boards?.length ?? 0) === 0}
+              title="Configure and download a CSV file"
+            >
+              ⤓ Download CSV…
+            </button>
+            <div className="results-legend">
+              <span><i className="dot dot-green" /> ArduPilot official</span>
+              <span><i className="dot dot-blue" /> CAN-FD</span>
+            </div>
           </div>
         </div>
 
@@ -266,8 +328,130 @@ export default function Selector() {
             </table>
           </div>
         )}
+
+        {csvOpen && boards && (
+          <CsvDialog
+            filteredCount={filtered.length}
+            totalCount={boards.length}
+            scope={csvScope}
+            setScope={setCsvScope}
+            selected={csvCols}
+            setSelected={setCsvCols}
+            onCancel={() => setCsvOpen(false)}
+            onDownload={() => {
+              const rows = csvScope === "all" ? boards : filtered;
+              downloadCsv(rows, Array.from(csvCols));
+              setCsvOpen(false);
+            }}
+          />
+        )}
       </section>
     </>
+  );
+}
+
+function CsvDialog({
+  filteredCount, totalCount, scope, setScope, selected, setSelected,
+  onCancel, onDownload,
+}: {
+  filteredCount: number;
+  totalCount: number;
+  scope: "filtered" | "all";
+  setScope: (s: "filtered" | "all") => void;
+  selected: Set<string>;
+  setSelected: (s: Set<string>) => void;
+  onCancel: () => void;
+  onDownload: () => void;
+}) {
+  const toggleCol = (id: string) => {
+    const next = new Set(selected);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    setSelected(next);
+  };
+  const selectAll = () => setSelected(new Set(CSV_COLUMNS.map((c) => c.id)));
+  const selectNone = () => setSelected(new Set());
+
+  const willExport = scope === "filtered" ? filteredCount : totalCount;
+
+  return (
+    <div className="modal-backdrop" onClick={onCancel}>
+      <div className="modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+        <header className="modal-head">
+          <h2>Download CSV</h2>
+          <button className="modal-x" onClick={onCancel} aria-label="Close">×</button>
+        </header>
+
+        <div className="modal-body">
+          <fieldset className="modal-section">
+            <legend>What to export</legend>
+            <label className="radio">
+              <input
+                type="radio"
+                checked={scope === "filtered"}
+                onChange={() => setScope("filtered")}
+              />
+              <span>
+                <strong>Current filtered results</strong>{" "}
+                <span className="radio-hint">({filteredCount} board{filteredCount === 1 ? "" : "s"})</span>
+              </span>
+            </label>
+            <label className="radio">
+              <input
+                type="radio"
+                checked={scope === "all"}
+                onChange={() => setScope("all")}
+              />
+              <span>
+                <strong>All boards</strong>{" "}
+                <span className="radio-hint">({totalCount} boards, ignores filters)</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <fieldset className="modal-section">
+            <legend>
+              Columns
+              <span className="legend-actions">
+                <button type="button" className="link-btn" onClick={selectAll}>All</button>
+                {" · "}
+                <button type="button" className="link-btn" onClick={selectNone}>None</button>
+              </span>
+            </legend>
+            <div className="col-grid">
+              {CSV_COLUMNS.map((c) => (
+                <label key={c.id} className="check">
+                  <input
+                    type="checkbox"
+                    checked={selected.has(c.id)}
+                    onChange={() => toggleCol(c.id)}
+                  />
+                  <span>{c.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <footer className="modal-foot">
+          <span className="modal-summary">
+            {selected.size} column{selected.size === 1 ? "" : "s"} ·{" "}
+            {willExport} row{willExport === 1 ? "" : "s"}
+          </span>
+          <div className="modal-buttons">
+            <button type="button" className="btn-ghost" onClick={onCancel}>Cancel</button>
+            <button
+              type="button"
+              className="btn-csv"
+              onClick={onDownload}
+              disabled={selected.size === 0 || willExport === 0}
+            >
+              Download
+            </button>
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 }
 
