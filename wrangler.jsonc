@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fcpicker",
+  "compatibility_date": "2025-05-01",
+  "assets": {
+    "directory": "./frontend/dist"
+  },
+  "build": {
+    "command": "cd frontend && npm install && npm run build"
+  }
+}

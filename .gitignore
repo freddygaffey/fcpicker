@@ -1,0 +1,24 @@
+# Node / Vite
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Generated data
+data/*.db
+data/*.sqlite
+data/*.sqlite-journal
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/

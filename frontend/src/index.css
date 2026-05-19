@@ -1,0 +1,44 @@
+:root {
+  /* ArduPilot-style palette */
+  --ap-blue: #27aae1;
+  --ap-blue-dark: #1f8bb8;
+  --ap-blue-soft: #e6f6fc;
+  --ap-navy: #1c2934;
+  --ap-navy-2: #243340;
+  --ap-green: #88c249;
+  --ap-green-dark: #6ea735;
+
+  --bg: #ffffff;
+  --bg-soft: #f5f7f9;
+  --bg-soft-2: #eef1f4;
+  --border: #d8dee4;
+  --border-soft: #e6eaee;
+  --ink: #2c3e50;
+  --ink-mute: #6c7a89;
+  --ink-dim: #9aa6b2;
+
+  --warn: #d9534f;
+
+  --sans: "Open Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--bg);
+  font: 15px/1.55 var(--sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { margin: 0; padding: 0; height: 100%; }
+body { background: var(--bg); min-height: 100vh; }
+
+a { color: var(--ap-blue-dark); text-decoration: none; }
+a:hover { color: var(--ap-blue); text-decoration: underline; }
+
+button, input, select { font-family: inherit; color: inherit; }
+
+::selection { background: var(--ap-blue-soft); color: var(--ap-navy); }
