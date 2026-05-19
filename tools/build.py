@@ -30,6 +30,7 @@ DATA_DIR = ROOT / "data"
 FRONTEND_PUBLIC = ROOT / "frontend" / "public"
 ARDUPILOT_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
 BEC_OVERRIDES = ROOT / "data" / "bec_overrides.json"
+SITE_BASE_URL = "https://fcpicker.pebnum.com"
 ARDUPILOT_WIKI_ROOT = Path.home() / "ardupilot_wiki"
 ARDUPILOT_WIKI_DOCS = ARDUPILOT_WIKI_ROOT / "common" / "source" / "docs"
 DOCS_BASE = "https://ardupilot.org"
@@ -499,6 +500,38 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
     session.commit()
 
 
+def export_sitemap(session: Session, out_path: Path) -> None:
+    """Write sitemap.xml listing the selector page + every board detail route."""
+    from datetime import date
+    from xml.sax.saxutils import escape as xml_escape
+
+    today = date.today().isoformat()
+    boards = session.scalars(select(Board)).all()
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        f"  <url><loc>{SITE_BASE_URL}/</loc><lastmod>{today}</lastmod>"
+        f"<changefreq>weekly</changefreq><priority>1.0</priority></url>",
+    ]
+    for b in sorted(boards, key=lambda x: x.slug.lower()):
+        # Slugs are ASCII alnum + dashes/underscores; xml_escape is belt-and-suspenders.
+        loc = f"{SITE_BASE_URL}/board/{xml_escape(b.slug)}"
+        lines.append(
+            f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod>"
+            f"<changefreq>monthly</changefreq><priority>0.7</priority></url>"
+        )
+    lines.append("</urlset>\n")
+    out_path.write_text("\n".join(lines))
+
+
+def export_robots(out_path: Path) -> None:
+    out_path.write_text(
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {SITE_BASE_URL}/sitemap.xml\n"
+    )
+
+
 def export_json(session: Session, out_path: Path) -> None:
     boards = session.scalars(select(Board)).all()
     payload = []
@@ -587,6 +620,8 @@ def main() -> int:
     with Session(engine) as session:
         populate_db(session, parsed, docs_map)
         export_json(session, FRONTEND_PUBLIC / "boards.json")
+        export_sitemap(session, FRONTEND_PUBLIC / "sitemap.xml")
+        export_robots(FRONTEND_PUBLIC / "robots.txt")
 
     matched = sum(1 for p in parsed if p.docs_url)
     print(f"Parsed {len(parsed)} autopilot boards "

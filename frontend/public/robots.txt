@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fcpicker.pebnum.com/sitemap.xml
