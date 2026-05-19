@@ -29,8 +29,13 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 FRONTEND_PUBLIC = ROOT / "frontend" / "public"
 ARDUPILOT_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
-ARDUPILOT_WIKI_DOCS = Path.home() / "ardupilot_wiki" / "common" / "source" / "docs"
-DOCS_BASE_URL = "https://ardupilot.org/copter/docs"
+ARDUPILOT_WIKI_ROOT = Path.home() / "ardupilot_wiki"
+ARDUPILOT_WIKI_DOCS = ARDUPILOT_WIKI_ROOT / "common" / "source" / "docs"
+DOCS_BASE = "https://ardupilot.org"
+# Platform dirs (besides common/) whose docs/ contain board landing pages.
+# Common docs render under /copter/docs/ for historical reasons.
+WIKI_PLATFORMS = ("copter", "plane", "rover", "sub", "blimp", "antennatracker", "dev")
+COMMON_PLATFORM = "copter"
 
 # Directory names that are peripherals / nodes / bootloaders, not autopilots.
 PERIPHERAL_PATTERNS = (
@@ -278,39 +283,62 @@ def _tokens(s: str) -> list[str]:
     return [t.lower() for t in _TOKEN_SPLIT.findall(s) if t.lower() not in _STOP_TOKENS]
 
 
-def build_docs_map() -> dict[str, str]:
-    """Build canonical-key → wiki doc-name map from the local ArduPilot wiki.
+def build_docs_map() -> dict[str, tuple[str, list[str], str]]:
+    """Build canonical-key → (doc-name, tokens, platform) map from the local wiki.
 
-    Collects all `common-*.rst` filenames in the docs dir, plus any
-    `common-*` references inside common-autopilots.rst. The map key is the
-    normalized name with the `common-` prefix and `-overview` suffix removed.
+    Sources:
+      - common/source/docs/common-*.rst (rendered under /copter/docs/)
+      - <platform>/source/docs/*.rst for each platform in WIKI_PLATFORMS
+        (rendered under /<platform>/docs/)
+      - common-* references inside common-autopilots.rst
+
+    Map key is the normalized stem with leading `common-` and trailing
+    `-overview` / `-autopilot` removed.
     """
-    docs: set[str] = set()
+    # (doc_stem, platform) entries.
+    entries: set[tuple[str, str]] = set()
+
     if ARDUPILOT_WIKI_DOCS.exists():
         for p in ARDUPILOT_WIKI_DOCS.glob("common-*.rst"):
-            docs.add(p.stem)
+            entries.add((p.stem, COMMON_PLATFORM))
         ap_page = ARDUPILOT_WIKI_DOCS / "common-autopilots.rst"
         if ap_page.exists():
             for m in re.finditer(r"common-[A-Za-z0-9._-]+", ap_page.read_text(errors="ignore")):
                 name = m.group(0)
                 if name.endswith(".rst"):
                     name = name[:-4]
-                docs.add(name)
-        # Don't link to the index page itself.
-        docs.discard("common-autopilots")
+                entries.add((name, COMMON_PLATFORM))
+        entries.discard(("common-autopilots", COMMON_PLATFORM))
 
-    out: dict[str, tuple[str, list[str]]] = {}
-    for doc in docs:
+    for platform in WIKI_PLATFORMS:
+        pdir = ARDUPILOT_WIKI_ROOT / platform / "source" / "docs"
+        if not pdir.exists():
+            continue
+        for p in pdir.glob("*.rst"):
+            # Only pages that look like board landing pages, to avoid linking
+            # generic guides. Heuristic: ends with `-autopilot` or `-overview`.
+            stem = p.stem
+            if stem.endswith("-autopilot") or stem.endswith("-overview"):
+                entries.add((stem, platform))
+
+    out: dict[str, tuple[str, list[str], str]] = {}
+    for doc, platform in entries:
         core = doc[len("common-"):] if doc.startswith("common-") else doc
-        if core.endswith("-overview"):
-            core = core[: -len("-overview")]
+        for suffix in ("-overview", "-autopilot"):
+            if core.endswith(suffix):
+                core = core[: -len(suffix)]
+                break
         key = _norm(core)
-        if key:
-            out[key] = (doc, _tokens(core))
+        if key and key not in out:
+            out[key] = (doc, _tokens(core), platform)
     return out
 
 
-def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str]]]) -> str | None:
+def _doc_url(doc: str, platform: str) -> str:
+    return f"{DOCS_BASE}/{platform}/docs/{doc}.html"
+
+
+def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -> str | None:
     """Match a board slug to a wiki doc using progressively looser strategies.
 
     1. Exact normalized-string match.
@@ -325,14 +353,16 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str]]]) -> str
         return None
     key = _norm(slug)
     if key in docs_map:
-        return f"{DOCS_BASE_URL}/{docs_map[key][0]}.html"
+        doc, _t, platform = docs_map[key]
+        return _doc_url(doc, platform)
     if ("the" + key) in docs_map:
-        return f"{DOCS_BASE_URL}/{docs_map['the' + key][0]}.html"
+        doc, _t, platform = docs_map["the" + key]
+        return _doc_url(doc, platform)
 
     # Substring containment on normalized strings. Best = longest overlap.
     if len(key) >= 6:
-        best_sub: tuple[int, str] | None = None
-        for wkey, (doc, _wtoks) in docs_map.items():
+        best_sub: tuple[int, str, str] | None = None
+        for wkey, (doc, _wtoks, platform) in docs_map.items():
             if len(wkey) < 6:
                 continue
             if key in wkey:
@@ -342,9 +372,9 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str]]]) -> str
             else:
                 continue
             if best_sub is None or overlap > best_sub[0]:
-                best_sub = (overlap, doc)
+                best_sub = (overlap, doc, platform)
         if best_sub:
-            return f"{DOCS_BASE_URL}/{best_sub[1]}.html"
+            return _doc_url(best_sub[1], best_sub[2])
 
     # Token overlap, last resort. Score using ALL slug tokens (exact-match
     # works for short tokens like "3"/"dr"/"g"; substring only for ≥3-char
@@ -355,8 +385,8 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str]]]) -> str
         return None
     threshold = max(2, int(round(len(slug_toks) * 0.75)))
 
-    best: tuple[int, float, str] | None = None
-    for _wkey, (doc, wtoks) in docs_map.items():
+    best: tuple[int, float, str, str] | None = None
+    for _wkey, (doc, wtoks, platform) in docs_map.items():
         if len(wtoks) < 1:
             continue
         hits = 0
@@ -371,15 +401,15 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str]]]) -> str
         if hits < threshold:
             continue
         wiki_specificity = hits / len(wtoks)  # higher = wiki is more focused on these tokens
-        ranking = (hits, wiki_specificity, doc)
+        ranking = (hits, wiki_specificity, doc, platform)
         if best is None or ranking > best:
             best = ranking
     if best:
-        return f"{DOCS_BASE_URL}/{best[2]}.html"
+        return _doc_url(best[2], best[3])
     return None
 
 
-def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str, str]) -> None:
+def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str, tuple[str, list[str], str]]) -> None:
     for p in parsed:
         p.docs_url = match_docs_url(p.slug, docs_map)
         b = Board(

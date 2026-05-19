@@ -8043,7 +8043,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html"
     },
     {
       "slug": "KakuteF4-Wing",
@@ -17370,7 +17370,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-rf.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-extreme.html"
     },
     {
       "slug": "SPRacingH7RF",
@@ -19628,7 +19628,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html"
     },
     {
       "slug": "YJUAV_A6SE",
