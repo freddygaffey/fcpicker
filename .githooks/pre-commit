@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -e
+
+# Skip with `git commit --no-verify` if you really need to.
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+# Only run if frontend files are staged.
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^frontend/'; then
+  echo "[pre-commit] running lint…"
+  npm run lint --silent
+
+  echo "[pre-commit] running build…"
+  npm run build --silent
+else
+  echo "[pre-commit] no frontend changes; skipping lint/build."
+fi

@@ -24,10 +24,7 @@ export function useBoards() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (cache) {
-      setBoards(cache);
-      return;
-    }
+    if (cache) return;
     load().then(setBoards).catch((e) => setError(String(e)));
   }, []);
 
