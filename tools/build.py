@@ -52,12 +52,21 @@ class Board(Base):
     mcu_family: Mapped[str | None] = mapped_column(String, nullable=True)
     mcu_part: Mapped[str | None] = mapped_column(String, nullable=True)
     flash_kb: Mapped[int | None] = mapped_column(Integer, nullable=True)
-    uart_count: Mapped[int] = mapped_column(Integer, default=0)
-    i2c_count: Mapped[int] = mapped_column(Integer, default=0)
-    spi_count: Mapped[int] = mapped_column(Integer, default=0)
-    can_count: Mapped[int] = mapped_column(Integer, default=0)
+    # Bus IDs stored as comma-separated names (e.g. "SPI1,SPI2,SPI6")
+    uart_buses_csv: Mapped[str] = mapped_column(String, default="")
+    i2c_buses_csv: Mapped[str] = mapped_column(String, default="")
+    spi_buses_csv: Mapped[str] = mapped_column(String, default="")
+    can_buses_csv: Mapped[str] = mapped_column(String, default="")
     canfd: Mapped[bool] = mapped_column(Integer, default=0)
-    pwm_count: Mapped[int] = mapped_column(Integer, default=0)
+    pwm_fmu: Mapped[int] = mapped_column(Integer, default=0)
+    pwm_io: Mapped[int] = mapped_column(Integer, default=0)
+    usb_count: Mapped[int] = mapped_column(Integer, default=0)
+    ethernet: Mapped[bool] = mapped_column(Integer, default=0)
+    sdcard: Mapped[bool] = mapped_column(Integer, default=0)
+    sbus_out: Mapped[bool] = mapped_column(Integer, default=0)
+    iomcu: Mapped[bool] = mapped_column(Integer, default=0)
+    adc_inputs: Mapped[int] = mapped_column(Integer, default=0)
+    power_inputs: Mapped[int] = mapped_column(Integer, default=0)
     vehicles_csv: Mapped[str] = mapped_column(String, default="")
     docs_url: Mapped[str | None] = mapped_column(String, nullable=True)
     readme: Mapped[str | None] = mapped_column(String, nullable=True)
@@ -96,12 +105,20 @@ class ParsedBoard:
     imus: list[tuple[str, str]] = None
     baros: list[tuple[str, str]] = None
     compasses: list[tuple[str, str]] = None
-    uart_count: int = 0
-    i2c_count: int = 0
-    spi_count: int = 0
-    can_count: int = 0
+    uart_buses: list[str] = None
+    i2c_buses: list[str] = None
+    spi_buses: list[str] = None
+    can_buses: list[str] = None
     canfd: bool = False
-    pwm_count: int = 0
+    pwm_fmu: int = 0
+    pwm_io: int = 0
+    usb_count: int = 0
+    ethernet: bool = False
+    sdcard: bool = False
+    sbus_out: bool = False
+    iomcu: bool = False
+    adc_inputs: int = 0
+    power_inputs: int = 0
     vehicles: list[str] = None
     docs_url: str | None = None
     readme: str | None = None
@@ -119,6 +136,19 @@ CAN_PIN_RE = re.compile(r"\bCAN(\d+)_(?:TX|RX)\b")
 CANFD_RE = re.compile(r"^\s*CANFD_SUPPORTED\b", re.MULTILINE)
 PWM_RE = re.compile(r"\bPWM\(\d+\)")
 AUTOBUILD_RE = re.compile(r"^\s*AUTOBUILD_TARGETS\s+(.+)$", re.MULTILINE)
+PHY_RE = re.compile(r"^\s*define\s+BOARD_PHY_ID\b", re.MULTILINE)
+SDMMC_RE = re.compile(r"\bSDMMC\d?_(?:CK|CMD)\b")
+FATFS_RE = re.compile(r"^\s*define\s+HAL_OS_FATFS_IO\s+1\b", re.MULTILINE)
+IOMCU_RE = re.compile(r"^\s*IOMCU_UART\b|^\s*define\s+HAL_WITH_IO_MCU(?:_BIDIR_DSHOT)?\s+1\b", re.MULTILINE)
+# nVALID brick pins. Boards typically declare one per power input as
+# VDD_BRICK_nVALID, VDD_BRICK2_nVALID, VDD_BRICK3_nVALID, etc.
+BRICK_RE = re.compile(r"\bVDD_BRICK\d*_n?VALID\b")
+SBUS_OUT_RE = re.compile(
+    r"^\s*define\s+HAL_GPIO_PIN_SBUS_OUT\b|^\s*PINIO_PIN\s+\S+\s+SBUS_OUT\b|\bSBUS_OUT\b",
+    re.MULTILINE,
+)
+# ADC1 channel pin definitions — count distinct ADC pins by their PIN token.
+ADC_PIN_RE = re.compile(r"^\s*P[A-K]\d{1,2}\s+\S+\s+ADC1\b", re.MULTILINE)
 
 ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"]
 
@@ -161,22 +191,40 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
     if not imus:
         return None
 
-    # UART count: tokens in SERIAL_ORDER excluding USB OTG entries.
-    uart_count = 0
+    # SERIAL_ORDER lists every serial port; OTG entries are USB.
+    uart_buses: list[str] = []
+    usb_count = 0
     sm = SERIAL_ORDER_RE.search(text)
     if sm:
-        toks = sm.group(1).split()
-        uart_count = sum(1 for t in toks if not t.startswith("OTG") and t != "EMPTY")
+        for t in sm.group(1).split():
+            if t == "EMPTY":
+                continue
+            if t.startswith("OTG"):
+                usb_count += 1
+            else:
+                uart_buses.append(t)
 
-    i2c_count = 0
+    i2c_buses: list[str] = []
     im = I2C_ORDER_RE.search(text)
     if im:
-        i2c_count = len([t for t in im.group(1).split() if t.startswith("I2C")])
+        i2c_buses = [t for t in im.group(1).split() if t.startswith("I2C")]
 
-    spi_buses = {m.group(1) for m in SPIDEV_RE.finditer(text)}
-    can_buses = {m.group(1) for m in CAN_PIN_RE.finditer(text)}
-    pwm_count = len(PWM_RE.findall(text))
+    spi_buses = sorted({m.group(1) for m in SPIDEV_RE.finditer(text)})
+    can_buses = sorted({f"CAN{m.group(1)}" for m in CAN_PIN_RE.finditer(text)})
     canfd = bool(CANFD_RE.search(text))
+
+    # PWM split: total PWM channels declared, plus 8 extra from IOMCU when present.
+    pwm_total = len(PWM_RE.findall(text))
+    iomcu = bool(IOMCU_RE.search(text))
+    pwm_io = 8 if iomcu else 0
+    pwm_fmu = pwm_total
+
+    ethernet = bool(PHY_RE.search(text))
+    sdcard = bool(FATFS_RE.search(text)) or bool(SDMMC_RE.search(text))
+    sbus_out = bool(SBUS_OUT_RE.search(text))
+    adc_inputs = len(set(ADC_PIN_RE.findall(text)))
+    # Distinct brick indices: VDD_BRICK_nVALID, VDD_BRICK2_nVALID → 2 inputs.
+    power_inputs = len({m for m in BRICK_RE.findall(text)})
 
     # Vehicle support — defaults to all six unless hwdef overrides via AUTOBUILD_TARGETS.
     am = AUTOBUILD_RE.search(text)
@@ -197,12 +245,20 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
         imus=imus,
         baros=baros,
         compasses=compasses,
-        uart_count=uart_count,
-        i2c_count=i2c_count,
-        spi_count=len(spi_buses),
-        can_count=len(can_buses),
+        uart_buses=uart_buses,
+        i2c_buses=i2c_buses,
+        spi_buses=spi_buses,
+        can_buses=can_buses,
         canfd=canfd,
-        pwm_count=pwm_count,
+        pwm_fmu=pwm_fmu,
+        pwm_io=pwm_io,
+        usb_count=usb_count,
+        ethernet=ethernet,
+        sdcard=sdcard,
+        sbus_out=sbus_out,
+        iomcu=iomcu,
+        adc_inputs=adc_inputs,
+        power_inputs=power_inputs,
         vehicles=vehicles,
         readme=readme,
     )
@@ -333,12 +389,20 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
             mcu_family=p.mcu_family,
             mcu_part=p.mcu_part,
             flash_kb=p.flash_kb,
-            uart_count=p.uart_count,
-            i2c_count=p.i2c_count,
-            spi_count=p.spi_count,
-            can_count=p.can_count,
+            uart_buses_csv=",".join(p.uart_buses or []),
+            i2c_buses_csv=",".join(p.i2c_buses or []),
+            spi_buses_csv=",".join(p.spi_buses or []),
+            can_buses_csv=",".join(p.can_buses or []),
             canfd=p.canfd,
-            pwm_count=p.pwm_count,
+            pwm_fmu=p.pwm_fmu,
+            pwm_io=p.pwm_io,
+            usb_count=p.usb_count,
+            ethernet=p.ethernet,
+            sdcard=p.sdcard,
+            sbus_out=p.sbus_out,
+            iomcu=p.iomcu,
+            adc_inputs=p.adc_inputs,
+            power_inputs=p.power_inputs,
             vehicles_csv=",".join(p.vehicles or []),
             docs_url=p.docs_url,
             readme=p.readme,
@@ -358,6 +422,10 @@ def export_json(session: Session, out_path: Path) -> None:
     boards = session.scalars(select(Board)).all()
     payload = []
     for b in boards:
+        uart_buses = [x for x in b.uart_buses_csv.split(",") if x]
+        i2c_buses = [x for x in b.i2c_buses_csv.split(",") if x]
+        spi_buses = [x for x in b.spi_buses_csv.split(",") if x]
+        can_buses = [x for x in b.can_buses_csv.split(",") if x]
         payload.append({
             "slug": b.slug,
             "name": b.name,
@@ -365,12 +433,29 @@ def export_json(session: Session, out_path: Path) -> None:
             "mcu": {"family": b.mcu_family, "part": b.mcu_part},
             "flash_kb": b.flash_kb,
             "io": {
-                "uart": b.uart_count,
-                "i2c": b.i2c_count,
-                "spi": b.spi_count,
-                "can": b.can_count,
+                "uart_count": len(uart_buses),
+                "uart_buses": uart_buses,
+                "i2c_count": len(i2c_buses),
+                "i2c_buses": i2c_buses,
+                "spi_count": len(spi_buses),
+                "spi_buses": spi_buses,
+                "can_count": len(can_buses),
+                "can_buses": can_buses,
                 "canfd": bool(b.canfd),
-                "pwm": b.pwm_count,
+                "usb_count": b.usb_count,
+                "pwm": {
+                    "fmu": b.pwm_fmu,
+                    "io": b.pwm_io,
+                    "total": b.pwm_fmu + b.pwm_io,
+                },
+                "ethernet": bool(b.ethernet),
+                "sdcard": bool(b.sdcard),
+                "sbus_out": bool(b.sbus_out),
+                "iomcu": bool(b.iomcu),
+                "adc_inputs": b.adc_inputs,
+            },
+            "power": {
+                "monitor_inputs": b.power_inputs,
             },
             "imus":     [{"chip": s.chip, "bus": s.bus} for s in b.sensors if s.kind == "imu"],
             "baros":    [{"chip": s.chip, "bus": s.bus} for s in b.sensors if s.kind == "baro"],

@@ -61,12 +61,24 @@ export default function BoardDetail() {
       <section className="bd-section">
         <h2 className="bd-h2">Key specs</h2>
         <div className="bd-stats">
-          <Stat label="UART" value={b.io.uart} />
-          <Stat label="I²C"  value={b.io.i2c} />
-          <Stat label="SPI"  value={b.io.spi} />
-          <Stat label={b.io.canfd ? "CAN-FD" : "CAN"} value={b.io.can} />
-          <Stat label="PWM"  value={b.io.pwm} hint={b.io.pwm <= 6 ? "FMU only (more via IOMCU)" : undefined} />
+          <Stat label="UART" value={b.io.uart_count} hint={b.io.uart_buses.join(", ") || undefined} />
+          <Stat label="I²C"  value={b.io.i2c_count} hint={b.io.i2c_buses.join(", ") || undefined} />
+          <Stat label="SPI"  value={b.io.spi_count} hint={b.io.spi_buses.join(", ") || undefined} />
+          <Stat label={b.io.canfd ? "CAN-FD" : "CAN"} value={b.io.can_count} hint={b.io.can_buses.join(", ") || undefined} />
+          <Stat
+            label="PWM"
+            value={b.io.pwm.total}
+            hint={b.io.iomcu ? `${b.io.pwm.fmu} FMU + ${b.io.pwm.io} IO` : "FMU only"}
+          />
           <Stat label="IMUs" value={b.imus.length} />
+        </div>
+        <div className="bd-feature-row">
+          <FeatureChip on={b.io.ethernet} label="Ethernet" />
+          <FeatureChip on={b.io.sdcard} label="microSD" />
+          <FeatureChip on={b.io.sbus_out} label="SBUS out" />
+          <FeatureChip on={b.io.usb_count > 0} label={`USB ×${b.io.usb_count}`} />
+          {b.power.monitor_inputs > 0 && <FeatureChip on label={`Power inputs ×${b.power.monitor_inputs}`} />}
+          {b.io.adc_inputs > 0 && <FeatureChip on label={`ADC ×${b.io.adc_inputs}`} />}
         </div>
       </section>
 
@@ -116,6 +128,14 @@ export default function BoardDetail() {
         </ul>
       </section>
     </article>
+  );
+}
+
+function FeatureChip({ on, label }: { on: boolean; label: string }) {
+  return (
+    <span className={"bd-v " + (on ? "bd-v-on" : "bd-v-off")}>
+      {on ? "✓" : "✕"} {label}
+    </span>
   );
 }
 

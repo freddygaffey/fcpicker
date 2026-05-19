@@ -790,11 +790,15 @@
 .bd-sensor-bus  { color: var(--ink-mute); }
 
 /* Vehicle row (inline) */
-.bd-vehicles {
+.bd-vehicles,
+.bd-feature-row {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+.bd-feature-row {
+  margin-top: 12px;
 }
 .bd-v {
   display: inline-flex;

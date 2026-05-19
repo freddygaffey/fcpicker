@@ -53,12 +53,19 @@ const CSV_COLUMNS: CsvColumn[] = [
   { id: "mcu_family", label: "MCU family",         get: (b) => b.mcu.family ?? "" },
   { id: "mcu_part",   label: "MCU part",           get: (b) => b.mcu.part ?? "" },
   { id: "flash_kb",   label: "Flash (KB)",         get: (b) => b.flash_kb ?? "" },
-  { id: "uart",       label: "UART count",         get: (b) => b.io.uart },
-  { id: "i2c",        label: "I²C count",          get: (b) => b.io.i2c },
-  { id: "spi",        label: "SPI count",          get: (b) => b.io.spi },
-  { id: "can",        label: "CAN count",          get: (b) => b.io.can },
+  { id: "uart",       label: "UART count",         get: (b) => b.io.uart_count },
+  { id: "i2c",        label: "I²C count",          get: (b) => b.io.i2c_count },
+  { id: "spi",        label: "SPI count",          get: (b) => b.io.spi_count },
+  { id: "can",        label: "CAN count",          get: (b) => b.io.can_count },
   { id: "canfd",      label: "CAN-FD support",     get: (b) => (b.io.canfd ? "yes" : "no") },
-  { id: "pwm",        label: "PWM count (FMU)",    get: (b) => b.io.pwm },
+  { id: "pwm",        label: "PWM total",          get: (b) => b.io.pwm.total },
+  { id: "pwm_fmu",    label: "PWM (FMU)",          get: (b) => b.io.pwm.fmu },
+  { id: "pwm_io",     label: "PWM (IO)",           get: (b) => b.io.pwm.io },
+  { id: "ethernet",   label: "Ethernet",           get: (b) => (b.io.ethernet ? "yes" : "no") },
+  { id: "sdcard",     label: "microSD",            get: (b) => (b.io.sdcard ? "yes" : "no") },
+  { id: "sbus_out",   label: "SBUS out",           get: (b) => (b.io.sbus_out ? "yes" : "no") },
+  { id: "usb",        label: "USB ports",          get: (b) => b.io.usb_count },
+  { id: "power",      label: "Power inputs",       get: (b) => b.power.monitor_inputs },
   { id: "imus",       label: "IMU count",          get: (b) => b.imus.length },
   { id: "baros",      label: "Baro count",         get: (b) => b.baros.length },
   { id: "compasses",  label: "Compass count",      get: (b) => b.compasses.length },
@@ -99,11 +106,11 @@ function passes(b: Board, f: Filters): boolean {
       if (!b.vehicles.includes(v)) return false;
     }
   }
-  if (b.io.uart < f.uart) return false;
-  if (b.io.i2c < f.i2c) return false;
-  if (b.io.spi < f.spi) return false;
-  if (b.io.can < f.can) return false;
-  if (b.io.pwm < f.pwm) return false;
+  if (b.io.uart_count < f.uart) return false;
+  if (b.io.i2c_count < f.i2c) return false;
+  if (b.io.spi_count < f.spi) return false;
+  if (b.io.can_count < f.can) return false;
+  if (b.io.pwm.total < f.pwm) return false;
   if (b.imus.length < f.imus) return false;
   if (f.canfd && !b.io.canfd) return false;
   if (f.minFlash && (b.flash_kb ?? 0) < f.minFlash) return false;
@@ -136,11 +143,11 @@ export default function Selector() {
         case "slug": return a.slug.localeCompare(b.slug) * dir;
         case "mcu":  return mcuFamilyLabel(a.mcu.family).localeCompare(mcuFamilyLabel(b.mcu.family)) * dir;
         case "flash": return ((a.flash_kb ?? 0) - (b.flash_kb ?? 0)) * dir;
-        case "uart": return (a.io.uart - b.io.uart) * dir;
-        case "i2c":  return (a.io.i2c - b.io.i2c) * dir;
-        case "spi":  return (a.io.spi - b.io.spi) * dir;
-        case "can":  return (a.io.can - b.io.can) * dir;
-        case "pwm":  return (a.io.pwm - b.io.pwm) * dir;
+        case "uart": return (a.io.uart_count - b.io.uart_count) * dir;
+        case "i2c":  return (a.io.i2c_count - b.io.i2c_count) * dir;
+        case "spi":  return (a.io.spi_count - b.io.spi_count) * dir;
+        case "can":  return (a.io.can_count - b.io.can_count) * dir;
+        case "pwm":  return (a.io.pwm.total - b.io.pwm.total) * dir;
         case "imus": return (a.imus.length - b.imus.length) * dir;
       }
     });
@@ -308,13 +315,13 @@ export default function Selector() {
                     </td>
                     <td className="td-mcu">{mcuFamilyLabel(b.mcu.family)}</td>
                     <td className="td-num">{b.flash_kb ? `${b.flash_kb}K` : "—"}</td>
-                    <td className="td-num">{b.io.uart}</td>
-                    <td className="td-num">{b.io.i2c}</td>
-                    <td className="td-num">{b.io.spi}</td>
+                    <td className="td-num">{b.io.uart_count}</td>
+                    <td className="td-num">{b.io.i2c_count}</td>
+                    <td className="td-num">{b.io.spi_count}</td>
                     <td className="td-num">
-                      {b.io.can}{b.io.canfd && <span className="canfd-tag">FD</span>}
+                      {b.io.can_count}{b.io.canfd && <span className="canfd-tag">FD</span>}
                     </td>
-                    <td className="td-num">{b.io.pwm}</td>
+                    <td className="td-num">{b.io.pwm.total}</td>
                     <td className="td-num">{b.imus.length}</td>
                     <td className="td-open">
                       <Link to={`/board/${b.slug}`} aria-label={`Open ${b.slug}`}>→</Link>

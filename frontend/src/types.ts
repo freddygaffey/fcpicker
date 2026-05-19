@@ -9,12 +9,26 @@ export interface FirmwareSupport {
 }
 
 export interface BoardIO {
-  uart: number;
-  i2c: number;
-  spi: number;
-  can: number;
+  uart_count: number;
+  uart_buses: string[];
+  i2c_count: number;
+  i2c_buses: string[];
+  spi_count: number;
+  spi_buses: string[];
+  can_count: number;
+  can_buses: string[];
   canfd: boolean;
-  pwm: number;
+  usb_count: number;
+  pwm: { fmu: number; io: number; total: number };
+  ethernet: boolean;
+  sdcard: boolean;
+  sbus_out: boolean;
+  iomcu: boolean;
+  adc_inputs: number;
+}
+
+export interface BoardPower {
+  monitor_inputs: number;
 }
 
 export type VehicleType = "copter" | "plane" | "rover" | "sub" | "tracker" | "blimp";
@@ -26,6 +40,7 @@ export interface Board {
   mcu: { family: string | null; part: string | null };
   flash_kb: number | null;
   io: BoardIO;
+  power: BoardPower;
   imus: SensorEntry[];
   baros: SensorEntry[];
   compasses: SensorEntry[];
