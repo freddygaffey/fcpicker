@@ -111,9 +111,7 @@
         },
         "weight_g": 3.66,
         "connectors": [],
-        "images": [
-          "image-mpdzz9wn.png"
-        ],
+        "images": [],
         "ardupilot_repo_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
         "discontinued": false,
         "notes": null
