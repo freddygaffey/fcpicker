@@ -31,6 +31,57 @@ export function useBoards() {
   return { boards, error, loading: !boards && !error };
 }
 
+type HwdefImagesPayload = {
+  base_url: string;
+  boards: { slug: string; is_autopilot: boolean; images: string[] }[];
+};
+
+export type BoardImages = { baseUrl: string; images: string[] };
+
+let imagesCache: HwdefImagesPayload | null = null;
+let imagesInflight: Promise<HwdefImagesPayload> | null = null;
+
+function loadImages(): Promise<HwdefImagesPayload> {
+  if (imagesCache) return Promise.resolve(imagesCache);
+  if (imagesInflight) return imagesInflight;
+  imagesInflight = fetch("/hwdef-images.json")
+    .then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json() as Promise<HwdefImagesPayload>;
+    })
+    .then((p) => {
+      imagesCache = p;
+      return p;
+    });
+  return imagesInflight;
+}
+
+export function useBoardImages(slug: string): BoardImages | null {
+  const [state, setState] = useState<BoardImages | null>(() => lookupImages(slug, imagesCache));
+
+  useEffect(() => {
+    let cancelled = false;
+    loadImages()
+      .then((p) => {
+        if (!cancelled) setState(lookupImages(slug, p));
+      })
+      .catch(() => {
+        if (!cancelled) setState({ baseUrl: "", images: [] });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  return state;
+}
+
+function lookupImages(slug: string, p: HwdefImagesPayload | null): BoardImages | null {
+  if (!p) return null;
+  const entry = p.boards.find((b) => b.slug === slug);
+  return { baseUrl: p.base_url, images: entry?.images ?? [] };
+}
+
 export function mcuFamilyLabel(family: string | null): string {
   if (!family) return "Unknown";
   if (family.startsWith("STM32H7")) return "STM32 H7";

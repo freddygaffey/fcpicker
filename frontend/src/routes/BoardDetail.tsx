@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { mcuFamilyLabel, useBoards } from "../data";
+import { mcuFamilyLabel, useBoardImages, useBoards } from "../data";
 import type { SensorEntry } from "../types";
 
 const ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"] as const;
@@ -11,6 +11,7 @@ const VEHICLE_LABEL: Record<string, string> = {
 export default function BoardDetail() {
   const { slug = "" } = useParams();
   const { boards, loading, error } = useBoards();
+  const boardImages = useBoardImages(slug);
 
   if (loading) return <div className="state">Loading…</div>;
   if (error) return <div className="state state-err">Couldn't load boards.json: {error}</div>;
@@ -54,6 +55,37 @@ export default function BoardDetail() {
         <div className="bd-doc-cta bd-doc-cta-missing">
           <span>Unable to find the documentation link.</span>
         </div>
+      )}
+
+      {/* Board images — pulled straight from the hwdef directory on GitHub */}
+      {boardImages && boardImages.images.length > 0 && (
+        <section className="bd-section">
+          <h2 className="bd-h2">Board photos &amp; diagrams</h2>
+          <div className="bd-gallery">
+            {boardImages.images.map((img) => {
+              const url = `${boardImages.baseUrl}/${slug}/${img
+                .split("/")
+                .map(encodeURIComponent)
+                .join("/")}`;
+              return (
+                <a
+                  key={img}
+                  className="bd-gallery-item"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={img}
+                >
+                  <img src={url} alt={img} loading="lazy" />
+                  <span className="bd-gallery-caption">{img}</span>
+                </a>
+              );
+            })}
+          </div>
+          <p className="bd-aside">
+            Sourced from this board&rsquo;s hwdef directory on GitHub.
+          </p>
+        </section>
       )}
 
       {/* Stats strip — at a glance */}

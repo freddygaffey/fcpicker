@@ -766,6 +766,44 @@
   color: var(--ink-mute);
 }
 
+/* Image gallery (sourced from hwdef directory) */
+.bd-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.bd-gallery-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.bd-gallery-item:hover {
+  border-color: var(--ap-blue);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+}
+.bd-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: #f6f7f9;
+}
+.bd-gallery-caption {
+  padding: 6px 8px;
+  font-size: 11.5px;
+  color: var(--ink-mute);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Stats strip */
 .bd-stats {
   display: grid;

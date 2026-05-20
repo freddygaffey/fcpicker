@@ -1,0 +1,1427 @@
+{
+  "base_url": "https://raw.githubusercontent.com/ArduPilot/ardupilot/master/libraries/AP_HAL_ChibiOS/hwdef",
+  "boards": [
+    {
+      "slug": "ACNS-CM4Pilot",
+      "is_autopilot": true,
+      "images": [
+        "CM4Pilot_Pinout.jpg",
+        "CM4Pilot_structure.jpg",
+        "CM4pilot_inshell.jpg",
+        "CM4pilot_size.jpg"
+      ]
+    },
+    {
+      "slug": "ACNS-F405AIO",
+      "is_autopilot": true,
+      "images": [
+        "F405AIO_bottom.jpg",
+        "F405AIO_top.jpg"
+      ]
+    },
+    {
+      "slug": "AEDROXH7",
+      "is_autopilot": true,
+      "images": [
+        "AEDROX_FC_H7_PINOUT.png"
+      ]
+    },
+    {
+      "slug": "AEROFOX-H7",
+      "is_autopilot": true,
+      "images": [
+        "AEROFOX-H7_IMG.png",
+        "AEROFOX-H7_pinout.png"
+      ]
+    },
+    {
+      "slug": "AET-H743-Basic",
+      "is_autopilot": true,
+      "images": [
+        "AET-H743-Basic_core_board.png",
+        "AET-H743-Basic_overview.jpg",
+        "AET-H743-Basic_power_board.png"
+      ]
+    },
+    {
+      "slug": "AIRBRAINH743",
+      "is_autopilot": true,
+      "images": [
+        "pinoutBottom.png",
+        "pinoutTop.png"
+      ]
+    },
+    {
+      "slug": "ARK_CANNODE",
+      "is_autopilot": false,
+      "images": [
+        "ARK_CANNODE.JPG",
+        "ARK_CANNODE2.JPG"
+      ]
+    },
+    {
+      "slug": "ARK_FPV",
+      "is_autopilot": true,
+      "images": [
+        "ark_fpv_bottom.png",
+        "ark_fpv_top.png"
+      ]
+    },
+    {
+      "slug": "ARK_PI6X",
+      "is_autopilot": true,
+      "images": [
+        "pi6x_pinout.png"
+      ]
+    },
+    {
+      "slug": "AcctonGodwit_GA1",
+      "is_autopilot": true,
+      "images": [
+        "gps.png",
+        "motor_servo.png",
+        "orientation.png",
+        "outlook.png",
+        "pin_definition.png",
+        "power.png",
+        "radio.png",
+        "sdcard.png",
+        "wiring.png"
+      ]
+    },
+    {
+      "slug": "AeroCogito-H7Digital",
+      "is_autopilot": true,
+      "images": [
+        "H7-Digital_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "Aeromind6X",
+      "is_autopilot": true,
+      "images": [
+        "Pinout.png",
+        "fc.png"
+      ]
+    },
+    {
+      "slug": "Airvolute-DCS2",
+      "is_autopilot": true,
+      "images": [
+        "DC2.Pilot peripherals.png",
+        "DCS2.Pilot_BottomSide.png",
+        "DCS2.Pilot_TopSide.png"
+      ]
+    },
+    {
+      "slug": "AnyleafH7",
+      "is_autopilot": true,
+      "images": [
+        "anyleaf_h7_diagram_bottom.jpg",
+        "anyleaf_h7_diagram_top.jpg"
+      ]
+    },
+    {
+      "slug": "Aocoda-RC-H743Dual",
+      "is_autopilot": true,
+      "images": [
+        "Aocoda-RC-H743Dual_Wiring_Diagram.jpg",
+        "Aocoda-RC-H743Dual_bottom.jpg",
+        "Aocoda-RC-H743Dual_top.jpg"
+      ]
+    },
+    {
+      "slug": "Atlas-Control",
+      "is_autopilot": true,
+      "images": [
+        "img.png"
+      ]
+    },
+    {
+      "slug": "BETAFPV-F405",
+      "is_autopilot": true,
+      "images": [
+        "F4AIO.png",
+        "Toothpick20A.png",
+        "betafpv_f405_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "BOTWINGF405",
+      "is_autopilot": true,
+      "images": [
+        "Layout_bottom_1.png",
+        "Layout_bottom_2.png",
+        "Layout_top_1.png",
+        "Layout_top_2.png",
+        "wiring_diagram.png"
+      ]
+    },
+    {
+      "slug": "BROTHERHOBBYF405v3",
+      "is_autopilot": true,
+      "images": [
+        "Bottom.png",
+        "ESC.png",
+        "Top.png"
+      ]
+    },
+    {
+      "slug": "BROTHERHOBBYH743",
+      "is_autopilot": true,
+      "images": [
+        "Bottom.png",
+        "Top.png"
+      ]
+    },
+    {
+      "slug": "BeastF7v2",
+      "is_autopilot": true,
+      "images": [
+        "beast_f7v2_pinout.JPG"
+      ]
+    },
+    {
+      "slug": "BeastH7",
+      "is_autopilot": true,
+      "images": [
+        "beast_h7_pinout.png"
+      ]
+    },
+    {
+      "slug": "BeastH7v2",
+      "is_autopilot": true,
+      "images": [
+        "beast_h7v2_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "BlitzF745",
+      "is_autopilot": true,
+      "images": [
+        "blitz_f7_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "BlitzF745AIO",
+      "is_autopilot": true,
+      "images": [
+        "blitz_f7_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "BlitzH743Pro",
+      "is_autopilot": true,
+      "images": [
+        "blitz_h7_pro.png"
+      ]
+    },
+    {
+      "slug": "BlitzMiniF745",
+      "is_autopilot": true,
+      "images": [
+        "blitz_f7_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "BlitzWingH743",
+      "is_autopilot": true,
+      "images": [
+        "blitz_h7_wing_bottom.PNG",
+        "blitz_h7_wing_middle.PNG",
+        "blitz_h7_wing_top.PNG"
+      ]
+    },
+    {
+      "slug": "BrahmaF4",
+      "is_autopilot": true,
+      "images": [
+        "BRAHMA_F405-diagram.jpg"
+      ]
+    },
+    {
+      "slug": "CBU-H7-Stamp",
+      "is_autopilot": true,
+      "images": [
+        "H743_SD.png"
+      ]
+    },
+    {
+      "slug": "CORVON405V2_1",
+      "is_autopilot": true,
+      "images": [
+        "CORVON405V2.1_BackView.jpg",
+        "CORVON405V2.1_FrontView.jpg",
+        "CORVON405V2.1_PortsConnection.jpg"
+      ]
+    },
+    {
+      "slug": "CORVON743V1",
+      "is_autopilot": true,
+      "images": [
+        "CORVON743V1_BackView.jpg",
+        "CORVON743V1_FrontView.jpg",
+        "CORVON743V1_PortsConnection.jpg"
+      ]
+    },
+    {
+      "slug": "CSKY405",
+      "is_autopilot": true,
+      "images": [
+        "CSKY405.png",
+        "CSKY405_wiring.png"
+      ]
+    },
+    {
+      "slug": "CSKY_PMU",
+      "is_autopilot": false,
+      "images": [
+        "CSKYF4_PMU_Board.jpg"
+      ]
+    },
+    {
+      "slug": "CUAV-7-Nano",
+      "is_autopilot": true,
+      "images": [
+        "CUAV-7-Nano-pinout.png"
+      ]
+    },
+    {
+      "slug": "CUAV-V6X-v2",
+      "is_autopilot": true,
+      "images": [
+        "CUAV-V6X-v2-pinout.png",
+        "CUAV-V6X-v2.png"
+      ]
+    },
+    {
+      "slug": "CUAV-X25-EVO",
+      "is_autopilot": true,
+      "images": [
+        "CUAV-X25-EVO-pinout.png",
+        "CUAV-X25-EVO.png"
+      ]
+    },
+    {
+      "slug": "CUAVv5",
+      "is_autopilot": true,
+      "images": [
+        "CUAVv5-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "CUAVv5-bdshot",
+      "is_autopilot": true,
+      "images": [
+        "CUAVv5-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "CrazyF405",
+      "is_autopilot": true,
+      "images": [
+        "CrazyF405HD_pinout.jpg",
+        "CrazyF405_external_elrs.jpg"
+      ]
+    },
+    {
+      "slug": "CubeBlack",
+      "is_autopilot": true,
+      "images": [
+        "CubeBlack-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "CubeOrange",
+      "is_autopilot": true,
+      "images": [
+        "CubeOrange-pinout.svg"
+      ]
+    },
+    {
+      "slug": "CubeOrangePlus",
+      "is_autopilot": true,
+      "images": [
+        "CubeOrangePlus-pinout.svg"
+      ]
+    },
+    {
+      "slug": "CubeOrangePlus-ODID",
+      "is_autopilot": true,
+      "images": [
+        "CubeOrangePlus-pinout.svg"
+      ]
+    },
+    {
+      "slug": "DAKEFPVF405",
+      "is_autopilot": true,
+      "images": [
+        "Bottom.png",
+        "Top.png",
+        "WiringDiagramBottom.png",
+        "WiringDiagramTop.png"
+      ]
+    },
+    {
+      "slug": "DAKEFPVH743",
+      "is_autopilot": true,
+      "images": [
+        "DAKEFPVH743_Bottom.jpg",
+        "DAKEFPVH743_Top.jpg",
+        "DAKEFPVH743_WiringDiagramBottom.jpg",
+        "DAKEFPVH743_WiringDiagramTop.jpg"
+      ]
+    },
+    {
+      "slug": "DAKEFPVH743Pro",
+      "is_autopilot": true,
+      "images": [
+        "DAKEFPVH743Pro_Bottom.png",
+        "DAKEFPVH743Pro_Top.png",
+        "DAKEFPVH743Pro_WiringDiagramBottom.png",
+        "DAKEFPVH743Pro_WiringDiagramTop.png"
+      ]
+    },
+    {
+      "slug": "DAKEFPVH743_SLIM",
+      "is_autopilot": true,
+      "images": [
+        "DAKEFPVH743_SLIM_Bottom.jpg",
+        "DAKEFPVH743_SLIM_Top.jpg",
+        "DAKEFPVH743_SLIM_WiringDiagramBottom.png",
+        "DAKEFPVH743_SLIM_WiringDiagramTop.png",
+        "DAKEFPVH743_SLIM_WiringDiagramTop2.png"
+      ]
+    },
+    {
+      "slug": "DroneerF405",
+      "is_autopilot": true,
+      "images": [
+        "DroneerF405_Board_Bottom.jpg",
+        "DroneerF405_Board_Pinout.jpg",
+        "DroneerF405_Board_Top.jpg"
+      ]
+    },
+    {
+      "slug": "Durandal",
+      "is_autopilot": true,
+      "images": [
+        "Durandal-back.png",
+        "Durandal-front.png",
+        "Durandal-left.png",
+        "Durandal-right.png",
+        "Durandal-top.png"
+      ]
+    },
+    {
+      "slug": "F4BY_H743",
+      "is_autopilot": true,
+      "images": [
+        "F4BY_H743_board_image.jpg",
+        "f4BY_H743_v303_diagramm.jpg",
+        "rcin_303.jpg"
+      ]
+    },
+    {
+      "slug": "FlysparkF4",
+      "is_autopilot": true,
+      "images": [
+        "flyspark_f4_connections.png",
+        "flyspark_f4_connections_1.png",
+        "flyspark_f4_img.png"
+      ]
+    },
+    {
+      "slug": "FlywooF405HD-AIOv2",
+      "is_autopilot": true,
+      "images": [
+        "GokuF405HD_AIOv2_Pinout.png"
+      ]
+    },
+    {
+      "slug": "FlywooF405Pro",
+      "is_autopilot": true,
+      "images": [
+        "GOKUF405Pro_Pinout.JPG"
+      ]
+    },
+    {
+      "slug": "FlywooF405S-AIO",
+      "is_autopilot": true,
+      "images": [
+        "GOKUF405AIO_Pinout.PNG"
+      ]
+    },
+    {
+      "slug": "FlywooF745",
+      "is_autopilot": true,
+      "images": [
+        "GOKUGN745AIO_v1.0_Pinout.png",
+        "GOKUGN745AIO_v1.2_Pinout.jpg",
+        "GOKUGN745AIO_v3.0_Pinout.jpg"
+      ]
+    },
+    {
+      "slug": "FlywooF745Nano",
+      "is_autopilot": true,
+      "images": [
+        "GOKUF745Nano_Pinout.jpg"
+      ]
+    },
+    {
+      "slug": "FlywooH743Pro",
+      "is_autopilot": true,
+      "images": [
+        "Bottom.png",
+        "Top.png"
+      ]
+    },
+    {
+      "slug": "FoxeerF405v2",
+      "is_autopilot": true,
+      "images": [
+        "FoxeerF405v2.jpg"
+      ]
+    },
+    {
+      "slug": "FoxeerH743v1",
+      "is_autopilot": true,
+      "images": [
+        "FoxeerH743_Board.JPG"
+      ]
+    },
+    {
+      "slug": "GEPRCF745BTHD",
+      "is_autopilot": true,
+      "images": [
+        "TAKER_F745_BT_Board_Bottom.jpg",
+        "TAKER_F745_BT_Board_Top.jpg"
+      ]
+    },
+    {
+      "slug": "GEPRC_TAKER_H743",
+      "is_autopilot": true,
+      "images": [
+        "TAKER_H743_BT_Board_Bottom.jpg",
+        "TAKER_H743_BT_Board_Top.jpg"
+      ]
+    },
+    {
+      "slug": "GreenSightUltraBlue",
+      "is_autopilot": true,
+      "images": [
+        "UltraBlue_J2_primary_payload_connector.png",
+        "UltraBlue_J3_secondary_payload_connector.png",
+        "UltraBlue_connector_overview_bottom.png",
+        "UltraBlue_connector_overview_top.png"
+      ]
+    },
+    {
+      "slug": "HEEWING-F405",
+      "is_autopilot": true,
+      "images": [
+        "heewingf405.jpg"
+      ]
+    },
+    {
+      "slug": "HEEWING-F405v2",
+      "is_autopilot": true,
+      "images": [
+        "heewingf405.jpg"
+      ]
+    },
+    {
+      "slug": "HWH7",
+      "is_autopilot": true,
+      "images": [
+        "HWH7.png"
+      ]
+    },
+    {
+      "slug": "HolybroF4_PMU",
+      "is_autopilot": false,
+      "images": [
+        "HolybroF4_PMU_Board.jpg"
+      ]
+    },
+    {
+      "slug": "IFLIGHT_2RAW_H7",
+      "is_autopilot": true,
+      "images": [
+        "Thunder-H7-1.png",
+        "Thunder-H7-2.png"
+      ]
+    },
+    {
+      "slug": "JHEMCU-GSF405A",
+      "is_autopilot": true,
+      "images": [
+        "gsf405a.jpg",
+        "gsf405a_pinout.jpg"
+      ]
+    },
+    {
+      "slug": "JHEMCU-H743HD",
+      "is_autopilot": true,
+      "images": [
+        "JHEMCU-H743HD_Board.jpg",
+        "processor pins.png"
+      ]
+    },
+    {
+      "slug": "JHEMCUF405PRO",
+      "is_autopilot": true,
+      "images": [
+        "JHEMCUF405PRO.png"
+      ]
+    },
+    {
+      "slug": "JHEMCUF405WING",
+      "is_autopilot": true,
+      "images": [
+        "JHEMCUF405WING.png",
+        "JHEMCUF405WING_wiring.png"
+      ]
+    },
+    {
+      "slug": "JHEM_JHEF405",
+      "is_autopilot": true,
+      "images": [
+        "jhemcu-gf16-bmi-8axis.jpg",
+        "jhemcu-gf16-bmi-pinout.jpg",
+        "jhemcu-gf16-bmi.jpg"
+      ]
+    },
+    {
+      "slug": "JPilot-C",
+      "is_autopilot": true,
+      "images": [
+        "JPilot-C_board_v1.0.jpg",
+        "JPilot-C_pinout.png",
+        "JPilot-C_pinout.svg"
+      ]
+    },
+    {
+      "slug": "KT-FMU-F1",
+      "is_autopilot": true,
+      "images": [
+        "KT-FMU-F1.jpg",
+        "bottom.png",
+        "top.png"
+      ]
+    },
+    {
+      "slug": "KakuteF4",
+      "is_autopilot": true,
+      "images": [
+        "kakutef4_top.jpg"
+      ]
+    },
+    {
+      "slug": "KakuteF4-Wing",
+      "is_autopilot": true,
+      "images": [
+        "kakutef4-esc.png",
+        "kakutef4-uart.png",
+        "kakutef4-uart2.png"
+      ]
+    },
+    {
+      "slug": "KakuteF4Mini",
+      "is_autopilot": true,
+      "images": [
+        "kakutef4mini.jpg"
+      ]
+    },
+    {
+      "slug": "KakuteF7",
+      "is_autopilot": true,
+      "images": [
+        "kakutef7.jpg",
+        "kakutef7_AIO.jpg"
+      ]
+    },
+    {
+      "slug": "KakuteF7Mini",
+      "is_autopilot": true,
+      "images": [
+        "kakutef7mini.jpg"
+      ]
+    },
+    {
+      "slug": "KakuteH7",
+      "is_autopilot": true,
+      "images": [
+        "Kakkute_H7_Board_Top__Bottom2.jpg",
+        "Kakkute_H7_Board_Top__Bottom3.jpg",
+        "Kakkute_H7_Board_Top__Bottom4.jpg"
+      ]
+    },
+    {
+      "slug": "KakuteH7-Wing",
+      "is_autopilot": true,
+      "images": [
+        "KakuteH7-Wing-pinout.png"
+      ]
+    },
+    {
+      "slug": "KakuteH7Mini",
+      "is_autopilot": true,
+      "images": [
+        "KakuteH7Mini_Board.jpg"
+      ]
+    },
+    {
+      "slug": "LongBowF405WING",
+      "is_autopilot": true,
+      "images": [
+        "LongBowF405WING.jpg",
+        "LongBowF405WING_pinout.png",
+        "PMU.png"
+      ]
+    },
+    {
+      "slug": "LumenierLUXF765-NDAA",
+      "is_autopilot": true,
+      "images": [
+        "LUXF765_NDAA_BOTTOM.png",
+        "LUXF765_NDAA_Slim_Graphic.png",
+        "LUXF765_NDAA_TOP.png"
+      ]
+    },
+    {
+      "slug": "MFE_PDB_CAN",
+      "is_autopilot": true,
+      "images": [
+        "MFE_PDB_CAN-1.png"
+      ]
+    },
+    {
+      "slug": "MFE_POS3_CAN",
+      "is_autopilot": true,
+      "images": [
+        "MFE_POS3_CAN-1.png"
+      ]
+    },
+    {
+      "slug": "MFT-SEMA100",
+      "is_autopilot": true,
+      "images": [
+        "MFT-SEMA100_BottomView.jpeg",
+        "MFT-SEMA100_TopView.jpeg"
+      ]
+    },
+    {
+      "slug": "MUPilot",
+      "is_autopilot": true,
+      "images": [
+        "MUPilot-pinout1.png",
+        "MUPilot-pinout2.png",
+        "MUPilot-pinout3.png",
+        "MUPilot-pinout4.png",
+        "MUPilot.png"
+      ]
+    },
+    {
+      "slug": "MambaF405-2022",
+      "is_autopilot": true,
+      "images": [
+        "basic20pinout.png"
+      ]
+    },
+    {
+      "slug": "MambaF405US-I2C",
+      "is_autopilot": true,
+      "images": [
+        "basic20pinout.png",
+        "basic30pinout.png"
+      ]
+    },
+    {
+      "slug": "MambaF405v2",
+      "is_autopilot": true,
+      "images": [
+        "mamba_f405mk2_board.jpg",
+        "mamba_f405mk2_pinout.png"
+      ]
+    },
+    {
+      "slug": "MambaH743v4",
+      "is_autopilot": true,
+      "images": [
+        "MambaH743v4_Board.jpg"
+      ]
+    },
+    {
+      "slug": "MatekH7A3",
+      "is_autopilot": true,
+      "images": [
+        "H7A3-SLIM.jpg"
+      ]
+    },
+    {
+      "slug": "MatekH7A3-Wing",
+      "is_autopilot": true,
+      "images": [
+        "H7A3-WING.jpg"
+      ]
+    },
+    {
+      "slug": "MicoAir405Mini",
+      "is_autopilot": true,
+      "images": [
+        "MicoAir405Mini_BackView.jpg",
+        "MicoAir405Mini_FrontView.jpg",
+        "MicoAir405Mini_PortsConnection.jpg"
+      ]
+    },
+    {
+      "slug": "MicoAir405v2",
+      "is_autopilot": true,
+      "images": [
+        "MicoAir405v2_BackView.jpg",
+        "MicoAir405v2_FrontView.jpg",
+        "MicoAir405v2_PortsConnection.jpg"
+      ]
+    },
+    {
+      "slug": "MicoAir743",
+      "is_autopilot": true,
+      "images": [
+        "MicoAir743_BackView.jpg",
+        "MicoAir743_FrontView.jpg",
+        "MicoAir743_PortsConnection.jpg"
+      ]
+    },
+    {
+      "slug": "MicoAir743-AIO",
+      "is_autopilot": true,
+      "images": [
+        "MicoAir743-AIO_Physical_Size.jpg",
+        "MicoAir743-AIO_Ports_Connection.jpg"
+      ]
+    },
+    {
+      "slug": "MicoAir743-Lite",
+      "is_autopilot": true,
+      "images": [
+        "MicoAir743-Lite_Ports_Connection.jpg"
+      ]
+    },
+    {
+      "slug": "MicoAir743v2",
+      "is_autopilot": true,
+      "images": [
+        "MicoAir743v2_Physical_Size.jpg",
+        "MicoAir743v2_Ports_Connection.jpg"
+      ]
+    },
+    {
+      "slug": "Morakot",
+      "is_autopilot": true,
+      "images": [
+        "Morakot_bottom.jpg",
+        "Morakot_bottom_Wired.jpg",
+        "Morakot_top.jpg",
+        "Morakot_top_Wired.jpg"
+      ]
+    },
+    {
+      "slug": "NarinFC-H7",
+      "is_autopilot": true,
+      "images": [
+        "images/1.Basic_Parameters.png",
+        "images/12.ADC.png",
+        "images/13.RSSI.png",
+        "images/2.Outline_Dimensions.png",
+        "images/3.Wire_Diagram.png",
+        "images/4.1.TELEM1,TELEM2_Port_JST_GH_6P_Connector.png",
+        "images/4.10.SPI_Port_JST_GH_7P_Connector.png",
+        "images/4.2.CAN1,CAN2_Port_JST_HG_4P_Connector.png",
+        "images/4.3.I2C1,I2C2,I2C3,I2C4_Port_JST_GH_4P_Connector.png",
+        "images/4.4.UART4_Port_JST_GH_6P_Connector.png",
+        "images/4.5.GPS_Safety_Port_JST_GH_10P_Connector.png",
+        "images/4.6.PWM_Out_M1-M14.png",
+        "images/4.7.Power_Input.png",
+        "images/4.8.DEBUG_Port_JST_HG_6P_Connector.png",
+        "images/4.Port_Diagram_Pin_outs_Diagram-A.png",
+        "images/4.Port_Diagram_Pin_outs_Diagram-B.png",
+        "images/NarinFC_Header.jpg",
+        "images/NarinFC_Modeling_Image.jpg",
+        "images/PWM_Out_M1-M14.png"
+      ]
+    },
+    {
+      "slug": "NarinFC-X3",
+      "is_autopilot": true,
+      "images": [
+        "images/1.2C1_UART2_PORT.png",
+        "images/10.LED_PORT.png",
+        "images/2.UART7_UART4_PORT.png",
+        "images/3.UART6_RSSI_PORT.png",
+        "images/4.CAN_PORT.png",
+        "images/5.PWM_PORT1.png",
+        "images/6.PWM_PORT2.png",
+        "images/7.UART3_PORT.png",
+        "images/9.PWM_PORT3.png",
+        "images/NarinFC_X3_BOTTOM.png",
+        "images/NarinFC_X3_Dimensions.png",
+        "images/NarinFC_X3_Introduction.png",
+        "images/NarinFC_X3_TOP.png",
+        "images/NarinFC_X3_TOP_BOTTOM.png"
+      ]
+    },
+    {
+      "slug": "NxtPX4v2",
+      "is_autopilot": true,
+      "images": [
+        "NxtPX4v2_BackView.jpg",
+        "NxtPX4v2_FrontView.jpg"
+      ]
+    },
+    {
+      "slug": "ORBITH743",
+      "is_autopilot": true,
+      "images": [
+        "orbith743-wiring.jpg",
+        "orbith743.jpg"
+      ]
+    },
+    {
+      "slug": "OrqaF405Pro",
+      "is_autopilot": true,
+      "images": [
+        "OrqaFC3030F405_Board.png"
+      ]
+    },
+    {
+      "slug": "OrqaH7QuadCore",
+      "is_autopilot": true,
+      "images": [
+        "OrqaH7QuadCoreBottom.png",
+        "OrqaH7QuadCoreTop.png"
+      ]
+    },
+    {
+      "slug": "PH4-mini",
+      "is_autopilot": true,
+      "images": [
+        "PH4-mini-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "PilotGaeaSH7V1-bdshot",
+      "is_autopilot": true,
+      "images": [
+        "PilotGaea_front_view_Pin.jpg",
+        "PilotGaea_rear_view_Pin.jpg"
+      ]
+    },
+    {
+      "slug": "PixFlamingo-F767",
+      "is_autopilot": true,
+      "images": [
+        "Pixflamingo-F767-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "PixPilot-C3",
+      "is_autopilot": true,
+      "images": [
+        "PixPilot-C3.png",
+        "PixPilot-C3_Pinout.png"
+      ]
+    },
+    {
+      "slug": "PixPilot-V3",
+      "is_autopilot": true,
+      "images": [
+        "PixPilot-V3.png",
+        "PixPilot-V3_Pinout.png"
+      ]
+    },
+    {
+      "slug": "PixPilot-V6",
+      "is_autopilot": true,
+      "images": [
+        "PixPilot-V6.png",
+        "PixPilot-V6_2.png"
+      ]
+    },
+    {
+      "slug": "PixPilot-V6PRO",
+      "is_autopilot": true,
+      "images": [
+        "PixPilot-V6Pro-1.png",
+        "PixPilot-V6Pro-2.png"
+      ]
+    },
+    {
+      "slug": "PixSurveyA1-IND",
+      "is_autopilot": true,
+      "images": [
+        "PixSurveyA1-IND.png"
+      ]
+    },
+    {
+      "slug": "PixSurveyA2-IND",
+      "is_autopilot": true,
+      "images": [
+        "PixSurveyA2-IND-1.png"
+      ]
+    },
+    {
+      "slug": "Pixhawk1",
+      "is_autopilot": true,
+      "images": [
+        "PixhawkLabeled.jpg"
+      ]
+    },
+    {
+      "slug": "Pixhawk4",
+      "is_autopilot": true,
+      "images": [
+        "pixhawk4-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "Pixracer",
+      "is_autopilot": true,
+      "images": [
+        "pixracer_r09_bot_pinouts.jpg",
+        "pixracer_r09_top_pinouts.jpg"
+      ]
+    },
+    {
+      "slug": "Pixracer-periph",
+      "is_autopilot": false,
+      "images": [
+        "pixracer_r09_bot_pinouts.jpg",
+        "pixracer_r09_top_pinouts.jpg"
+      ]
+    },
+    {
+      "slug": "PrincipIoTH7Pi",
+      "is_autopilot": true,
+      "images": [
+        "H7-Pi-Rev-3-Pinout-Back.png",
+        "H7-Pi-Rev-3-Pinout-Front.png",
+        "H7-Pi-board-image.jpg"
+      ]
+    },
+    {
+      "slug": "RADIX2HD",
+      "is_autopilot": true,
+      "images": [
+        "radix_2_hd_pinout_bottom.png",
+        "radix_2_hd_pinout_top.png"
+      ]
+    },
+    {
+      "slug": "RadiolinkF405",
+      "is_autopilot": true,
+      "images": [
+        "RadiolinkF405_Board_Bottom.jpg",
+        "RadiolinkF405_Board_Top.jpg"
+      ]
+    },
+    {
+      "slug": "RadiolinkPIX6",
+      "is_autopilot": true,
+      "images": [
+        "RadiolinkPIX6.png"
+      ]
+    },
+    {
+      "slug": "ReaperF745",
+      "is_autopilot": true,
+      "images": [
+        "ReaperF745v2_Board.jpg"
+      ]
+    },
+    {
+      "slug": "ResoluteH7",
+      "is_autopilot": true,
+      "images": [
+        "ResoluteH7_bottom.jpg",
+        "ResoluteH7_top.jpg"
+      ]
+    },
+    {
+      "slug": "SDMODELH7V1",
+      "is_autopilot": true,
+      "images": [
+        "SDH7V1_bottom.png",
+        "SDH7V1_connection.png",
+        "SDH7V1_top.png"
+      ]
+    },
+    {
+      "slug": "SDMODELH7V2",
+      "is_autopilot": true,
+      "images": [
+        "H7V2_0502.jpg",
+        "SDMODEL_H7V2.jpg"
+      ]
+    },
+    {
+      "slug": "SPEDIXF405",
+      "is_autopilot": true,
+      "images": [
+        "SpedixF405.png"
+      ]
+    },
+    {
+      "slug": "SPEDIXH743",
+      "is_autopilot": true,
+      "images": [
+        "SpedixH743.png"
+      ]
+    },
+    {
+      "slug": "SPRacingH7",
+      "is_autopilot": true,
+      "images": [
+        "SPRacingH7_Board.JPG"
+      ]
+    },
+    {
+      "slug": "SPRacingH7RF",
+      "is_autopilot": true,
+      "images": [
+        "spracingh7rf.jpg",
+        "spracingh7rf_bottom.jpg",
+        "spracingh7rf_connectors.jpg",
+        "spracingh7rf_top.jpg"
+      ]
+    },
+    {
+      "slug": "SULILGH7-P1-P2",
+      "is_autopilot": true,
+      "images": [
+        "P1.jpg"
+      ]
+    },
+    {
+      "slug": "SVehicle-E2",
+      "is_autopilot": true,
+      "images": [
+        "E2Plus.png",
+        "E2plus-Top.png",
+        "E2plus-dimensions.png",
+        "E2plus-pinouts-front.png",
+        "E2plus-pinouts-left.png",
+        "E2plus-pinouts-right.png",
+        "E2plus-pinouts-side.png"
+      ]
+    },
+    {
+      "slug": "SequreH743",
+      "is_autopilot": true,
+      "images": [
+        "SequreH743Bottom.png",
+        "SequreH743Top.png"
+      ]
+    },
+    {
+      "slug": "SkyRukh_Surge_H7",
+      "is_autopilot": true,
+      "images": [
+        "SkyRukh_Surge_H7.png",
+        "bottom_pinout.png",
+        "top_pinout.png"
+      ]
+    },
+    {
+      "slug": "SkySakuraH743",
+      "is_autopilot": true,
+      "images": [
+        "SkySakuraH743-bottom.png",
+        "SkySakuraH743_top.png"
+      ]
+    },
+    {
+      "slug": "SkystarsF405v2",
+      "is_autopilot": true,
+      "images": [
+        "SkystarsF405v2Top.png"
+      ]
+    },
+    {
+      "slug": "SkystarsH7HD",
+      "is_autopilot": true,
+      "images": [
+        "SkystarsH7HD.jpg"
+      ]
+    },
+    {
+      "slug": "SkystarsH7HD-bdshot",
+      "is_autopilot": true,
+      "images": [
+        "SkystarsH7HD.jpg"
+      ]
+    },
+    {
+      "slug": "SkystarsH7HDv2",
+      "is_autopilot": true,
+      "images": [
+        "SkystarsH743v2.png",
+        "SkystarsWiring.jpg"
+      ]
+    },
+    {
+      "slug": "SpeedyBeeF405AIO",
+      "is_autopilot": true,
+      "images": [
+        "SpeedyBeeF405AIO_Pinout.png"
+      ]
+    },
+    {
+      "slug": "SpeedyBeeF405Mini",
+      "is_autopilot": true,
+      "images": [
+        "SpeedyBee_F405_Mini_Board.JPG"
+      ]
+    },
+    {
+      "slug": "SpeedyBeeF405WING",
+      "is_autopilot": true,
+      "images": [
+        "SpeedyBeeF405WING.png",
+        "SpeedyBeeF405WING_wiring.png"
+      ]
+    },
+    {
+      "slug": "StellarF4",
+      "is_autopilot": true,
+      "images": [
+        "StellarF4-bot.png",
+        "StellarF4-top.png"
+      ]
+    },
+    {
+      "slug": "StellarF4V2",
+      "is_autopilot": true,
+      "images": [
+        "StellarF4V2-bot.png",
+        "StellarF4V2-top.png"
+      ]
+    },
+    {
+      "slug": "StellarH7V2",
+      "is_autopilot": true,
+      "images": [
+        "StellarH7V2-bot.png",
+        "StellarH7V2-top.png"
+      ]
+    },
+    {
+      "slug": "TBS_LUCID_H7",
+      "is_autopilot": true,
+      "images": [
+        "Bottom.png",
+        "Top.png"
+      ]
+    },
+    {
+      "slug": "TBS_LUCID_H7_WING",
+      "is_autopilot": true,
+      "images": [
+        "Power_TBSH7WING.png",
+        "Top_TBSH7WING.png",
+        "Underside_TBSH7WING.png"
+      ]
+    },
+    {
+      "slug": "TBS_LUCID_H7_WING_AIO",
+      "is_autopilot": true,
+      "images": [
+        "LucidH7AIOCase.jpg",
+        "Top_TBSH7AIOWING.png",
+        "USB_TBSH7AIOWING.png",
+        "Underside_TBSH7AIOWING.png"
+      ]
+    },
+    {
+      "slug": "TBS_LUCID_PRO",
+      "is_autopilot": true,
+      "images": [
+        "TopBottom.png"
+      ]
+    },
+    {
+      "slug": "TMotorH743",
+      "is_autopilot": true,
+      "images": [
+        "TMotorH7Mini_Board.JPG"
+      ]
+    },
+    {
+      "slug": "VM-L431-Periph-Pico",
+      "is_autopilot": false,
+      "images": [
+        "vimdrones_ap_periph_pico_wiring.png"
+      ]
+    },
+    {
+      "slug": "VM-L431-SRV-Hub-4CHP",
+      "is_autopilot": true,
+      "images": [
+        "vimdrones_can_servo_hub_4chp_wiring.png"
+      ]
+    },
+    {
+      "slug": "VUAV-TinyV7",
+      "is_autopilot": true,
+      "images": [
+        "VUAV-TinyV7-Connectors.png",
+        "VUAV-TinyV7-Pinouts.png"
+      ]
+    },
+    {
+      "slug": "VUAV-V7pro",
+      "is_autopilot": true,
+      "images": [
+        "VUAV-V7pro-interface.png",
+        "VUAV-V7pro-pinout.png"
+      ]
+    },
+    {
+      "slug": "X-MAV-AP-H743r1",
+      "is_autopilot": true,
+      "images": [
+        "ap-h743r1-main.png",
+        "ap-h743r1-pinouts.png",
+        "ap-h743r1-size.png"
+      ]
+    },
+    {
+      "slug": "X-MAV-AP-H743v2",
+      "is_autopilot": true,
+      "images": [
+        "AP-H743v2_BottomPort.png",
+        "AP-H743v2_TopPort.png"
+      ]
+    },
+    {
+      "slug": "YARIV6X",
+      "is_autopilot": true,
+      "images": [
+        "yariv6x-dimensions.jpg",
+        "yariv6x-pinout.jpg",
+        "yariv6x-product.jpg"
+      ]
+    },
+    {
+      "slug": "YJUAV_A6",
+      "is_autopilot": true,
+      "images": [
+        "YJUAV_A6-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "YJUAV_A6SE",
+      "is_autopilot": true,
+      "images": [
+        "YJUAV_A6SE-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "YJUAV_A6SE_H743",
+      "is_autopilot": true,
+      "images": [
+        "YJUAV_A6SE_H743-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "YJUAV_A6Ultra",
+      "is_autopilot": true,
+      "images": [
+        "YJUAV_A6Ultra-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "ZeroOneX6",
+      "is_autopilot": true,
+      "images": [
+        "ZeroOneX6Pinout.jpg"
+      ]
+    },
+    {
+      "slug": "ZeroOneX6_Air",
+      "is_autopilot": true,
+      "images": [
+        "ZeroOneX6_Air.jpg",
+        "ZeroOneX6_Air.png",
+        "ZeroOneX6_AirSeriesPinout.jpg"
+      ]
+    },
+    {
+      "slug": "modalai_fc-v1",
+      "is_autopilot": true,
+      "images": [
+        "fc-dk-preliminary-datasheet.png",
+        "fc-overlay-top-144-dpi.jpg",
+        "flight-core-dims.png",
+        "flight-core.jpg",
+        "flight_core_v1_imu_locations.png"
+      ]
+    },
+    {
+      "slug": "sparknavi-blue",
+      "is_autopilot": true,
+      "images": [
+        "sparknavi-blue-dimensions.png",
+        "sparknavi-blue-pinout.png",
+        "sparknavi-blue.png"
+      ]
+    },
+    {
+      "slug": "speedybeef4v3",
+      "is_autopilot": true,
+      "images": [
+        "SpeedyBee_F405_v3_Board_Bottom.JPG",
+        "SpeedyBee_F405_v3_Board_Top.JPG"
+      ]
+    },
+    {
+      "slug": "speedybeef4v4",
+      "is_autopilot": true,
+      "images": [
+        "SpeedyBee_F405_v4_Board_Bottom.JPG",
+        "SpeedyBee_F405_v4_Board_Top.JPG"
+      ]
+    },
+    {
+      "slug": "speedybeef4v5",
+      "is_autopilot": true,
+      "images": [
+        "SpeedyBee_F405_V5_Board.png"
+      ]
+    },
+    {
+      "slug": "thepeach-k1",
+      "is_autopilot": true,
+      "images": [
+        "main.png",
+        "pinmap_bottom.png",
+        "pinmap_top.png"
+      ]
+    },
+    {
+      "slug": "thepeach-r1",
+      "is_autopilot": true,
+      "images": [
+        "main.png",
+        "pinmap.png"
+      ]
+    },
+    {
+      "slug": "uav-dev-fc-um982",
+      "is_autopilot": true,
+      "images": [
+        "uav-dev-fc-um982.png"
+      ]
+    }
+  ]
+}

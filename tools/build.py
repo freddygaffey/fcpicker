@@ -595,6 +595,38 @@ def export_json(session: Session, out_path: Path) -> None:
     out_path.write_text(json.dumps({"boards": payload}, indent=2))
 
 
+IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif"}
+HWDEF_GITHUB_RAW = (
+    "https://raw.githubusercontent.com/ArduPilot/ardupilot/master/"
+    "libraries/AP_HAL_ChibiOS/hwdef"
+)
+
+
+def export_hwdef_images(hwdef_root: Path, out_path: Path) -> int:
+    """Walk every hwdef board dir and list image files. Images are served
+    directly from GitHub raw (not copied into the build)."""
+    entries: list[dict] = []
+    for board_dir in sorted(hwdef_root.iterdir()):
+        if not board_dir.is_dir():
+            continue
+        images = sorted(
+            str(f.relative_to(board_dir))
+            for f in board_dir.rglob("*")
+            if f.is_file() and f.suffix.lower() in IMAGE_EXTS
+        )
+        if images:
+            entries.append({
+                "slug": board_dir.name,
+                "is_autopilot": is_autopilot(board_dir.name),
+                "images": images,
+            })
+    out_path.write_text(json.dumps({
+        "base_url": HWDEF_GITHUB_RAW,
+        "boards": entries,
+    }, indent=2))
+    return sum(len(e["images"]) for e in entries)
+
+
 def main() -> int:
     if not ARDUPILOT_HWDEF.exists():
         print(f"ArduPilot hwdef dir not found at {ARDUPILOT_HWDEF}", file=sys.stderr)
@@ -623,11 +655,14 @@ def main() -> int:
         export_sitemap(session, FRONTEND_PUBLIC / "sitemap.xml")
         export_robots(FRONTEND_PUBLIC / "robots.txt")
 
+    img_count = export_hwdef_images(ARDUPILOT_HWDEF, FRONTEND_PUBLIC / "hwdef-images.json")
+
     matched = sum(1 for p in parsed if p.docs_url)
     print(f"Parsed {len(parsed)} autopilot boards "
           f"({matched} matched to wiki docs, {len(parsed) - matched} unmatched).")
     print(f"  SQLite: {db_path}")
     print(f"  JSON:   {FRONTEND_PUBLIC / 'boards.json'}")
+    print(f"  Images: {img_count} across {FRONTEND_PUBLIC / 'hwdef-images.json'}")
     return 0
 
 

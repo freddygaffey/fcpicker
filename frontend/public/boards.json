@@ -1119,7 +1119,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-airlink-telemetry.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-skydrones-airlink.html"
     },
     {
       "slug": "Airvolute-DCS2",
@@ -4264,7 +4264,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5plus-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html"
     },
     {
       "slug": "CubeBlack",
@@ -8532,7 +8532,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4-mini.html"
     },
     {
       "slug": "KakuteF4-Wing",
@@ -14871,7 +14871,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html"
     },
     {
       "slug": "PixPilot-V6PRO",
@@ -18421,7 +18421,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-rf.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-extreme.html"
     },
     {
       "slug": "SPRacingH7RF",
@@ -20820,7 +20820,7 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html"
     },
     {
       "slug": "YJUAV_A6SE",
