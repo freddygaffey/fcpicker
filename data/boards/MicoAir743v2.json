@@ -1,0 +1,106 @@
+{
+  "slug": "MicoAir743v2",
+  "name": "MicoAir743v2",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 8,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART5",
+      "USART6",
+      "UART7",
+      "UART8"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 11,
+      "io": 0,
+      "total": 11
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 2
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null
+    },
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x77",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "QMC5883L",
+      "bus": "I2C:ALL_EXTERNAL:0x0D",
+      "variant": null
+    },
+    {
+      "chip": "QMC5883L",
+      "bus": "I2C:ALL_INTERNAL:0x0D",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743v2.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "slug": "crazyflie2",
+  "name": "crazyflie2",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F405xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 3,
+    "uart_buses": [
+      "USART3",
+      "USART6",
+      "USART2"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C3",
+      "I2C1"
+    ],
+    "spi_count": 0,
+    "spi_buses": [],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 4,
+      "io": 0,
+      "total": 4
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI088",
+      "bus": "I2C:0:0x18",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "I2C:0:0x69",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP388",
+      "bus": "I2C:0:0x77",
+      "variant": null
+    },
+    {
+      "chip": "LPS2XH:probe_InvensenseIMU",
+      "bus": "I2C:0:0x5D",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

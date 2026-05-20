@@ -1,0 +1,116 @@
+{
+  "slug": "Pixhawk5X",
+  "name": "Pixhawk5X",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F7xx",
+    "part": "STM32F767xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "UART7",
+      "UART5",
+      "USART1",
+      "UART8",
+      "USART2",
+      "UART4",
+      "USART3"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C4",
+      "I2C1",
+      "I2C2",
+      "I2C3"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3",
+      "SPI5"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 8,
+      "io": 8,
+      "total": 16
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 7
+  },
+  "power": {
+    "monitor_inputs": 3,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP388",
+      "bus": "I2C:2:0x76",
+      "variant": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "I2C:0:0x77",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "BMM150",
+      "bus": "I2C:0:0x10",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

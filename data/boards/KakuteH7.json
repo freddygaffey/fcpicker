@@ -1,0 +1,102 @@
+{
+  "slug": "KakuteH7",
+  "name": "KakuteH7",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "USART6",
+      "UART7"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 9,
+      "io": 0,
+      "total": 9
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 3
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    },
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

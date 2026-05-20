@@ -1,0 +1,100 @@
+{
+  "slug": "StellarF4V2",
+  "name": "StellarF4V2",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F405xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 4,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART5"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C2"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 11,
+      "io": 0,
+      "total": 11
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 2
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    },
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "DPS310",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4v2.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

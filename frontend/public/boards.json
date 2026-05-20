@@ -98,7 +98,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AcctonGodwit_GA1",
@@ -206,7 +214,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-acctongodwit-ga1.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-acctongodwit-ga1.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ACNS-CM4Pilot",
@@ -292,7 +308,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-acns-cm4pilot.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-acns-cm4pilot.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ACNS-F405AIO",
@@ -383,7 +407,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405aio.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405aio.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AEDROXH7",
@@ -464,7 +496,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-aedroxh7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-aedroxh7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AeroCogito-H7Digital",
@@ -542,7 +582,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AEROFOX-H7",
@@ -647,7 +695,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-aerofox-h7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-aerofox-h7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Aeromind6X",
@@ -755,7 +811,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AET-H743-Basic",
@@ -848,7 +912,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-AET-H743-Basic.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-AET-H743-Basic.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "airbotf4",
@@ -922,7 +994,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AIRBRAINH743",
@@ -1007,7 +1087,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AIRLink",
@@ -1119,7 +1207,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-skydrones-airlink.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-skydrones-airlink.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Airvolute-DCS2",
@@ -1202,7 +1298,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AnyleafH7",
@@ -1284,7 +1388,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-anyleafh7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-anyleafh7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Aocoda-RC-H743Dual",
@@ -1386,7 +1498,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-aocoda-h743dual.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-aocoda-h743dual.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ARK_FPV",
@@ -1473,7 +1593,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-ark-fpv.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-ark-fpv.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ARK_PI6X",
@@ -1565,7 +1693,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ARKV6X",
@@ -1684,7 +1820,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-ark-v6x-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-ark-v6x-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Atlas-Control",
@@ -1796,7 +1940,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "AtomRCF405NAVI",
@@ -1880,7 +2032,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-atomrcf405-navi.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-atomrcf405-navi.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ATOMRCF405NAVI-Deluxe",
@@ -1959,7 +2119,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-atomrcf405-navi-deluxe.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-atomrcf405-navi-deluxe.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BeastF7",
@@ -2037,7 +2205,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beastf7AIO.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beastf7AIO.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BeastF7v2",
@@ -2107,7 +2283,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BeastH7",
@@ -2185,7 +2369,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beasth7AIO.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beasth7AIO.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BeastH7v2",
@@ -2262,7 +2454,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BETAFPV-F405",
@@ -2338,7 +2538,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-betafpvf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-betafpvf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BlitzF745",
@@ -2423,7 +2631,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BlitzF745AIO",
@@ -2512,7 +2728,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BlitzH743Pro",
@@ -2599,7 +2823,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-blitzh743pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-blitzh743pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BlitzMiniF745",
@@ -2659,7 +2891,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BOTWINGF405",
@@ -2744,7 +2984,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-botwingf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-botwingf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BrahmaF4",
@@ -2821,7 +3069,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-brahmaf4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-brahmaf4.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BROTHERHOBBYF405v3",
@@ -2900,7 +3156,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-brotherhobbyf405v3.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-brotherhobbyf405v3.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "BROTHERHOBBYH743",
@@ -2998,7 +3262,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-brotherhobbyh743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-brotherhobbyh743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CBU-H7-LC-Stamp",
@@ -3082,7 +3354,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CBU-H7-Stamp",
@@ -3183,7 +3463,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CORVON405V2_1",
@@ -3262,7 +3550,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-corvonf405v2_1.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-corvonf405v2_1.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CORVON743V1",
@@ -3360,7 +3656,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-corvon743v1.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-corvon743v1.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CrazyF405",
@@ -3430,7 +3734,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-crazyf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-crazyf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "crazyflie2",
@@ -3508,7 +3820,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CSKY405",
@@ -3586,7 +3906,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-CSKYF405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-CSKYF405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CUAV-7-Nano",
@@ -3702,7 +4030,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-CUAV-7-Nano.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-CUAV-7-Nano.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CUAV-Nora",
@@ -3830,7 +4166,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-nora-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-nora-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CUAV-V6X-v2",
@@ -3938,7 +4282,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CUAV-X25-EVO",
@@ -4045,7 +4397,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CUAV-X7",
@@ -4182,7 +4542,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-x7-family-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-x7-family-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CUAVv5",
@@ -4264,7 +4632,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeBlack",
@@ -4378,7 +4754,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeBlack+",
@@ -4448,7 +4832,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeNode",
@@ -4515,7 +4907,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cubepilot-cubenodeeth.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-cubepilot-cubenodeeth.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeOrange",
@@ -4618,7 +5018,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeOrangePlus",
@@ -4721,7 +5129,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubePurple",
@@ -4798,7 +5214,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-thecubepurple-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-thecubepurple-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeRedPrimary",
@@ -4907,7 +5331,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeRedSecondary",
@@ -4986,7 +5418,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeSolo",
@@ -5095,7 +5535,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "CubeYellow",
@@ -5198,7 +5646,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-thecubeyellow-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-thecubeyellow-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "DAKEFPVF405",
@@ -5282,7 +5738,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "DAKEFPVH743_SLIM",
@@ -5371,7 +5835,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "DAKEFPVH743Pro",
@@ -5460,7 +5932,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "DroneerF405",
@@ -5538,7 +6018,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-DroneerF405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-DroneerF405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "DrotekP3Pro",
@@ -5636,7 +6124,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Durandal",
@@ -5749,7 +6245,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-durandal-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-durandal-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "F35Lightning",
@@ -5832,7 +6336,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "F4BY",
@@ -5920,7 +6432,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-f4by.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-f4by.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "F4BY_F427",
@@ -6021,7 +6541,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "F4BY_H743",
@@ -6128,7 +6656,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlyingMoonF407",
@@ -6213,7 +6749,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlyingMoonF427",
@@ -6314,7 +6858,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlyingMoonH743",
@@ -6416,7 +6968,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlysparkF4",
@@ -6495,7 +7055,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlywooF405Pro",
@@ -6573,7 +7141,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-flywoof405pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-flywoof405pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlywooF405S-AIO",
@@ -6656,7 +7232,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlywooF745",
@@ -6756,7 +7340,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-f745.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-f745.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FlywooH743Pro",
@@ -6842,7 +7434,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-h743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-h743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "fmuv5",
@@ -6953,7 +7553,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FoxeerF405v2",
@@ -7042,7 +7650,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-foxeerf405v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-foxeerf405v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "FoxeerH743v1",
@@ -7127,7 +7743,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-foxeerh743v1.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-foxeerh743v1.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "GEPRC_TAKER_H743",
@@ -7213,7 +7837,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-geprc-taker-h743-bt.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-geprc-taker-h743-bt.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "GEPRCF745BTHD",
@@ -7304,7 +7936,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-geprc-takerf745.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-geprc-takerf745.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "GreenSightUltraBlue",
@@ -7412,7 +8052,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-greensightultrablue.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-greensightultrablue.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "HEEWING-F405",
@@ -7486,7 +8134,15 @@
       "vehicles": [
         "plane"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-heewingf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-heewingf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Here4FC",
@@ -7569,7 +8225,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "HWH7",
@@ -7670,7 +8334,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "IFLIGHT_2RAW_H7",
@@ -7748,7 +8420,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JFB100",
@@ -7849,7 +8529,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JFB110",
@@ -7961,7 +8649,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-jae-jfb110.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-jae-jfb110.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JHEM_JHEF405",
@@ -8048,7 +8744,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-jhemcuf405pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-jhemcuf405pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JHEMCU-GSF405A",
@@ -8120,7 +8824,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JHEMCU-H743HD",
@@ -8208,7 +8920,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-jhemcu-h743hd.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-jhemcu-h743hd.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JHEMCUF405PRO",
@@ -8285,7 +9005,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-jhemcuf405pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-jhemcuf405pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JHEMCUF405WING",
@@ -8364,7 +9092,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "JPilot-C",
@@ -8450,7 +9186,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteF4",
@@ -8532,7 +9276,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4-mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4-mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteF4-Wing",
@@ -8610,7 +9362,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteF7",
@@ -8689,7 +9449,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteF7Mini",
@@ -8768,7 +9536,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteH7",
@@ -8862,7 +9638,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteH7-Wing",
@@ -8956,7 +9740,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteH7Mini",
@@ -9045,7 +9837,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteH7Mini-Nand",
@@ -9107,7 +9907,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KakuteH7v2",
@@ -9170,7 +9978,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7-v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7-v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "KT-FMU-F1",
@@ -9268,7 +10084,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "LongBowF405WING",
@@ -9347,7 +10171,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-longbowf405wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-longbowf405wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "LumenierLUXF765-NDAA",
@@ -9431,7 +10263,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-luxf765-ndaa.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-luxf765-ndaa.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "luminousbee4",
@@ -9520,7 +10360,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "luminousbee5",
@@ -9613,7 +10461,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MambaF405-2022",
@@ -9681,7 +10537,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-mambaf405-mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-mambaf405-mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MambaF405US-I2C",
@@ -9760,7 +10624,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MambaF405v2",
@@ -9841,7 +10713,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MambaH743v4",
@@ -9949,7 +10829,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-mambaH743v4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-mambaH743v4.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF405",
@@ -10027,7 +10915,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF405-CAN",
@@ -10113,7 +11009,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF405-STD",
@@ -10173,7 +11077,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF405-TE",
@@ -10251,7 +11163,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-te.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-te.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF405-Wing",
@@ -10341,7 +11261,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF765-SE",
@@ -10413,7 +11341,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wse.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wse.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekF765-Wing",
@@ -10512,7 +11448,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekH743",
@@ -10621,7 +11565,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-matekh743-wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-matekh743-wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MatekH7A3",
@@ -10701,7 +11653,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MazzyStarDrone",
@@ -10793,7 +11753,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MFT-SEMA100",
@@ -10883,7 +11851,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-mft-sema100.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-mft-sema100.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MicoAir405Mini",
@@ -10962,7 +11938,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir405v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir405v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MicoAir405v2",
@@ -11041,7 +12025,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir405v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir405v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MicoAir743",
@@ -11139,7 +12131,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MicoAir743-AIO",
@@ -11223,7 +12223,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743-AIO.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743-AIO.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MicoAir743-Lite",
@@ -11303,7 +12311,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MicoAir743v2",
@@ -11401,7 +12417,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mindpx-v2",
@@ -11500,7 +12524,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mini-pix",
@@ -11582,7 +12614,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-radiolink-minipix.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-radiolink-minipix.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "modalai_fc-v1",
@@ -11672,7 +12712,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Morakot",
@@ -11764,7 +12812,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-morakot.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-morakot.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mRoControlZeroClassic",
@@ -11863,7 +12919,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mRoControlZeroF7",
@@ -11959,7 +13023,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-mro-control-zero-F7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-mro-control-zero-F7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mRoControlZeroH7",
@@ -12055,7 +13127,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mRoControlZeroOEMH7",
@@ -12154,7 +13234,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mRoNexus",
@@ -12243,7 +13331,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-mro-nexus.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-mro-nexus.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "mRoPixracerPro",
@@ -12341,7 +13437,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "MUPilot",
@@ -12435,7 +13539,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-MUPilot.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-MUPilot.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "NarinFC-H5",
@@ -12502,7 +13614,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "NarinFC-H7",
@@ -12639,7 +13759,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-H7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-H7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "NarinFC-X3",
@@ -12727,7 +13855,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-X3.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-X3.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Nucleo-G491",
@@ -12792,7 +13928,15 @@
         }
       ],
       "vehicles": [],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "NucleoH755",
@@ -12869,7 +14013,15 @@
         }
       ],
       "vehicles": [],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "NxtPX4v2",
@@ -12954,7 +14106,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-NxtPX4v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-NxtPX4v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "omnibusf4pro",
@@ -13036,7 +14196,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf4pro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf4pro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "omnibusf4v6",
@@ -13114,7 +14282,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "OMNIBUSF7V2",
@@ -13198,7 +14374,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "OmnibusNanoV6",
@@ -13276,7 +14460,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-omnibusnanov6.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-omnibusnanov6.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ORBITH743",
@@ -13363,7 +14555,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-orbith743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-orbith743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "OrqaF405Pro",
@@ -13445,7 +14645,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-OrqaF405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-OrqaF405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "OrqaH7QuadCore",
@@ -13531,7 +14739,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PilotGaeaSH7V1-bdshot",
@@ -13618,7 +14834,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixC4-Jetson",
@@ -13719,7 +14943,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-horizon31-pixc4-jetson.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-horizon31-pixc4-jetson.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixFlamingo",
@@ -13807,7 +15039,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixflamingo-f767.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixflamingo-f767.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixFlamingo-F767",
@@ -13907,7 +15147,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixflamingo-f767.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixflamingo-f767.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixhawk1",
@@ -13989,7 +15237,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixhawk1-1M-bdshot",
@@ -14071,7 +15327,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixhawk1-bdshot",
@@ -14153,7 +15417,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixhawk5X",
@@ -14261,7 +15533,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixhawk6C",
@@ -14375,7 +15655,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pixhawk6C.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pixhawk6C.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixhawk6X",
@@ -14571,7 +15859,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pixhawk6X.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pixhawk6X.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixPilot-C3",
@@ -14663,7 +15959,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-C3.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-C3.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixPilot-V3",
@@ -14767,7 +16071,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V3.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V3.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixPilot-V6",
@@ -14871,7 +16183,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixPilot-V6PRO",
@@ -14968,7 +16288,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Pixracer",
@@ -15070,7 +16398,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-overview.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-overview.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixSurveyA1-IND",
@@ -15174,7 +16510,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixSurveyA1-IND.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixSurveyA1-IND.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PixSurveyA2-IND",
@@ -15271,7 +16615,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-pixsurveya2-ind.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-pixsurveya2-ind.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "PrincipIoTH7Pi",
@@ -15363,7 +16715,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "QioTekAdeptF407",
@@ -15464,7 +16824,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "QioTekZealotF427",
@@ -15590,7 +16958,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealot.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealot.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "QioTekZealotH743",
@@ -15718,7 +17094,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealoth7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealoth7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "R9Pilot",
@@ -15809,7 +17193,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "RadiolinkF405",
@@ -15902,7 +17294,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "RadiolinkPIX6",
@@ -15994,7 +17394,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-radiolinkpix6.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-radiolinkpix6.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "RADIX2HD",
@@ -16074,7 +17482,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-radix2hd.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-radix2hd.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ReaperF745",
@@ -16156,7 +17572,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ResoluteH7",
@@ -16238,7 +17662,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-resoluteh7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-resoluteh7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "revo-mini",
@@ -16318,7 +17750,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "revo-mini-i2c",
@@ -16402,7 +17842,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "rFCU",
@@ -16512,7 +17960,15 @@
         }
       ],
       "vehicles": [],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SequreH743",
@@ -16601,7 +18057,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-sequreh743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-sequreh743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "Sierra-PrecisionPoint",
@@ -16681,7 +18145,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SIYI_N7",
@@ -16779,7 +18251,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SkyRukh_Surge_H7",
@@ -16869,7 +18349,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SkySakuraH743",
@@ -16967,7 +18455,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-SkySakuraH743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-SkySakuraH743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SkystarsF405v2",
@@ -17047,7 +18543,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SkystarsH7HD",
@@ -17135,7 +18639,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-skystarsh7hdv2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-skystarsh7hdv2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SkystarsH7HDv2",
@@ -17212,7 +18724,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-skystarsh7hdv2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-skystarsh7hdv2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "skyviper-f412-rev1",
@@ -17290,7 +18810,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "skyviper-journey",
@@ -17367,7 +18895,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "skyviper-v2450",
@@ -17444,7 +18980,15 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "sparknavi-blue",
@@ -17536,7 +19080,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "sparky2",
@@ -17618,7 +19170,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-taulabs-sparky2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-taulabs-sparky2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SPEDIXF405",
@@ -17697,7 +19257,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spedixf405.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spedixf405.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SPEDIXH743",
@@ -17786,7 +19354,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spedixh743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spedixh743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "speedybeef4",
@@ -17863,7 +19439,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SpeedyBeeF405AIO",
@@ -17942,7 +19526,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405aio.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405aio.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SpeedyBeeF405Mini",
@@ -18021,7 +19613,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405-mini.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405-mini.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SpeedyBeeF405WING",
@@ -18100,7 +19700,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "speedybeef4v3",
@@ -18178,7 +19786,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4-v3.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4-v3.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "speedybeef4v4",
@@ -18257,7 +19873,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "speedybeef4v5",
@@ -18336,7 +19960,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SPRacingH7",
@@ -18421,7 +20053,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-extreme.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-extreme.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SPRacingH7RF",
@@ -18498,7 +20138,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-rf.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-rf.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "StellarF4",
@@ -18591,7 +20239,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "StellarF4V2",
@@ -18683,7 +20339,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "StellarH7V2",
@@ -18770,7 +20434,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-stellarh7v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-stellarh7v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SuccexF4",
@@ -18852,7 +20524,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SULILGH7-P1-P2",
@@ -18965,7 +20645,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "SVehicle-E2",
@@ -19073,7 +20761,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "TBS_LUCID_H7",
@@ -19171,7 +20867,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidh7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidh7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "TBS_LUCID_H7_WING",
@@ -19236,7 +20940,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucid-h7-wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucid-h7-wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "TBS_LUCID_H7_WING_AIO",
@@ -19301,7 +21013,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucid-h7-wing.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucid-h7-wing.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "TBS_LUCID_PRO",
@@ -19385,7 +21105,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidpro.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidpro.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "thepeach-k1",
@@ -19476,7 +21204,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-thepeach-k1.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-thepeach-k1.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "thepeach-r1",
@@ -19567,7 +21303,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-thepeach-r1.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-thepeach-r1.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "TMotorH743",
@@ -19651,7 +21395,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "uav-dev-fc-um982",
@@ -19737,7 +21489,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-uav-dev-fc-um982.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-uav-dev-fc-um982.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VRBrain-v51",
@@ -19825,7 +21585,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VRBrain-v52",
@@ -19908,7 +21676,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VRBrain-v54",
@@ -19996,7 +21772,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VRCore-v10",
@@ -20079,7 +21863,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VRUBrain-v51",
@@ -20162,7 +21954,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VUAV-TinyV7",
@@ -20259,7 +22059,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-vuav-tinyv7.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-vuav-tinyv7.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "VUAV-V7pro",
@@ -20373,7 +22181,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "X-MAV-AP-H743r1",
@@ -20483,7 +22299,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "X-MAV-AP-H743v2",
@@ -20583,7 +22407,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-X_MAV_H743v2.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-X_MAV_H743v2.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "YARIV6X",
@@ -20691,7 +22523,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null
+      "docs_url": null,
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "YJUAV_A6",
@@ -20820,7 +22660,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "YJUAV_A6SE",
@@ -20941,7 +22789,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "YJUAV_A6SE_H743",
@@ -21062,7 +22918,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se-h743.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se-h743.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "YJUAV_A6Ultra",
@@ -21188,7 +23052,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ZeroOneX6",
@@ -21306,7 +23178,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     },
     {
       "slug": "ZeroOneX6_Air",
@@ -21418,7 +23298,15 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6-air.html"
+      "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6-air.html",
+      "manual": {
+        "form_factor": null,
+        "size_class": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "notes": null
+      }
     }
   ]
 }

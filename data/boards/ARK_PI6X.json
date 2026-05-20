@@ -1,0 +1,100 @@
+{
+  "slug": "ARK_PI6X",
+  "name": "ARK_PI6X",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "UART7",
+      "UART5",
+      "USART1",
+      "UART4",
+      "USART6"
+    ],
+    "i2c_count": 3,
+    "i2c_buses": [
+      "I2C1",
+      "I2C3",
+      "I2C4"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI2"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 8,
+      "io": 0,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 3,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688_1",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688_2",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP388",
+      "bus": "I2C:2:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IIS2MDC",
+      "bus": "I2C:2:0x1E",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

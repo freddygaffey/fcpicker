@@ -1,0 +1,88 @@
+{
+  "slug": "RADIX2HD",
+  "name": "RADIX2HD",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H750xx"
+  },
+  "flash_kb": 128,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART5",
+      "USART6",
+      "UART7"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 1,
+    "spi_buses": [
+      "SPI1"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": true,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 11,
+      "io": 0,
+      "total": 11
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 3
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS310",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-radix2hd.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "slug": "QioTekZealotF427",
+  "name": "QioTekZealotF427",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F427xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART5"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI2"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 14,
+      "io": 0,
+      "total": 14
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 8
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20689",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null
+    },
+    {
+      "chip": "BMI055",
+      "bus": "SPI:bmi055_a",
+      "variant": null
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi055_a",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42605",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS280",
+      "bus": "SPI:dps310",
+      "variant": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x77",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:0:0x0E",
+      "variant": null
+    },
+    {
+      "chip": "QMC5883L",
+      "bus": "I2C:0:0x0D",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealot.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

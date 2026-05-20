@@ -1,0 +1,80 @@
+{
+  "slug": "MatekF765-SE",
+  "name": "MatekF765-SE",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "UART7",
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART8",
+      "USART6",
+      "UART5"
+    ],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 1,
+    "spi_buses": [
+      "SPI4"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 4,
+      "io": 0,
+      "total": 4
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    }
+  ],
+  "baros": [],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wse.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

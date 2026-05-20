@@ -1,0 +1,88 @@
+{
+  "slug": "revo-mini",
+  "name": "revo-mini",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F405xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 2,
+    "uart_buses": [
+      "USART1",
+      "USART3"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI3"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 8,
+      "io": 0,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 4
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x77",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "HMC5843",
+      "bus": "I2C:0:0x1E",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

@@ -8,14 +8,21 @@ Betaflight can be added later.
 ## How it works
 
 ```
-~/ardupilot/.../hwdef/*           tools/build.py        frontend/public/boards.json
-       (hwdef.dat / hwdef.inc) ──▶ (Python + SQLAlchemy) ──▶ (consumed by React UI)
-                                          │
-                                          └─▶ data/fcpicker.sqlite (intermediate)
+~/ardupilot/.../hwdef/*    tools/build.py     data/boards/<slug>.json    tools/bundle.py    frontend/public/boards.json
+   (hwdef.dat / .inc)   ─▶ (Python/SQLAlchemy) ─▶ (one per board,      ─▶ (concat)       ─▶ (consumed by React UI)
+                                                  hand-editable,
+                                                  committed)
+                                  │
+                                  └─▶ data/fcpicker.sqlite (intermediate)
 ```
 
-The site is **fully static**. Python runs only at build time on your machine to
-regenerate `boards.json`. Cloudflare Pages just serves the static React build.
+The site is **fully static**. The per-board JSON files in `data/boards/` are the
+source of truth — each has hwdef-derived keys plus a `manual` block
+(`form_factor`, `size_class`, `dimensions_mm`, `weight_g`, `connectors`, `notes`)
+for fields that can't be extracted automatically. `tools/build.py` only ever
+overwrites its own keys; manual edits survive re-runs. `tools/bundle.py`
+concatenates the per-board files into `frontend/public/boards.json` for the
+frontend to fetch.
 
 ## Local setup
 
@@ -28,8 +35,12 @@ python3 -m venv .venv
 .venv/bin/pip install -r tools/requirements.txt
 cd frontend && npm install && cd ..
 
-# regenerate the board catalog
+# re-import from hwdef (only needed when ArduPilot adds new boards)
 .venv/bin/python tools/build.py
+
+# re-bundle per-board files into boards.json
+# (the pre-commit hook does this automatically when data/boards/*.json is staged)
+.venv/bin/python tools/bundle.py
 
 # run the site locally
 cd frontend && npm run dev
@@ -40,12 +51,14 @@ cd frontend && npm run dev
 ```
 fcpicker/
 ├── tools/
-│   ├── build.py          # parses hwdef → SQLite → boards.json
+│   ├── build.py          # parses hwdef → SQLite → data/boards/*.json
+│   ├── bundle.py         # concats data/boards/*.json → frontend/public/boards.json
 │   └── requirements.txt
 ├── data/
-│   └── fcpicker.sqlite   # generated, gitignored
+│   ├── boards/<slug>.json   # source of truth, one per board, committed
+│   └── fcpicker.sqlite      # generated, gitignored
 ├── frontend/
-│   ├── public/boards.json   # generated, committed (so Cloudflare can build)
+│   ├── public/boards.json   # bundled, committed (so Cloudflare can build)
 │   └── src/                 # React + Vite + TypeScript app
 └── README.md
 ```

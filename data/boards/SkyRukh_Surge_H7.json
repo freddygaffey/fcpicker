@@ -1,0 +1,98 @@
+{
+  "slug": "SkyRukh_Surge_H7",
+  "name": "SkyRukh_Surge_H7",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "USART2",
+      "USART6",
+      "USART3",
+      "UART7",
+      "UART4",
+      "UART5",
+      "UART8"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C4"
+    ],
+    "spi_count": 5,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4",
+      "SPI5",
+      "SPI6"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 8,
+      "io": 0,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 2
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS310",
+      "bus": "SPI:dps310",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

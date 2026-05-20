@@ -1,0 +1,68 @@
+{
+  "slug": "MatekF405-STD",
+  "name": "MatekF405-STD",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 0,
+    "uart_buses": [],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 0,
+    "spi_buses": [],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 0,
+    "pwm": {
+      "fmu": 1,
+      "io": 0,
+      "total": 1
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null
+    }
+  ],
+  "baros": [],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "AEROFOX-H7",
+  "name": "AEROFOX-H7",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "UART7",
+      "UART4",
+      "UART5",
+      "USART2",
+      "USART1",
+      "UART8",
+      "USART3"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C1",
+      "I2C2"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 16,
+      "io": 0,
+      "total": 16
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "ADIS1647x",
+      "bus": "SPI:16470",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:42688_1",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:42688_2",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "QMC5883L",
+      "bus": "I2C:0:0x0D",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-aerofox-h7.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

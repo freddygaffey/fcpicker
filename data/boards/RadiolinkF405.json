@@ -1,0 +1,101 @@
+{
+  "slug": "RadiolinkF405",
+  "name": "RadiolinkF405",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F405xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART5"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 7,
+      "io": 0,
+      "total": 7
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 3
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:imu",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:imu",
+      "variant": null
+    },
+    {
+      "chip": "BMI270",
+      "bus": "SPI:imu",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

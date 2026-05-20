@@ -1,0 +1,90 @@
+{
+  "slug": "Pixhawk1-bdshot",
+  "name": "Pixhawk1-bdshot",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 0,
+    "uart_buses": [],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 0,
+    "spi_buses": [],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 0,
+    "pwm": {
+      "fmu": 0,
+      "io": 8,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null
+    },
+    {
+      "chip": "LSM9DS0",
+      "bus": "SPI:lsm9ds0_g",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "HMC5843",
+      "bus": "SPI:hmc5843",
+      "variant": null
+    },
+    {
+      "chip": "LSM303D",
+      "bus": "SPI:lsm9ds0_am",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "slug": "CubeOrange",
+  "name": "CubeOrange",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 6,
+      "io": 8,
+      "total": 14
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 8
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602_ext",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20948_ext",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20948",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_ext",
+      "variant": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "AK09916:probe_ICM20948",
+      "bus": "0",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

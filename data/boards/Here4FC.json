@@ -1,0 +1,91 @@
+{
+  "slug": "Here4FC",
+  "name": "Here4FC",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H757xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 4,
+    "uart_buses": [
+      "USART1",
+      "UART4",
+      "UART8",
+      "USART2"
+    ],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI3"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 0,
+    "pwm": {
+      "fmu": 10,
+      "io": 0,
+      "total": 10
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 1
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

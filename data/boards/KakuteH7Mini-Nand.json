@@ -1,0 +1,70 @@
+{
+  "slug": "KakuteH7Mini-Nand",
+  "name": "KakuteH7Mini-Nand",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 0,
+    "uart_buses": [],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 1,
+    "spi_buses": [
+      "SPI4"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 0,
+    "pwm": {
+      "fmu": 0,
+      "io": 0,
+      "total": 0
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270",
+      "variant": null
+    }
+  ],
+  "baros": [],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

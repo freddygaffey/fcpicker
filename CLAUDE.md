@@ -9,16 +9,20 @@ fcPicker is a **fully static** site backed by an offline build pipeline. There i
 Data flow:
 
 ```
-~/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/*    tools/build.py        frontend/public/boards.json
-  (hwdef.dat / hwdef.inc, per-board)         ─▶ (Python+SQLAlchemy) ─▶ (committed; consumed by React)
-                                                       │
-                                                       └─▶ data/fcpicker.sqlite (intermediate)
+~/ardupilot/.../hwdef/*    tools/build.py     data/boards/<slug>.json    tools/bundle.py    frontend/public/boards.json
+  (hwdef.dat / .inc)    ─▶ (Python/SQLAlchemy) ─▶ (one per board,      ─▶ (concat)       ─▶ (committed; fetched by React)
+                                                  hand-editable,
+                                                  committed)
+                                  │
+                                  └─▶ data/fcpicker.sqlite (intermediate)
 ```
 
-Three key consequences of this design:
+Key consequences:
 
-- `frontend/public/boards.json` is **generated but committed**, because Cloudflare's build env does not run the Python pipeline. Regenerate and commit when the hwdef sources change.
-- The schema in `tools/build.py` is intentionally firmware-agnostic (Board / Sensor / FirmwareSupport with a `firmware` discriminator) so PX4 / INAV / Betaflight can be layered in later. Don't bake ArduPilot assumptions into the schema or the JSON shape.
+- **`data/boards/<slug>.json` is the source of truth.** Each file has hwdef-derived keys plus a `manual` block (`form_factor`, `size_class`, `dimensions_mm`, `weight_g`, `connectors`, `notes`) that humans / the admin UI own. `tools/build.py` only overwrites its own keys; `manual` is preserved across re-runs.
+- **`frontend/public/boards.json` is bundled from those files** by `tools/bundle.py`. Committed because Cloudflare's build env does not run Python. The pre-commit hook re-bundles whenever any `data/boards/*.json` is staged.
+- The build script is now mostly a **one-shot importer** — run it when ArduPilot adds a new hwdef board, and a new `data/boards/<slug>.json` appears. Existing files keep their `manual` block.
+- The schema in `tools/build.py` is intentionally firmware-agnostic (Board / Sensor / FirmwareSupport with a `firmware` discriminator) so PX4 / INAV / Betaflight can be layered in later.
 - The pipeline also reads `~/ardupilot_wiki` (cloned separately) to match boards to documentation URLs. Missing wiki dir is fine — boards just won't get `docs_url`.
 
 ### `tools/build.py` internals
@@ -38,8 +42,13 @@ Three key consequences of this design:
 Run from repo root unless noted.
 
 ```bash
-# Regenerate the board catalog (writes data/fcpicker.sqlite + frontend/public/boards.json)
+# Re-import from hwdef (writes data/fcpicker.sqlite, updates data/boards/*.json,
+# preserves manual blocks, re-bundles frontend/public/boards.json)
 .venv/bin/python tools/build.py
+
+# Re-bundle per-board JSON files into frontend/public/boards.json
+# (run by the pre-commit hook automatically when data/boards/*.json is staged)
+.venv/bin/python tools/bundle.py
 
 # Frontend dev / lint / build (root package.json proxies to frontend/)
 npm run dev

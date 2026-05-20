@@ -1,0 +1,97 @@
+{
+  "slug": "mRoNexus",
+  "name": "mRoNexus",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 2,
+    "uart_buses": [
+      "UART7",
+      "UART4"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C4"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI2",
+      "SPI3",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 0,
+      "io": 0,
+      "total": 0
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 2
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "ADIS1647x",
+      "bus": "SPI:adis16470",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm40609d",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS310",
+      "bus": "SPI:dps310",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-mro-nexus.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

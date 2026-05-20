@@ -1,0 +1,96 @@
+{
+  "slug": "F4BY",
+  "name": "F4BY",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F407xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 4,
+    "uart_buses": [
+      "USART2",
+      "USART1",
+      "USART3",
+      "UART5"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI2"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 12,
+      "io": 0,
+      "total": 12
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x77",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "HMC5843",
+      "bus": "I2C:0:0x1E",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-f4by.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

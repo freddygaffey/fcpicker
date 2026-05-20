@@ -6,7 +6,18 @@ set -e
 repo_root="$(git rev-parse --show-toplevel)"
 cd "$repo_root"
 
-# Only run if frontend files are staged.
+staged="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+# Re-bundle per-board JSON files into frontend/public/boards.json
+# whenever any data/boards/*.json is staged.
+if echo "$staged" | grep -qE '^data/boards/.*\.json$'; then
+  echo "[pre-commit] bundling per-board JSON…"
+  python3 tools/bundle.py
+  git add frontend/public/boards.json
+fi
+
+# Lint + build when frontend files (including the freshly-bundled
+# boards.json above) are staged.
 if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^frontend/'; then
   echo "[pre-commit] running lint…"
   npm run lint --silent

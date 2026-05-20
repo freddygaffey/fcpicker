@@ -1,0 +1,121 @@
+{
+  "slug": "Durandal",
+  "name": "Durandal",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "USART1",
+      "UART4",
+      "USART6",
+      "UART7"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C3",
+      "I2C1",
+      "I2C2",
+      "I2C4"
+    ],
+    "spi_count": 5,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4",
+      "SPI5",
+      "SPI6"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 8,
+      "io": 8,
+      "total": 16
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 9
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20689",
+      "variant": null
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi055_a",
+      "variant": null
+    },
+    {
+      "chip": "BMI055",
+      "bus": "SPI:bmi055_a",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602_2",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:ALL_EXTERNAL:0x0E",
+      "variant": null
+    },
+    {
+      "chip": "IST8310",
+      "bus": "I2C:ALL_INTERNAL:0x0E",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-durandal-overview.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

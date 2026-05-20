@@ -1,0 +1,85 @@
+{
+  "slug": "skyviper-v2450",
+  "name": "skyviper-v2450",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F427xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 2,
+    "uart_buses": [
+      "USART2",
+      "UART4"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 6,
+      "io": 0,
+      "total": 6
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "ICM20789",
+      "bus": "I2C:1:0x63",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "BMM150",
+      "bus": "I2C:0:0x10",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

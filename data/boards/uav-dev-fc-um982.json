@@ -1,0 +1,94 @@
+{
+  "slug": "uav-dev-fc-um982",
+  "name": "uav-dev-fc-um982",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART1",
+      "UART8",
+      "USART2",
+      "USART6",
+      "UART7",
+      "USART3"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 1,
+    "spi_buses": [
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 6,
+      "io": 0,
+      "total": 6
+    },
+    "ethernet": true,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 1
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS310",
+      "bus": "SPI:dps310",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "BMM150",
+      "bus": "I2C:0:0x10",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-uav-dev-fc-um982.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

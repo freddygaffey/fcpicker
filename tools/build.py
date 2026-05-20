@@ -532,67 +532,95 @@ def export_robots(out_path: Path) -> None:
     )
 
 
-def export_json(session: Session, out_path: Path) -> None:
-    boards = session.scalars(select(Board)).all()
-    payload = []
-    for b in boards:
-        uart_buses = [x for x in b.uart_buses_csv.split(",") if x]
-        i2c_buses = [x for x in b.i2c_buses_csv.split(",") if x]
-        spi_buses = [x for x in b.spi_buses_csv.split(",") if x]
-        can_buses = [x for x in b.can_buses_csv.split(",") if x]
-        payload.append({
-            "slug": b.slug,
-            "name": b.name,
-            "manufacturer": b.manufacturer,
-            "mcu": {"family": b.mcu_family, "part": b.mcu_part},
-            "flash_kb": b.flash_kb,
-            "io": {
-                "uart_count": len(uart_buses),
-                "uart_buses": uart_buses,
-                "i2c_count": len(i2c_buses),
-                "i2c_buses": i2c_buses,
-                "spi_count": len(spi_buses),
-                "spi_buses": spi_buses,
-                "can_count": len(can_buses),
-                "can_buses": can_buses,
-                "canfd": bool(b.canfd),
-                "usb_count": b.usb_count,
-                "pwm": {
-                    "fmu": b.pwm_fmu,
-                    "io": b.pwm_io,
-                    "total": b.pwm_fmu + b.pwm_io,
-                },
-                "ethernet": bool(b.ethernet),
-                "sdcard": bool(b.sdcard),
-                "sbus_out": bool(b.sbus_out),
-                "iomcu": bool(b.iomcu),
-                "adc_inputs": b.adc_inputs,
+# Keys this script owns — anything else in an existing per-board file
+# (notably the `manual` block edited by hand or via the admin UI) is preserved.
+GENERATED_KEYS = {
+    "slug", "name", "manufacturer", "mcu", "flash_kb", "io", "power",
+    "imus", "baros", "compasses", "firmware_support", "vehicles", "docs_url",
+}
+
+MANUAL_TEMPLATE = {
+    "form_factor": None,
+    "size_class": None,
+    "dimensions_mm": None,
+    "weight_g": None,
+    "connectors": [],
+    "notes": None,
+}
+
+
+def _board_payload(b: "Board") -> dict:
+    uart_buses = [x for x in b.uart_buses_csv.split(",") if x]
+    i2c_buses = [x for x in b.i2c_buses_csv.split(",") if x]
+    spi_buses = [x for x in b.spi_buses_csv.split(",") if x]
+    can_buses = [x for x in b.can_buses_csv.split(",") if x]
+    return {
+        "slug": b.slug,
+        "name": b.name,
+        "manufacturer": b.manufacturer,
+        "mcu": {"family": b.mcu_family, "part": b.mcu_part},
+        "flash_kb": b.flash_kb,
+        "io": {
+            "uart_count": len(uart_buses),
+            "uart_buses": uart_buses,
+            "i2c_count": len(i2c_buses),
+            "i2c_buses": i2c_buses,
+            "spi_count": len(spi_buses),
+            "spi_buses": spi_buses,
+            "can_count": len(can_buses),
+            "can_buses": can_buses,
+            "canfd": bool(b.canfd),
+            "usb_count": b.usb_count,
+            "pwm": {
+                "fmu": b.pwm_fmu,
+                "io": b.pwm_io,
+                "total": b.pwm_fmu + b.pwm_io,
             },
-            "power": {
-                "monitor_inputs": b.power_inputs,
-                "bec": [
-                    {
-                        "rail": r.rail,
-                        "voltage_v": r.voltage_v,
-                        "current_a": r.current_a,
-                        "note": r.note,
-                    }
-                    for r in b.bec_rails
-                ],
-            },
-            "imus":     [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "imu"],
-            "baros":    [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "baro"],
-            "compasses":[{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "compass"],
-            "firmware_support": [
-                {"firmware": f.firmware, "maturity": f.maturity}
-                for f in b.firmware_support
+            "ethernet": bool(b.ethernet),
+            "sdcard": bool(b.sdcard),
+            "sbus_out": bool(b.sbus_out),
+            "iomcu": bool(b.iomcu),
+            "adc_inputs": b.adc_inputs,
+        },
+        "power": {
+            "monitor_inputs": b.power_inputs,
+            "bec": [
+                {"rail": r.rail, "voltage_v": r.voltage_v,
+                 "current_a": r.current_a, "note": r.note}
+                for r in b.bec_rails
             ],
-            "vehicles": [v for v in b.vehicles_csv.split(",") if v],
-            "docs_url": b.docs_url,
-        })
-    payload.sort(key=lambda x: x["slug"].lower())
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps({"boards": payload}, indent=2))
+        },
+        "imus":     [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "imu"],
+        "baros":    [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "baro"],
+        "compasses":[{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "compass"],
+        "firmware_support": [
+            {"firmware": f.firmware, "maturity": f.maturity}
+            for f in b.firmware_support
+        ],
+        "vehicles": [v for v in b.vehicles_csv.split(",") if v],
+        "docs_url": b.docs_url,
+    }
+
+
+def export_per_board(session: Session, out_dir: Path) -> int:
+    """Write one JSON file per board, preserving any existing `manual` block."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    written = 0
+    for b in session.scalars(select(Board)).all():
+        path = out_dir / f"{b.slug}.json"
+        manual = dict(MANUAL_TEMPLATE)
+        if path.exists():
+            try:
+                existing = json.loads(path.read_text())
+                if isinstance(existing.get("manual"), dict):
+                    manual = {**MANUAL_TEMPLATE, **existing["manual"]}
+            except json.JSONDecodeError:
+                pass  # corrupt file — overwrite from scratch
+        payload = _board_payload(b)
+        payload["manual"] = manual
+        path.write_text(json.dumps(payload, indent=2) + "\n")
+        written += 1
+    return written
 
 
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif"}
@@ -649,16 +677,21 @@ def main() -> int:
 
     docs_map = build_docs_map()
 
+    boards_dir = DATA_DIR / "boards"
     with Session(engine) as session:
         populate_db(session, parsed, docs_map)
-        export_json(session, FRONTEND_PUBLIC / "boards.json")
+        n_boards = export_per_board(session, boards_dir)
         export_sitemap(session, FRONTEND_PUBLIC / "sitemap.xml")
         export_robots(FRONTEND_PUBLIC / "robots.txt")
+
+    # Concat per-board files into the single boards.json the frontend fetches.
+    from bundle import bundle
+    bundle(boards_dir, FRONTEND_PUBLIC / "boards.json")
 
     img_count = export_hwdef_images(ARDUPILOT_HWDEF, FRONTEND_PUBLIC / "hwdef-images.json")
 
     matched = sum(1 for p in parsed if p.docs_url)
-    print(f"Parsed {len(parsed)} autopilot boards "
+    print(f"Parsed {n_boards} autopilot boards "
           f"({matched} matched to wiki docs, {len(parsed) - matched} unmatched).")
     print(f"  SQLite: {db_path}")
     print(f"  JSON:   {FRONTEND_PUBLIC / 'boards.json'}")

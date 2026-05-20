@@ -1,0 +1,105 @@
+{
+  "slug": "PixSurveyA2-IND",
+  "name": "PixSurveyA2-IND",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 6,
+      "io": 8,
+      "total": 14
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 5
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:ICM42688",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:ICM42688_ext",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:ICM40605_ext",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP388",
+      "bus": "SPI:BMP388",
+      "variant": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "SPI:BMP388_ext",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixsurveya2-ind.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

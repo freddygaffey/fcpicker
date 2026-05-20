@@ -1,0 +1,88 @@
+{
+  "slug": "Sierra-PrecisionPoint",
+  "name": "Sierra-PrecisionPoint",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F412Rx"
+  },
+  "flash_kb": 512,
+  "io": {
+    "uart_count": 2,
+    "uart_buses": [
+      "USART1",
+      "USART2"
+    ],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI2"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 1,
+      "io": 0,
+      "total": 1
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 1
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS310",
+      "bus": "SPI:dps310",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

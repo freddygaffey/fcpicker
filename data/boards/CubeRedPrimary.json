@@ -1,0 +1,117 @@
+{
+  "slug": "CubeRedPrimary",
+  "name": "CubeRedPrimary",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H757xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART2",
+      "USART6",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C4"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 6,
+      "io": 8,
+      "total": 14
+    },
+    "ethernet": true,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 7
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688_1",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688_0",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_0",
+      "variant": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_1",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

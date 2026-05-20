@@ -1,0 +1,99 @@
+{
+  "slug": "R9Pilot",
+  "name": "R9Pilot",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F7xx",
+    "part": "STM32F767xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "USART1",
+      "UART5",
+      "USART6",
+      "UART7",
+      "UART8"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C3"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3",
+      "SPI4"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 8,
+      "io": 0,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 4
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:imu2",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:imu2",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "SPL06",
+      "bus": "SPI:spl06",
+      "variant": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

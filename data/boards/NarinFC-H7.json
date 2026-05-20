@@ -1,0 +1,145 @@
+{
+  "slug": "NarinFC-H7",
+  "name": "NarinFC-H7",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART2",
+      "USART6",
+      "USART1",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C3",
+      "I2C1",
+      "I2C2",
+      "I2C4"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4",
+      "SPI6"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 14,
+      "io": 0,
+      "total": 14
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 8
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "ADIS1647x",
+      "bus": "SPI:adis16470",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20689",
+      "variant": null
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20689_board",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_imu",
+      "variant": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_board",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:ALL_EXTERNAL:0x0E",
+      "variant": null
+    },
+    {
+      "chip": "IST8310",
+      "bus": "I2C:ALL_INTERNAL:0x0E",
+      "variant": null
+    },
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100-1",
+      "variant": null
+    },
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100-2",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-H7.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

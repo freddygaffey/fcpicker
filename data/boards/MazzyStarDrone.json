@@ -1,0 +1,100 @@
+{
+  "slug": "MazzyStarDrone",
+  "name": "MazzyStarDrone",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F7xx",
+    "part": "STM32F745xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 4,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "UART4",
+      "USART3"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI4"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 8,
+      "io": 0,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 3
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi055_a",
+      "variant": null
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20689",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:ALL_EXTERNAL:0x0E",
+      "variant": null
+    },
+    {
+      "chip": "IST8310",
+      "bus": "I2C:ALL_INTERNAL:0x0E",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}

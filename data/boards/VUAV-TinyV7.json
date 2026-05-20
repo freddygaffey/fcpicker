@@ -1,0 +1,105 @@
+{
+  "slug": "VUAV-TinyV7",
+  "name": "VUAV-TinyV7",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "UART5",
+      "USART1",
+      "USART3",
+      "UART7"
+    ],
+    "i2c_count": 3,
+    "i2c_buses": [
+      "I2C1",
+      "I2C2",
+      "I2C4"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI4"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 12,
+      "io": 0,
+      "total": 12
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 7
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:imu1",
+      "variant": null
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null
+    }
+  ],
+  "baros": [
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:0:0x63",
+      "variant": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:0:0x0E",
+      "variant": null
+    },
+    {
+      "chip": "QMC5883L",
+      "bus": "I2C:0:0xD",
+      "variant": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-vuav-tinyv7.html",
+  "manual": {
+    "form_factor": null,
+    "size_class": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "notes": null
+  }
+}
