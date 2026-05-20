@@ -98,11 +98,22 @@
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
   "manual": {
+    "status": "partial",
     "form_factor": null,
-    "size_class": null,
-    "dimensions_mm": null,
-    "weight_g": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": {
+      "length": 34,
+      "width": 20,
+      "height": null
+    },
+    "weight_g": 3.66,
     "connectors": [],
+    "images": [
+      "image-mpdzz9wn.png"
+    ],
+    "ardupilot_repo_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
+    "discontinued": false,
     "notes": null
   }
 }

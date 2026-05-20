@@ -607,6 +607,21 @@
 .trow:hover { background: var(--ap-blue-soft); }
 .trow:last-child { border-bottom: 0; }
 .trow td { padding: 10px 14px; color: var(--ink); }
+.trow-disc td { color: var(--ink-mute); }
+.trow-disc .row-link { color: var(--ink-mute); }
+.row-disc-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #fde4e4;
+  color: #b03030;
+  border-radius: 3px;
+  vertical-align: middle;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
 
 /* Boolean yes/no cell (Ethernet, microSD, SBUS, IOMCU, CAN-FD) */
 .td-bool {

@@ -76,11 +76,19 @@
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beasth7AIO.html",
   "manual": {
+    "status": "partial",
     "form_factor": null,
-    "size_class": null,
-    "dimensions_mm": null,
-    "weight_g": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": {
+      "length": 32.5,
+      "width": 32.5,
+      "height": null
+    },
+    "weight_g": 8.5,
     "connectors": [],
-    "notes": null
+    "notes": null,
+    "images": [],
+    "ardupilot_repo_url": null
   }
 }

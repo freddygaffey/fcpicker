@@ -3,6 +3,8 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 export default function Layout() {
   const loc = useLocation();
   const onSelector = loc.pathname === "/";
+  const onAdmin = loc.pathname.startsWith("/admin");
+  const stageClass = onAdmin ? "stage stage-admin" : onSelector ? "stage stage-selector" : "stage stage-detail";
 
   return (
     <div className="app">
@@ -38,7 +40,7 @@ export default function Layout() {
         </div>
       </header>
 
-      <main className={onSelector ? "stage stage-selector" : "stage stage-detail"}>
+      <main className={stageClass}>
         <Outlet />
       </main>
 
@@ -71,6 +73,10 @@ export default function Layout() {
             </a>{" "}
             &middot;{" "}
             <a href="mailto:fredgaffey08@gmail.com">fredgaffey08@gmail.com</a>
+            {" "}&middot;{" "}
+            <Link to="/admin" style={{ color: "var(--ink-dim)", fontSize: "11px", letterSpacing: "0.04em" }}>
+              workbench
+            </Link>
           </p>
         </div>
       </footer>

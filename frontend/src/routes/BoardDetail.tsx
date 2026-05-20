@@ -57,36 +57,25 @@ export default function BoardDetail() {
         </div>
       )}
 
-      {/* Board images — pulled straight from the hwdef directory on GitHub */}
-      {boardImages && boardImages.images.length > 0 && (
-        <section className="bd-section">
-          <h2 className="bd-h2">Board photos &amp; diagrams</h2>
-          <div className="bd-gallery">
-            {boardImages.images.map((img) => {
-              const url = `${boardImages.baseUrl}/${slug}/${img
-                .split("/")
-                .map(encodeURIComponent)
-                .join("/")}`;
-              return (
-                <a
-                  key={img}
-                  className="bd-gallery-item"
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={img}
-                >
-                  <img src={url} alt={img} loading="lazy" />
-                  <span className="bd-gallery-caption">{img}</span>
-                </a>
-              );
-            })}
-          </div>
-          <p className="bd-aside">
-            Sourced from this board&rsquo;s hwdef directory on GitHub.
-          </p>
-        </section>
+      {b.manual?.ardupilot_repo_url && b.manual.ardupilot_repo_url !== b.docs_url && (
+        <a
+          className="bd-doc-cta"
+          href={b.manual.ardupilot_repo_url}
+          target="_blank"
+          rel="noreferrer"
+          style={{ marginTop: 8 }}
+        >
+          <span className="bd-doc-cta-label">Vendor / ArduPilot repository link</span>
+          <span className="bd-doc-cta-arrow">↗</span>
+        </a>
       )}
+
+      {/* Board images — admin uploads first, then hwdef images from GitHub */}
+      <BoardGallery
+        slug={slug}
+        adminImages={b.manual?.images ?? []}
+        hwdefImages={boardImages}
+      />
 
       {/* Stats strip — at a glance */}
       <section className="bd-section">
@@ -176,6 +165,57 @@ export default function BoardDetail() {
         </ul>
       </section>
     </article>
+  );
+}
+
+function BoardGallery({
+  slug, adminImages, hwdefImages,
+}: {
+  slug: string;
+  adminImages: string[];
+  hwdefImages: ReturnType<typeof useBoardImages>;
+}) {
+  type Img = { url: string; caption: string; source: "admin" | "hwdef" };
+  const images: Img[] = [];
+  // Track basenames already added — first wins (admin uploads win over hwdef).
+  const seen = new Set<string>();
+  const key = (name: string) => name.split("/").pop()!.toLowerCase();
+  for (const f of adminImages) {
+    if (seen.has(key(f))) continue;
+    seen.add(key(f));
+    images.push({
+      url: `/board-images/${encodeURIComponent(slug)}/${encodeURIComponent(f)}`,
+      caption: f,
+      source: "admin",
+    });
+  }
+  if (hwdefImages) {
+    for (const img of hwdefImages.images) {
+      if (seen.has(key(img))) continue;
+      seen.add(key(img));
+      images.push({
+        url: `${hwdefImages.baseUrl}/${slug}/${img.split("/").map(encodeURIComponent).join("/")}`,
+        caption: img,
+        source: "hwdef",
+      });
+    }
+  }
+  if (images.length === 0) return null;
+  return (
+    <section className="bd-section">
+      <h2 className="bd-h2">Board photos &amp; diagrams</h2>
+      <div className="bd-gallery">
+        {images.map((it) => (
+          <a key={it.source + ":" + it.url} className="bd-gallery-item" href={it.url} target="_blank" rel="noreferrer" title={it.caption}>
+            <img src={it.url} alt={it.caption} loading="lazy" />
+            <span className="bd-gallery-caption">{it.caption}</span>
+          </a>
+        ))}
+      </div>
+      <p className="bd-aside">
+        Curated photos plus hwdef pinouts pulled from GitHub.
+      </p>
+    </section>
   );
 }
 

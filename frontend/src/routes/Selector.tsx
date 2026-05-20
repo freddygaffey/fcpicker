@@ -21,6 +21,7 @@ interface Filters {
   sbusOut: boolean;
   iomcu: boolean;
   minFlash: number;
+  includeDiscontinued: boolean;
 }
 
 const DEFAULTS: Filters = {
@@ -41,6 +42,7 @@ const DEFAULTS: Filters = {
   sbusOut: false,
   iomcu: false,
   minFlash: 0,
+  includeDiscontinued: false,
 };
 
 const VEHICLES: { id: VehicleType; label: string }[] = [
@@ -175,6 +177,7 @@ function downloadCsv(boards: Board[], columnIds: string[]) {
 }
 
 function passes(b: Board, f: Filters): boolean {
+  if (!f.includeDiscontinued && b.manual?.discontinued) return false;
   if (f.query) {
     const q = f.query.trim().toLowerCase();
     if (q && !b.slug.toLowerCase().includes(q)) return false;
@@ -391,6 +394,19 @@ export default function Selector() {
           </div>
         </div>
 
+        <div className="sidebar-block">
+          <h3 className="block-title">Availability</h3>
+          <label className="toggle">
+            <input
+              type="checkbox"
+              checked={f.includeDiscontinued}
+              onChange={(e) => set("includeDiscontinued", e.target.checked)}
+            />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">Include discontinued boards</span>
+          </label>
+        </div>
+
         <button className="reset" onClick={() => setF(DEFAULTS)}>
           Reset filters
         </button>
@@ -463,13 +479,14 @@ export default function Selector() {
               </thead>
               <tbody>
                 {filtered.map((b) => (
-                  <tr key={b.slug} className="trow">
+                  <tr key={b.slug} className={"trow" + (b.manual?.discontinued ? " trow-disc" : "")}>
                     <td className="td-name">
                       <Link to={`/board/${b.slug}`} className="row-link">
                         <span className="row-bracket">[</span>
                         {b.slug}
                         <span className="row-bracket">]</span>
                       </Link>
+                      {b.manual?.discontinued && <span className="row-disc-tag" title="Discontinued">DISC</span>}
                     </td>
                     {orderedColumns.map((c) => (
                       <Cell key={c.id} col={c} board={b} />

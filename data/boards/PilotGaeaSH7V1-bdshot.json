@@ -85,11 +85,16 @@
   ],
   "docs_url": null,
   "manual": {
+    "status": "not_started",
     "form_factor": null,
-    "size_class": null,
+    "mounting": null,
+    "assembly": null,
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null
+    "notes": null,
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false
   }
 }

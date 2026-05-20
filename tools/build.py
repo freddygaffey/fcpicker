@@ -540,11 +540,16 @@ GENERATED_KEYS = {
 }
 
 MANUAL_TEMPLATE = {
+    "status": "not_started",
     "form_factor": None,
-    "size_class": None,
+    "mounting": None,
+    "assembly": None,
     "dimensions_mm": None,
     "weight_g": None,
     "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": None,
+    "discontinued": False,
     "notes": None,
 }
 
