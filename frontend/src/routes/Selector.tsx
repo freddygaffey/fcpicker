@@ -274,6 +274,8 @@ export default function Selector() {
     return out;
   }, [boards, f, sort]);
 
+  const siblingIds = useMemo(() => filtered.map((b) => b.slug), [filtered]);
+
   const toggleSort = (key: SortKey) =>
     setSort((s) => (s.key === key ? { key, dir: (s.dir * -1) as 1 | -1 } : { key, dir: 1 }));
 
@@ -282,6 +284,13 @@ export default function Selector() {
   return (
     <>
       <aside className="sidebar">
+        <div className="sidebar-block">
+          <div className="experimental-banner">
+            <strong>Experimental.</strong> Catalog is in testing — board data is
+            parsed from ArduPilot hwdef files and may be incomplete or wrong.
+          </div>
+        </div>
+
         <div className="sidebar-block">
           <h3 className="block-title">Search</h3>
           <input
@@ -481,7 +490,11 @@ export default function Selector() {
                 {filtered.map((b) => (
                   <tr key={b.slug} className={"trow" + (b.manual?.discontinued ? " trow-disc" : "")}>
                     <td className="td-name">
-                      <Link to={`/board/${b.slug}`} className="row-link">
+                      <Link
+                        to={`/board/${b.slug}`}
+                        state={{ siblings: siblingIds }}
+                        className="row-link"
+                      >
                         <span className="row-bracket">[</span>
                         {b.slug}
                         <span className="row-bracket">]</span>
@@ -492,7 +505,11 @@ export default function Selector() {
                       <Cell key={c.id} col={c} board={b} />
                     ))}
                     <td className="td-open">
-                      <Link to={`/board/${b.slug}`} aria-label={`Open ${b.slug}`}>→</Link>
+                      <Link
+                        to={`/board/${b.slug}`}
+                        state={{ siblings: siblingIds }}
+                        aria-label={`Open ${b.slug}`}
+                      >→</Link>
                     </td>
                   </tr>
                 ))}
