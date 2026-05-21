@@ -1,6 +1,8 @@
+import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mcuFamilyLabel, useBoardImages, useBoards } from "../data";
 import type { SensorEntry } from "../types";
+import { SiblingNav } from "../SiblingNav";
 
 const ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"] as const;
 const VEHICLE_LABEL: Record<string, string> = {
@@ -13,10 +15,14 @@ export default function BoardDetail() {
   const { boards, loading, error } = useBoards();
   const boardImages = useBoardImages(slug);
 
+  const allSlugs = useMemo(
+    () => (boards ?? []).slice().sort((a, b) => a.slug.localeCompare(b.slug)).map((x) => x.slug),
+    [boards],
+  );
+
   if (loading) return <div className="state">Loading…</div>;
   if (error) return <div className="state state-err">Couldn't load boards.json: {error}</div>;
   if (!boards) return null;
-
   const b = boards.find((x) => x.slug === slug);
   if (!b) {
     return (
@@ -34,6 +40,13 @@ export default function BoardDetail() {
   return (
     <article className="detail">
       <Link to="/" className="back-link">← Back to selector</Link>
+
+      <SiblingNav
+        currentId={b.slug}
+        fallbackIds={allSlugs}
+        toUrl={(s) => `/board/${s}`}
+        itemNoun="board"
+      />
 
       <header className="bd-head">
         <p className="bd-eyebrow">ArduPilot-supported autopilot</p>
