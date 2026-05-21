@@ -2,9 +2,16 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function Layout() {
   const loc = useLocation();
-  const onSelector = loc.pathname === "/";
-  const onAdmin = loc.pathname.startsWith("/admin");
-  const stageClass = onAdmin ? "stage stage-admin" : onSelector ? "stage stage-selector" : "stage stage-detail";
+  // Catalog pages (sidebar + table). Anything else with a single content column
+  // uses stage-detail. Admin gets its own chrome.
+  const path = loc.pathname.replace(/\/+$/, "") || "/";
+  const isCatalog = path === "/" || path === "/rangefinders";
+  const onAdmin = path.startsWith("/admin");
+  const stageClass = onAdmin
+    ? "stage stage-admin"
+    : isCatalog
+      ? "stage stage-selector"
+      : "stage stage-detail";
 
   return (
     <div className="app">

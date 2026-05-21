@@ -103,3 +103,51 @@ export interface Board {
 export interface BoardsPayload {
   boards: Board[];
 }
+
+export type RangefinderKind = "rangefinder" | "proximity";
+export type RangefinderDirectionality = "unidirectional" | "omnidirectional";
+export type RangefinderTech =
+  | "lidar" | "sonar" | "ultrasonic" | "radar" | "tof"
+  | "external" | "scripted" | "simulated";
+
+export interface RangefinderTypeId {
+  enum: string;
+  param_value: number;
+}
+
+export interface RangefinderManual {
+  status: "not_started" | "partial" | "complete";
+  manufacturer: string | null;
+  product_url: string | null;
+  accuracy_cm: number | null;
+  update_rate_hz: number | null;
+  min_voltage_v: number | null;
+  max_voltage_v: number | null;
+  current_ma: number | null;
+  weight_g_override: number | null;
+  range_min_m_override: number | null;
+  range_max_m_override: number | null;
+  fov_deg_override: number | null;
+  notes: string | null;
+}
+
+export interface Rangefinder {
+  slug: string;
+  kind: RangefinderKind;
+  directionality: RangefinderDirectionality;
+  display_name: string;
+  class_name: string;
+  bus: string | null;
+  tech: RangefinderTech | null;
+  type_ids: RangefinderTypeId[];
+  docs_url: string | null;
+  wiki_range_min_m: number | null;
+  wiki_range_max_m: number | null;
+  wiki_weight_g: number | null;
+  wiki_fov_deg: number | null;
+  manual?: RangefinderManual;
+}
+
+export interface RangefindersPayload {
+  rangefinders: Rangefinder[];
+}

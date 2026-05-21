@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Board, BoardsPayload } from "./types";
+import type { Board, BoardsPayload, Rangefinder, RangefindersPayload } from "./types";
 
 let cache: Board[] | null = null;
 let inflight: Promise<Board[]> | null = null;
@@ -80,6 +80,36 @@ function lookupImages(slug: string, p: HwdefImagesPayload | null): BoardImages |
   if (!p) return null;
   const entry = p.boards.find((b) => b.slug === slug);
   return { baseUrl: p.base_url, images: entry?.images ?? [] };
+}
+
+let rfCache: Rangefinder[] | null = null;
+let rfInflight: Promise<Rangefinder[]> | null = null;
+
+function loadRangefinders(): Promise<Rangefinder[]> {
+  if (rfCache) return Promise.resolve(rfCache);
+  if (rfInflight) return rfInflight;
+  rfInflight = fetch("/rangefinders.json")
+    .then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json() as Promise<RangefindersPayload>;
+    })
+    .then((p) => {
+      rfCache = p.rangefinders;
+      return rfCache;
+    });
+  return rfInflight;
+}
+
+export function useRangefinders() {
+  const [items, setItems] = useState<Rangefinder[] | null>(rfCache);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (rfCache) return;
+    loadRangefinders().then(setItems).catch((e) => setError(String(e)));
+  }, []);
+
+  return { rangefinders: items, error, loading: !items && !error };
 }
 
 export function mcuFamilyLabel(family: string | null): string {

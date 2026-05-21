@@ -6,6 +6,8 @@ import "./App.css";
 import Selector from "./routes/Selector";
 import BoardDetail from "./routes/BoardDetail";
 import Layout from "./routes/Layout";
+import Rangefinders from "./routes/Rangefinders";
+import RangefinderDetail from "./routes/RangefinderDetail";
 import AdminLayout from "./admin/AdminLayout";
 import AdminBoard from "./admin/AdminBoard";
 
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Selector /> },
       { path: "board/:slug", element: <BoardDetail /> },
+      { path: "rangefinders", element: <Rangefinders /> },
+      { path: "rangefinder/:id", element: <RangefinderDetail /> },
       {
         path: "admin",
         element: <AdminLayout />,
