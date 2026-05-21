@@ -57,41 +57,55 @@
     {
       "chip": "SCHA63T",
       "bus": "SPI:scha63t_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:SCHA63T_A_CS",
+      "chip_display": "SCHA63T"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:iim42652_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:IIM42652_CS",
+      "chip_display": "IIM42652_1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:iim42652_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IIM42652_2_CS",
+      "chip_display": "IIM42652_2"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MS5611_1_CS",
+      "chip_display": "MS5611_1"
     },
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:MS5611_2_CS",
+      "chip_display": "MS5611_2"
     }
   ],
   "compasses": [
     {
       "chip": "IST8310",
       "bus": "I2C:ALL_INTERNAL:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "IST8310",
       "bus": "I2C:ALL_EXTERNAL:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -117,9 +131,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

@@ -1,8 +1,13 @@
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mcuFamilyLabel, useBoardImages, useBoards } from "../data";
-import type { SensorEntry } from "../types";
+import type { Board, SensorEntry } from "../types";
 import { SiblingNav } from "../SiblingNav";
+
+// Physical maximum number of IMU slots any ArduPilot autopilot ships with.
+// Used as a hard cap on counts and as the threshold for the "parsing
+// over-counted" warning rendered on the detail page.
+const MAX_IMU_SLOTS = 3;
 
 const ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"] as const;
 const VEHICLE_LABEL: Record<string, string> = {
@@ -103,7 +108,7 @@ export default function BoardDetail() {
             value={b.io.pwm.total}
             hint={b.io.iomcu ? `${b.io.pwm.fmu} FMU + ${b.io.pwm.io} IO` : "FMU only"}
           />
-          <Stat label="IMUs" value={imuStatValue(b.imus)} hint={imuStatHint(b.imus)} />
+          <Stat label="IMUs" value={imuStatValue(b)} hint={imuStatHint(b)} flag={imuOverCounted(b)} />
         </div>
         <div className="bd-feature-row">
           <FeatureChip on={b.io.ethernet} label="Ethernet" />
@@ -118,7 +123,7 @@ export default function BoardDetail() {
       {/* Sensors */}
       <section className="bd-section">
         <h2 className="bd-h2">On-board sensors</h2>
-        <SensorRow label="IMUs"        items={b.imus} />
+        <SensorRow label="IMUs"        items={b.imus} flagOverCount={MAX_IMU_SLOTS} />
         <SensorRow label="Barometers"  items={b.baros} />
         <SensorRow label="Compasses"   items={b.compasses} />
       </section>
@@ -240,17 +245,70 @@ function FeatureChip({ on, label }: { on: boolean; label: string }) {
   );
 }
 
-function Stat({ label, value, hint }: { label: string; value: number | string; hint?: string }) {
+function Stat({ label, value, hint, flag }: { label: string; value: number | string; hint?: string; flag?: string }) {
   return (
-    <div className="bd-stat" title={hint}>
-      <div className="bd-stat-value">{value}</div>
+    <div className="bd-stat" title={flag ?? hint}>
+      <div className="bd-stat-value">
+        {value}
+        {flag && <span className="bd-stat-flag" title={flag}>⚠</span>}
+      </div>
       <div className="bd-stat-label">{label}</div>
-      {hint && <div className="bd-stat-hint">{hint}</div>}
+      {(flag || hint) && <div className="bd-stat-hint">{flag ?? hint}</div>}
     </div>
   );
 }
 
-function SensorRow({ label, items }: { label: string; items: SensorEntry[] }) {
+function chipLabel(s: SensorEntry): string {
+  return s.chip_display ?? s.chip;
+}
+
+// Group sensors that share a physical SPI slot. Items with no slot become
+// their own group (rendered as a single chip).
+type Slot = { slot: string | null; entries: SensorEntry[] };
+function groupBySlot(items: SensorEntry[]): Slot[] {
+  const out: Slot[] = [];
+  for (const s of items) {
+    let g = s.slot ? out.find((x) => x.slot === s.slot) : null;
+    if (!g) {
+      g = { slot: s.slot, entries: [] };
+      out.push(g);
+    }
+    g.entries.push(s);
+  }
+  return out;
+}
+
+function SlotItem({ slot }: { slot: Slot }) {
+  if (slot.entries.length === 1) {
+    const s = slot.entries[0];
+    return (
+      <li>
+        <span className="bd-sensor-chip">{chipLabel(s)}</span>
+        <span className="bd-sensor-bus"> @ {s.bus}</span>
+      </li>
+    );
+  }
+  // Mutually-exclusive alternates on the same physical socket.
+  return (
+    <li>
+      <span className="bd-sensor-chip">
+        {slot.entries.map(chipLabel).join(" or ")}
+      </span>
+      <span className="bd-sensor-bus"> @ {slot.slot} (alternates per SKU)</span>
+    </li>
+  );
+}
+
+function SensorRow({
+  label, items, flagOverCount,
+}: {
+  label: string;
+  items: SensorEntry[];
+  // If set, render a warning banner whenever slot count exceeds this value.
+  // Used for IMUs, where the physical maximum is 3 and any larger count
+  // means the hwdef parsing picked up alternates we couldn't collapse.
+  flagOverCount?: number;
+}) {
   if (items.length === 0) {
     return (
       <div className="bd-sensor-row">
@@ -262,17 +320,25 @@ function SensorRow({ label, items }: { label: string; items: SensorEntry[] }) {
 
   const hasVariants = items.some((s) => s.variant);
   if (!hasVariants) {
+    const slots = groupBySlot(items);
+    const over = flagOverCount != null && slots.length > flagOverCount;
     return (
       <div className="bd-sensor-row">
-        <span className="bd-sensor-label">{label} <span className="bd-sensor-count">×{items.length}</span></span>
-        <ul className="bd-sensor-list">
-          {items.map((s, i) => (
-            <li key={i}>
-              <span className="bd-sensor-chip">{s.chip}</span>
-              <span className="bd-sensor-bus"> @ {s.bus}</span>
-            </li>
-          ))}
-        </ul>
+        <span className="bd-sensor-label">
+          {label} <span className="bd-sensor-count">×{over ? flagOverCount : slots.length}</span>
+        </span>
+        <div>
+          {over && (
+            <p className="bd-warn">
+              ⚠ Parsing found {slots.length} {label.toLowerCase()} on this board, but the hardware
+              maximum is {flagOverCount}. Some entries below are likely alternates the parser
+              couldn&rsquo;t collapse — treat the list as a candidate set, not a count.
+            </p>
+          )}
+          <ul className="bd-sensor-list">
+            {slots.map((g, i) => <SlotItem key={i} slot={g} />)}
+          </ul>
+        </div>
       </div>
     );
   }
@@ -298,49 +364,68 @@ function SensorRow({ label, items }: { label: string; items: SensorEntry[] }) {
         <p className="bd-aside">
           This board ships in multiple hardware variants; sensors differ per revision.
         </p>
-        {groups.map((g, gi) => (
-          <div className="bd-sensor-variant" key={gi}>
-            <div className="bd-sensor-variant-label">
-              {g.variant ? prettyVariant(g.variant) : "Common to all variants"}
-              <span className="bd-sensor-count"> ×{g.entries.length}</span>
+        {groups.map((g, gi) => {
+          const slots = groupBySlot(g.entries);
+          return (
+            <div className="bd-sensor-variant" key={gi}>
+              <div className="bd-sensor-variant-label">
+                {g.variant ? prettyVariant(g.variant) : "Common to all variants"}
+                <span className="bd-sensor-count"> ×{slots.length}</span>
+              </div>
+              <ul className="bd-sensor-list">
+                {slots.map((s, i) => <SlotItem key={i} slot={s} />)}
+              </ul>
             </div>
-            <ul className="bd-sensor-list">
-              {g.entries.map((s, i) => (
-                <li key={i}>
-                  <span className="bd-sensor-chip">{s.chip}</span>
-                  <span className="bd-sensor-bus"> @ {s.bus}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function imuStatValue(items: SensorEntry[]): string {
-  const counts = perVariantCounts(items);
-  if (counts.length <= 1) return String(items.length);
+function imuStatValue(b: Board): string {
+  if (b.manual?.imu_count != null) return String(b.manual.imu_count);
+  const counts = perVariantCounts(b.imus).map((n) => Math.min(n, MAX_IMU_SLOTS));
+  if (counts.length <= 1) return String(counts[0] ?? 0);
   const min = Math.min(...counts);
   const max = Math.max(...counts);
   return min === max ? String(min) : `${min}–${max}`;
 }
 
-function imuStatHint(items: SensorEntry[]): string | undefined {
-  const counts = perVariantCounts(items);
+function imuStatHint(b: Board): string | undefined {
+  if (b.manual?.imu_count != null) return "manual override";
+  const counts = perVariantCounts(b.imus);
   return counts.length > 1 ? "per hardware variant" : undefined;
 }
 
+// True when the raw slot count exceeds the physical maximum — flagged in
+// the UI so the user knows the data needs review.
+function imuOverCounted(b: Board): string | undefined {
+  if (b.manual?.imu_count != null) return undefined;
+  const raw = Math.max(...perVariantCounts(b.imus), 0);
+  if (raw <= MAX_IMU_SLOTS) return undefined;
+  return `Parsing found ${raw}; capped at ${MAX_IMU_SLOTS}`;
+}
+
+// Count physical IMU slots, not raw declarations. Sensors sharing a SPI
+// chip-select are alternates for the same socket — count them once.
 function perVariantCounts(items: SensorEntry[]): number[] {
-  if (!items.some((s) => s.variant)) return [items.length];
-  const byVariant = new Map<string, number>();
-  let ungated = 0;
+  if (!items.some((s) => s.variant)) return [groupBySlot(items).length];
+  const byVariant = new Map<string, SensorEntry[]>();
+  const ungated: SensorEntry[] = [];
   for (const s of items) {
-    if (s.variant) byVariant.set(s.variant, (byVariant.get(s.variant) ?? 0) + 1);
-    else ungated += 1;
+    if (s.variant) {
+      const arr = byVariant.get(s.variant) ?? [];
+      arr.push(s);
+      byVariant.set(s.variant, arr);
+    } else {
+      ungated.push(s);
+    }
   }
-  return [...byVariant.values()].map((n) => n + ungated);
+  const ungatedSlots = groupBySlot(ungated).length;
+  return [...byVariant.values()].map(
+    (arr) => groupBySlot(arr).length + ungatedSlots,
+  );
 }
 
 function prettyVariant(token: string): string {

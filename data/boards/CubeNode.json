@@ -44,7 +44,9 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:IMU_CS",
+      "chip_display": "ICM45686"
     }
   ],
   "baros": [],
@@ -72,9 +74,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

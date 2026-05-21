@@ -50,14 +50,18 @@
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:BMI270_CS",
+      "chip_display": "BMI270"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:DPS310_CS",
+      "chip_display": "DPS310"
     }
   ],
   "compasses": [],
@@ -84,9 +88,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

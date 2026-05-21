@@ -54,29 +54,39 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IMU2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "MPU6000_1"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IMU2_CS",
+      "chip_display": "MPU6000_2"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -103,9 +113,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

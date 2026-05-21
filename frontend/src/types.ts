@@ -3,6 +3,13 @@ export interface SensorEntry {
   bus: string;
   // BOARD_MATCH(...) token if this sensor is gated to a hardware variant.
   variant: string | null;
+  // Physical socket key like "SPI1/DEVID2". Sensors sharing a slot are
+  // mutually exclusive — only one chip is mounted on that chip-select.
+  // Null for non-SPI sensors.
+  slot: string | null;
+  // Friendly chip name derived from the SPIDEV token (e.g. "ICM42688").
+  // Falls back to `chip` (the driver class name) when null.
+  chip_display: string | null;
 }
 
 export interface FirmwareSupport {
@@ -80,6 +87,10 @@ export interface BoardManual {
   ardupilot_repo_url: string | null;
   // If true, hide from the public selector by default.
   discontinued: boolean;
+  // Manual override for the IMU slot count. Used when the hwdef structure
+  // doesn't map cleanly to physical reality (alt chips with idiosyncratic
+  // SPIDEV layouts, etc). null = use the parser's slot count.
+  imu_count: number | null;
   notes: string | null;
 }
 

@@ -1,0 +1,96 @@
+{
+  "slug": "BETAFPV-F405-I2C",
+  "name": "BETAFPV-F405-I2C",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F405xx"
+  },
+  "flash_kb": 1024,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART1",
+      "USART3",
+      "UART4",
+      "UART5",
+      "USART6"
+    ],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3"
+    ],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 7,
+      "io": 0,
+      "total": 7
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 3
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:imu1",
+      "variant": null,
+      "slot": "SPI1/CS:GYRO1_CS",
+      "chip_display": "IMU1"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "SPI:baro1",
+      "variant": null,
+      "slot": "SPI3/CS:BARO1_CS",
+      "chip_display": "BARO1"
+    },
+    {
+      "chip": "SPL06",
+      "bus": "SPI:baro2",
+      "variant": null,
+      "slot": "SPI3/CS:BARO1_CS",
+      "chip_display": "BARO2"
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-betafpvf405.html",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

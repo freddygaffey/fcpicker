@@ -3,10 +3,10 @@
   "name": "BeastF7v2",
   "manufacturer": null,
   "mcu": {
-    "family": null,
-    "part": null
+    "family": "STM32F7xx",
+    "part": "STM32F745xx"
   },
-  "flash_kb": null,
+  "flash_kb": 1024,
   "io": {
     "uart_count": 5,
     "uart_buses": [
@@ -18,26 +18,28 @@
     ],
     "i2c_count": 1,
     "i2c_buses": [
-      "I2C2"
+      "I2C1"
     ],
-    "spi_count": 1,
+    "spi_count": 3,
     "spi_buses": [
-      "SPI1"
+      "SPI1",
+      "SPI3",
+      "SPI4"
     ],
     "can_count": 0,
     "can_buses": [],
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 2,
+      "fmu": 7,
       "io": 0,
-      "total": 2
+      "total": 7
     },
     "ethernet": false,
     "sdcard": false,
     "sbus_out": false,
     "iomcu": false,
-    "adc_inputs": 0
+    "adc_inputs": 3
   },
   "power": {
     "monitor_inputs": 0,
@@ -45,12 +47,29 @@
   },
   "imus": [
     {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null,
+      "slot": "SPI1/CS:BMI270_CS",
+      "chip_display": "MPU6000"
+    },
+    {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI270_CS",
+      "chip_display": "BMI270"
     }
   ],
-  "baros": [],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
   "compasses": [],
   "firmware_support": [
     {
@@ -75,9 +94,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

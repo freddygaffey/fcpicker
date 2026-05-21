@@ -3,60 +3,84 @@
   "name": "CubePurple",
   "manufacturer": null,
   "mcu": {
-    "family": null,
-    "part": null
+    "family": "STM32F4xx",
+    "part": "STM32F427xx"
   },
-  "flash_kb": null,
+  "flash_kb": 2048,
   "io": {
-    "uart_count": 0,
-    "uart_buses": [],
-    "i2c_count": 0,
-    "i2c_buses": [],
-    "spi_count": 0,
-    "spi_buses": [],
-    "can_count": 0,
-    "can_buses": [],
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
     "canfd": false,
-    "usb_count": 0,
+    "usb_count": 1,
     "pwm": {
-      "fmu": 0,
+      "fmu": 6,
       "io": 8,
-      "total": 8
+      "total": 14
     },
     "ethernet": false,
-    "sdcard": false,
+    "sdcard": true,
     "sbus_out": false,
     "iomcu": true,
-    "adc_inputs": 2
+    "adc_inputs": 8
   },
   "power": {
-    "monitor_inputs": 0,
+    "monitor_inputs": 2,
     "bec": []
   },
   "imus": [
     {
       "chip": "Invensense",
       "bus": "SPI:mpu9250",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU_CS",
+      "chip_display": "MPU9250"
     },
     {
       "chip": "Invensensev2",
       "bus": "SPI:icm20948",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU_CS",
+      "chip_display": "ICM20948"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BARO_CS",
+      "chip_display": "MS5611"
     }
   ],
   "compasses": [
     {
       "chip": "AK09916:probe_ICM20948",
       "bus": "0",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -82,9 +106,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

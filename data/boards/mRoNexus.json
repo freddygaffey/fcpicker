@@ -49,26 +49,34 @@
     {
       "chip": "ADIS1647x",
       "bus": "SPI:adis16470",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:CS_ADIS16470",
+      "chip_display": "ADIS16470"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm40609d",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:CS_ICM40609D",
+      "chip_display": "ICM40609D"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:CS_DPS310",
+      "chip_display": "DPS310"
     }
   ],
   "compasses": [
     {
       "chip": "RM3100",
       "bus": "SPI:rm3100",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:CS_RM3100",
+      "chip_display": "RM3100"
     }
   ],
   "firmware_support": [
@@ -94,9 +102,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

@@ -3,33 +3,44 @@
   "name": "KakuteH7Mini-Nand",
   "manufacturer": null,
   "mcu": {
-    "family": null,
-    "part": null
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
   },
-  "flash_kb": null,
+  "flash_kb": 2048,
   "io": {
-    "uart_count": 0,
-    "uart_buses": [],
-    "i2c_count": 0,
-    "i2c_buses": [],
-    "spi_count": 1,
+    "uart_count": 6,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "USART6",
+      "UART7"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 3,
     "spi_buses": [
+      "SPI1",
+      "SPI2",
       "SPI4"
     ],
     "can_count": 0,
     "can_buses": [],
     "canfd": false,
-    "usb_count": 0,
+    "usb_count": 1,
     "pwm": {
-      "fmu": 0,
+      "fmu": 9,
       "io": 0,
-      "total": 0
+      "total": 9
     },
     "ethernet": false,
     "sdcard": false,
     "sbus_out": false,
     "iomcu": false,
-    "adc_inputs": 0
+    "adc_inputs": 3
   },
   "power": {
     "monitor_inputs": 0,
@@ -37,12 +48,43 @@
   },
   "imus": [
     {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null,
+      "slot": "SPI4/CS:MPU6000_CS",
+      "chip_display": "MPU6000"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null,
+      "slot": "SPI4/CS:MPU6000_CS",
+      "chip_display": "ICM42688"
+    },
+    {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:MPU6000_CS",
+      "chip_display": "BMI270"
     }
   ],
-  "baros": [],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
   "compasses": [],
   "firmware_support": [
     {
@@ -67,9 +109,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

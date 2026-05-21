@@ -51,21 +51,27 @@
     {
       "chip": "Invensense",
       "bus": "SPI:icm20602",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU_CS",
+      "chip_display": "ICM20602"
     }
   ],
   "baros": [
     {
       "chip": "DPS280",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "RM3100",
       "bus": "SPI:rm3100",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:MAG_CS",
+      "chip_display": "RM3100"
     }
   ],
   "firmware_support": [
@@ -91,9 +97,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

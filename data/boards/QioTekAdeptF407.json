@@ -51,36 +51,48 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU2_CS",
+      "chip_display": "IMU2"
     }
   ],
   "baros": [
     {
       "chip": "DPS280",
       "bus": "SPI:baro1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:Baro1_CS",
+      "chip_display": "BARO1"
     }
   ],
   "compasses": [
     {
       "chip": "IST8310",
       "bus": "I2C:0:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "QMC5883L",
       "bus": "I2C:0:0x0D",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -106,9 +118,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

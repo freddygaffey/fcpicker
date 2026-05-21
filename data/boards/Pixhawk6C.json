@@ -54,46 +54,62 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ICM42688_CS",
+      "chip_display": "ICM42688"
     },
     {
       "chip": "LSM6DSV",
       "bus": "SPI:lsm6dsv",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ICM42688_CS",
+      "chip_display": "LSM6DSV"
     },
     {
       "chip": "BMI055",
       "bus": "SPI:bmi055_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI055_A_CS",
+      "chip_display": "BMI055"
     },
     {
       "chip": "BMI088",
       "bus": "SPI:bmi055_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI055_A_CS",
+      "chip_display": "BMI055"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "MS5611",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "BMP388",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "IST8310",
       "bus": "I2C:0:0x0C",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -119,9 +135,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

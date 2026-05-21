@@ -3,65 +3,91 @@
   "name": "Pixhawk1",
   "manufacturer": null,
   "mcu": {
-    "family": null,
-    "part": null
+    "family": "STM32F4xx",
+    "part": "STM32F427xx"
   },
-  "flash_kb": null,
+  "flash_kb": 2048,
   "io": {
-    "uart_count": 0,
-    "uart_buses": [],
-    "i2c_count": 0,
-    "i2c_buses": [],
-    "spi_count": 0,
-    "spi_buses": [],
-    "can_count": 0,
-    "can_buses": [],
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
     "canfd": false,
-    "usb_count": 0,
+    "usb_count": 1,
     "pwm": {
-      "fmu": 0,
+      "fmu": 6,
       "io": 8,
-      "total": 8
+      "total": 14
     },
     "ethernet": false,
-    "sdcard": false,
+    "sdcard": true,
     "sbus_out": false,
     "iomcu": true,
-    "adc_inputs": 0
+    "adc_inputs": 6
   },
   "power": {
-    "monitor_inputs": 0,
+    "monitor_inputs": 2,
     "bec": []
   },
   "imus": [
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU_CS",
+      "chip_display": "MPU6000"
     },
     {
       "chip": "LSM9DS0",
       "bus": "SPI:lsm9ds0_g",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ACCEL_EXT_CS",
+      "chip_display": "LSM9DS0"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BARO_CS",
+      "chip_display": "MS5611"
     }
   ],
   "compasses": [
     {
       "chip": "HMC5843",
       "bus": "SPI:hmc5843",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MAG_CS",
+      "chip_display": "HMC5843"
     },
     {
       "chip": "LSM303D",
       "bus": "SPI:lsm9ds0_am",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ACCEL_EXT_CS",
+      "chip_display": "LSM9DS0_AM"
     }
   ],
   "firmware_support": [
@@ -87,9 +113,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

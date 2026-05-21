@@ -94,6 +94,11 @@ class Sensor(Base):
     # else NULL. Multiple sensors sharing the same variant token belong to the
     # same physical board revision.
     variant: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Physical socket key (e.g. "SPI1/DEVID2"). Sensors sharing a slot are
+    # mutually-exclusive: only one chip can be mounted on that chip-select.
+    slot: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Friendly chip name derived from the SPIDEV token (e.g. "ICM42688").
+    chip_display: Mapped[str | None] = mapped_column(String, nullable=True)
 
     board: Mapped[Board] = relationship(back_populates="sensors")
 
@@ -128,10 +133,11 @@ class ParsedBoard:
     mcu_family: str | None = None
     mcu_part: str | None = None
     flash_kb: int | None = None
-    # (chip, bus, variant_or_None)
-    imus: list[tuple[str, str, str | None]] = None
-    baros: list[tuple[str, str, str | None]] = None
-    compasses: list[tuple[str, str, str | None]] = None
+    # (chip, bus, variant, slot, chip_display) — slot/chip_display are
+    # SPIDEV-derived (None for non-SPI sensors).
+    imus: list[tuple[str, str, str | None, str | None, str | None]] = None
+    baros: list[tuple[str, str, str | None, str | None, str | None]] = None
+    compasses: list[tuple[str, str, str | None, str | None, str | None]] = None
     uart_buses: list[str] = None
     i2c_buses: list[str] = None
     spi_buses: list[str] = None
@@ -161,6 +167,20 @@ BOARD_MATCH_RE = re.compile(r"\bBOARD_MATCH\(([^)]+)\)")
 SERIAL_ORDER_RE = re.compile(r"^\s*SERIAL_ORDER\s+(.+)$", re.MULTILINE)
 I2C_ORDER_RE = re.compile(r"^\s*I2C_ORDER\s+(.+)$", re.MULTILINE)
 SPIDEV_RE = re.compile(r"^\s*SPIDEV\s+\S+\s+(SPI\d+)", re.MULTILINE)
+# Full SPIDEV form: SPIDEV <name> <SPIn> <DEVIDm> <CS> ...
+# Used to resolve a sensor's bus token (e.g. "SPI:icm42688") to a physical
+# (SPI bus, DEVID) slot — sensors sharing a slot are mutually-exclusive
+# variants (only one chip can be mounted on a given chip-select line).
+SPIDEV_FULL_RE = re.compile(
+    r"^\s*SPIDEV\s+(\S+)\s+(SPI\d+)\s+(DEVID\d+)\s+(\S+)", re.MULTILINE
+)
+# Chip-name suffixes that mark placement / part-split rather than a different
+# part number. Stripped when deriving a friendly chip name from a SPIDEV
+# token (e.g. `icm20689_board` → `ICM20689`, `bmi088_a` → `BMI088`).
+_CHIP_SUFFIX_RE = re.compile(
+    r"(?:_(?:a|g|imu|board|ext|int)|-\d+)+$",
+    re.IGNORECASE,
+)
 CAN_PIN_RE = re.compile(r"\bCAN(\d+)_(?:TX|RX)\b")
 CANFD_RE = re.compile(r"^\s*CANFD_SUPPORTED\b", re.MULTILINE)
 PWM_RE = re.compile(r"\bPWM\(\d+\)")
@@ -183,16 +203,73 @@ ADC_PIN_RE = re.compile(r"^\s*(P[A-K]\d{1,2})\s+\S+\s+ADC[123]\b", re.MULTILINE)
 ALL_VEHICLES = ["copter", "plane", "rover", "sub", "tracker", "blimp"]
 
 
+def _resolve_slot(
+    bus_token: str,
+    spidev_map: dict[str, tuple[str, str]],
+) -> tuple[str | None, str | None]:
+    """Given a sensor bus token like `SPI:icm42688`, return (slot_key, chip_display).
+
+    - slot_key is "<SPIn>/<DEVIDm>" if the spidev exists in the map, else None.
+      Two sensors sharing a slot_key are mutually exclusive — only one chip
+      is physically mounted on that chip-select.
+    - chip_display is the SPIDEV name normalized: known placement suffixes
+      (`_a`, `_g`, `_board`, `_imu`, ...) stripped, then uppercased.
+    Returns (None, None) for non-SPI buses (I2C/etc.) — those have no
+    SPI-slot collision and the caller falls back to the driver chip name.
+    """
+    if not bus_token.startswith("SPI:"):
+        return None, None
+    name = bus_token[4:].split()[0] if bus_token[4:] else ""
+    if not name:
+        return None, None
+    info = spidev_map.get(name)
+    slot = f"{info[0]}/{info[1]}" if info else None
+    chip_display = _CHIP_SUFFIX_RE.sub("", name).upper() or name.upper()
+    return slot, chip_display
+
+
+INCLUDE_RE = re.compile(r"^\s*include\s+(\S+)", re.MULTILINE | re.IGNORECASE)
+
+
+def _expand_includes(path: Path, visited: set[Path]) -> str:
+    """Read a hwdef file and inline its `include` directives recursively.
+
+    Many boards (notably the Cube family) declare SPIDEVs and pinmuxes in a
+    parent hwdef (e.g. `include ../fmuv3/hwdef.dat`) — without expanding
+    these, sensor-to-slot resolution misses every inherited SPIDEV.
+    """
+    try:
+        resolved = path.resolve()
+    except OSError:
+        return ""
+    if resolved in visited or not resolved.exists():
+        return ""
+    visited.add(resolved)
+    try:
+        text = resolved.read_text(errors="ignore")
+    except OSError:
+        return ""
+    out: list[str] = []
+    last = 0
+    for m in INCLUDE_RE.finditer(text):
+        out.append(text[last:m.start()])
+        inc_path = (resolved.parent / m.group(1)).resolve()
+        out.append(_expand_includes(inc_path, visited))
+        last = m.end()
+    out.append(text[last:])
+    return "".join(out)
+
+
 def read_hwdef_text(board_dir: Path) -> str:
-    """Concatenate hwdef.dat + hwdef.inc since fields are split between them."""
+    """Concatenate hwdef.dat + hwdef.inc with `include` directives expanded.
+
+    Fields are split between .dat and .inc; both may chain through includes
+    into shared parent hwdefs.
+    """
     parts = []
+    visited: set[Path] = set()
     for fname in ("hwdef.dat", "hwdef.inc"):
-        p = board_dir / fname
-        if p.exists():
-            try:
-                parts.append(p.read_text(errors="ignore"))
-            except OSError:
-                pass
+        parts.append(_expand_includes(board_dir / fname, visited))
     return "\n".join(parts)
 
 
@@ -215,13 +292,102 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
     mcu_m = MCU_RE.search(text)
     flash_m = FLASH_RE.search(text)
 
+    spidev_map = {
+        m.group(1): (m.group(2), m.group(3))
+        for m in SPIDEV_FULL_RE.finditer(text)
+    }
+    # name → "SPIn/CS_PIN" — two SPIDEVs sharing a CS pin on the same bus
+    # are wired to the same physical footprint (one chip can be populated).
+    spidev_cs = {
+        m.group(1): f"{m.group(2)}/CS:{m.group(4)}"
+        for m in SPIDEV_FULL_RE.finditer(text)
+    }
+
     def _sensors(rx):
-        out = []
+        # Each line may reference more than one SPI bus (BMI088 declares both
+        # an accel and a gyro bus). Collect every slot the line touches so we
+        # can detect mutually-exclusive chip variants that share a chip-select
+        # with another sensor entry (e.g. BMI088 fallback for an ICM42688
+        # populated on the same footprint).
+        raw = []
         for m in rx.finditer(text):
             tail = m.group(3) or ""
             bm = BOARD_MATCH_RE.search(tail)
             variant = bm.group(1).strip() if bm else None
-            out.append((m.group(1), m.group(2), variant))
+            bus_token = m.group(2)
+            slot, chip_display = _resolve_slot(bus_token, spidev_map)
+            # Merge keys: (SPI bus, DEVID) AND (SPI bus, CS pin). Either
+            # collision marks two chips as alternates for one footprint.
+            phys_keys: set[str] = set()
+            for tok in [bus_token, *re.findall(r"SPI:\S+", tail)]:
+                if not tok.startswith("SPI:"):
+                    continue
+                name = tok[4:].split()[0]
+                info = spidev_map.get(name)
+                if info:
+                    phys_keys.add(f"{info[0]}/{info[1]}")
+                cs_key = spidev_cs.get(name)
+                if cs_key:
+                    phys_keys.add(cs_key)
+            im = re.search(r"\bINSTANCE:(\d+)", tail)
+            instance = f"INSTANCE:{im.group(1)}" if im else None
+            raw.append([m.group(1), bus_token, variant, slot, chip_display,
+                        phys_keys, instance])
+
+        # If any line uses INSTANCE annotations, that's the authoritative
+        # logical-IMU identity. Non-INSTANCE lines on the same board are
+        # inherited fallbacks for older revs — absorb each into the INSTANCE
+        # group it physically overlaps with (shared SPI bus + DEVID or CS
+        # pin); drop the rest so they don't inflate the count.
+        if any(r[6] for r in raw):
+            instance_keys: dict[str, set[str]] = {}
+            for r in raw:
+                if r[6]:
+                    instance_keys.setdefault(r[6], set()).update(r[5])
+            out = []
+            for r in raw:
+                inst = r[6]
+                if not inst:
+                    # find the INSTANCE whose physical keys overlap
+                    for cand, keys in instance_keys.items():
+                        if r[5] & keys:
+                            inst = cand
+                            break
+                if inst:
+                    out.append((r[0], r[1], r[2], inst, r[4]))
+            return out
+
+        # No INSTANCE annotations — union-find over physical keys.
+        parent = list(range(len(raw)))
+        def find(i):
+            while parent[i] != i:
+                parent[i] = parent[parent[i]]
+                i = parent[i]
+            return i
+        def union(i, j):
+            ri, rj = find(i), find(j)
+            if ri != rj:
+                parent[ri] = rj
+        key_owner: dict[str, int] = {}
+        for i, r in enumerate(raw):
+            for s in r[5]:  # phys_keys
+                if s in key_owner:
+                    union(i, key_owner[s])
+                else:
+                    key_owner[s] = i
+
+        # Assign every entry in a group the same canonical slot (lex-smallest
+        # merge key) so downstream dedupe-by-slot collapses alternates into
+        # one IMU.
+        groups: dict[int, set[str]] = {}
+        for i, r in enumerate(raw):
+            groups.setdefault(find(i), set()).update(r[5])
+        canonical = {root: (min(ks) if ks else None) for root, ks in groups.items()}
+
+        out = []
+        for i, r in enumerate(raw):
+            canon = canonical[find(i)]
+            out.append((r[0], r[1], r[2], canon if canon else r[3], r[4]))
         return out
 
     imus = _sensors(IMU_RE)
@@ -482,12 +648,18 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
             docs_url=p.docs_url,
             readme=p.readme,
         )
-        for chip, bus, variant in p.imus:
-            b.sensors.append(Sensor(kind="imu", chip=chip, bus=bus, variant=variant))
-        for chip, bus, variant in p.baros:
-            b.sensors.append(Sensor(kind="baro", chip=chip, bus=bus, variant=variant))
-        for chip, bus, variant in p.compasses:
-            b.sensors.append(Sensor(kind="compass", chip=chip, bus=bus, variant=variant))
+        for chip, bus, variant, slot, chip_display in p.imus:
+            b.sensors.append(Sensor(kind="imu", chip=chip, bus=bus,
+                                    variant=variant, slot=slot,
+                                    chip_display=chip_display))
+        for chip, bus, variant, slot, chip_display in p.baros:
+            b.sensors.append(Sensor(kind="baro", chip=chip, bus=bus,
+                                    variant=variant, slot=slot,
+                                    chip_display=chip_display))
+        for chip, bus, variant, slot, chip_display in p.compasses:
+            b.sensors.append(Sensor(kind="compass", chip=chip, bus=bus,
+                                    variant=variant, slot=slot,
+                                    chip_display=chip_display))
         b.firmware_support.append(FirmwareSupport(firmware="ardupilot", maturity="official"))
         for entry in bec_map.get(p.slug, []):
             b.bec_rails.append(BecRail(
@@ -550,6 +722,10 @@ MANUAL_TEMPLATE = {
     "images": [],
     "ardupilot_repo_url": None,
     "discontinued": False,
+    # Override the parser's IMU slot count for boards where hwdef structure
+    # doesn't match physical reality (alt chips on idiosyncratic SPI layouts,
+    # aspirational hwdef comments, etc). null = use parser's count.
+    "imu_count": None,
     "notes": None,
 }
 
@@ -595,9 +771,9 @@ def _board_payload(b: "Board") -> dict:
                 for r in b.bec_rails
             ],
         },
-        "imus":     [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "imu"],
-        "baros":    [{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "baro"],
-        "compasses":[{"chip": s.chip, "bus": s.bus, "variant": s.variant} for s in b.sensors if s.kind == "compass"],
+        "imus":     [{"chip": s.chip, "bus": s.bus, "variant": s.variant, "slot": s.slot, "chip_display": s.chip_display} for s in b.sensors if s.kind == "imu"],
+        "baros":    [{"chip": s.chip, "bus": s.bus, "variant": s.variant, "slot": s.slot, "chip_display": s.chip_display} for s in b.sensors if s.kind == "baro"],
+        "compasses":[{"chip": s.chip, "bus": s.bus, "variant": s.variant, "slot": s.slot, "chip_display": s.chip_display} for s in b.sensors if s.kind == "compass"],
         "firmware_support": [
             {"firmware": f.firmware, "maturity": f.maturity}
             for f in b.firmware_support

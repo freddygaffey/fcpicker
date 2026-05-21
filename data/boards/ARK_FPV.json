@@ -3,10 +3,10 @@
   "name": "ARK_FPV",
   "manufacturer": null,
   "mcu": {
-    "family": null,
-    "part": null
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
   },
-  "flash_kb": null,
+  "flash_kb": 2048,
   "io": {
     "uart_count": 6,
     "uart_buses": [
@@ -52,21 +52,27 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:iim42653",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IIM42653"
     }
   ],
   "baros": [
     {
       "chip": "BMP388",
       "bus": "I2C:1:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "IIS2MDC",
       "bus": "I2C:2:0x1E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -92,9 +98,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

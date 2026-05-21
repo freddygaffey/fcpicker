@@ -45,14 +45,18 @@
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000_cs",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": "MPU6000_CS"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -79,9 +83,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

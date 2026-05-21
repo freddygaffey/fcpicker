@@ -47,21 +47,27 @@
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU6500_CS",
+      "chip_display": "MPU6000"
     }
   ],
   "baros": [
     {
       "chip": "LPS2XH",
       "bus": "SPI:lps22h",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:LPS22HB_CS",
+      "chip_display": "LPS22H"
     }
   ],
   "compasses": [
     {
       "chip": "QMC5883L",
       "bus": "I2C:0:0x0D",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -87,9 +93,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

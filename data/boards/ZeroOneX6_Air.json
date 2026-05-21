@@ -57,41 +57,55 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "ICM45686_1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "ICM45686_2"
     }
   ],
   "baros": [
     {
       "chip": "ICP201XX",
       "bus": "I2C:0:0x64",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "ICP201XX",
       "bus": "I2C:2:0x63",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "RM3100",
       "bus": "I2C:0:0x20",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "IST8310",
       "bus": "I2C:0:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "BMM350",
       "bus": "I2C:0:0x15",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -117,9 +131,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

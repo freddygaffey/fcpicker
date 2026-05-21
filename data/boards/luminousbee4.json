@@ -49,26 +49,34 @@
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_ACCEL_CS",
+      "chip_display": "BMI088"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611_int",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:BARO_CS",
+      "chip_display": "MS5611"
     }
   ],
   "compasses": [
     {
       "chip": "HMC5843",
       "bus": "SPI:hmc5843",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": "HMC5843"
     },
     {
       "chip": "LIS3MDL",
       "bus": "SPI:lis3mdl",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": "LIS3MDL"
     }
   ],
   "firmware_support": [
@@ -94,9 +102,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

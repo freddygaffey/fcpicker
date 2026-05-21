@@ -53,26 +53,34 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42605",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IMU_CS",
+      "chip_display": "ICM42605"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IMU_CS",
+      "chip_display": "ICM42688"
     }
   ],
   "baros": [
     {
       "chip": "DPS280",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:BARO_CS",
+      "chip_display": "DPS310"
     }
   ],
   "compasses": [
     {
       "chip": "HMC5843",
       "bus": "SPI:hmc5843",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MAG_CS",
+      "chip_display": "HMC5843"
     }
   ],
   "firmware_support": [
@@ -98,9 +106,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

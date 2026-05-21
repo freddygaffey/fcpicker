@@ -1,0 +1,180 @@
+{
+  "slug": "CubeOrangePlus-SimOnHardWare",
+  "name": "CubeOrangePlus-SimOnHardWare",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H757xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 6,
+      "io": 8,
+      "total": 14
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 8
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602_ext",
+      "variant": null,
+      "slot": "INSTANCE:0",
+      "chip_display": "ICM20602"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20948_ext",
+      "variant": null,
+      "slot": "INSTANCE:1",
+      "chip_display": "ICM20948"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20948",
+      "variant": null,
+      "slot": "INSTANCE:2",
+      "chip_display": "ICM20948"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688_ext",
+      "variant": null,
+      "slot": "INSTANCE:0",
+      "chip_display": "ICM42688"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688_ext2",
+      "variant": null,
+      "slot": "INSTANCE:1",
+      "chip_display": "ICM42688_EXT2"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20948_ext",
+      "variant": null,
+      "slot": "INSTANCE:1",
+      "chip_display": "ICM20948"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": null,
+      "slot": "INSTANCE:2",
+      "chip_display": "ICM20649"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686",
+      "variant": null,
+      "slot": "INSTANCE:2",
+      "chip_display": "ICM45686"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20948_aux",
+      "variant": null,
+      "slot": "INSTANCE:1",
+      "chip_display": "ICM20948_AUX"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686_aux",
+      "variant": null,
+      "slot": "INSTANCE:2",
+      "chip_display": "ICM45686_AUX"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_ext",
+      "variant": null,
+      "slot": "SPI4/CS:BARO_EXT_CS",
+      "chip_display": "MS5611"
+    },
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null,
+      "slot": "SPI1/CS:BARO_CS",
+      "chip_display": "MS5611"
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "AK09916:probe_ICM20948",
+      "bus": "0",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "AK09916",
+      "bus": "I2C:2:0x0C",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter"
+  ],
+  "docs_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

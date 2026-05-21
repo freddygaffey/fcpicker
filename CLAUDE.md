@@ -65,3 +65,13 @@ There is no test suite. A pre-commit hook in `.githooks/pre-commit` runs `npm ru
 
 - Prereq for the build script: a clone of ArduPilot at `~/ardupilot` (only the `libraries/AP_HAL_ChibiOS/hwdef/` tree is needed) and optionally `~/ardupilot_wiki` for docs links.
 - `data/fcpicker.sqlite` is gitignored and recreated from scratch on every build (`db_path.unlink()` at the top of `main()`).
+
+## Roadmap
+
+Planned features (not yet implemented):
+
+- **Affiliate links.** Per-board purchase links (Amazon, AliExpress, vendor sites) stored in the `manual` block. Frontend renders them on board/peripheral detail pages.
+- **PDF documentation.** Link to vendor-hosted datasheets / manuals (PDF) from the `manual` block — URLs only, no uploads. Avoids hosting untrusted binaries entirely; safest option and keeps vendors as the source of truth.
+- **Improved admin panel.** Extend the existing admin workbench (commit `35b3f6b`): better editing UX for the `manual` block, support for the new affiliate / PDF fields, and parity for non-board catalogs (rangefinders, future peripherals).
+- **More hardware categories.** Expand beyond flight controllers and rangefinders to additional peripherals (e.g. GPS modules, airspeed sensors, ESCs, telemetry radios, power modules), each following the same `data/<category>/<slug>.json` + bundle pattern.
+- **GitHub-auth editing.** Anyone with push access to `ArduPilot/ardupilot` can edit the per-slug JSON files via the admin panel — auth through GitHub OAuth, check ArduPilot push permission, then commit edits as a PR (or direct push) to this repo. Keeps the "JSON in git is the source of truth" model intact.

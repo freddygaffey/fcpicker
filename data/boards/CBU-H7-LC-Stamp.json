@@ -55,14 +55,18 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42670",
-      "variant": null
+      "variant": null,
+      "slot": "SPI6/CS:IMU1_CS",
+      "chip_display": "ICM42670"
     }
   ],
   "baros": [
     {
       "chip": "BMP280",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -89,9 +93,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

@@ -55,21 +55,27 @@
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_A_CS",
+      "chip_display": "BMI088"
     }
   ],
   "baros": [
     {
       "chip": "BMP388",
       "bus": "I2C:1:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "LIS3MDL",
       "bus": "I2C:ALL_INTERNAL:0x1C",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -95,9 +101,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

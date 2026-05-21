@@ -3,6 +3,27 @@ import { Link } from "react-router-dom";
 import { mcuFamilyLabel, useBoards } from "../data";
 import type { Board, VehicleType } from "../types";
 
+// Physical maximum number of IMU slots any ArduPilot autopilot ships with.
+// Counts above this are capped; the raw value is exposed for the overcount
+// flag so the user knows the data needs review.
+const MAX_IMU_SLOTS = 3;
+
+function imuSlotCountRaw(b: Board): number {
+  if (b.manual?.imu_count != null) return b.manual.imu_count;
+  const slots = new Set<string>();
+  let unslotted = 0;
+  for (const s of b.imus) {
+    if (s.slot) slots.add(s.slot);
+    else unslotted += 1;
+  }
+  return slots.size + unslotted;
+}
+
+// Capped slot count: never exceeds the physical hardware maximum.
+function imuSlotCount(b: Board): number {
+  return Math.min(imuSlotCountRaw(b), MAX_IMU_SLOTS);
+}
+
 interface Filters {
   query: string;
   mcu: string;
@@ -91,7 +112,18 @@ const TABLE_COLUMNS: TableColumn[] = [
   { id: "usb",      label: "USB",   sortKey: "usb",   align: "right",
     cell: (b) => <td className="td-num">{b.io.usb_count}</td> },
   { id: "imus",     label: "IMU",   sortKey: "imus",  align: "right",
-    cell: (b) => <td className="td-num">{b.imus.length}</td> },
+    cell: (b) => {
+      const raw = imuSlotCountRaw(b);
+      const over = raw > MAX_IMU_SLOTS;
+      return (
+        <td
+          className="td-num"
+          title={over ? `Parsing found ${raw} IMUs; hardware max is ${MAX_IMU_SLOTS}` : undefined}
+        >
+          {imuSlotCount(b)}{over && <span className="canfd-tag" style={{ background: "#a05", color: "#fff" }}>!</span>}
+        </td>
+      );
+    } },
   { id: "power",    label: "POWER", sortKey: "power", align: "right",
     cell: (b) => <td className="td-num">{b.power.monitor_inputs}</td> },
   { id: "ethernet", label: "ETH",   sortKey: "ethernet", align: "center",
@@ -147,7 +179,7 @@ const CSV_COLUMNS: CsvColumn[] = [
   { id: "sbus_out",   label: "SBUS out",           get: (b) => (b.io.sbus_out ? "yes" : "no") },
   { id: "usb",        label: "USB ports",          get: (b) => b.io.usb_count },
   { id: "power",      label: "Power inputs",       get: (b) => b.power.monitor_inputs },
-  { id: "imus",       label: "IMU count",          get: (b) => b.imus.length },
+  { id: "imus",       label: "IMU count",          get: (b) => imuSlotCount(b) },
   { id: "baros",      label: "Baro count",         get: (b) => b.baros.length },
   { id: "compasses",  label: "Compass count",      get: (b) => b.compasses.length },
   { id: "vehicles",   label: "Supported vehicles", get: (b) => b.vehicles.join("|") },
@@ -199,7 +231,7 @@ function passes(b: Board, f: Filters): boolean {
   if (f.sdcard && !b.io.sdcard) return false;
   if (f.sbusOut && !b.io.sbus_out) return false;
   if (f.iomcu && !b.io.iomcu) return false;
-  if (b.imus.length < f.imus) return false;
+  if (imuSlotCount(b) < f.imus) return false;
   if (f.canfd && !b.io.canfd) return false;
   if (f.minFlash && (b.flash_kb ?? 0) < f.minFlash) return false;
   return true;
@@ -263,7 +295,7 @@ export default function Selector() {
         case "can":   return (a.io.can_count - b.io.can_count) * dir;
         case "pwm":   return (a.io.pwm.total - b.io.pwm.total) * dir;
         case "usb":   return (a.io.usb_count - b.io.usb_count) * dir;
-        case "imus":  return (a.imus.length - b.imus.length) * dir;
+        case "imus":  return (imuSlotCount(a) - imuSlotCount(b)) * dir;
         case "power": return (a.power.monitor_inputs - b.power.monitor_inputs) * dir;
         case "ethernet": return ((a.io.ethernet ? 1 : 0) - (b.io.ethernet ? 1 : 0)) * dir;
         case "sdcard":   return ((a.io.sdcard   ? 1 : 0) - (b.io.sdcard   ? 1 : 0)) * dir;

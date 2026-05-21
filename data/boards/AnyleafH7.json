@@ -3,10 +3,10 @@
   "name": "AnyleafH7",
   "manufacturer": null,
   "mcu": {
-    "family": null,
-    "part": null
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
   },
-  "flash_kb": null,
+  "flash_kb": 2048,
   "io": {
     "uart_count": 7,
     "uart_buses": [
@@ -53,14 +53,18 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "ICM42688"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -87,9 +91,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

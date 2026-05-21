@@ -49,14 +49,18 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:GYRO_CS",
+      "chip_display": "42688"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -83,9 +87,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

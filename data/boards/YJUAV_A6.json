@@ -54,61 +54,83 @@
     {
       "chip": "Invensense",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:IMU2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:IMU2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:imu3",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:IMU3_CS",
+      "chip_display": "IMU3"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu3",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:IMU3_CS",
+      "chip_display": "IMU3"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BAROMETER_CS",
+      "chip_display": "DPS310"
     },
     {
       "chip": "BMP388",
       "bus": "SPI:bmp388",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BAROMETER_CS",
+      "chip_display": "BMP388"
     }
   ],
   "compasses": [
     {
       "chip": "RM3100",
       "bus": "SPI:rm3100",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:COMPASS_CS",
+      "chip_display": "RM3100"
     },
     {
       "chip": "IST8310",
       "bus": "I2C:ALL_EXTERNAL:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "IST8310",
       "bus": "I2C:ALL_INTERNAL:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -125,7 +147,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html",
   "manual": {
     "status": "not_started",
     "form_factor": null,
@@ -134,9 +156,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

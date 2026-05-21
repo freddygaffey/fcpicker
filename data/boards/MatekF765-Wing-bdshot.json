@@ -1,0 +1,123 @@
+{
+  "slug": "MatekF765-Wing-bdshot",
+  "name": "MatekF765-Wing-bdshot",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F7xx",
+    "part": "STM32F767xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 8,
+    "uart_buses": [
+      "UART7",
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART8",
+      "UART4",
+      "USART6",
+      "UART5"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 17,
+      "io": 0,
+      "total": 17
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 0,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null,
+      "slot": "SPI3/CS:IMU2_CS",
+      "chip_display": "ICM20602"
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000",
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "MPU6000"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "DPS310",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wing.html",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

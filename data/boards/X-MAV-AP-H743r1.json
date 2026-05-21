@@ -55,41 +55,55 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu0",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU0_CS",
+      "chip_display": "IMU0"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "BMI270",
       "bus": "SPI:imu0",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU0_CS",
+      "chip_display": "IMU0"
     },
     {
       "chip": "BMI270",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:IMU1_CS",
+      "chip_display": "IMU1"
     }
   ],
   "baros": [
     {
       "chip": "SPL06",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "QMC5883P",
       "bus": "I2C:ALL_EXTERNAL:0x2C",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "QMC5883P",
       "bus": "I2C:ALL_INTERNAL:0x2C",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -115,9 +129,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

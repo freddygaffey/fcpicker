@@ -54,39 +54,53 @@
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU6000_CS",
+      "chip_display": "MPU6000"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:MPU6000_2_CS",
+      "chip_display": "MPU6000_2"
     },
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU6000_CS",
+      "chip_display": "BMI270"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU6000_CS",
+      "chip_display": "ICM42688"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:MPU6000_2_CS",
+      "chip_display": "ICM42688_2"
     }
   ],
   "baros": [
     {
       "chip": "DPS280",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "SPL06",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -113,9 +127,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

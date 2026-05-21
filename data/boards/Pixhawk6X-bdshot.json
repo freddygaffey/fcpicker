@@ -1,0 +1,239 @@
+{
+  "slug": "Pixhawk6X-bdshot",
+  "name": "Pixhawk6X-bdshot",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "UART7",
+      "UART5",
+      "USART1",
+      "UART8",
+      "USART2",
+      "UART4",
+      "USART3"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C4",
+      "I2C1",
+      "I2C2",
+      "I2C3"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3",
+      "SPI5"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 14,
+      "io": 8,
+      "total": 22
+    },
+    "ethernet": true,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 7
+  },
+  "power": {
+    "monitor_inputs": 3,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X",
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "ICM42688"
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X",
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "BMI088"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X",
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "ICM20649"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42670",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X",
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "ICM42670"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": "FMUV6_BOARD_CUAV_6X",
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "ICM42688"
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": "FMUV6_BOARD_CUAV_6X",
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "BMI088"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649_2",
+      "variant": "FMUV6_BOARD_CUAV_6X",
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "ICM20649_2"
+    },
+    {
+      "chip": "ADIS1647x",
+      "bus": "SPI:adis16470",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV6",
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "ADIS16470"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:iim42652",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV6",
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "IIM42652"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV6",
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "ICM45686"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686-2",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_45686",
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "ICM45686"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686-3",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_45686",
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "ICM45686"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686-1",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_45686",
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "ICM45686"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP388",
+      "bus": "I2C:2:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "I2C:0:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP581",
+      "bus": "I2C:2:0x46",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP581",
+      "bus": "I2C:0:0x46",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:0:0x64",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:2:0x63",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "BMM150",
+      "bus": "I2C:0:0x10",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "RM3100",
+      "bus": "I2C:0:0x20",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

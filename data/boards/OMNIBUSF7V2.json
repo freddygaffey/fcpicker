@@ -50,19 +50,25 @@
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6000",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU6000_CS",
+      "chip_display": "MPU6000"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6500",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:MPU6500_CS",
+      "chip_display": "MPU6500"
     }
   ],
   "baros": [
     {
       "chip": "BMP280",
       "bus": "SPI:bmp280",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMP280_CS",
+      "chip_display": "BMP280"
     }
   ],
   "compasses": [],
@@ -89,9 +95,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

@@ -1,0 +1,128 @@
+{
+  "slug": "Pixracer-bdshot",
+  "name": "Pixracer-bdshot",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F427xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "USART1",
+      "UART7"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C1"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI2"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 8,
+      "io": 0,
+      "total": 8
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 4
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20608",
+      "variant": null,
+      "slot": "SPI1/CS:20608_CS",
+      "chip_display": "ICM20608"
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu9250",
+      "variant": null,
+      "slot": "SPI1/CS:MPU9250_CS",
+      "chip_display": "MPU9250"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_int",
+      "variant": null,
+      "slot": "SPI2/CS:BARO_CS",
+      "chip_display": "MS5611"
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "HMC5843",
+      "bus": "SPI:hmc5843",
+      "variant": null,
+      "slot": "SPI1/CS:MAG_CS",
+      "chip_display": "HMC5843"
+    },
+    {
+      "chip": "LIS3MDL",
+      "bus": "SPI:lis3mdl",
+      "variant": null,
+      "slot": "SPI1/CS:MAG_CS",
+      "chip_display": "LIS3MDL"
+    },
+    {
+      "chip": "AK8963:probe_mpu9250",
+      "bus": "0",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-overview.html",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

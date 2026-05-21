@@ -54,31 +54,41 @@
     {
       "chip": "Invensense",
       "bus": "SPI:mpu6500",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:MPU_CS",
+      "chip_display": "MPU6500"
     },
     {
       "chip": "LSM9DS0",
       "bus": "SPI:lsm9ds0_g",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:ACCEL_MAG_CS",
+      "chip_display": "LSM9DS0"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BARO_CS",
+      "chip_display": "MS5611"
     }
   ],
   "compasses": [
     {
       "chip": "HMC5843",
       "bus": "I2C:0:0x1e",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "LSM303D",
       "bus": "SPI:lsm9ds0_am",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:ACCEL_MAG_CS",
+      "chip_display": "LSM9DS0_AM"
     }
   ],
   "firmware_support": [
@@ -104,9 +114,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

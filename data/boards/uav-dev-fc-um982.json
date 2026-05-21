@@ -51,21 +51,27 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:ICM_CS",
+      "chip_display": "ICM45686"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BARO_CS",
+      "chip_display": "DPS310"
     }
   ],
   "compasses": [
     {
       "chip": "BMM150",
       "bus": "I2C:0:0x10",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -91,9 +97,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

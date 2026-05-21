@@ -56,19 +56,25 @@
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_A_CS",
+      "chip_display": "BMI088"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:icm20602",
-      "variant": null
+      "variant": null,
+      "slot": "SPI6/CS:ICM20602_CS",
+      "chip_display": "ICM20602"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI5/CS:DPS310_CS1",
+      "chip_display": "DPS310"
     }
   ],
   "compasses": [],
@@ -95,9 +101,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

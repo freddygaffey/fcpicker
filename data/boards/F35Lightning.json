@@ -48,21 +48,27 @@
     {
       "chip": "Invensense",
       "bus": "SPI:mpu9250",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:MPU9250_CS",
+      "chip_display": "MPU9250"
     }
   ],
   "baros": [
     {
       "chip": "BMP280",
       "bus": "SPI:bmp280",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:BMP280_CS",
+      "chip_display": "BMP280"
     }
   ],
   "compasses": [
     {
       "chip": "AK8963:probe_mpu9250",
       "bus": "0",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -88,9 +94,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

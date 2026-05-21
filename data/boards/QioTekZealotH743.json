@@ -53,61 +53,83 @@
     {
       "chip": "ADIS1647x",
       "bus": "SPI:adis16470",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:ADIS16470_CS",
+      "chip_display": "ADIS16470"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:imu3",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU3_CS",
+      "chip_display": "IMU3"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu3",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU3_CS",
+      "chip_display": "IMU3"
     }
   ],
   "baros": [
     {
       "chip": "DPS280",
       "bus": "SPI:baro1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BARO1_CS",
+      "chip_display": "BARO1"
     },
     {
       "chip": "DPS280",
       "bus": "SPI:baro2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BARO2_CS",
+      "chip_display": "BARO2"
     }
   ],
   "compasses": [
     {
       "chip": "IST8310",
       "bus": "I2C:0:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "QMC5883L",
       "bus": "I2C:0:0x0D",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -133,9 +155,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

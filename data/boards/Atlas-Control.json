@@ -57,41 +57,55 @@
     {
       "chip": "ADIS1647x",
       "bus": "SPI:adis16470",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ADIS16470_CS",
+      "chip_display": "ADIS16470"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:ICM42688_CS",
+      "chip_display": "ICM42688"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:icm20689",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ADIS16470_CS",
+      "chip_display": "ICM20689"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:icm20689_board",
-      "variant": null
+      "variant": null,
+      "slot": "SPI6/CS:ICM20689_BOARD_CS",
+      "chip_display": "ICM20689"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611_imu",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:MS5611_IMU_CS",
+      "chip_display": "MS5611"
     },
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611_board",
-      "variant": null
+      "variant": null,
+      "slot": "SPI6/CS:MS5611_BOARD_CS",
+      "chip_display": "MS5611"
     }
   ],
   "compasses": [
     {
       "chip": "RM3100",
       "bus": "SPI:rm3100-2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:RM3100_CS",
+      "chip_display": "RM3100"
     }
   ],
   "firmware_support": [
@@ -117,9 +131,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

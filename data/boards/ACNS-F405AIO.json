@@ -51,26 +51,34 @@
     {
       "chip": "BMI160",
       "bus": "SPI:bmi160",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:GYRO1_CS",
+      "chip_display": "BMI160"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:GYRO2_CS",
+      "chip_display": "ICM42688"
     }
   ],
   "baros": [
     {
       "chip": "BMP280",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "LIS3MDL",
       "bus": "SPI:lis3mdl",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:MAG_CS",
+      "chip_display": "LIS3MDL"
     }
   ],
   "firmware_support": [
@@ -96,9 +104,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

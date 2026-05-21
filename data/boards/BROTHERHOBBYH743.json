@@ -54,29 +54,39 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI088_ACCEL_CS",
+      "chip_display": "IMU1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_ACCEL2_CS",
+      "chip_display": "IMU2"
     },
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI088_ACCEL_CS",
+      "chip_display": "BMI088"
     },
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_a2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_ACCEL2_CS",
+      "chip_display": "BMI088_A2"
     }
   ],
   "baros": [
     {
       "chip": "SPL06",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -103,9 +113,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

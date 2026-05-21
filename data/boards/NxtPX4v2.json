@@ -51,19 +51,25 @@
     {
       "chip": "BMI088",
       "bus": "SPI:imu0_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI088_1_A_CS",
+      "chip_display": "IMU0"
     },
     {
       "chip": "BMI088",
       "bus": "SPI:imu1_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_2_A_CS",
+      "chip_display": "IMU1"
     }
   ],
   "baros": [
     {
       "chip": "SPL06",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -90,9 +96,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

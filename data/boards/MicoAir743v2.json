@@ -53,31 +53,41 @@
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:BMI088_A_CS",
+      "chip_display": "BMI088"
     },
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:BMI270_CS",
+      "chip_display": "BMI270"
     }
   ],
   "baros": [
     {
       "chip": "SPL06",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [
     {
       "chip": "QMC5883L",
       "bus": "I2C:ALL_EXTERNAL:0x0D",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "QMC5883L",
       "bus": "I2C:ALL_INTERNAL:0x0D",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -103,9 +113,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

@@ -52,34 +52,46 @@
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270_0",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "BMI270_0"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688_0",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "ICM42688_0"
     },
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:IMU2_CS",
+      "chip_display": "BMI270_1"
     },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:IMU2_CS",
+      "chip_display": "ICM42688_1"
     }
   ],
   "baros": [
     {
       "chip": "SPL06",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "DPS310",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -106,9 +118,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

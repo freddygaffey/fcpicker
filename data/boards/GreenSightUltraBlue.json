@@ -58,36 +58,48 @@
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_u12_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI4/CS:BMI088_U12_A_CS",
+      "chip_display": "BMI088_U12"
     },
     {
       "chip": "BMI088",
       "bus": "SPI:bmi088_u11_a",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:BMI088_U11_A_CS",
+      "chip_display": "BMI088_U11"
     },
     {
       "chip": "Invensensev2",
       "bus": "SPI:icm20649",
-      "variant": null
+      "variant": null,
+      "slot": "SPI6/CS:ICM20649_CS",
+      "chip_display": "ICM20649"
     }
   ],
   "baros": [
     {
       "chip": "DPS310",
       "bus": "SPI:dps310",
-      "variant": null
+      "variant": null,
+      "slot": "SPI6/CS:DPS310_CS",
+      "chip_display": "DPS310"
     }
   ],
   "compasses": [
     {
       "chip": "IST8308",
       "bus": "I2C:1:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "IST8310",
       "bus": "I2C:1:0x0E",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -113,9 +125,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

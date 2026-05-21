@@ -51,26 +51,34 @@
     {
       "chip": "Invensense",
       "bus": "SPI:icm20602",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:ICM20602_CS",
+      "chip_display": "ICM20602"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:mpu9250",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MPU9250_CS",
+      "chip_display": "MPU9250"
     }
   ],
   "baros": [
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611",
-      "variant": null
+      "variant": null,
+      "slot": "SPI1/CS:MS5611_CS",
+      "chip_display": "MS5611"
     }
   ],
   "compasses": [
     {
       "chip": "AK8963:probe_mpu9250",
       "bus": "0",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "firmware_support": [
@@ -96,9 +104,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

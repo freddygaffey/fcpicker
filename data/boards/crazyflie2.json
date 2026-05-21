@@ -44,24 +44,32 @@
     {
       "chip": "BMI088",
       "bus": "I2C:0:0x18",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "Invensense",
       "bus": "I2C:0:0x69",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "baros": [
     {
       "chip": "BMP388",
       "bus": "I2C:0:0x77",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     },
     {
       "chip": "LPS2XH:probe_InvensenseIMU",
       "bus": "I2C:0:0x5D",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -83,9 +91,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": 1,
+    "notes": null
   }
 }

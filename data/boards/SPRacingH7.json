@@ -51,19 +51,25 @@
     {
       "chip": "Invensense",
       "bus": "SPI:icm20602_1",
-      "variant": null
+      "variant": null,
+      "slot": "SPI3/CS:ICM20602_1_CS",
+      "chip_display": "ICM20602_1"
     },
     {
       "chip": "Invensense",
       "bus": "SPI:icm20602_2",
-      "variant": null
+      "variant": null,
+      "slot": "SPI2/CS:ICM20602_2_CS",
+      "chip_display": "ICM20602_2"
     }
   ],
   "baros": [
     {
       "chip": "BMP388",
       "bus": "I2C:0:0x76",
-      "variant": null
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],
@@ -90,9 +96,10 @@
     "dimensions_mm": null,
     "weight_g": null,
     "connectors": [],
-    "notes": null,
     "images": [],
     "ardupilot_repo_url": null,
-    "discontinued": false
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
   }
 }

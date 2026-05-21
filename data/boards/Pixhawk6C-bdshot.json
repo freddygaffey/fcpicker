@@ -1,0 +1,144 @@
+{
+  "slug": "Pixhawk6C-bdshot",
+  "name": "Pixhawk6C-bdshot",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "UART7",
+      "UART5",
+      "USART1",
+      "UART8",
+      "USART2",
+      "USART3"
+    ],
+    "i2c_count": 3,
+    "i2c_buses": [
+      "I2C4",
+      "I2C1",
+      "I2C2"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI2"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 16,
+      "io": 8,
+      "total": 24
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 5
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm42688",
+      "variant": null,
+      "slot": "SPI1/CS:ICM42688_CS",
+      "chip_display": "ICM42688"
+    },
+    {
+      "chip": "LSM6DSV",
+      "bus": "SPI:lsm6dsv",
+      "variant": null,
+      "slot": "SPI1/CS:ICM42688_CS",
+      "chip_display": "LSM6DSV"
+    },
+    {
+      "chip": "BMI055",
+      "bus": "SPI:bmi055_a",
+      "variant": null,
+      "slot": "SPI1/CS:BMI055_A_CS",
+      "chip_display": "BMI055"
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi055_a",
+      "variant": null,
+      "slot": "SPI1/CS:BMI055_A_CS",
+      "chip_display": "BMI055"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "MS5611",
+      "bus": "I2C:0:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "I2C:0:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:0:0x0C",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}
