@@ -1,0 +1,1504 @@
+{
+  "rangefinders": [
+    {
+      "slug": "cygbotd1",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "Cygbot D1",
+      "class_name": "AP_Proximity_Cygbot_D1",
+      "bus": "serial",
+      "tech": "tof",
+      "type_ids": [
+        {
+          "enum": "CYGBOT_D1",
+          "param_value": 13
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "ld06",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "LD06",
+      "class_name": "AP_Proximity_LD06",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "LD06",
+          "param_value": 16
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-ld06.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "lightwaresf40c",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "LightWareSF40C",
+      "class_name": "AP_Proximity_LightWareSF40C",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "SF40C",
+          "param_value": 7
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-lightware-sf40c-objectavoidance.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": 360,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "lightwaresf45b",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "LightWareSF45B",
+      "class_name": "AP_Proximity_LightWareSF45B",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "SF45B",
+          "param_value": 8
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-lightware-sf45b.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 50.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "mr72can",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "MR72 CAN",
+      "class_name": "AP_Proximity_MR72_CAN",
+      "bus": "can",
+      "tech": "radar",
+      "type_ids": [
+        {
+          "enum": "MR72",
+          "param_value": 17
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-mr72.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "rplidara2",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "RPLidarA2",
+      "class_name": "AP_Proximity_RPLidarA2",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "RPLidarA2",
+          "param_value": 5
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rplidar-a2.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "terarangertower",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "TeraRangerTower",
+      "class_name": "AP_Proximity_TeraRangerTower",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [],
+      "docs_url": "https://ardupilot.org/copter/docs/common-teraranger-tower-objectavoidance.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "terarangertowerevo",
+      "kind": "proximity",
+      "directionality": "omnidirectional",
+      "display_name": "TeraRangerTowerEvo",
+      "class_name": "AP_Proximity_TeraRangerTowerEvo",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "ainsteinlrd1",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Ainstein LR D1",
+      "class_name": "AP_RangeFinder_Ainstein_LR_D1",
+      "bus": "serial",
+      "tech": "radar",
+      "type_ids": [
+        {
+          "enum": "Ainstein_LR_D1",
+          "param_value": 42
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-ainstein-lrd1.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 500.0,
+      "wiki_weight_g": 300.0,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "bbbpru",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "BBB PRU",
+      "class_name": "AP_RangeFinder_BBB_PRU",
+      "bus": "platform",
+      "tech": "ultrasonic",
+      "type_ids": [
+        {
+          "enum": "BBB_PRU",
+          "param_value": 6
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "bebop",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Bebop",
+      "class_name": "AP_RangeFinder_Bebop",
+      "bus": "platform",
+      "tech": "ultrasonic",
+      "type_ids": [
+        {
+          "enum": "BEBOP",
+          "param_value": 9
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "benewakecan",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Benewake CAN",
+      "class_name": "AP_RangeFinder_Benewake_CAN",
+      "bus": "can",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "Benewake_CAN",
+          "param_value": 34
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "benewaketf02",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Benewake TF02",
+      "class_name": "AP_RangeFinder_Benewake_TF02",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "BenewakeTF02",
+          "param_value": 19
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-benewake-tf02-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "benewaketf03",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Benewake TF03",
+      "class_name": "AP_RangeFinder_Benewake_TF03",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "BenewakeTF03",
+          "param_value": 27
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "benewaketfmini",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Benewake TFMini",
+      "class_name": "AP_RangeFinder_Benewake_TFMini",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "BenewakeTFmini",
+          "param_value": 20
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-benewake-tfmini-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 12.0,
+      "wiki_weight_g": 5.0,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "benewaketfminiplus",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Benewake TFMiniPlus",
+      "class_name": "AP_RangeFinder_Benewake_TFMiniPlus",
+      "bus": "i2c",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "BenewakeTFminiPlus",
+          "param_value": 25
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-benewake-tfmini-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 12.0,
+      "wiki_weight_g": 5.0,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "benewaketfs20l",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Benewake TFS20L",
+      "class_name": "AP_RangeFinder_Benewake_TFS20L",
+      "bus": "i2c",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "BenewakeTFS20L",
+          "param_value": 46
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "blping",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "BLPing",
+      "class_name": "AP_RangeFinder_BLPing",
+      "bus": "serial",
+      "tech": "sonar",
+      "type_ids": [
+        {
+          "enum": "BLPing",
+          "param_value": 23
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "dts6012m",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "DTS6012M",
+      "class_name": "AP_RangeFinder_DTS6012M",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "DTS6012M",
+          "param_value": 47
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "gyus42v2",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "GYUS42v2",
+      "class_name": "AP_RangeFinder_GYUS42v2",
+      "bus": "serial",
+      "tech": "ultrasonic",
+      "type_ids": [
+        {
+          "enum": "GYUS42v2",
+          "param_value": 31
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-gy-us42.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 4.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "hcsr04",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "HC SR04",
+      "class_name": "AP_RangeFinder_HC_SR04",
+      "bus": "gpio",
+      "tech": "ultrasonic",
+      "type_ids": [
+        {
+          "enum": "HC_SR04",
+          "param_value": 30
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-hcsr04.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 2.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "jreserial",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "JRE Serial",
+      "class_name": "AP_RangeFinder_JRE_Serial",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "JRE_Serial",
+          "param_value": 41
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-jae-jre-30.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 50.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "lanbao",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Lanbao",
+      "class_name": "AP_RangeFinder_Lanbao",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "Lanbao",
+          "param_value": 26
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "leddarone",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "LeddarOne",
+      "class_name": "AP_RangeFinder_LeddarOne",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "LEDDARONE",
+          "param_value": 12
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-leddar-one-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 40.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "leddarvu8",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "LeddarVu8",
+      "class_name": "AP_RangeFinder_LeddarVu8",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "LeddarVu8_Serial",
+          "param_value": 29
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-leddartech-leddarvu8-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "lightwaregrf",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "LightWareGRF",
+      "class_name": "AP_RangeFinder_LightWareGRF",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "LightWare_GRF",
+          "param_value": 45
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-lightware-grf250-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 250.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "lightwarei2c",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "LightWareI2C",
+      "class_name": "AP_RangeFinder_LightWareI2C",
+      "bus": "i2c",
+      "tech": "lidar",
+      "type_ids": [],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "lightwareserial",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "LightWareSerial",
+      "class_name": "AP_RangeFinder_LightWareSerial",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "maxsonari2cxl",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "MaxsonarI2CXL",
+      "class_name": "AP_RangeFinder_MaxsonarI2CXL",
+      "bus": "i2c",
+      "tech": "ultrasonic",
+      "type_ids": [],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-maxbotixi2c.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 7.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "maxsonarseriallv",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "MaxsonarSerialLV",
+      "class_name": "AP_RangeFinder_MaxsonarSerialLV",
+      "bus": "serial",
+      "tech": "ultrasonic",
+      "type_ids": [],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-maxbotix-analog.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 10.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "nmea",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "NMEA",
+      "class_name": "AP_RangeFinder_NMEA",
+      "bus": "serial",
+      "tech": "sonar",
+      "type_ids": [
+        {
+          "enum": "NMEA",
+          "param_value": 17
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "nooploop",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "NoopLoop",
+      "class_name": "AP_RangeFinder_NoopLoop",
+      "bus": "serial",
+      "tech": "tof",
+      "type_ids": [
+        {
+          "enum": "NoopLoop_P",
+          "param_value": 37
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-nooploop-tofsense-f.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "nra24can",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "NRA24 CAN",
+      "class_name": "AP_RangeFinder_NRA24_CAN",
+      "bus": "can",
+      "tech": "radar",
+      "type_ids": [
+        {
+          "enum": "NRA24_CAN",
+          "param_value": 39
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-nra24.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "pulsedlightlrf",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "PulsedLightLRF",
+      "class_name": "AP_RangeFinder_PulsedLightLRF",
+      "bus": "i2c",
+      "tech": "lidar",
+      "type_ids": [],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-lidarlite.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 40.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "rds02uf",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "RDS02UF",
+      "class_name": "AP_RangeFinder_RDS02UF",
+      "bus": "serial",
+      "tech": "radar",
+      "type_ids": [
+        {
+          "enum": "RDS02UF",
+          "param_value": 43
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "terarangeri2c",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "TeraRangerI2C",
+      "class_name": "AP_RangeFinder_TeraRangerI2C",
+      "bus": "i2c",
+      "tech": "lidar",
+      "type_ids": [],
+      "docs_url": "https://ardupilot.org/copter/docs/common-teraranger-one-rangefinder.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 10.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "terarangerserial",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "TeraRanger Serial",
+      "class_name": "AP_RangeFinder_TeraRanger_Serial",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "TeraRanger_Serial",
+          "param_value": 35
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-teraranger-one-rangefinder.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 10.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "tofsensefi2c",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "TOFSenseF I2C",
+      "class_name": "AP_RangeFinder_TOFSenseF_I2C",
+      "bus": "i2c",
+      "tech": "tof",
+      "type_ids": [
+        {
+          "enum": "TOFSenseF_I2C",
+          "param_value": 40
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-nooploop-tofsense-f.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "tofsensepcan",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "TOFSenseP CAN",
+      "class_name": "AP_RangeFinder_TOFSenseP_CAN",
+      "bus": "can",
+      "tech": "tof",
+      "type_ids": [
+        {
+          "enum": "TOFSenseP_CAN",
+          "param_value": 38
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-nooploop-tofsense-p.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "usd1can",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "USD1 CAN",
+      "class_name": "AP_RangeFinder_USD1_CAN",
+      "bus": "can",
+      "tech": "radar",
+      "type_ids": [
+        {
+          "enum": "USD1_CAN",
+          "param_value": 33
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "usd1serial",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "USD1 Serial",
+      "class_name": "AP_RangeFinder_USD1_Serial",
+      "bus": "serial",
+      "tech": "radar",
+      "type_ids": [
+        {
+          "enum": "USD1_Serial",
+          "param_value": 11
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "vl53l0x",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "VL53L0X",
+      "class_name": "AP_RangeFinder_VL53L0X",
+      "bus": null,
+      "tech": "tof",
+      "type_ids": [
+        {
+          "enum": "VL53L0X",
+          "param_value": 16
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-vl53l0x-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "vl53l1x",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "VL53L1X",
+      "class_name": "AP_RangeFinder_VL53L1X",
+      "bus": null,
+      "tech": "tof",
+      "type_ids": [
+        {
+          "enum": "VL53L1X_Short",
+          "param_value": 28
+        }
+      ],
+      "docs_url": null,
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": null,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "wasp",
+      "kind": "rangefinder",
+      "directionality": "unidirectional",
+      "display_name": "Wasp",
+      "class_name": "AP_RangeFinder_Wasp",
+      "bus": "serial",
+      "tech": "lidar",
+      "type_ids": [
+        {
+          "enum": "WASP",
+          "param_value": 18
+        }
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-wasp200-lidar.html",
+      "wiki_range_min_m": null,
+      "wiki_range_max_m": 200.0,
+      "wiki_weight_g": null,
+      "wiki_fov_deg": null,
+      "manual": {
+        "status": "not_started",
+        "manufacturer": null,
+        "product_url": null,
+        "accuracy_cm": null,
+        "update_rate_hz": null,
+        "min_voltage_v": null,
+        "max_voltage_v": null,
+        "current_ma": null,
+        "weight_g_override": null,
+        "range_min_m_override": null,
+        "range_max_m_override": null,
+        "fov_deg_override": null,
+        "notes": null
+      }
+    }
+  ]
+}

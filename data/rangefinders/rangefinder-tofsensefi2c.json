@@ -1,0 +1,35 @@
+{
+  "slug": "tofsensefi2c",
+  "kind": "rangefinder",
+  "directionality": "unidirectional",
+  "display_name": "TOFSenseF I2C",
+  "class_name": "AP_RangeFinder_TOFSenseF_I2C",
+  "bus": "i2c",
+  "tech": "tof",
+  "type_ids": [
+    {
+      "enum": "TOFSenseF_I2C",
+      "param_value": 40
+    }
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-rangefinder-nooploop-tofsense-f.html",
+  "wiki_range_min_m": null,
+  "wiki_range_max_m": null,
+  "wiki_weight_g": null,
+  "wiki_fov_deg": null,
+  "manual": {
+    "status": "not_started",
+    "manufacturer": null,
+    "product_url": null,
+    "accuracy_cm": null,
+    "update_rate_hz": null,
+    "min_voltage_v": null,
+    "max_voltage_v": null,
+    "current_ma": null,
+    "weight_g_override": null,
+    "range_min_m_override": null,
+    "range_max_m_override": null,
+    "fov_deg_override": null,
+    "notes": null
+  }
+}

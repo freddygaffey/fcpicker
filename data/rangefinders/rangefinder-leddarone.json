@@ -1,0 +1,35 @@
+{
+  "slug": "leddarone",
+  "kind": "rangefinder",
+  "directionality": "unidirectional",
+  "display_name": "LeddarOne",
+  "class_name": "AP_RangeFinder_LeddarOne",
+  "bus": "serial",
+  "tech": "lidar",
+  "type_ids": [
+    {
+      "enum": "LEDDARONE",
+      "param_value": 12
+    }
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-leddar-one-lidar.html",
+  "wiki_range_min_m": null,
+  "wiki_range_max_m": 40.0,
+  "wiki_weight_g": null,
+  "wiki_fov_deg": null,
+  "manual": {
+    "status": "not_started",
+    "manufacturer": null,
+    "product_url": null,
+    "accuracy_cm": null,
+    "update_rate_hz": null,
+    "min_voltage_v": null,
+    "max_voltage_v": null,
+    "current_ma": null,
+    "weight_g_override": null,
+    "range_min_m_override": null,
+    "range_max_m_override": null,
+    "fov_deg_override": null,
+    "notes": null
+  }
+}

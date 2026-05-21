@@ -1,0 +1,35 @@
+{
+  "slug": "ld06",
+  "kind": "proximity",
+  "directionality": "omnidirectional",
+  "display_name": "LD06",
+  "class_name": "AP_Proximity_LD06",
+  "bus": "serial",
+  "tech": "lidar",
+  "type_ids": [
+    {
+      "enum": "LD06",
+      "param_value": 16
+    }
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-ld06.html",
+  "wiki_range_min_m": null,
+  "wiki_range_max_m": null,
+  "wiki_weight_g": null,
+  "wiki_fov_deg": null,
+  "manual": {
+    "status": "not_started",
+    "manufacturer": null,
+    "product_url": null,
+    "accuracy_cm": null,
+    "update_rate_hz": null,
+    "min_voltage_v": null,
+    "max_voltage_v": null,
+    "current_ma": null,
+    "weight_g_override": null,
+    "range_min_m_override": null,
+    "range_max_m_override": null,
+    "fov_deg_override": null,
+    "notes": null
+  }
+}
