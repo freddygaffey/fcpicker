@@ -97,6 +97,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-morakot.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Morakot/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,

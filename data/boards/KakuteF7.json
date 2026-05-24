@@ -79,7 +79,8 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7aio.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF7/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,

@@ -114,6 +114,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wse.html",
+  "repo_url": null,
   "manual": {
     "status": "not_started",
     "form_factor": null,

@@ -108,6 +108,7 @@ export interface Board {
   firmware_support: FirmwareSupport[];
   vehicles: VehicleType[];
   docs_url: string | null;
+  repo_url: string | null;
   manual?: BoardManual;
 }
 

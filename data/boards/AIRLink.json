@@ -122,7 +122,8 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-airlink-telemetry.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-skydrones-airlink.html",
+  "repo_url": null,
   "manual": {
     "status": "not_started",
     "form_factor": null,

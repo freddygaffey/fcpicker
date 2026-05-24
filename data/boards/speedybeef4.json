@@ -78,6 +78,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+  "repo_url": null,
   "manual": {
     "status": "not_started",
     "form_factor": null,

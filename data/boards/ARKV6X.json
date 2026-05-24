@@ -132,6 +132,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-ark-v6x-overview.html",
+  "repo_url": null,
   "manual": {
     "status": "not_started",
     "form_factor": null,

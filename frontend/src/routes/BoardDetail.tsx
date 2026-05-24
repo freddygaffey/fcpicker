@@ -76,7 +76,26 @@ export default function BoardDetail() {
         </div>
       )}
 
-      {b.manual?.ardupilot_repo_url && b.manual.ardupilot_repo_url !== b.docs_url && (
+      {b.repo_url && (
+        <a
+          className="bd-doc-cta"
+          href={b.repo_url}
+          target="_blank"
+          rel="noreferrer"
+          style={{ marginTop: 8 }}
+        >
+          <span className="bd-doc-cta-label">
+            {b.repo_url.includes("github.com")
+              ? "hwdef source & README on GitHub"
+              : "Vendor / reference page"}
+          </span>
+          <span className="bd-doc-cta-arrow">↗</span>
+        </a>
+      )}
+
+      {b.manual?.ardupilot_repo_url &&
+        b.manual.ardupilot_repo_url !== b.docs_url &&
+        b.manual.ardupilot_repo_url !== b.repo_url && (
         <a
           className="bd-doc-cta"
           href={b.manual.ardupilot_repo_url}

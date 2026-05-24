@@ -38,6 +38,12 @@ DOCS_BASE = "https://ardupilot.org"
 # Common docs render under /copter/docs/ for historical reasons.
 WIKI_PLATFORMS = ("copter", "plane", "rover", "sub", "blimp", "antennatracker", "dev")
 COMMON_PLATFORM = "copter"
+# Last-resort docs link when a board has neither a wiki page nor an index entry:
+# the hwdef README on GitHub, if the board ships one.
+HWDEF_README_URL = (
+    "https://github.com/ArduPilot/ardupilot/blob/master/"
+    "libraries/AP_HAL_ChibiOS/hwdef/{slug}/README.md"
+)
 
 # Directory names that are peripherals / nodes / bootloaders, not autopilots.
 PERIPHERAL_PATTERNS = (
@@ -76,6 +82,7 @@ class Board(Base):
     power_inputs: Mapped[int] = mapped_column(Integer, default=0)
     vehicles_csv: Mapped[str] = mapped_column(String, default="")
     docs_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    repo_url: Mapped[str | None] = mapped_column(String, nullable=True)
     readme: Mapped[str | None] = mapped_column(String, nullable=True)
 
     sensors: Mapped[list["Sensor"]] = relationship(back_populates="board", cascade="all, delete-orphan")
@@ -154,6 +161,7 @@ class ParsedBoard:
     power_inputs: int = 0
     vehicles: list[str] = None
     docs_url: str | None = None
+    repo_url: str | None = None
     readme: str | None = None
 
 
@@ -475,6 +483,10 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]", "", s.lower())
 
 
+# A toctree entry in common-autopilots.rst: "    Display Name <target>", where
+# target is either a wiki stem (common-foo) or an external URL (vendor / README).
+_INDEX_ENTRY_RE = re.compile(r"^[ \t]+(.+?)\s+<([^>]+)>\s*$", re.MULTILINE)
+
 _TOKEN_SPLIT = re.compile(r"[A-Z]+(?=[A-Z][a-z])|[A-Z]?[a-z0-9]+|[A-Z]+|\d+")
 # Generic words that match too many boards; ignore them when scoring.
 _STOP_TOKENS = {"the", "common", "overview", "fc", "v", "ardupilot", "autopilot", "flight"}
@@ -535,8 +547,38 @@ def build_docs_map() -> dict[str, tuple[str, list[str], str]]:
     return out
 
 
+def build_index_url_map() -> dict[str, str]:
+    """Map normalized board name → external URL from the autopilots index.
+
+    common-autopilots.rst lists some boards as `Display Name <https://…>` —
+    a vendor page or a hwdef README — instead of a wiki page. These are the
+    maintainer-chosen link for boards with no dedicated wiki page. Used only as
+    a *fallback*: a real wiki match always wins (see populate_db).
+    """
+    page = ARDUPILOT_WIKI_DOCS / "common-autopilots.rst"
+    if not page.exists():
+        return {}
+    out: dict[str, str] = {}
+    for disp, target in _INDEX_ENTRY_RE.findall(page.read_text(errors="ignore")):
+        target = target.strip()
+        if not target.startswith(("http://", "https://")):
+            continue  # internal wiki stem — already covered by build_docs_map
+        key = _norm(disp)
+        if key:
+            out.setdefault(key, target)
+    return out
+
+
 def _doc_url(doc: str, platform: str) -> str:
     return f"{DOCS_BASE}/{platform}/docs/{doc}.html"
+
+
+def match_index_url(slug: str, index_map: dict[str, str]) -> str | None:
+    """Exact (or `the`-prefixed) normalized match against the index URL map."""
+    if not index_map:
+        return None
+    key = _norm(slug)
+    return index_map.get(key) or index_map.get("the" + key)
 
 
 def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -> str | None:
@@ -621,8 +663,18 @@ def load_bec_overrides() -> dict[str, list[dict]]:
 
 def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str, tuple[str, list[str], str]]) -> None:
     bec_map = load_bec_overrides()
+    index_map = build_index_url_map()
     for p in parsed:
-        p.docs_url = match_docs_url(p.slug, docs_map)
+        # The hwdef README on GitHub, if this board ships one.
+        readme_url = HWDEF_README_URL.format(slug=p.slug) if p.readme is not None else None
+        # Primary link: a real wiki page is always preferred; otherwise fall
+        # back to the maintainer-chosen index URL, then the hwdef README.
+        wiki = match_docs_url(p.slug, docs_map)
+        p.docs_url = wiki or match_index_url(p.slug, index_map) or readme_url
+        # Secondary "source" link (the hwdef README, or an external index URL),
+        # shown alongside docs_url when it's a distinct destination.
+        second = readme_url or match_index_url(p.slug, index_map)
+        p.repo_url = second if second != p.docs_url else None
         b = Board(
             slug=p.slug,
             name=p.slug,                 # TODO: pretty-name from wiki / README
@@ -646,6 +698,7 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
             power_inputs=p.power_inputs,
             vehicles_csv=",".join(p.vehicles or []),
             docs_url=p.docs_url,
+            repo_url=p.repo_url,
             readme=p.readme,
         )
         for chip, bus, variant, slot, chip_display in p.imus:
@@ -709,6 +762,7 @@ def export_robots(out_path: Path) -> None:
 GENERATED_KEYS = {
     "slug", "name", "manufacturer", "mcu", "flash_kb", "io", "power",
     "imus", "baros", "compasses", "firmware_support", "vehicles", "docs_url",
+    "repo_url",
 }
 
 MANUAL_TEMPLATE = {
@@ -780,6 +834,7 @@ def _board_payload(b: "Board") -> dict:
         ],
         "vehicles": [v for v in b.vehicles_csv.split(",") if v],
         "docs_url": b.docs_url,
+        "repo_url": b.repo_url,
     }
 
 
@@ -790,15 +845,20 @@ def export_per_board(session: Session, out_dir: Path) -> int:
     for b in session.scalars(select(Board)).all():
         path = out_dir / f"{b.slug}.json"
         manual = dict(MANUAL_TEMPLATE)
+        ai_block: dict | None = None
         if path.exists():
             try:
                 existing = json.loads(path.read_text())
                 if isinstance(existing.get("manual"), dict):
                     manual = {**MANUAL_TEMPLATE, **existing["manual"]}
+                if isinstance(existing.get("ai"), dict):
+                    ai_block = existing["ai"]
             except json.JSONDecodeError:
                 pass  # corrupt file — overwrite from scratch
         payload = _board_payload(b)
         payload["manual"] = manual
+        if ai_block is not None:
+            payload["ai"] = ai_block
         path.write_text(json.dumps(payload, indent=2) + "\n")
         written += 1
     return written
@@ -873,7 +933,7 @@ def main() -> int:
 
     matched = sum(1 for p in parsed if p.docs_url)
     print(f"Parsed {n_boards} autopilot boards "
-          f"({matched} matched to wiki docs, {len(parsed) - matched} unmatched).")
+          f"({matched} matched to docs, {len(parsed) - matched} unmatched).")
     print(f"  SQLite: {db_path}")
     print(f"  JSON:   {FRONTEND_PUBLIC / 'boards.json'}")
     print(f"  Images: {img_count} across {FRONTEND_PUBLIC / 'hwdef-images.json'}")

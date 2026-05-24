@@ -123,6 +123,7 @@
   ],
   "vehicles": [],
   "docs_url": null,
+  "repo_url": null,
   "manual": {
     "status": "not_started",
     "form_factor": null,

@@ -104,6 +104,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-pixsurveya2-ind.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixSurveyA2-IND/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,

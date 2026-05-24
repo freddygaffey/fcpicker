@@ -79,6 +79,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4-v3.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v3/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,

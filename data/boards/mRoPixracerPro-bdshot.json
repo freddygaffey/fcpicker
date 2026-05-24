@@ -105,6 +105,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-pro.html",
+  "repo_url": null,
   "manual": {
     "status": "not_started",
     "form_factor": null,

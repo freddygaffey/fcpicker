@@ -79,6 +79,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beasth7AIO.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BeastH7/README.md",
   "manual": {
     "status": "partial",
     "form_factor": null,

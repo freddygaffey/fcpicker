@@ -109,6 +109,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/3DRControlZeroG/README.md",
       "manual": {
         "status": "partial",
         "form_factor": null,
@@ -247,6 +248,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-acctongodwit-ga1.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AcctonGodwit_GA1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -353,6 +355,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-acns-cm4pilot.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ACNS-CM4Pilot/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -466,6 +469,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405aio.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ACNS-F405AIO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -565,6 +569,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-aedroxh7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AEDROXH7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -660,7 +665,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AeroCogito-H7Digital/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -792,6 +798,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-aerofox-h7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AEROFOX-H7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -925,7 +932,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Aeromind6X/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1041,6 +1049,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-AET-H743-Basic.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AET-H743-Basic/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1133,6 +1142,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1237,7 +1247,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AIRBRAINH743/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1377,7 +1388,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-airlink-telemetry.html",
+      "docs_url": "https://ardupilot.org/copter/docs/common-skydrones-airlink.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1480,7 +1492,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Airvolute-DCS2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1581,6 +1594,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-anyleafh7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AnyleafH7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1709,6 +1723,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-aocoda-h743dual.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Aocoda-RC-H743Dual/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1816,6 +1831,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-ark-fpv.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ARK_FPV/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -1929,7 +1945,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ARK_PI6X/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2079,6 +2096,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-ark-v6x-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2228,6 +2246,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-ark-v6x-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2367,7 +2386,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Atlas-Control/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2472,6 +2492,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-atomrcf405-navi.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2569,6 +2590,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-atomrcf405-navi-deluxe.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ATOMRCF405NAVI-Deluxe/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2665,6 +2687,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beastf7AIO.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BeastF7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2767,7 +2790,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BeastF7v2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -2864,6 +2888,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-iflight-beasth7AIO.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BeastH7/README.md",
       "manual": {
         "status": "partial",
         "form_factor": null,
@@ -2977,7 +3002,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BeastH7v2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3074,6 +3100,7 @@
         "copter"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-betafpvf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3170,6 +3197,7 @@
         "copter"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-betafpvf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405-I2C/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3275,6 +3303,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3386,6 +3415,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745AIO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3493,6 +3523,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-blitzh743pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BlitzH743Pro/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3605,6 +3636,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BlitzMiniF745/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3712,6 +3744,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-blitzh743wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BlitzWingH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3817,6 +3850,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-botwingf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BOTWINGF405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -3912,6 +3946,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-brahmaf4.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BrahmaF4/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4009,6 +4044,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-brotherhobbyf405v3.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYF405v3/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4131,6 +4167,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-brotherhobbyh743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4232,7 +4269,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CBU-H7-LC-Stamp/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4357,7 +4395,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CBU-H7-Stamp/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4455,6 +4494,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-corvonf405v2_1.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CORVON405V2_1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4577,6 +4617,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-corvon743v1.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CORVON743V1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4665,6 +4706,7 @@
         "copter"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-crazyf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CrazyF405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4765,6 +4807,7 @@
         "copter"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -4861,6 +4904,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-CSKYF405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CSKY405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5007,6 +5051,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-CUAV-7-Nano.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-7-Nano/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5153,6 +5198,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-CUAV-7-Nano.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5315,6 +5361,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-nora-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5477,6 +5524,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-nora-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5639,6 +5687,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-nora-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5772,7 +5821,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-V6X-v2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -5907,6 +5957,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -6039,7 +6090,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-EVO",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-EVO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -6173,6 +6225,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -6348,6 +6401,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-x7-family-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -6523,6 +6577,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-x7-family-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -6698,6 +6753,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-x7-family-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -6871,7 +6927,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html",
+      "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5plus-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAVv5/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7045,7 +7102,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAVv5-bdshot/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7185,6 +7243,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7324,6 +7383,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cuav-v5nano-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7487,7 +7547,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7673,6 +7734,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7831,7 +7893,8 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeGreen-solo/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7915,6 +7978,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cubepilot-cubenodeeth.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -7998,6 +8062,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-cubepilot-cubenodeeth.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -8127,6 +8192,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeOrange/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -8256,6 +8322,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -8385,6 +8452,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -8514,6 +8582,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -8638,6 +8707,7 @@
         "copter"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -8823,6 +8893,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeorange-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeOrangePlus/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9008,6 +9079,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9192,7 +9264,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeOrangePlus-ODID/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9373,6 +9446,7 @@
         "copter"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9488,6 +9562,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubepurple-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9625,6 +9700,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9762,6 +9838,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -9859,6 +9936,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10017,7 +10095,8 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeSolo/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10147,6 +10226,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeyellow-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10276,6 +10356,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thecubeyellow-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10380,6 +10461,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVF405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10489,6 +10571,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10598,6 +10681,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743_SLIM/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10707,6 +10791,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-dakefpvh743pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743Pro/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10803,6 +10888,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-DroneerF405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/DroneerF405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -10925,6 +11011,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11066,6 +11153,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-durandal-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Durandal/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11207,6 +11295,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-durandal-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11310,6 +11399,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11420,6 +11510,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-f4by.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11546,7 +11637,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/F4BY_F427/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11681,7 +11773,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/F4BY_H743/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11787,6 +11880,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -11914,6 +12008,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12042,6 +12137,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12138,7 +12234,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FlysparkF4/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12244,6 +12341,7 @@
         "copter"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-flywoof405hd.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405HD-AIOv2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12340,6 +12438,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-flywoof405pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405Pro/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12444,7 +12543,8 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405S-AIO/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12571,6 +12671,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-f745.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FlywooF745/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12697,6 +12798,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-f745.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12803,6 +12905,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-flywoo-h743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FlywooH743Pro/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -12942,6 +13045,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13053,6 +13157,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-foxeerf405v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FoxeerF405v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13158,6 +13263,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-foxeerh743v1.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/FoxeerH743v1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13264,6 +13370,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-geprc-taker-h743-bt.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/GEPRC_TAKER_H743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13377,6 +13484,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-geprc-takerf745.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/GEPRCF745BTHD/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13511,6 +13619,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-greensightultrablue.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/GreenSightUltraBlue/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13603,6 +13712,7 @@
         "plane"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-heewingf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13695,6 +13805,7 @@
         "plane"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-heewingf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13797,7 +13908,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Here4FC/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -13924,7 +14036,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/HWH7/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14020,7 +14133,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/IFLIGHT_2RAW_H7/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14145,7 +14259,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JFB100/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14286,6 +14401,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-jae-jfb110.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JFB110/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14395,6 +14511,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-jhemcuf405pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JHEM_JHEF405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14484,7 +14601,8 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14574,7 +14692,8 @@
       "vehicles": [
         "copter"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A-RX2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14683,6 +14802,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-jhemcu-h743hd.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-H743HD/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14778,6 +14898,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-jhemcuf405pro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JHEMCUF405PRO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14875,6 +14996,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JHEMCUF405WING/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -14980,7 +15102,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JPilot-C/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15083,6 +15206,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15179,6 +15303,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4-Wing/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15281,6 +15406,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4-mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4Mini/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15377,7 +15503,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7aio.html",
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15475,6 +15602,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15572,6 +15700,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef7mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF7Mini/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15689,7 +15818,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7mini.html",
+      "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7-v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15808,6 +15938,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -15924,6 +16055,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-kakuteh7wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7-Wing/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16035,6 +16167,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16152,7 +16285,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini-Nand/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16278,6 +16412,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakuteh7-v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16399,7 +16534,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KT-FMU-F1/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16497,6 +16633,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-longbowf405wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/LongBowF405WING/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16599,6 +16736,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-luxf765-ndaa.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/LumenierLUXF765-NDAA/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16710,6 +16848,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16825,6 +16964,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -16936,6 +17076,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-mambaf405-mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MambaF405-2022/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17032,7 +17173,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17133,7 +17275,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MambaF405v2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17270,6 +17413,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-mambaH743v4.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MambaH743v4/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17366,6 +17510,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17462,6 +17607,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17568,6 +17714,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17671,6 +17818,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17767,6 +17915,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-te.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17863,6 +18012,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-te.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -17975,6 +18125,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-wing.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18087,6 +18238,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf405-wing.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18218,6 +18370,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wse.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18341,6 +18494,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wing.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18464,6 +18618,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekf765-wing.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18601,6 +18756,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekh743-wing.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18738,6 +18894,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-matekh743-wing.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18835,7 +18992,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -18933,7 +19091,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3-Wing/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19049,7 +19208,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MazzyStarDrone/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19160,6 +19320,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-mft-sema100.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MFT-SEMA100/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19257,6 +19418,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir405v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MicoAir405Mini/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19354,6 +19516,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir405v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MicoAir405v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19476,6 +19639,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19580,6 +19744,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743-AIO.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743-AIO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19678,6 +19843,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743-Lite/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19800,6 +19966,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MicoAir743v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -19923,6 +20090,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20025,6 +20193,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-radiolink-minipix.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20134,7 +20303,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/modalai_fc-v1/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20249,6 +20419,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-morakot.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Morakot/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20371,7 +20542,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://store.mrobotics.io/product-p/m10048d.htm",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20492,6 +20664,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-mro-control-zero-F7.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20611,7 +20784,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://store.mrobotics.io/mRo-Control-Zero-H7-p/mro-ctrl-zero-h7.htm",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20732,6 +20906,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20855,6 +21030,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -20978,6 +21154,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21089,6 +21266,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-mro-nexus.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21211,6 +21389,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-pro.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21333,6 +21512,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-pro.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21522,6 +21702,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-MUPilot.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MUPilot/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21710,7 +21891,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-H5/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21886,6 +22068,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-H7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-H7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -21994,6 +22177,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-NarinFC-X3.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-X3/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22077,6 +22261,7 @@
       ],
       "vehicles": [],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22174,6 +22359,7 @@
       ],
       "vehicles": [],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22279,6 +22465,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-NxtPX4v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/NxtPX4v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22381,6 +22568,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf4pro.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22483,6 +22671,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf4pro.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22585,6 +22774,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf4pro.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22687,6 +22877,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf4pro.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22783,6 +22974,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22887,6 +23079,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusf7.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -22983,6 +23176,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusnanov6.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23079,6 +23273,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-omnibusnanov6.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23186,6 +23381,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-orbith743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ORBITH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23288,6 +23484,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-OrqaF405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/OrqaF405Pro/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23393,7 +23590,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef/OrqaH7QuadCore",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/OrqaH7QuadCore/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23533,6 +23731,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-ph4mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PH4-mini/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23672,6 +23871,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23778,7 +23978,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PilotGaeaSH7V1-bdshot/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -23918,6 +24119,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pix32v5.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24043,6 +24245,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-horizon31-pixc4-jetson.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24153,6 +24356,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixflamingo-f767.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24279,6 +24483,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixflamingo-f767.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixFlamingo-F767/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24401,6 +24606,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24523,6 +24729,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24644,6 +24851,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24765,6 +24973,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -24904,6 +25113,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -25043,6 +25253,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -25177,6 +25388,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -25321,6 +25533,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pixhawk6C.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -25465,6 +25678,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -25717,6 +25931,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-holybro-pixhawk6X.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -25956,6 +26171,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -26195,6 +26411,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -26434,6 +26651,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -26548,6 +26766,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-C3.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-C3/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -26678,6 +26897,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V3.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-V3/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -26808,6 +27028,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-V6/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -26929,6 +27150,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixPilot-V6PRO.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-V6PRO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27057,6 +27279,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixracer/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27185,6 +27408,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixracer-overview.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27315,6 +27539,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-makeflyeasy-PixSurveyA1-IND.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixSurveyA1-IND/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27436,6 +27661,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-pixsurveya2-ind.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PixSurveyA2-IND/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27549,7 +27775,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/PrincipIoTH7Pi/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27676,7 +27903,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/QioTekAdeptF407/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -27839,6 +28067,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealot.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/QioTekZealotF427/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28003,6 +28232,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealoth7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/QioTekZealotH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28167,6 +28397,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-qiotek-zealoth7.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28280,6 +28511,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28396,7 +28628,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/RadiolinkF405/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28511,6 +28744,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-radiolinkpix6.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/RadiolinkPIX6/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28609,6 +28843,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-radix2hd.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/RADIX2HD/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28710,7 +28945,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ReaperF745/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28811,6 +29047,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-resoluteh7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ResoluteH7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -28911,6 +29148,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29011,6 +29249,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29115,6 +29354,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29219,6 +29459,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29316,6 +29557,7 @@
       ],
       "vehicles": [],
       "docs_url": "https://ardupilot.org/copter/docs/common-openpilot-revo-mini.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29456,6 +29698,7 @@
       ],
       "vehicles": [],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29581,6 +29824,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-SDMODELH7V2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SDMODELH7V1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29707,6 +29951,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-SDMODELH7V2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SDMODELH7V2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29818,6 +30063,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-sequreh743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SequreH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -29918,6 +30164,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30039,7 +30286,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://siyi.biz/siyi_file/N7/N7%20Autopilot%20User%20Manual%20(ArduPilot)%20v1.0.pdf",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SIYI_N7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30149,7 +30397,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkyRukh_Surge_H7/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30272,6 +30521,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-SkySakuraH743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkySakuraH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30369,7 +30619,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef/SkystarsF405v2",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkystarsF405v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30478,6 +30729,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-skystarsh7hdv2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkystarsH7HD/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30586,6 +30838,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-skystarsH7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkystarsH7HD-bdshot/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30708,6 +30961,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-skystarsh7hdv2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkystarsH7HDv2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30806,6 +31060,7 @@
         "copter"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -30903,6 +31158,7 @@
         "copter"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31000,6 +31256,7 @@
         "copter"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31113,7 +31370,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/sparknavi-blue/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31216,6 +31474,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-taulabs-sparky2.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31313,6 +31572,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-spedixf405.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXF405/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31422,6 +31682,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-spedixh743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXH743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31517,6 +31778,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31614,6 +31876,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405aio.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405AIO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31711,6 +31974,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405-mini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405Mini/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31808,6 +32072,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef405wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405WING/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -31904,6 +32169,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4-v3.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v3/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32001,6 +32267,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v4/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32098,6 +32365,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v5/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32203,6 +32471,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-extreme.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32298,6 +32567,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-spracingh7-rf.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7RF/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32415,6 +32685,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/StellarF4/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32531,6 +32802,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-stellarf4v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/StellarF4V2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32638,6 +32910,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-stellarh7v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/StellarH7V2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32740,6 +33013,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -32880,7 +33154,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SULILGH7-P1-P2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33014,7 +33289,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SVehicle-E2/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33149,6 +33425,7 @@
         "plane"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-Swan-K1.html",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33271,6 +33548,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidh7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33407,6 +33685,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucid-h7-wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33557,6 +33836,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucid-h7-wing.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING_AIO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33661,6 +33941,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidpro.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_PRO/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33774,6 +34055,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thepeach-k1.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/thepeach-k1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33887,6 +34169,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-thepeach-r1.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/thepeach-r1/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -33990,7 +34273,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TMotorH743/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34097,6 +34381,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-uav-dev-fc-um982.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/uav-dev-fc-um982/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34207,6 +34492,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34310,6 +34596,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34420,6 +34707,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34523,6 +34811,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34626,6 +34915,7 @@
         "blimp"
       ],
       "docs_url": null,
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34747,6 +35037,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-vuav-tinyv7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/VUAV-TinyV7/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -34888,7 +35179,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/VUAV-V7pro/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35026,7 +35318,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/X-MAV-AP-H743r1/README.md",
+      "repo_url": null,
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35151,6 +35444,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-X_MAV_H743v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/X-MAV-AP-H743v2/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35284,7 +35578,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": null,
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef/YARIV6X",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/YARIV6X/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35449,7 +35744,8 @@
         "tracker",
         "blimp"
       ],
-      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html",
+      "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35603,6 +35899,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6SE/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35756,6 +36053,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se-h743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6SE_H743/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -35916,6 +36214,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6Ultra/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -36064,6 +36363,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ZeroOneX6/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
@@ -36204,6 +36504,7 @@
         "blimp"
       ],
       "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6-air.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ZeroOneX6_Air/README.md",
       "manual": {
         "status": "not_started",
         "form_factor": null,
