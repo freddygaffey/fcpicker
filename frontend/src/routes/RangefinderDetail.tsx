@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useRangefinders } from "../data";
 import type { Rangefinder } from "../types";
 import { SiblingNav } from "../SiblingNav";
+import { ReportIssue } from "../ReportIssue";
 
 function effectiveRangeMax(r: Rangefinder): number | null {
   return r.manual?.range_max_m_override ?? r.wiki_range_max_m;
@@ -149,6 +150,12 @@ export default function RangefinderDetail() {
         Range, weight and FOV are best-effort scrapes from the ArduPilot wiki and may be wrong.
         Always check the official docs and the manufacturer's datasheet before purchasing.
       </p>
+
+      <ReportIssue
+        category="Rangefinder"
+        itemId={`${r.kind}-${r.slug}`}
+        label={r.display_name}
+      />
     </article>
   );
 }

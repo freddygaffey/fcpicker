@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { mcuFamilyLabel, useBoardImages, useBoards } from "../data";
 import type { Board, SensorEntry } from "../types";
 import { SiblingNav } from "../SiblingNav";
+import { ReportIssue } from "../ReportIssue";
 
 // Physical maximum number of IMU slots any ArduPilot autopilot ships with.
 // Used as a hard cap on counts and as the threshold for the "parsing
@@ -182,6 +183,8 @@ export default function BoardDetail() {
           <li><a href={docsCommon} target="_blank" rel="noreferrer">Common autopilots — overview index ↗</a></li>
         </ul>
       </section>
+
+      <ReportIssue category="Flight controller" itemId={b.slug} label={b.slug} />
     </article>
   );
 }

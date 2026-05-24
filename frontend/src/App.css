@@ -696,6 +696,16 @@
 }
 .back-link:hover { color: var(--ap-blue); }
 
+.report-issue {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line, rgba(0, 0, 0, 0.08));
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+.report-issue a { color: var(--ap-blue-dark); }
+.report-issue a:hover { color: var(--ap-blue); }
+
 .experimental-banner {
   background: #fff4d6;
   border: 1px solid #e0b94a;
