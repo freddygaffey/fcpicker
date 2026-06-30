@@ -334,7 +334,7 @@ function SuggestedSpecs({ ai }: { ai?: BoardAi }) {
   return (
     <section className="bd-section bd-ai">
       <h2 className="bd-h2">
-        Suggested specs <span className="bd-ai-tag">unverified · for discovery</span>
+        Suggested specs <span className="bd-ai-tag">unverified — confirm in docs</span>
       </h2>
       <dl className="bd-ai-grid">
         {rows.map((r) => (
