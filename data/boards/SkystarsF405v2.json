@@ -1,7 +1,7 @@
 {
   "slug": "SkystarsF405v2",
   "name": "SkystarsF405v2",
-  "manufacturer": null,
+  "manufacturer": "Skystars",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -95,5 +95,161 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Skystars",
+    "marketing_name": "Skystars F405 V2",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 6,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P DJI Air Unit / HD VTX (10V on pin 1)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: USART1 spare, USART2 RCIN, USART3 ESC telemetry, UART4 spare, UART5 GPS, USART6 MSP DisplayPort (HD VTX). 7 PWM: M1-M4 motors + Servo1/Servo2 + LED strip. No CAN. I2C1 and I2C3 for external compass.",
+    "discrepancies": [
+      "Our data shows manufacturer=null; should be 'Skystars'",
+      "Our data shows imus[0].chip='Invensensev3' (ArduPilot driver family name); README explicitly identifies the real part as ICM42688",
+      "Our data has no osd_chip field; README and web both confirm AT7456E",
+      "Our data has no blackbox_flash; hwdef has onboard dataflash device and manufacturer pages confirm 16MB",
+      "Our data has no BEC or voltage data; web sources confirm 5V/3A + 10V/3A BEC and 3-6S input",
+      "Physical specs (dimensions 36x36mm, weight 6g, 30.5x30.5mm M3 mounting) are absent from our data"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SkystarsF405v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkystarsF405v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkystarsF405v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkystarsF405v2/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkystarsF405v2/defaults.parm",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://pyrodrone.com/products/skystars-f405-hd4-fpv-drone-flight-controller-30x30mm",
+      "https://www.rc-n-go.com/products/skystars-f405-hd-v2-flight-controller-30x30-6-uarts-3-6s",
+      "https://www.rotorama.com/product/skystars-f4-dji"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx",
+        "readme": "STM32F405xx 168 MHz",
+        "wiki": null,
+        "manufacturer": "STM32F405",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver family for ICM42688 class)",
+        "readme": "Invensense ICM42688",
+        "wiki": null,
+        "manufacturer": "ICM42688",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:1:0x76",
+        "readme": "SPL06",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2, HAL_OSD_TYPE_DEFAULT 1 (MAX7456-compatible driver)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,USART2,USART3,UART4,UART5,USART6)",
+        "readme": "6x UARTs",
+        "wiki": null,
+        "manufacturer": "6",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card device",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 (presence confirmed, size not in hwdef)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "16MB",
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT 11.0 (implies up to ~6S range)",
+        "readme": "up to 6S LiPo batteries",
+        "wiki": null,
+        "manufacturer": "3-6S",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm M3",
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "36x36mm, 6g",
+        "agree": "unknown"
+      }
+    ]
   }
 }

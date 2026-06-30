@@ -1,7 +1,7 @@
 {
   "slug": "Pix32v5",
   "name": "Pix32v5",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -136,5 +136,137 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Pix32 v5",
+    "family": "FMUv5",
+    "mcu_part": "STM32F767xx",
+    "imu_models": [
+      "ICM-20689",
+      "ICM-20602",
+      "BMI055",
+      "BMI088"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "weight_g": 33,
+    "voltage_min_v": 4.9,
+    "voltage_max_v": 6,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "100-pin inter-board connector (autopilot to carrier board)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "Autopilot module connects to carrier board via 100-pin connector; 8 FMU PWM + 8 IO MCU PWM (16 total); standard and mini carrier board variants; SERIAL1=USART2 Telem1, SERIAL2=USART3 Telem2, SERIAL3=USART1 GPS, SERIAL4=UART4 GPS2, SERIAL5=USART6 Telem3, SERIAL6=UART7 debug",
+    "discrepancies": [
+      "Wiki lists only 5 general purpose serial ports but hwdef defines 6 physical UARTs (USART1, USART2, USART3, UART4, USART6, UART7); current JSON uart_count=6 matches hwdef",
+      "Wiki sensor list omits ICM-20602 (second Invensense IMU with dedicated ICM20602_CS chip-select in hwdef)",
+      "Wiki lists 3 I2C ports but hwdef defines 4 I2C buses (I2C1, I2C2, I2C3, I2C4)",
+      "Current JSON manufacturer is null; should be Holybro",
+      "BMI055 and BMI088 are probed on the same SPI bus slots (bmi055_a/bmi055_g) \u2014 they are hardware-revision alternatives, not two physically distinct IMUs simultaneously"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Pix32v5.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Pix32v5/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv5/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-pix32v5.rst"
+    ],
+    "dimensions_mm": {
+      "length": 45,
+      "width": 45,
+      "height": 13.5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (MCU STM32F7xx STM32F767xx)",
+        "wiki": "32-bit ARM Cortex-M7, 216MHz, 2MB flash, 512KB RAM",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20689 + ICM20602 + BMI055/BMI088 (on same bus, alternatives)",
+        "wiki": "ICM-20689, BMI055 only",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": "MS5611",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C (internal + external)",
+        "wiki": "IST8310",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1, USART2, USART3, UART4, USART6, UART7)",
+        "wiki": "5 general purpose serial ports",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2 = 2",
+        "wiki": "Up to 2 CANBuses",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "wiki": "45 x 45 x 13.5 mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "33.0 g",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "wiki": "Maximum input voltage: 6V",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "KakuteF7Mini",
   "name": "KakuteF7Mini",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -32,9 +32,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 8,
+      "fmu": 6,
       "io": 0,
-      "total": 8
+      "total": 6
     },
     "ethernet": false,
     "sdcard": false,
@@ -94,5 +94,166 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Kakute F7 Mini",
+    "family": "KakuteF7",
+    "mcu_part": "STM32F745VGH6",
+    "imu_models": [
+      "ICM20689"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 4,
+    "mounting_pattern_mm": "20x20",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "micro USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 hardware UARTs (USART1-3, UART4, USART6, UART7); UART6 RX is RC input, UART7 RX-only for ESC telemetry; 6 motor PWM outputs M1-M6 (M1-M4 bi-directional DShot); MAX7456 OSD on SPI2; 128Mbit dataflash on SPI1; I2C for external compass only",
+    "discrepancies": [
+      "JSON imus[0].chip_display is 'MPU6000' but the hwdef.dat CS pin is named ICM20689_CS and README.md explicitly lists 'ICM20689 IMU' \u2014 MPU6000 is only the legacy SPI bus alias",
+      "JSON io.pwm.fmu is 8 but hwdef.dat defines only 6 PWM outputs (PWM1-PWM6, M1-M6) and README and wiki both confirm 6 outputs",
+      "JSON manufacturer is null but board is made by Holybro (confirmed by README.md link and wiki)",
+      "JSON power.monitor_inputs is 0 but hwdef.dat defines onboard BATT_VOLTAGE_SENS (PC3) and BATT_CURRENT_SENS (PC2) ADC pins \u2014 board has integrated current+voltage sensing",
+      "Wiki 'Interfaces' section lists '7x UARTs/serial' which counts USB (SERIAL0); physical UART count is 6 \u2014 our data uart_count: 6 is correct",
+      "Wiki states '7V ~ 42V input power' but README says voltage sensor handles up to 6S (25.2 V max); the 42V figure appears to be a wiki error \u2014 2-6S confirmed by README and Banggood product URL in wiki"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteF7Mini.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF7Mini/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF7Mini/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-kakutef7mini.rst",
+      "https://www.progressiverc.com/products/holybro-kakute-f7-mini-v2-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 33,
+      "width": 26,
+      "height": 6
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx (family) / STM32F745VGH6 (wiki/vendor)",
+        "readme": "STM32F745",
+        "wiki": "STM32F745VGH6",
+        "manufacturer": "STM32F745VGH6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu",
+        "hwdef": "SPI alias mpu6000; CS pin named ICM20689_CS",
+        "readme": "ICM20689",
+        "wiki": "ICM20689",
+        "manufacturer": "MPU6000 (legacy alias / marketing)",
+        "agree": "partial"
+      },
+      {
+        "field": "baro",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": "BMP280",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (SPI2, MAX7456_CS pin)",
+        "readme": "MAX7456",
+        "wiki": "MAX7456",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "dataflash SPI1 device (M25P16 type)",
+        "readme": "128Mbit",
+        "wiki": "mentions onboard data flash logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 hardware UARTs (USART1/2/3, UART4, USART6, UART7)",
+        "readme": "6 UARTs",
+        "wiki": "7 serial (includes USB SERIAL0)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "6 (PWM1-PWM6, M1-M6)",
+        "readme": "6 PWM outputs",
+        "wiki": "6 PWM outputs",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "20x20mm (from Banggood product URL in Where to Buy)",
+        "manufacturer": "20x20mm (ProgressiveRC product page)",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "7V~42V (suspect error); Banggood URL says 2-6S",
+        "manufacturer": "2-6S (ProgressiveRC)",
+        "agree": "partial"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "4g (ProgressiveRC)",
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "33x26x6mm (ProgressiveRC)",
+        "agree": "unknown"
+      }
+    ]
   }
 }

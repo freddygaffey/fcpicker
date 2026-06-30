@@ -1,7 +1,7 @@
 {
   "slug": "NxtPX4v2",
   "name": "NxtPX4v2",
-  "manufacturer": null,
+  "manufacturer": "MicoAir Tech",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -102,5 +102,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MicoAir Tech",
+    "marketing_name": "NxtPX4v2",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088",
+      "BMI088"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "has_sdcard": true,
+    "weight_g": 6.5,
+    "mounting_pattern_mm": "20x20",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P DJI HD VTX connector (12V on pin 1)",
+      "Micro-C USB",
+      "MicroSD slot"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8x PWM (TIM1 ch1-4, TIM2 ch3-4, TIM3 ch3-4; all bidir DShot). UART2: MAVLink, UART4: MAVLink, UART1: GPS, UART3: HD VTX/DisplayPort, UART7: ESC telem (RX only), UART5: RCIN/SBUS, UART8: spare. I2C1 internal (baro), I2C4 external connector. SPI3 exposed as external SPI connector.",
+    "discrepancies": [
+      "manufacturer is null in fcpicker data; README and wiki both state the board is produced by MicoAir Tech (designed by HKUST UAV-Group)",
+      "Physical specs (dimensions, weight, mounting) are absent from fcpicker data; README and wiki agree on 27x32x8mm, 20x20mm mounting, \u03a63mm holes, 6.5g",
+      "BEC outputs are absent from fcpicker data; README and wiki agree on 12V/2.5A and 5V/2.5A BECs",
+      "Voltage range absent from fcpicker data; wiki states 2S-6S LiPo",
+      "README lists '1x I2C' and '1x SPI' (user-exposed ports) while hwdef.dat defines two I2C buses (I2C1 baro-internal, I2C4 external) and three SPI buses (SPI1/SPI4 for IMUs, SPI3 external connector); fcpicker JSON records spi_count:2 missing SPI3",
+      "fcpicker JSON records can_count:0 which is confirmed correct by hwdef.dat (no CAN pins defined) and README/wiki (CAN not mentioned)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/NxtPX4v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NxtPX4v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NxtPX4v2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-NxtPX4v2.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32,
+      "width": 27,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 x2 (SPI1 and SPI4, each with separate accel/gyro CS pins)",
+        "readme": "BMI088+BMI088 (DUAL)",
+        "wiki": "BMI088+BMI088(DUAL)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x77",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1, USART2, USART3, UART4, UART5, UART7, UART8)",
+        "readme": "7x UART",
+        "wiki": "7x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1)",
+        "readme": "SDCard",
+        "wiki": "MicroSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT 10.2 implies internal sensor; no explicit cell range",
+        "readme": "up to 6S (Battery Monitoring section)",
+        "wiki": "2S - 6S Lipo",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not defined in hwdef.dat",
+        "readme": "12V 2.5A BEC; 5V 2.5A BEC",
+        "wiki": "12V 2.5A BEC for VTX; 5V 2.5A BEC for peripherals",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass defined; external probing enabled",
+        "readme": "no built-in compass; external via I2C",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": "not in hwdef.dat",
+        "readme": "27x32x8mm",
+        "wiki": "27x32x8mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": "not in hwdef.dat",
+        "readme": "6.5g",
+        "wiki": "6.5g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not in hwdef.dat",
+        "readme": "20x20mm, \u03a63mm",
+        "wiki": "20x20mm, \u03a63mm",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

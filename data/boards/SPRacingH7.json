@@ -1,7 +1,7 @@
 {
   "slug": "SPRacingH7",
   "name": "SPRacingH7",
-  "manufacturer": null,
+  "manufacturer": "Seriously Pro Racing",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H750xx"
@@ -33,9 +33,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 15,
+      "fmu": 11,
       "io": 0,
-      "total": 15
+      "total": 11
     },
     "ethernet": false,
     "sdcard": true,
@@ -102,5 +102,137 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Seriously Pro Racing",
+    "marketing_name": "SP Racing H7 Extreme",
+    "family": "SPRacing H7",
+    "mcu_part": "STM32H750xx",
+    "imu_models": [
+      "ICM20602",
+      "ICM20602"
+    ],
+    "baro_models": [
+      "BMP388"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "Micro USB",
+      "Micro SD"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs (USART1/2/3, UART4/5/6/8); 10 motor outputs (M1-M10) + 1 LED/NeoPixel (M11); M9/M10 on stacking connector; UART6 TX/RX available on M7/M8 pads with BRD_ALT_CONFIG=1; VTX power switch on GPIO81; analog RSSI input; I2C pads for external compass",
+    "discrepancies": [
+      "Wiki (common-spracingh7-extreme.rst) lists processor as 'STM32F750' \u2014 should be 'STM32H750'; F is a typo for H",
+      "README.md title says 'Serious Pro Racing H6 Extreme Flight Controller' but the board is the H7 Extreme \u2014 README title has wrong revision number",
+      "README.md says '128MByte Serial NOR flash' in heading then 'Onboard Flash: 128Mbits' in features; hwdef.dat (EXT_FLASH_SIZE_MB 16) and bootloader hwdef comment confirm 16MB (= 128Mbit) \u2014 '128MByte' is a typo for '128Mbit'",
+      "README.md and wiki both state CPU runs at 400 MHz; hwdef.dat sets MCU_CLOCKRATE_MHZ 480 \u2014 actual clock is 480 MHz",
+      "Current JSON has manufacturer: null; all sources confirm 'Seriously Pro Racing'",
+      "Current JSON shows io.pwm.fmu: 15 / total: 15; hwdef.dat defines PWM(1)\u2013PWM(11) (11 outputs: 10 motor + 1 LED) and README states '11x PWM Outputs' \u2014 current JSON overcounts"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SPRacingH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-spracingh7-extreme.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32H750xx",
+        "readme": "STM32H750 (400 MHz stated, but hwdef sets 480 MHz)",
+        "wiki": "STM32F750 (typo: F should be H)",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "2x ICM20602 (SPIDEV aliases icm20602_1, icm20602_2)",
+        "readme": "2x ICM20602",
+        "wiki": "2x ICM20602",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "BMP388 I2C:0:0x76",
+        "readme": "BMP388",
+        "wiki": "BMP388",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "AT7456E (SPIDEV osd SPI4 DEVID4 AT7456E_CS)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (MAX7456 driver used)",
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "partial",
+        "hwdef": "16MB (EXT_FLASH_SIZE_MB 16)",
+        "readme": "128MByte (typo) / 128Mbits (correct = 16MB)",
+        "wiki": "128MB Serial NOR flash (not mentioned in wiki)",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "7 (USART1,2,3 + UART4,5,6,8)",
+        "readme": "7x UARTs",
+        "wiki": "7 UARTs",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "yes (SDMMC1 pins defined)",
+        "readme": null,
+        "wiki": "Micro SD Card listed in Peripheral Connections",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2-6S DC input power",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "BEC 5V 1A",
+        "wiki": "5V, 1A BEC for peripherals",
+        "manufacturer": null
+      }
+    ]
   }
 }

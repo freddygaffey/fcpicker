@@ -1,7 +1,7 @@
 {
   "slug": "MatekF405-STD",
   "name": "MatekF405-STD",
-  "manufacturer": null,
+  "manufacturer": "Mateksys",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -52,13 +52,6 @@
       "variant": null,
       "slot": "SPI1/CS:MPU6000_CS",
       "chip_display": "MPU6000"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI1/CS:MPU6000_CS",
-      "chip_display": "MPU6000"
     }
   ],
   "baros": [
@@ -100,5 +93,138 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Mateksys",
+    "marketing_name": "Mateksys F405-STD",
+    "family": "MatekF405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM20602"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "2MB (M25P16, CS pin defined in hwdef but no SPIDEV entry; ArduPilot uses MicroSD for logging)",
+    "has_sdcard": true,
+    "weight_g": 7,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "16-pin FFC slot (bottom-mounted, 0.5mm pitch)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 PWM outputs (6 base + S7 pad on STD only); 5 UARTs (USART1/2/3, UART4/5); RC input on TIM9_CH2 or USART2_RX; I2C for external compass/airspeed; MicroSD blackbox; BetaFlight OSD (AT7456E); no onboard compass",
+    "discrepancies": [
+      "Current data imu chip_display='MPU6000' is incorrect; hwdef comment explicitly states 'adds default support for board versions with ICM20602', wiki states 'ICM20602 IMU on STD version', and manufacturer page confirms '32K ICM20602'. The 'mpu6000' label in the hwdef SPIDEV is a legacy SPI bus alias used by the driver, not the physical chip part number.",
+      "Current data has manufacturer=null; should be 'Mateksys'.",
+      "Current data is missing all physical specs; wiki and manufacturer confirm 36x36mm PCB, 30.5x30.5mm mounting hole spacing, and wiki lists 7g for the STD variant.",
+      "M25P16 SPI flash CS pin (PC0) is defined in the parent hwdef with the comment 'spi3 for sdcard and onboard flash', but there is no SPIDEV entry for it, meaning ArduPilot does not configure or use it. Blackbox logging on this board uses MicroSD only.",
+      "OSD chip: hwdef uses 'MAX7456_CS' as the CS pin name (a driver compatibility alias), but the manufacturer product page identifies the actual chip as AT7456E."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MatekF405-STD.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekF405-STD/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekF405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-matekf405.rst",
+      "https://www.mateksys.com/?portfolio=f405-std"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": "STM32F405RGT6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SPI alias 'mpu6000'; comment says 'adds default support for board versions with ICM20602'",
+        "wiki": "ICM20602 (STD version)",
+        "manufacturer": "32K ICM20602",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "wiki": "BMP280",
+        "manufacturer": "BMP280 (some batches DPS310)",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS pin alias (compatibility name)",
+        "wiki": "BetaFlight OSD (chip not named)",
+        "manufacturer": "AT7456E",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART3, UART4, USART1, UART5, USART2)",
+        "wiki": "5x UARTs",
+        "manufacturer": "5x UARTs",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD_CS CS defined; SPIDEV sdcard configured on SPI3",
+        "wiki": "MicroSD slot",
+        "manufacturer": "MicroSD card slot (Blackbox)",
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "wiki": "36mm (36x36mm PCB)",
+        "manufacturer": "36mm (36x36mm PCB)",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "wiki": "30.5mm mounting holes",
+        "manufacturer": "30.5mm mounting holes",
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "7g (STD)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1; MAX7456_CS CS; SPIDEV osd configured",
+        "wiki": "Built-in OSD listed",
+        "manufacturer": "BetaFlight OSD w/ AT7456E chip",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "M25P16_CS CS defined, comment says 'onboard flash', but no SPIDEV entry",
+        "wiki": null,
+        "manufacturer": "MicroSD only (no onboard flash mentioned)",
+        "agree": "partial"
+      }
+    ]
   }
 }

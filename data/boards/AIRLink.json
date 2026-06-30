@@ -1,7 +1,7 @@
 {
   "slug": "AIRLink",
   "name": "AIRLink",
-  "manufacturer": null,
+  "manufacturer": "Sky-Drones",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -137,5 +137,146 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Sky-Drones",
+    "marketing_name": "SmartAP AIRLink",
+    "mcu_part": "STM32F767xx",
+    "imu_models": [
+      "ICM-20602",
+      "MPU-9250",
+      "MPU-9250"
+    ],
+    "baro_models": [
+      "MS5611",
+      "BMP388"
+    ],
+    "compass_models": [
+      "AK8963",
+      "AK8963"
+    ],
+    "has_sdcard": true,
+    "weight_g": 198,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH SM10B-GHS-TB (power)",
+      "JST-GH SM06B-GHS-TB (TEL1, TEL3, RC, GPS1, GPS2, I2C3/UART4)",
+      "JST-GH SM08B-GHS-TB (Ethernet)",
+      "JST-GH SM04B-GHS-TB (CAN1, CAN2)",
+      "USB Type-C (FMU and AI CPU)",
+      "mini HDMI (payload camera input)",
+      "FPC 30-pin 0.5mm (CSI camera)",
+      "micro SIM",
+      "microSD (x2: FMU and AI CPU)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "WiFi 802.11a/b/g/n/ac, Bluetooth, 4G LTE (via integrated AI mission computer)",
+    "pinout_notes": "Left: 12V power (SM10B), RC connector (SM06B), dual SD cards, AI CPU USB-C; Right: Ethernet+5V (SM08B), TEL3 (SM06B), I2C3/UART4 (SM06B), GPS2 (SM06B), FMU USB-C, micro SIM, mini HDMI; Front: TEL1, GPS1, CSI camera, CAN1, CAN2; Rear: SBUS in, 16 PWM outputs, 2x LTE antennas, WiFi antenna. 12V DC main power input.",
+    "correct_wiki_stem": "common-skydrones-airlink",
+    "discrepancies": [
+      "docs_url points to ClearSky Airlink LTE telemetry module (common-airlink-telemetry.rst, a completely different product from air-link.space); correct page is common-skydrones-airlink which covers the Sky-Drones AIRLink flight controller",
+      "manufacturer is null in current data; hwdef comment says SmartAP AIRLink and wiki page is by Sky-Drones \u2014 manufacturer should be Sky-Drones",
+      "uart_count is 6 in current data (counted from SERIAL_ORDER minus OTG); UART4 is also defined in hwdef as External UART and appears as Serial 7 in the wiki serial table \u2014 true user-accessible count is 7",
+      "wiki feature list claims 3x pressure sensors but hwdef defines only 2 baros (MS5611 on I2C0 + BMP388 on I2C1); wiki likely counts an externally-attached sensor",
+      "wiki claims 3x magnetometers but hwdef probes only 2x AK8963 (both internal to MPU-9250); third would be external GPS module",
+      "dimensions and weight in current data are null; wiki gives Enterprise edition: 103x61x37 mm, 198g and Core edition: 100x57x22 mm, 89g"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AIRLink.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AIRLink/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-skydrones-airlink.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-airlink-telemetry.rst"
+    ],
+    "dimensions_mm": {
+      "length": 103,
+      "width": 61,
+      "height": 37
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx",
+        "wiki": "STM32F7 ARM Cortex-M7 216 MHz 2MB Flash",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM-20602 (SPI1), mpu9250_fpc (SPI2), mpu9250_board (SPI3) \u2014 3x Invensense",
+        "wiki": "3x-redundant IMU, vibration dampened, temperature stabilized (no chip names)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 I2C0:0x77, BMP388 I2C1:0x76 (2 baros)",
+        "wiki": "3x Pressure sensors (count disagrees)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK8963:probe_mpu9250 bus0, AK8963:probe_mpu9250 bus1 (2 compasses internal to MPU-9250)",
+        "wiki": "3x Magnetometers (count disagrees \u2014 third is external)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 in SERIAL_ORDER (excluding OTG); UART4 also defined as ext but not in SERIAL_ORDER",
+        "wiki": "8x UARTs stated (includes IOMCU USART6); serial table lists 7 user-accessible serials 1-7",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1, CAN2",
+        "wiki": "2x CAN: CAN1, CAN2",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 present",
+        "wiki": "FMU SD card (microSD) and AI CPU SD card both present",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "iomcu",
+        "hwdef": "IOMCU_UART USART6 present",
+        "wiki": "STM32F1 I/O co-processor",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "comment: for SmartAP AIRLink hardware; APJ_BOARD_ID TARGET_HW_SMARTAP_AIRLINK",
+        "wiki": "Sky-Drones AIRLink (SmartAP is the product line)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "wiki": "common-skydrones-airlink.rst covers this board; common-airlink-telemetry.rst is a different product",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

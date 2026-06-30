@@ -1,7 +1,7 @@
 {
   "slug": "CubeBlack",
   "name": "CubeBlack",
-  "manufacturer": null,
+  "manufacturer": "CubePilot (Hex/ProfiCNC)",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -146,8 +146,8 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/README.md",
-  "repo_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-thecube-overview.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,
@@ -161,5 +161,112 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot (Hex/ProfiCNC)",
+    "marketing_name": "The Cube Black",
+    "family": "The Cube",
+    "mcu_part": "STM32F427",
+    "imu_models": [
+      "MPU9250",
+      "LSM9DS0 (L3GD20+LSM303D)",
+      "ICM20602",
+      "ICM20948"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "LSM303D (from LSM9DS0)",
+      "AK8963 (embedded in MPU9250)",
+      "AK09916 (embedded in ICM20948)"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH (all external connectors)",
+      "DF17 80-pin (cube-to-carrier board)",
+      "micro USB",
+      "Spektrum satellite (SPKT)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs: SERIAL1=Telem1 (RTS/CTS), SERIAL2=Telem2 (RTS/CTS), SERIAL3=GPS1, SERIAL4=GPS2, SERIAL5=spare/CONS; 14 PWM (8 IO via STM32F100 IOMCU + 6 FMU AUX DShot-capable); 2x CAN; 2x I2C; SBUS-out port; JST-GH throughout",
+    "correct_wiki_stem": "common-thecube-overview",
+    "discrepancies": [
+      "docs_url points to the GitHub hwdef README (https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/README.md) rather than the ArduPilot wiki page; correct wiki stem is common-thecube-overview",
+      "CubeBlack.json has manufacturer=null; should be CubePilot (Hex/ProfiCNC)",
+      "hwdef README (CubeBlack/README.md) compass section incorrectly states 'One is a HMC5843'; the hwdef.dat COMPASS driver lines show LSM303D (from LSM9DS0), AK8963 (from MPU9250), and AK09916 (from ICM20948) \u2014 HMC5843 is only a SPIDEV probe slot inherited from fmuv3 and is never instantiated as a COMPASS driver on this board",
+      "wiki (common-thecube-overview.rst) mentions 'ICM20648' as a possible third IMU but hwdef.dat only defines ICM20948 and ICM20602 as alternative chips; ICM20648 is not present in the hwdef"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeBlack.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thecube-overview.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (MCU STM32F4xx STM32F427xx)",
+        "readme": "STM32F427 microcontroller",
+        "wiki": "32-bit ARM Cortex M4, 168 MHz/256 KB RAM/2 MB Flash",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense mpu9250_ext, LSM9DS0 lsm9ds0_ext_g/am, Invensense mpu9250, Invensense icm20602_ext, Invensensev2 icm20948_ext, Invensensev2 icm20948",
+        "readme": "Two MPU9250 and one LSM303D/L3GD20 IMUs",
+        "wiki": "MPU9250, ICM20948 and/or ICM20648 as first and third; L3GD20+LSM303D or ICM2076xx as backup",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 (SPI:ms5611_ext and SPI:ms5611)",
+        "readme": "MS5611 SPI barometer",
+        "wiki": "Two redundant MS5611 barometers",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART2, USART3, UART4, UART8, UART7 (5 UARTs) + USART6 (IOMCU, not user-facing) + OTG1 (USB)",
+        "readme": "5 UARTs plus USB",
+        "wiki": "5x general purpose serial ports, 2 with full flow control",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2",
+        "readme": "I2C and CAN ports",
+        "wiki": "2x CAN Bus interface",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDIO pins (PC8-PC12, PD2) defined",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "COMPASS LSM303D, AK8963:probe_mpu9250, AK09916:probe_ICM20948",
+        "readme": "builtin SPI LSM303D magnetometer; then later incorrectly states HMC5843",
+        "wiki": null,
+        "agree": "partial"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "USB_STRING_MANUFACTURER Hex/ProfiCNC",
+        "readme": "CubePilot website referenced",
+        "wiki": "CubePilot",
+        "agree": "agree"
+      }
+    ]
   }
 }

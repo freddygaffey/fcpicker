@@ -1,7 +1,7 @@
 {
   "slug": "FlywooH743Pro",
   "name": "FlywooH743Pro",
-  "manufacturer": null,
+  "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -103,5 +103,166 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flywoo",
+    "marketing_name": "Flywoo GOKU H743 Pro",
+    "family": "H743",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "ICM-42688-P",
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "512MB",
+    "has_sdcard": false,
+    "weight_g": 9.9,
+    "mounting_pattern_mm": "30x30",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 26,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "HD VTX connector (DisplayPort, UART8 TX8/RX8)",
+      "Dual switchable camera inputs (CAM1/CAM2 via GPIO82)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1-4,6-8 (7 total); UART2=RC input, UART4=GPS, UART6=ESC telemetry, UART8=DisplayPort; 13 PWM (M1-M12 motor + M13 LED pad); SPI1/SPI4 for dual IMU, SPI2 for OSD; I2C1+I2C2 for external devices; GPIO81=VTX BEC switch, GPIO82=CAM1/CAM2 switch",
+    "discrepancies": [
+      "our data has manufacturer=null; correct value is Flywoo",
+      "our data has power.bec=[] (empty); board has 3 BEC outputs: 3.3V/0.5A, 5V/3A, 10V/3A per README and wiki",
+      "our data shows imus[].chip='Invensensev3' which is the ArduPilot bus-driver family alias; real chips are ICM-42688-P (confirmed by README, wiki, and manufacturer)",
+      "our data derived io.sdcard=true from SDMMC1 pins; the board uses onboard non-removable 512MB flash over SDMMC \u2014 there is no removable card slot",
+      "README and local wiki say '500MByte' flash; manufacturer spec sheet says 512MB \u2014 512MB is the actual chip capacity, README rounds down",
+      "manufacturer product page lists DPS310/SPL06 as baro alternatives across batches; hwdef only enables SPL06, so shipped ArduPilot-supported units use SPL06"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlywooH743Pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooH743Pro/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooH743Pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-flywoo-h743.rst",
+      "https://flywoo.com/products/flywoo-goku-h743-pro-flight-controller-stack-55a-4in1-esc",
+      "https://www.defiancerc.com/products/flywoo-goku-h743-pro-v2-30x30-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 36.5,
+      "width": 36.5,
+      "height": 8.45
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (generic family)",
+        "readme": "STM32H743 @ 480MHz",
+        "wiki": "STM32H743 @ 480MHz",
+        "manufacturer": "STM32H743VIH6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (ArduPilot family driver alias)",
+        "readme": "Dual ICM42688",
+        "wiki": "Dual ICM42688",
+        "manufacturer": "ICM42688P x2",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:1:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": "DPS310/SPL06 (batch variant)",
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPI OSD device HAL_OSD_TYPE_DEFAULT=1 (AT7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": "AT7456E (LGA16)",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3, UART4, USART6, UART7,8)",
+        "readme": "7x UARTs",
+        "wiki": "7x UARTs",
+        "manufacturer": "7",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": "2-6S (7.4V-26V)",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V/0.5A + 5V/3A + 10V/3A (GPIO controlled)",
+        "wiki": "3.3V/0.5A + 5V/3A + 10V/3A (GPIO controlled)",
+        "manufacturer": "10V/3A + 5V/3A listed (3.3V not prominent)",
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SDMMC1 interface pins present",
+        "readme": "500MByte",
+        "wiki": "500MByte (non-removeable SD card)",
+        "manufacturer": "512MB",
+        "agree": "partial"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "13 (PWM1-13)",
+        "readme": "13x PWM (12 motor + 1 LED)",
+        "wiki": "13x PWM (12 motor + 1 LED)",
+        "manufacturer": "12 channels listed",
+        "agree": "partial"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "M3 30x30mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "has_compass",
+        "hwdef": "no compass defined, ALLOW_ARM_NO_COMPASS",
+        "readme": "No builtin compass",
+        "wiki": "No builtin compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

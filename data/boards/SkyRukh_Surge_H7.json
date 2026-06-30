@@ -1,7 +1,7 @@
 {
   "slug": "SkyRukh_Surge_H7",
   "name": "SkyRukh_Surge_H7",
-  "manufacturer": null,
+  "manufacturer": "SkyRukh",
   "mcu": {
     "family": "STM32H7",
     "part": "STM32H743xx"
@@ -107,5 +107,146 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SkyRukh",
+    "marketing_name": "SkyRukh Surge H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088",
+      "ICM-20602"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "MAX7456",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST-GH (CAN port)",
+      "JST-GH (external I2C)",
+      "JST-GH (4x motor outputs)",
+      "JST-GH (camera input)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7x UARTs (SERIAL1/SERIAL2 with RTS/CTS, SERIAL5/UART4 no DMA); 8x PWM with DShot (3 timer groups); 1x CAN (JST-GH); SBUS input; 2x I2C (GPS + external JST-GH); microSD (SDMMC1); SPI FRAM (Ramtron); built-in RGB LED",
+    "discrepancies": [
+      "data/boards/SkyRukh_Surge_H7.json has manufacturer: null \u2014 should be SkyRukh",
+      "data/boards/SkyRukh_Surge_H7.json has no OSD chip recorded \u2014 hwdef and README confirm MAX7456",
+      "data/boards/SkyRukh_Surge_H7.json has bec: [] \u2014 README lists three BEC rails (3.3V/0.5A, 5V/3A, 9V/3A)",
+      "data/boards/SkyRukh_Surge_H7.json has power.monitor_inputs: 0 \u2014 hwdef defines BATT_VOLT_PIN and BATT_CUR_PIN (internal voltage + current via ESC connector)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SkyRukh_Surge_H7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkyRukh_Surge_H7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkyRukh_Surge_H7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743 32-bit at 480 MHz",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (SPI4) + Invensense ICM20602 (SPI6)",
+        "readme": "BMI088, ICM20602",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (SPI5)",
+        "readme": "DPS310",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (SPI1)",
+        "readme": "OSD - MAX7456",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART2, USART6, USART3, UART7, UART4, UART5, UART8)",
+        "readme": "7x UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "CAN port with JST-GH connector",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins present",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT 7.39 (6S scale)",
+        "readme": "2S-6S",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "SkyRukh (board name prefix)",
+        "readme": "produced by SkyRukh",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not in hwdef",
+        "readme": "3.3V/0.5A, 5V/3A, 9V/3A VTX",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

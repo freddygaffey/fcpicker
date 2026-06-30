@@ -1,7 +1,7 @@
 {
   "slug": "PixPilot-V3",
   "name": "PixPilot-V3",
-  "manufacturer": null,
+  "manufacturer": "makeflyeasy",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -127,5 +127,141 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "makeflyeasy",
+    "marketing_name": "makeflyeasy PixPilot-V3",
+    "mcu_part": "STM32F427VIT6",
+    "imu_models": [
+      "ICM42688-P",
+      "ICM42688-P",
+      "ICM40605"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "weight_g": 62,
+    "voltage_min_v": 4,
+    "voltage_max_v": 6,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB Type-C",
+      "SBUS input",
+      "SBUS output",
+      "Safety switch/LED port",
+      "External buzzer",
+      "Power1/Power2 (5V regulated)",
+      "GPS1+I2C1, GPS2+I2C2 combo ports",
+      "2x CAN (4-pin)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs (USART2 telem1, USART3 telem2, UART4 GPS1, UART8 GPS2, UART7 user); 2 CAN ports; 2 external I2C ports; 14 PWM (8 via STM32F103 IOMCU, 6 direct FMU); RAMTRON FRAM on SPI2; SD card on SPI2; internal heater for IMUs; RGB LED; 2 power monitors",
+    "discrepancies": [
+      "Our JSON has manufacturer=null; should be 'makeflyeasy' per README and wiki",
+      "Our JSON lacks physical dimensions; wiki reports 76x45x19mm and 62g",
+      "ICM42688 IMUs in our JSON lack the -P suffix: README and wiki both specify 'ICM42688-P' (commercial-grade part), not plain ICM42688"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PixPilot-V3.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-V3/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-V3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-makeflyeasy-PixPilot-V3.rst"
+    ],
+    "dimensions_mm": {
+      "length": 76,
+      "width": 45,
+      "height": 19
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (family)",
+        "readme": "STM32F427VIT6",
+        "wiki": "STM32F427VIT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688 x2, ICM40605 x1 (bus alias names, no -P suffix)",
+        "readme": "ICM42688-P x2, ICM40605 x1",
+        "wiki": "ICM42688-P x2, ICM40605 x1",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 x2",
+        "readme": "MS5611 x2",
+        "wiki": "MS5611 x2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C:0:0x0E",
+        "readme": "IST8310 internal I2C",
+        "wiki": "IST8310 internal I2C",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, UART4, UART8, UART7)",
+        "readme": "5 UARTs",
+        "wiki": "5x general purpose serial ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "readme": "two FDCAN ports",
+        "wiki": "2x CAN Bus",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SPIDEV sdcard + HAL_OS_FATFS_IO)",
+        "readme": "microSD card slot",
+        "wiki": "MicroSD card reader",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "76x45x19mm, 62g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "makeflyeasy (sold via resellers listed at makeflyeasy.com)",
+        "wiki": "makeflyeasy",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "power_input",
+        "hwdef": null,
+        "readme": "4V-6V power supply (regulated input via Power1/Power2)",
+        "wiki": "Power supply 4V-6V",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

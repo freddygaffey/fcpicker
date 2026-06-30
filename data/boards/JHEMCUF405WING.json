@@ -1,7 +1,7 @@
 {
   "slug": "JHEMCUF405WING",
   "name": "JHEMCUF405WING",
-  "manufacturer": null,
+  "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,138 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JHEMCU",
+    "marketing_name": "JHEMCU F405 WING",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V/12V/5V",
+        "volts": null,
+        "amps": 1.8
+      },
+      {
+        "rail": "4.9V/6V/7.2V",
+        "volts": null,
+        "amps": 4.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.4
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C",
+      "HD VTX connector (DisplayPort/DJI via UART5)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "WiFi (internal module on UART6, MAVLink2 telemetry)",
+    "pinout_notes": "12x PWM/DShot outputs; UART1=RC input, UART2=SBUS-inverted RC, UART3=GPS, UART4=MAVLink2, UART5=DJI/DisplayPort VTX, UART6=internal wireless; I2C for external compass/airspeed; VTX BEC GPIO81 controlled; camera switch GPIO82",
+    "discrepancies": [
+      "docs_url points to common-speedybeef405wing (SpeedyBee board) \u2014 JHEMCUF405WING has no dedicated wiki page; common-autopilots.rst links to GitHub hwdef, not a wiki RST",
+      "manufacturer is null in current JSON \u2014 README identifies producer as JHEMCU (http://www.JHEMCU.com/)",
+      "imus[0].chip_display is ICM42605 (the SPIDEV bus alias name) but README explicitly states ICM-42688P as the actual chip",
+      "power.monitor_inputs is 0 but hwdef defines BATT_VOLTAGE_SENS and BATT_CURRENT_SENS and README lists built-in voltage and current sensor",
+      "power.bec is empty but README documents 3 BEC outputs: 9V/12V/5V 1.8A (VTX, GPIO controlled), 4.9V/6V/7.2V 4.5A (servo), 5V 2.4A (internal/peripherals)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JHEMCUF405WING.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCUF405WING/Readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCUF405WING/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef405wing.rst (SpeedyBee board \u2014 consulted to distinguish from JHEMCU board, not used for JHEMCU specs)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405RGT6",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 / SPIDEV alias icm42605",
+        "readme": "ICM-42688P",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL-06",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/5, USART6)",
+        "readme": "5x user + 1 internal wireless = 6 total",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED, SPI2 SPIDEV osd, HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "AT7456E OSD",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI3, HAL_OS_FATFS_IO 1",
+        "readme": "microSDCard for logging",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": "no CAN mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "common-autopilots.rst links JHEMCUF405WING to GitHub, no RST page",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

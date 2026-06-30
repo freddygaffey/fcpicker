@@ -1,7 +1,7 @@
 {
   "slug": "StellarF4",
   "name": "StellarF4",
-  "manufacturer": null,
+  "manufacturer": "Stingbee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -114,5 +114,165 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Stingbee",
+    "marketing_name": "StellarF4",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM-42688-P",
+      "BMI270"
+    ],
+    "baro_models": [
+      "SPL06",
+      "DPS310",
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "W25Q128 (16MB)",
+    "has_sdcard": false,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "10 PWM outputs (M1-M8 on board, S1-S2 servo); PWM1-4 support BDShot; UART1=DJI/VTX, UART2=RC input, UART3=user, UART4=user, UART5=ESC telemetry, UART6=GPS; camera switch GPIO81 selects CAM1/CAM2 for OSD",
+    "discrepancies": [
+      "manufacturer is null in current data but README and wiki both identify Stingbee (stingbee.com.ua)",
+      "bec_outputs is empty in current data but README and wiki specify 12V/3A (VTX) BEC and 5V/2A (peripherals) BEC",
+      "dimensions_mm is null in current data but README and wiki state 41x41mm PCB",
+      "mounting is null in current data but README and wiki specify 30.5x30.5mm M3 mounting pattern",
+      "blackbox_flash not captured in current data but README specifies W25Q128 (16MB dataflash on SPI2)",
+      "README Loading Firmware section incorrectly references sub-folder 'StellarH7V2'; wiki correctly says 'StellarF4' \u2014 copy-paste error in README",
+      "README and wiki list only DPS310/BMP280 as barometers; hwdef.dat also probes SPL06 at the same I2C address \u2014 minor documentation gap, not a hardware error"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/StellarF4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/StellarF4/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/StellarF4/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-stellarf4.rst"
+    ],
+    "dimensions_mm": {
+      "length": 41,
+      "width": 41,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM42688 + BMI270 (v1.1-1.2: BMI270; v1.3-1.5: ICM42688)",
+        "readme": "ICM-42688p/BMI270",
+        "wiki": "ICM-42688p/BMI270",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "partial",
+        "hwdef": "SPL06 + DPS310 + BMP280 (all probed at I2C 0x76)",
+        "readme": "DPS310/BMP280",
+        "wiki": "DPS310/BMP280",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1,2,3, UART4,5, USART6)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "0",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "12V/3A VTX + 5V/2A peripherals",
+        "wiki": "12V/3A VTX + 5V/2A peripherals",
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "41x41mm",
+        "wiki": "41x41mm",
+        "manufacturer": null
+      },
+      {
+        "field": "mounting",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "30.5mm M3",
+        "wiki": "30.5mm M3",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "MAX7456_CS pin (SPI2, MAX7456-compatible)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (OSD_TYPE 1, MAX7456 driver)",
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "agree",
+        "hwdef": "FLASH_CS on SPI2 (dataflash enabled)",
+        "readme": "W25Q128",
+        "wiki": "W25Q128",
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": null,
+        "readme": "Stingbee (stingbee.com.ua)",
+        "wiki": "Stingbee",
+        "manufacturer": null
+      }
+    ]
   }
 }

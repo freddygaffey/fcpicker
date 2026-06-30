@@ -1,7 +1,7 @@
 {
   "slug": "PixPilot-C3",
   "name": "PixPilot-C3",
-  "manufacturer": null,
+  "manufacturer": "makeflyeasy",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -111,5 +111,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "makeflyeasy",
+    "marketing_name": "makeflyeasy PixPilot-C3",
+    "family": "PixPilot",
+    "mcu_part": "STM32F427VIT6",
+    "imu_models": [
+      "ICM42688-P",
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "BMP388",
+      "BMP388"
+    ],
+    "has_sdcard": true,
+    "weight_g": 40,
+    "voltage_min_v": 4,
+    "voltage_max_v": 6,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB Type-C",
+      "SBUS in/out",
+      "2x CAN (4-pin)",
+      "2x GPS/I2C combo (6-pin)",
+      "2x TELEM (4-pin)",
+      "2x Power monitor (6-pin)",
+      "Safety/LED port (3-pin)",
+      "DSM port (3-pin)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs: SERIAL1-2 (telem), SERIAL3-4 (GPS), SERIAL5 (user); 2x I2C; 2x CAN; 14 PWM outputs (8 via STM32F103 IOMCU, 6 FMU/AUX with DShot); SBUS in/out; SDIO microSD; RAMTRON FRAM via SPI2; 2x battery voltage+current monitor inputs; RGB LED; buzzer; external safety switch",
+    "discrepancies": [
+      "manufacturer is null in current data; README references makeflyeasy.com and wiki header reads 'makeflyeasy PixPilot-C3'",
+      "mcu_part stored as 'STM32F427xx' (generic family pattern); README and wiki both specify the exact part as 'STM32F427VIT6'",
+      "manual.weight_g is null; wiki states 40g",
+      "manual.dimensions_mm is null; wiki states 74mm x 45mm x 16mm (L x W x H)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PixPilot-C3.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-C3/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixPilot-C3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-makeflyeasy-PixPilot-C3.rst"
+    ],
+    "dimensions_mm": {
+      "length": 74,
+      "width": 45,
+      "height": 16
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (family name in MCU directive)",
+        "readme": "STM32F427VIT6",
+        "wiki": "STM32F427VIT6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3/ICM42688 x2 (SPIDEV bus aliases)",
+        "readme": "ICM42688-P x2",
+        "wiki": "ICM42688-P x2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 x2",
+        "readme": "BMP388 x2",
+        "wiki": "BMP388 x2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 commented out; MAG_CS pin present but unpopulated",
+        "readme": "no onboard compass (explicitly removed)",
+        "wiki": "no compass mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, UART4, UART7, UART8)",
+        "readme": "5 UARTs",
+        "wiki": "5x general-purpose serial ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "readme": "two FDCAN ports",
+        "wiki": "2x CAN Bus interface",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes \u2014 SDIO D0-D3/CK/CMD pins defined",
+        "readme": "microSD card slot",
+        "wiki": "MicroSD card reader",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "iomcu",
+        "hwdef": "IOMCU_UART USART6; ROMFS io_firmware.bin",
+        "readme": "STM32F103C8T6 co-processor",
+        "wiki": "32-bit failsafe co-processor (STMF103)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "makeflyeasy (referenced as makeflyeasy.com)",
+        "wiki": "makeflyeasy",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "40g",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "74x45x16mm",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_min_v/max_v",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "Power supply 4V-6V (FC power input)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip or driver defined",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

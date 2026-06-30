@@ -1,7 +1,7 @@
 {
   "slug": "MatekH7A3-Wing",
   "name": "MatekH7A3-Wing",
-  "manufacturer": null,
+  "manufacturer": "Matek Systems",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H7A3xx"
@@ -95,5 +95,164 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Matek Systems",
+    "marketing_name": "Matek H7A3-Wing",
+    "family": "H7A3",
+    "mcu_part": "STM32H7A3RIT6",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "SPL06-001"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 30,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "9V/12V",
+        "volts": 9,
+        "amps": 2
+      },
+      {
+        "rail": "Vx (servo)",
+        "volts": 5,
+        "amps": 8
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "MicroSD"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6x UARTs (USART1-3, UART4-5, USART6); 11x PWM DShot-capable; 1x CAN (CAN2); 1x I2C (I2C3); 3x BECs (5V/2.5A, 9V-12V/2A, Vx servo/8A configurable 5V-7.2V); MicroSD blackbox; USB-C; GPIO-controlled 9V VTX rail",
+    "discrepancies": [
+      "Wing README states '2S-6S Lipo input' but manufacturer page specifies '9~30V (3~6S LiPo)' \u2014 README text was copied from the Slim variant; minimum input is 3S (9V) required to supply the 9V BEC.",
+      "Wing README lists PCB size as '36 x 36mm' (the Slim's dimensions), but manufacturer page specifies 54 x 36 x 13mm for the Wing \u2014 README was not updated for the Wing's larger fixed-wing form factor.",
+      "Wing README features list includes 'W25N01GV dataflash' (copied from Slim README), but Wing hwdef.dat defines no SPIDEV for NAND flash and only configures MicroSD; manufacturer page also only mentions MicroSD socket \u2014 NAND chip is likely absent on the Wing PCB.",
+      "Wing README lists only two BECs (9V/2A and 5V/2A) but manufacturer page shows three rails: 5V/2.5A, 9V-12V/2A, and a high-current Vx servo rail at 8A (5V/6V/7.2V selectable) \u2014 the servo BEC is Wing-specific and missing from the README."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MatekH7A3-Wing.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3-Wing/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3-Wing/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/hwdef.inc",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/Readme.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://www.mateksys.com/?portfolio=h7a3-wing"
+    ],
+    "dimensions_mm": {
+      "length": 54,
+      "width": 36,
+      "height": 13
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7A3xx (MCU STM32H7xx STM32H7A3xx in hwdef.inc)",
+        "readme": "STM32H7A3RIT6",
+        "manufacturer": "STM32H7A3RIT6",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 (ICM-42688 family)",
+        "readme": "ICM-42688p",
+        "manufacturer": "ICM42688P",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06-001",
+        "manufacturer": "SPL06-001",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 driver alias (SPIDEV osd / MAX7456_CS)",
+        "readme": "AT7456E",
+        "manufacturer": "AT7456E",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3 + UART4,5 + USART6 in SERIAL_ORDER)",
+        "readme": "6x UARTs",
+        "manufacturer": "6x",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN2)",
+        "readme": "1x CAN",
+        "manufacturer": "1x CAN2",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard + HAL_OS_FATFS_IO in Wing hwdef.dat",
+        "readme": "not mentioned",
+        "manufacturer": "MicroSD socket",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "no NAND SPIDEV or DATAFLASH directive in Wing hwdef.dat",
+        "readme": "W25N01GV dataflash (copied from Slim)",
+        "manufacturer": "MicroSD only",
+        "wiki": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "manufacturer": "9~30V (3-6S LiPo)",
+        "wiki": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "36x36mm (copied from Slim)",
+        "manufacturer": "54x36x13mm",
+        "wiki": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V/2A + 5V/2A (2 BECs)",
+        "manufacturer": "5V/2.5A + 9V-12V/2A + Vx/8A (3 BECs)",
+        "wiki": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

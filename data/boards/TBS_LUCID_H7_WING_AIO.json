@@ -1,7 +1,7 @@
 {
   "slug": "TBS_LUCID_H7_WING_AIO",
   "name": "TBS_LUCID_H7_WING_AIO",
-  "manufacturer": null,
+  "manufacturer": "TBS (Team BlackSheep)",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -64,48 +64,6 @@
       "variant": null,
       "slot": "SPI4/CS:IMU2_CS",
       "chip_display": "IMU2"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000_1",
-      "variant": null,
-      "slot": "SPI1/CS:IMU1_CS",
-      "chip_display": "MPU6000_1"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000_2",
-      "variant": null,
-      "slot": "SPI4/CS:IMU2_CS",
-      "chip_display": "MPU6000_2"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu1",
-      "variant": null,
-      "slot": "SPI1/CS:IMU1_CS",
-      "chip_display": "IMU1"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu2",
-      "variant": null,
-      "slot": "SPI4/CS:IMU2_CS",
-      "chip_display": "IMU2"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu1",
-      "variant": null,
-      "slot": "SPI1/CS:IMU1_CS",
-      "chip_display": "IMU1"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu2",
-      "variant": null,
-      "slot": "SPI4/CS:IMU2_CS",
-      "chip_display": "IMU2"
     }
   ],
   "baros": [
@@ -147,5 +105,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "TBS (Team BlackSheep)",
+    "marketing_name": "TBS Lucid H7 Wing AIO",
+    "family": "TBS Lucid H7",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "3-12S",
+    "voltage_min_v": 8,
+    "voltage_max_v": 50.4,
+    "bec_outputs": [
+      {
+        "rail": "5V/6V/8.4V selectable",
+        "amps": 8,
+        "volts": null
+      },
+      {
+        "rail": "5V FC/peripherals",
+        "amps": 3,
+        "volts": 5
+      },
+      {
+        "rail": "9V/12V VTX selectable",
+        "amps": 5,
+        "volts": null
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "DJI HD VTX connector (SBUS + DisplayPort)",
+      "MicroSD slot",
+      "SPI3 pin headers"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: UART4=RC input, UART6=GPS (AIO remapping vs Wing); DJI HD connector with SBUS and DisplayPort; 8 PWM/DShot outputs (1-7 and 13; PWM 8-12 removed vs Wing); dual camera inputs switchable via GPIO; 1x CAN; no built-in compass",
+    "discrepancies": [
+      "Our JSON data records pwm.fmu=13 and pwm.total=13, but the AIO hwdef.dat undefs 5 PWM channels (PD13/14/15=PWM8-10, PE5/6=PWM11-12) from the parent's 13, leaving only 8 outputs (PWM 1-7 and 13). The AIO README PWM section correctly states 8 outputs; only the features header (likely copy-pasted from the Wing) says 13.",
+      "The docs_url (common-tbs-lucid-h7-wing.html) is for the non-AIO TBS Lucid H7 Wing variant. There is no dedicated wiki RST page for TBS_LUCID_H7_WING_AIO; the board is only linked to its GitHub README from common-autopilots.rst.",
+      "The AIO README features header says '13x PWM (including LED)' but the AIO README's own PWM Output section says 'up to 8 PWM or DShot outputs' with 5 groups totalling 8 channels. The features header is a copy-paste error from the parent Wing.",
+      "Our JSON data is missing manufacturer, all physical specs (dimensions, voltage, BECs, mounting), and osd_chip \u2014 all determinable from local README."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/TBS_LUCID_H7_WING_AIO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING_AIO/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING_AIO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-tbs-lucid-h7-wing.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "dimensions_mm": {
+      "length": 54,
+      "width": 36,
+      "height": 13
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family alias)",
+        "readme": "STM32H743VIH6",
+        "wiki": "STM32H743VIH6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (family alias; comment says ICM42688)",
+        "readme": "ICM42688 x2",
+        "wiki": "ICM42688 x2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (CS pin name and SPI alias)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (MAX7456-compatible)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7",
+        "readme": "7x UART",
+        "wiki": "7x UART",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1x CAN1",
+        "readme": "1x CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_total",
+        "hwdef": "8 (parent 13 minus 5 undefs: PD13/14/15 and PE5/6 removing PWM 8-12)",
+        "readme": "8 outputs per PWM section; features header incorrectly says 13",
+        "wiki": "13 (but wiki is for non-AIO Wing)",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3-12S (8V-50.4V)",
+        "wiki": "3-12S (Wing page)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "54x36x13mm",
+        "wiki": "54x36x13mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass",
+        "hwdef": "no built-in; external I2C probing enabled",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins present",
+        "readme": "MicroSD BlackBox",
+        "wiki": "MicroSD BlackBox",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

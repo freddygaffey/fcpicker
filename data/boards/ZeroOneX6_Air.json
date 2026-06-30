@@ -1,7 +1,7 @@
 {
   "slug": "ZeroOneX6_Air",
   "name": "ZeroOneX6_Air",
-  "manufacturer": null,
+  "manufacturer": "ZeroOne",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -137,5 +137,123 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ZeroOne",
+    "marketing_name": "ZeroOneX6 Air/Air+",
+    "family": "Pixhawk FMUv6C",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "ICM45686",
+      "ICM45686"
+    ],
+    "baro_models": [
+      "ICP20100",
+      "ICP20100"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "Ethernet (RMII LAN8742A)",
+      "2x CAN (CANFD)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "15 PWM outputs: M1-M8 via IOMCU (STM32F103), A9-A15 via FMU; SERIAL1-7 (Telem1/UART7, Telem2/UART5, GPS1/USART1, GPS2/UART8, Telem3/USART2, User/UART4, Debug/USART3); 2x CAN+CANFD; Ethernet; microSD (SDMMC2); FRAM on SPI5 for parameter storage; IMU heater (1W); SBUS/RC on TIM8",
+    "discrepancies": [
+      "Manufacturer field is null in current data; should be 'ZeroOne' per README/wiki.",
+      "Baro chip_display is null and driver alias 'ICP201XX' is used in the JSON imu chip field; the real chip per README and wiki is ICP20100 (ICP201XX is the ArduPilot driver name covering both ICP20100 and ICP20101).",
+      "hwdef probes RM3100 and BMM350 compasses on the internal I2C4 bus alongside IST8310, but README and wiki explicitly name only IST8310 as the built-in compass. RM3100/BMM350 entries are likely speculative probing for hardware variants that did not ship.",
+      "README and wiki say '6x UART' but hwdef SERIAL_ORDER defines 7 physical UARTs (UART7, UART5, USART1, UART8, USART2, UART4, USART3). The '6' in marketing copy appears to exclude the debug UART (SERIAL7/USART3). Our data uart_count=7 is correct from the hwdef.",
+      "Wiki PWM section incorrectly refers to 'STM32H753 FMU controller'; hwdef and all other wiki text correctly identify the chip as STM32H743 (STM32H743IIK6).",
+      "hwdef defines 8 FMU PWM outputs (PWM1-PWM8) but README/wiki describe only 7 auxiliary outputs labeled A9-A15; board likely does not externally expose all 8 FMU PWM pads, so effective total is 15 (8 IOMCU + 7 FMU), not 16 as in current data.",
+      "The Air variant has 1 IMU and 1 baro; the Air+ variant has 2 IMUs and 2 baros. The hwdef (and current JSON) reflects Air+ configuration with 2 of each. The slug covers both sub-variants."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ZeroOneX6_Air.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ZeroOneX6_Air/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ZeroOneX6_Air/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-zeroonex6-air.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family)",
+        "readme": "STM32H743IIK6",
+        "wiki": "STM32H743IIK6 (but erroneously says H753 in PWM section)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "2x Invensensev3 SPI:icm45686_1/icm45686_2",
+        "readme": "Air: 1x ICM45686; Air+: 2x ICM45686",
+        "wiki": "Air: 1x ICM45686; Air+: 2x ICM45686",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "ICP201XX I2C:0:0x64 and I2C:2:0x63",
+        "readme": "Air: 1x ICP20100; Air+: 2x ICP20100",
+        "wiki": "Air: 1x ICP20100; Air+: 2x ICP20100",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100 + IST8310 + BMM350 all on I2C:0 (internal I2C4)",
+        "readme": "IST8310 built-in only",
+        "wiki": "IST8310 built-in only",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (UART7, UART5, USART1, UART8, USART2, UART4, USART3; USART6 used internally for IOMCU)",
+        "readme": "6x UART",
+        "wiki": "6x UART (table shows 7 SERIAL ports SERIAL1-7)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2, CANFD_SUPPORTED 8",
+        "readme": "2x CAN",
+        "wiki": "2x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 defined",
+        "readme": "microSD card interface",
+        "wiki": "microSD card interface",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip defined",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "ZeroOne (https://www.01aero.cn)",
+        "wiki": "ZeroOne",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

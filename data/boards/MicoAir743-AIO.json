@@ -1,7 +1,7 @@
 {
   "slug": "MicoAir743-AIO",
   "name": "MicoAir743-AIO",
-  "manufacturer": null,
+  "manufacturer": "MicoAir Tech",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -101,5 +101,178 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MicoAir Tech",
+    "marketing_name": "MicoAir743-AIO Flight Controller",
+    "family": "MicoAir H7 AIO",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI088",
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "has_sdcard": true,
+    "weight_g": 10,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P (DJI HD VTX / Air Unit)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "36x36mm AIO; 9 PWM outputs (1-4 tied to integrated 4-in-1 35A AM32 ESC, 9 is LED pad); 7 UARTs; 1 external I2C (I2C1 on SDA/SCL pads); SH1.0-6P for DJI HD VTX (pin 1 = 12V); no CAN; no built-in compass; OSD via MSP DisplayPort (type 5) not MAX7456",
+    "discrepancies": [
+      "Wiki OSD section states 'internal OSD using OSD_TYPE 1 (MAX7456 driver)' but hwdef.dat sets HAL_OSD_TYPE_DEFAULT to 5 (MSP DisplayPort) and has no MAX7456 SPIDEV entry \u2014 the board has no physical OSD chip; wiki appears to use an incorrect template sentence",
+      "Our JSON data has manufacturer null \u2014 should be 'MicoAir Tech'",
+      "Our JSON data has no BEC info in the power block \u2014 board has 12V 2A and 5V 2A BECs",
+      "Our JSON data has no physical specs (dimensions, weight, mounting) \u2014 README gives 36x36x8mm, 10g, 25.5x25.5mm M3 mount"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MicoAir743-AIO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743-AIO/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743-AIO/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-MicoAir743-AIO.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + BMI270",
+        "readme": "BMI088/BMI270 dual IMUs",
+        "wiki": "BMI088/BMI270 dual IMUs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1/2/3 UART4/6/7/8)",
+        "readme": "7 UARTs",
+        "wiki": "7 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "readme": "MicroSD Card Slot",
+        "wiki": "MicroSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3~6S LiPo",
+        "wiki": "3~6S LiPo",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 5 (MSP DisplayPort); no MAX7456 SPIDEV",
+        "readme": null,
+        "wiki": "OSD_TYPE 1 (MAX7456 driver) \u2014 appears to be incorrect wiki template text",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "25.5 x 25.5mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_hole_dia_mm",
+        "hwdef": null,
+        "readme": "\u03a63mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "36 x 36 x 8 mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "10g",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "12V 2A BEC; 5V 2A BEC",
+        "wiki": "12V 2A BEC; 5V 2A BEC",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass defined; external I2C probing enabled",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

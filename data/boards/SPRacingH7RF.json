@@ -1,7 +1,7 @@
 {
   "slug": "SPRacingH7RF",
   "name": "SPRacingH7RF",
-  "manufacturer": null,
+  "manufacturer": "Seriously Pro Racing",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H730xx"
@@ -92,5 +92,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Seriously Pro Racing",
+    "marketing_name": "SPRacing H7 RF",
+    "family": "SPRacing H7",
+    "mcu_part": "STM32H730",
+    "imu_models": [
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "BMP388"
+    ],
+    "has_sdcard": true,
+    "mounting_pattern_mm": "30.5x30.5 / 20x20",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-8S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "Dual 4in1 ESC connectors (top/bottom stack)",
+      "Micro USB",
+      "MicroSD",
+      "I2C external port (J8)",
+      "Active buzzer",
+      "VTX power pad"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Integrated ELRS (SX1280 2.4GHz, not supported by ArduPilot)",
+    "pinout_notes": "UART2=RC input; UART3=DJI/DisplayPort OSD; UART4=GPS; UART5=ESC telem RX-only; UART8=user; 9 PWM outputs (M1-8 DShot+BiDir, M9=LED); dual 4in1 ESC connectors with voltage+current sense; VTX power switch (RELAY2_PIN=81)",
+    "discrepancies": [
+      "Our data has manufacturer=null; README and wiki both confirm 'Seriously Pro Racing'",
+      "Wiki states BEC is 5V 1A; manufacturer spec (via multirotorguide) says 5V 2A switching regulator \u2014 wiki appears to understate the current rating",
+      "README states 'Onboard Flash: 128Mbits' which is an error; hwdef confirms FLASH_SIZE_KB=128 (128KB internal) and EXT_FLASH_SIZE_MB=2 (2MB external NOR); wiki correctly says 128Kbytes internal",
+      "Wiki counts 6 UARTs including USB virtual COM port; hwdef and our data count 5 hardware UARTs (USART2/3, UART4/5/8) \u2014 definitional difference",
+      "IMU marketed as 'ICM42688P' by manufacturer (full part ICM42688-P); README/wiki omit the P suffix; hwdef SPIDEV alias is generic 'icm42688'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SPRacingH7RF.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7RF/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPRacingH7RF/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-spracingh7-rf.rst",
+      "https://www.multirotorguide.com/news/spracing-h7rf-fc-with-expresslrs/",
+      "https://shop.seriouslypro.com/sp-racing-h7-rf"
+    ],
+    "dimensions_mm": {
+      "length": 37,
+      "width": 37,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H730xx",
+        "readme": "STM32H730 @ 520MHz",
+        "wiki": "STM32H730 @ 520MHz",
+        "manufacturer": "STM32H730 @ 520MHz",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": "ICM42688P",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 I2C:1:0x76",
+        "readme": "BMP388",
+        "wiki": "BMP388",
+        "manufacturer": "BMP388",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 physical UARTs (USART2,3, UART4,5,8)",
+        "readme": "5x UARTs",
+        "wiki": "6x UARTs (USB,2,3,4,5,8)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S",
+        "wiki": "2-8S",
+        "manufacturer": "2-8S",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V ?A (current unknown)",
+        "wiki": "5V 1A",
+        "manufacturer": "5V 2A switching",
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins present",
+        "readme": "microSD card socket",
+        "wiki": "Micro SD Card",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Seriously Pro Racing",
+        "wiki": "Seriously Pro Racing",
+        "manufacturer": "Seriously Pro Racing",
+        "agree": "disagree"
+      },
+      {
+        "field": "length_mm / width_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "37x37mm PCB (27x27mm after break-off)",
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "30.5mm and 20mm patterns, 4mm holes for M3",
+        "agree": "unknown"
+      }
+    ]
   }
 }

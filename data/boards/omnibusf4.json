@@ -1,7 +1,7 @@
 {
   "slug": "omnibusf4",
   "name": "omnibusf4",
-  "manufacturer": null,
+  "manufacturer": "Airbot Systems",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -99,5 +99,111 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Airbot Systems",
+    "marketing_name": "Omnibus F4 AIO",
+    "family": "OmnibusF4",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "MPU-6000",
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "uart_count": 4,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "GPS on UART6/SERIAL3; Telemetry on USART1/SERIAL1; USART3 shares pins with I2C2 (I2C default, UART via BRD_ALT_CONFIG=1); UART4 TX on RSSI pad via BRD_ALT_CONFIG=2/3; 8 PWM outputs (6 thru-hole, 2 solder pads); RC input via PPM/SBUS solder jumper (PPM selection required)",
+    "discrepancies": [
+      "Wiki (common-omnibusf4pro.rst) lists only MPU6000 as IMU sensor, but hwdef supports both MPU-6000 and BMI270 as hardware alternatives on the same SPI CS pin (different board production runs)",
+      "data/boards/omnibusf4.json has manufacturer=null; original designer is Airbot Systems (myairbot.com), though many clone variants from other vendors exist"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/omnibusf4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/omnibusf4/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/omnibusf4pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-omnibusf4pro.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "wiki": "STM32F405 ARM",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "MPU-6000 and BMI270 (both probed on same CS, hardware alternates)",
+        "wiki": "InvenSense MPU6000 only",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 on SPI3",
+        "wiki": "BMP280",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED=1; AT7456E on SPI3 OSD_CS",
+        "wiki": "Built-in OSD",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD_CS on SPI2 defined",
+        "wiki": "board described as having SD Card slot",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 physical UARTs: USART1, USART3, USART6, UART4",
+        "wiki": "mentions UARTS generically without count",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "wiki": "no CAN mentioned",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "ALLOW_ARM_NO_COMPASS + AP_COMPASS_PROBING_ENABLED for external I2C only",
+        "wiki": "I2C port for external compass",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "current_sensor",
+        "hwdef": "AIO variant: no current sensor populated (BAT_CURR_SENS ADC pin inherited from pro hwdef but hardware not fitted)",
+        "wiki": "AIO version explicitly noted as having no current sensor",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

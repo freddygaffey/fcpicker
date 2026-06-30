@@ -1,7 +1,7 @@
 {
   "slug": "VRUBrain-v51",
   "name": "VRUBrain-v51",
-  "manufacturer": null,
+  "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F407xx"
@@ -30,9 +30,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 14,
+      "fmu": 12,
       "io": 0,
-      "total": 14
+      "total": 12
     },
     "ethernet": false,
     "sdcard": true,
@@ -100,5 +100,121 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Laser Navigation",
+    "marketing_name": "VR uBrain 5.1",
+    "family": "VR Brain",
+    "mcu_part": "STM32F407",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "weight_g": 10,
+    "mounting_pattern_mm": "32x32",
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "3 UARTs (USART1/2/3: 1 GPS, 1 telemetry, 1 option), 12 active PWM outputs (TIM1/2/3/4), 2 relay outputs, external HMC5843 compass via I2C, SD card via SPI3, USB-OTG, single analog battery voltage input (no current sensing)",
+    "discrepancies": [
+      "manufacturer is null in current data but hwdef USB_STRING_MANUFACTURER is 'Laser Navigation' and ArduPilot history wiki page confirms Laser Navigation as the manufacturer",
+      "manufacturer website sources give slightly conflicting dimensions (37mm vs 38mm) and weight (9g vs 10g); 38mm/10g used from the detailed vrbrain.wordpress.com spec page"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VRUBrain-v51.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRUBrain-v51/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-history-of-ardupilot.rst",
+      "https://vrbrain.wordpress.com/vr-microbrain/",
+      "https://www.lasernavigation.it/vr-brain-autopilot/"
+    ],
+    "dimensions_mm": {
+      "length": 38,
+      "width": 38,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F407xx",
+        "wiki": null,
+        "manufacturer": "168MHz ARM Cortex-M4F (STM32F407)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 \u2192 MPU6000",
+        "wiki": null,
+        "manufacturer": "MPU6000 SPI",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": null,
+        "manufacturer": "barometric sensor 10cm resolution (MS5611)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 I2C:1:0x1e forced external",
+        "wiki": null,
+        "manufacturer": "external magnetometer optional",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER: USART1 USART2 USART3 = 3",
+        "wiki": null,
+        "manufacturer": "3 serial ports: 1 GPS, 1 SBUS, 1 telemetry",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined = 0",
+        "wiki": null,
+        "manufacturer": "not mentioned",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD_CS + HAL_OS_FATFS_IO = true",
+        "wiki": null,
+        "manufacturer": "SD card slot up to 64GB",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "USB_STRING_MANUFACTURER: Laser Navigation",
+        "wiki": "links to virtualrobotix.it",
+        "manufacturer": "Laser Navigation (r.navoni@virtualrobotix.com)",
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "vrbrain.wordpress.com: 3.8x3.8cm; lasernavigation.it: 3.7cm; diydrones: 3.7x3.7cm",
+        "readme": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "speedybeef4v4",
   "name": "speedybeef4v4",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -79,7 +79,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-speedybeef4-v3.html",
   "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v4/README.md",
   "manual": {
     "status": "not_started",
@@ -94,5 +94,160 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F405 V4",
+    "family": "SpeedyBee F4",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 9.6,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-6P (DJI HD VTX, 9V on pin 1)",
+      "USB-C",
+      "4-in-1 ESC connector"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (internal module on UART4, not usable by ArduPilot)",
+    "pinout_notes": "6 UARTs: UART1=DJI VTX, UART2=RC IN/SBUS, UART3=CAM, UART4=internal BT (unusable), UART5=ESC Telem, UART6=GPS. 9 PWM outputs (M1-M8 pads + M9 LED/PWM). No built-in compass, I2C for external.",
+    "correct_wiki_stem": "common-speedybeef4-v3",
+    "discrepancies": [
+      "docs_url in our JSON points to common-speedybeef4 (original SpeedyBee F4 with MPU6000, no baro), which is the wrong page; correct wiki is common-speedybeef4-v3 covering V3/V4",
+      "hwdef.dat declares 'BARO SPL06 I2C:0:0x76' and AP_BARO_SPL06_ENABLED, but README.md says 'DPS310 barometer' and wiki (common-speedybeef4-v3) says 'V4:DPS310 Barometer' \u2014 hwdef is authoritative for driver config; README and wiki likely contain a documentation error",
+      "manufacturer field in our JSON is null; should be SpeedyBee",
+      "osd_chip not captured in our JSON; hardware is AT7456E (MAX7456-compatible) confirmed by README and wiki",
+      "bec_outputs in our JSON is empty; wiki documents 5V/2A and 9V/2A BECs"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/speedybeef4v4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v4/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v4/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef4-v3.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef4.rst"
+    ],
+    "dimensions_mm": {
+      "length": 41.6,
+      "width": 39.4,
+      "height": 7.8
+    },
+    "field_checks": [
+      {
+        "field": "mcu",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 ARM microcontroller",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu",
+        "hwdef": "Invensensev3 SPI:imu1 (ICM42xxx family)",
+        "readme": "ICM42688",
+        "wiki": "V4:ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro",
+        "hwdef": "SPL06 I2C:0:0x76 (AP_BARO_SPL06_ENABLED)",
+        "readme": "DPS310",
+        "wiki": "V4:DPS310",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd / HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER OTG1 + 6 UARTs)",
+        "readme": "6 UARTs",
+        "wiki": "6 serial ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI3",
+        "readme": "SDCard",
+        "wiki": "Micro SD card slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "9 PWM outputs",
+        "readme": "9 PWM outputs",
+        "wiki": "9x PWM outputs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass",
+        "hwdef": "no built-in compass, external I2C probing enabled",
+        "readme": "no builtin compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_range",
+        "hwdef": "BATT_VOLT_MULT 11.0 (consistent with 6S)",
+        "readme": "up to 6S",
+        "wiki": "9V~25V DC (3S-6S)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "41.6x39.4x7.8mm, 30.5x30.5mm mount, 9.6g",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

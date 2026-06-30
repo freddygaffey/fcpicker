@@ -1,7 +1,7 @@
 {
   "slug": "CrazyF405",
   "name": "CrazyF405",
-  "manufacturer": null,
+  "manufacturer": "Happymodel",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -85,5 +85,139 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Happymodel",
+    "marketing_name": "CrazyF405HD ELRS 1-2S AIO",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "blackbox_flash": "onboard SPI flash (size unconfirmed from local sources)",
+    "has_sdcard": false,
+    "voltage_cells": "1-2S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 3,
+    "can_count": 0,
+    "notable_connectors": [
+      "integrated 4-in-1 BlueJay ESC"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "ELRS (onboard, UART2)",
+    "pinout_notes": "UART1=DisplayPort(DMA), UART2=ELRS internal RCIN(DMA), UART6=user; 4 motor PWM (M1-M4 via integrated ESC) + 1 LED output; OSD_CS pin defined in hwdef but no analog OSD chip installed; MSP OSD via digital VTX",
+    "discrepancies": [
+      "manufacturer is null in data but hwdef README and wiki both identify Happymodel",
+      "power.bec is empty in data but README and wiki both specify 5V/2A BEC output",
+      "data does not capture onboard ELRS receiver (built-in ELRS on UART2)",
+      "wiki compass section incorrectly names BETAFPV F405 AIO instead of CrazyF405HD (copy-paste error in wiki)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CrazyF405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CrazyF405/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CrazyF405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-crazyf405.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405RGT6",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 SPI:bmi270",
+        "readme": "BMI270 (SPI)",
+        "wiki": "BMI270 (SPI)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "none defined",
+        "readme": "no builtin compass",
+        "wiki": "no builtin compass",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1, USART2, USART6 = 3",
+        "readme": "3 UARTs",
+        "wiki": "3 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no sdcard",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 5 (MSP), OSD_CS CS pin present but no SPIDEV OSD line",
+        "readme": "does not require analog OSD chip (MAX7456)",
+        "wiki": "configured for Digital HD FPV using HD VTX connector",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "voltage sensor up to 2S from BATT_VOLT_PIN context",
+        "readme": "voltage sensor handles up to 2S LiPo/Li-Hv",
+        "wiki": "voltage sensor handles up to 2S LiPo/Li-Hv",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V, 2A@4V",
+        "wiki": "5V, 2A",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "SERIAL2 USART2 with DEFAULT_SERIAL3_PROTOCOL SerialProtocol_RCIN (maps to UART2 for ELRS)",
+        "readme": "built-in UART ELRS receiver on UART2",
+        "wiki": "SERIAL2 -> UART2 (RCin, connected to internal ELRS)",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

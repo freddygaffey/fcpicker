@@ -1,7 +1,7 @@
 {
   "slug": "mini-pix",
   "name": "mini-pix",
-  "manufacturer": null,
+  "manufacturer": "RadioLink",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -99,5 +99,149 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "RadioLink",
+    "marketing_name": "RadioLink MiniPix",
+    "mcu_part": "STM32F405VGT6",
+    "imu_models": [
+      "MPU6500"
+    ],
+    "baro_models": [
+      "LPS22HB"
+    ],
+    "compass_models": [
+      "QMC5883L"
+    ],
+    "has_sdcard": true,
+    "weight_g": 12,
+    "uart_count": 3,
+    "can_count": 0,
+    "notable_connectors": [
+      "micro USB",
+      "SDIO microSD slot",
+      "SBUS input",
+      "PPM/RC input"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6x PWM outputs, 3 UARTs (USART3=Telem1 with flow ctrl, USART2=Telem2 with flow ctrl, UART4=GPS no flow ctrl), external I2C; note plastic case labels Telem1/2 ports in reverse order vs PCB and firmware",
+    "discrepancies": [
+      "Our data shows IMU chip_display as 'MPU6000' but actual chip is MPU6500 \u2014 confirmed by hwdef.dat comment ('SPI for MPU6500'), CS pin name MPU6500_CS, DRDY pin MPU6500_DRDY in both hwdef.dat and hwdef-bl.dat, and wiki text. The SPIDEV alias 'mpu6000' is a legacy bus label only.",
+      "Our data has manufacturer as null; hwdef.dat comment and wiki both identify it as RadioLink.",
+      "Our data has dimensions_mm and weight_g as null; wiki states 39x39x12 mm and 12 g without wires.",
+      "Our data baro chip_display is 'LPS22H' missing the 'B' suffix; hwdef CS pin is LPS22HB_CS and wiki says LPS22HB."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mini-pix.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mini-pix/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mini-pix/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-radiolink-minipix.rst"
+    ],
+    "dimensions_mm": {
+      "length": 39,
+      "width": 39,
+      "height": 12
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "wiki": "STM32F405VGT6",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SPIDEV alias 'mpu6000' (legacy); comment+pins say MPU6500",
+        "wiki": "InvenSense MPU6500",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "LPS2XH driver / lps22h alias; CS pin LPS22HB_CS",
+        "wiki": "LPS22HB",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "QMC5883L I2C:0:0x0D",
+        "wiki": "QMC5883L",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART3, USART2, UART4)",
+        "wiki": "3 UARTs",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDIO pins present + HAL_OS_FATFS_IO",
+        "wiki": "SDIO microSD card slot",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "wiki": "39 mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "wiki": "39 mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "height_mm",
+        "hwdef": null,
+        "wiki": "12 mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "12 g without wires",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "RadioLink (from hwdef.dat comment)",
+        "wiki": "RadioLink",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

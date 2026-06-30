@@ -1,7 +1,7 @@
 {
   "slug": "MambaF405-2022",
   "name": "MambaF405-2022",
-  "manufacturer": null,
+  "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -108,5 +108,156 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Diatone",
+    "marketing_name": "Mamba Basic F405 MK4",
+    "family": "Mamba Basic",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "MPU6000",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 6,
+    "mounting_pattern_mm": "20x20",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6.8,
+    "voltage_max_v": 26,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "20x20mm stack format; 6 UARTs in firmware (UART5 not pinned out); UART1 used for RC input; UART6 for GPS; 7 PWM outputs (6 motor + 1 LED); VTX power control pin; OSD on SPI2; dataflash on SPI3",
+    "discrepancies": [
+      "manufacturer is null in our data; should be Diatone (confirmed by hwdef README and wiki)",
+      "uart_count in our data is 6 (matching SERIAL_ORDER entries) but hwdef README and wiki both state 4 UARTs \u2014 UART5 is defined in firmware but explicitly not pinned out on this board; physically accessible count is 5 (SERIAL1,2,3,4,6)",
+      "blackbox_flash: wiki says 16MB but the parent hwdef has a comment '# Dataflash M25P16' which is a 16Mbit (2MB) chip \u2014 possible flash upgrade in the 2022 revision not reflected in the inherited hwdef comment; wiki notation '128Kb (16MB)' is internally inconsistent (likely means 128Mbit = 16MB)",
+      "hwdef README only lists MPU6000 IMU but the 2022 override adds ICM42688 as a second hardware variant (Version B); our data correctly captures both",
+      "wiki marketing name is 'Mamba MK4 F405Mini' while hwdef README calls it 'Mamba Basic F405 MK4' \u2014 minor naming divergence between documentation sources"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MambaF405-2022.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405-2022/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405-2022/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mambaf405-mini.rst"
+    ],
+    "dimensions_mm": {
+      "length": 29,
+      "width": 29.5,
+      "height": 6.5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (MCU line)",
+        "readme": "STM32F405RGT6",
+        "wiki": "STM32F405 32-bit processor",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 (parent) + Invensensev3 SPI:icm42688 (2022 override)",
+        "readme": "MPU6000 only (Version A baseline)",
+        "wiki": "MPU6000 (Version A) or ICM42688 (Version B)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 (parent) + SPL06 (2022 override)",
+        "readme": null,
+        "wiki": "SPL06 Barometer only",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER: USART1,2,3,UART4,5,6)",
+        "readme": "4 UARTs",
+        "wiki": "4 UARTs (UART5 explicitly unavailable/not pinned out)",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "OSD_CS on SPI2, HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "# Dataflash M25P16 comment (= 2MB / 16Mbit)",
+        "readme": null,
+        "wiki": "128Kb (16MB) Data Log Flash",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Diatone",
+        "wiki": "Diatone",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "HAL_LOGGING_DATAFLASH_ENABLED, no SDCARD lines",
+        "readme": null,
+        "wiki": "Data Log Flash (not SD)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "BARO BMP280 + BARO SPL06 defined",
+        "readme": null,
+        "wiki": "SPL06 Barometer listed",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "6.8V ~ 26V DC / up to 6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined in either hwdef file",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

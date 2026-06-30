@@ -1,7 +1,7 @@
 {
   "slug": "crazyflie2",
   "name": "crazyflie2",
-  "manufacturer": null,
+  "manufacturer": "Bitcraze",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -97,5 +97,127 @@
     "discontinued": false,
     "imu_count": 1,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Bitcraze",
+    "marketing_name": "Crazyflie 2.x (2.0 / 2.1)",
+    "family": "Crazyflie",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "BMI088",
+      "MPU-9250"
+    ],
+    "baro_models": [
+      "BMP388",
+      "LPS25H"
+    ],
+    "has_sdcard": false,
+    "weight_g": 27,
+    "voltage_cells": "1S",
+    "voltage_min_v": 3.3,
+    "voltage_max_v": 4.2,
+    "uart_count": 3,
+    "can_count": 0,
+    "notable_connectors": [
+      "expansion header with SPI1, I2C1, USART2, USART3",
+      "micro-USB (OTG)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "nRF51822 2.4GHz radio (CrazyRadio protocol); connected to STM32 via USART6",
+    "pinout_notes": "4 PWM brushed-motor outputs; USART2 + USART3 on external expansion connector; USART6 wired internally to nRF51822 radio SoC; I2C3 for IMU, I2C1 exposed externally; SPI1 on expansion header via 4 CS pins (E_CS0\u2013E_CS3)",
+    "discrepancies": [
+      "manufacturer is null in JSON; should be Bitcraze",
+      "imus[1].chip is 'Invensense' (driver family alias) \u2014 physical chip on Crazyflie 2.0 is MPU-9250 per Bitcraze product page",
+      "baros[1].chip is 'LPS2XH:probe_InvensenseIMU' (ArduPilot driver name) \u2014 physical chip on Crazyflie 2.0 is LPS25H",
+      "weight_g is null in manual block; manufacturer spec is 27 g (CF2.0 and CF2.1) / 29 g (CF2.1+)",
+      "voltage/power block is empty; defaults.parm confirms 1S LiPo with 3.3\u20134.2 V range",
+      "no docs_url set; no dedicated ArduPilot wiki page was found for this board (only SITL/Webots references)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/crazyflie2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/crazyflie2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/crazyflie2/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/crazyflie2/defaults.parm",
+      "https://store.bitcraze.io/products/crazyflie-2-0",
+      "https://www.bitcraze.io/products/old-products/crazyflie-2-1/",
+      "https://www.bitcraze.io/products/crazyflie-2-1-plus/"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "wiki": null,
+        "manufacturer": "STM32F405 (Cortex-M4, 168 MHz, 1 MB flash)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (CF2.1, I2C:0x18+0x69); Invensense (CF2.0, I2C:0x69)",
+        "wiki": null,
+        "manufacturer": "BMI088 (CF2.1); MPU-9250 (CF2.0)",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 (CF2.1, I2C:0x77); LPS2XH (CF2.0, I2C:0x5D)",
+        "wiki": null,
+        "manufacturer": "BMP388 (CF2.1); LPS25H (CF2.0)",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART2, USART3, USART6)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD lines)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "1S (MOT_BAT_VOLT_MAX=4.2, MIN=3.3 in defaults.parm)",
+        "wiki": null,
+        "manufacturer": "1S LiPo (240\u2013250 mAh)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "27 g (CF2.0/2.1); 29 g (CF2.1+)",
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "Bitcraze",
+        "readme": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

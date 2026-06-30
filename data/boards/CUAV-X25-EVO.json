@@ -1,7 +1,7 @@
 {
   "slug": "CUAV-X25-EVO",
   "name": "CUAV-X25-EVO",
-  "manufacturer": null,
+  "manufacturer": "CUAV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -130,5 +130,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CUAV",
+    "marketing_name": "CUAV X25 EVO",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "IIM42652",
+      "IIM42653",
+      "IIM42653"
+    ],
+    "baro_models": [
+      "BMP581",
+      "ICP-20100"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "weight_g": 110,
+    "mounting_hole_dia_mm": 2,
+    "voltage_min_v": 10,
+    "voltage_max_v": 18,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 12
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB-C",
+      "Ethernet (100M)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 UARTs: TELEM1 (UART7 with RTS/CTS), TELEM2 (UART5 with RTS/CTS), GPS1+SAFETY (USART1), GPS2 (USART2), UART4, FMU DEBUG (USART3); 2 CAN buses with 5 physical ports (CAN1\u00d73, CAN2\u00d72); 16 PWM with switchable 3.3V/5V output (GPIO80); SD card (SDMMC2); 100M Ethernet; 4 I2C buses; 1 external SPI port; FRAM 32KB for parameter storage; 2 USB (OTG1 Type-C, OTG2 SLCAN)",
+    "discrepancies": [
+      "JSON manufacturer field is null; should be CUAV",
+      "JSON baro chip identifier 'ICP201XX' is the ArduPilot driver class name (covering both ICP20100 and ICP20101), not the actual part number; README and CUAV manufacturer pages confirm the chip is ICP-20100",
+      "PX4 docs list IMU configuration as IIM42652(dual) + IIM42653(single), conflicting with ArduPilot hwdef.dat and README which show IIM42652(single, SPI1) + IIM42653(dual, SPI2 and SPI5); ArduPilot hwdef is authoritative"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CUAV-X25-EVO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-EVO/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-EVO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-EVO-ODID/hwdef.dat",
+      "https://store.cuav.net/shop/x25-evo-controller/",
+      "https://store.cuav.net/x25-evo-controller-user-manual-hardware-pinout-and-quick-setup/",
+      "https://www.cuav.net/en/x25-evo-en/",
+      "https://docs.px4.io/main/en/flight_controller/cuav_x25-evo"
+    ],
+    "dimensions_mm": {
+      "length": 76.5,
+      "width": 45.45,
+      "height": 32.2
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": "STM32H743XI (per PX4 docs)",
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "IIM42652(SPI1) + IIM42653(SPI2) + IIM42653(SPI5)",
+        "readme": "1x IIM42652 (external crystal) + 2x IIM42653",
+        "wiki": null,
+        "manufacturer": "IIM42652(x1) + IIM42653(x2) per CUAV store; PX4 docs invert the count",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP581 + ICP201XX(driver on I2C4/0x63)",
+        "readme": "BMP581 + ICP20100",
+        "wiki": null,
+        "manufacturer": "BMP581 + ICP20100",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100 (SPI4)",
+        "readme": "RM3100 builtin",
+        "wiki": null,
+        "manufacturer": "RM3100",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (UART7, UART5, USART1, USART2, UART4, USART3; USART6 is RC-only)",
+        "readme": "6 UARTs plus USB",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 buses (CAN1, CAN2)",
+        "readme": "5 CAN ports across 2 buses",
+        "wiki": null,
+        "manufacturer": "CAN1\u00d73 ports + CAN2\u00d72 ports = 2 buses",
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "110g (CUAV store + PX4 docs agree)",
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "76.5 \u00d7 45.45 \u00d7 32.2 mm (CUAV store; PX4 diagram-inferred 90\u00d760\u00d720mm is unreliable)",
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_range",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "10\u201318V (CUAV store, CUAV manual, PX4 docs all agree)",
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "Built-in 5V/15A DC-DC; external 5V/12A output",
+        "agree": "unknown"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 defined",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD defined",
+        "readme": "no OSD mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "GreenSightUltraBlue",
   "name": "GreenSightUltraBlue",
-  "manufacturer": null,
+  "manufacturer": "GreenSight",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -131,5 +131,103 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "GreenSight",
+    "marketing_name": "GreenSight UltraBlue",
+    "family": "STM32H7",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI088",
+      "BMI088",
+      "ICM20649"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8308",
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH (all standard external ports)",
+      "DF9-41S-1V(32) Hirose Mezzanine (J1, power + ESC outputs)",
+      "Capacitively coupled Ethernet (JP10, Jetson companion only)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "7 UARTs: USART2 (Jetson telem), USART6 (telem2), USART1 (GPS1), UART4 (GPS2), UART8 (RC in), USART3 (ESC telem), UART7 (debug); 16 PWM outputs in 5 groups (bidir DShot on 1-8); 2 CAN buses; integrates NVIDIA Jetson SOM via DF9-41S-1V(32) mezzanine connector; RAMTRON SPI FRAM for parameter storage",
+    "discrepancies": [
+      "data/boards/GreenSightUltraBlue.json has manufacturer: null, but hwdef.dat (USB_STRING_MANUFACTURER 'GreenSight'), README.md, and wiki all consistently identify the manufacturer as GreenSight (greensightag.com)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/GreenSightUltraBlue.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/GreenSightUltraBlue/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/GreenSightUltraBlue/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-greensightultrablue.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (x2 via bmi088_u12_a/u11_a SPIDEV) + ICM20649 (via icm20649 SPIDEV + ICM20649_CS pin)",
+        "readme": "two BMI088 units and one ICM20649",
+        "wiki": "two BMI088 units and one ICM20649",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (BARO DPS310 SPI:dps310)",
+        "readme": "DPS310 SPI barometer",
+        "wiki": "DPS310 SPI barometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1/2/3/6, UART4/7/8)",
+        "readme": "7 hardware UARTs listed",
+        "wiki": "7 hardware UARTs listed",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1/CAN2)",
+        "readme": "CAN 1 + CAN 2 connectors described",
+        "wiki": "CAN 1 + CAN 2 connectors described",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (VDD_3V3_SD_CARD_EN pin, HAL_OS_FATFS_IO)",
+        "readme": "microSD card slot",
+        "wiki": "microSD card slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "GreenSight (USB_STRING_MANUFACTURER)",
+        "readme": "GreenSight",
+        "wiki": "GreenSight",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

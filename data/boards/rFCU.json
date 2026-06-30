@@ -1,7 +1,7 @@
 {
   "slug": "rFCU",
   "name": "rFCU",
-  "manufacturer": null,
+  "manufacturer": "mPhibr",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -137,5 +137,107 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mPhibr",
+    "marketing_name": "mPhibr rFCU",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ADIS16470",
+      "ICM-42688",
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "MS5611",
+      "BMP390"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "14 FMU PWM outputs (no IOMCU); 6 UARTs: USART2 Telem1 (CTS/RTS), USART6 Telem2 (CTS/RTS), USART1 GPS1, UART4 GPS2, UART8 RC/SBUS, UART7 Debug; 4x I2C (I2C3 onboard mag, I2C1 GPS1, I2C2 GPS2, I2C4); 2x CAN (CAN2 shares pins with USB_HS); 2x USB OTG; dual SPI external header (SPI5/EXT1); triple redundant power inputs (PowerA/B/C); FRAM parameter storage via SPI2; 4 IMU heater GPIOs for isolated IMU and control board heaters",
+    "discrepancies": [
+      "manufacturer is null in data/boards/rFCU.json but hwdef-bl.dat clearly identifies the board as 'mPhibr rFCU board'",
+      "baro configuration is optional: board supports either 2x MS5611 or 2x BMP390 on the same two CS pins \u2014 actual populated chips depend on hardware revision and are not determinable from hwdef alone"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/rFCU.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/rFCU/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/rFCU/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/rFCU/defaults.parm",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ADIS1647x (alias adis16470, CS pin ADIS16470_CS) + Invensensev3 x2 (alias icm42688_1 / icm42688_2)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 x2 OR BMP388/BMP390 x2 (alternate config, shared CS pins, comment: 'two baro, could be either 2 MS5611 or 2 BMP390')",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100 SPI:rm3100",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART2, USART6, USART1, UART4, UART8, UART7)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1 with card detect on PB2)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "mPhibr (from hwdef-bl.dat: 'for mPhibr rFCU board')",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

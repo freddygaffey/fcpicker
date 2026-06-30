@@ -1,7 +1,7 @@
 {
   "slug": "TBS_LUCID_H7",
   "name": "TBS_LUCID_H7",
-  "manufacturer": null,
+  "manufacturer": "Team BlackSheep",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,156 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Team BlackSheep",
+    "marketing_name": "TBS LUCID H7 Flight Controller",
+    "family": "LUCID",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 7,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.2
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "DJI HD VTX connector",
+      "USB Type-C",
+      "ESC telemetry connector"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "SERIAL1=UART1 (DJI SBUS RX in HD VTX connector), SERIAL2=UART2 (GPS), SERIAL3=UART3 (DisplayPort DJI O3), SERIAL4=UART4 (Telem1), SERIAL6=UART6 (RC input), SERIAL7=UART7 (Telem2 with flow control), SERIAL8=UART8 (ESC telemetry); 13 PWM/DShot outputs (12 motor + 1 LED); dual switchable camera inputs; dual battery monitor pads",
+    "discrepancies": [
+      "Voltage range: README and wiki specify 2S-6S; RMRC lists 2-8S and TBS product page lists 3-8S. The hwdef.dat BATT_VOLT_SCALE=11.0 is calibrated for 6S monitoring max, suggesting ArduPilot firmware is tuned for 6S.",
+      "BEC 3.3V current rating: README says 0.5A but TBS/RMRC manufacturer spec says 200mA (0.2A). README likely overstates.",
+      "manufacturer field is null in current data; should be Team BlackSheep.",
+      "IMU entries in current data are listed as driver family names (Invensensev3, Invensense) rather than actual silicon part numbers (ICM42688, MPU6000)."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/TBS_LUCID_H7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-tbs-lucidh7.rst",
+      "https://www.team-blacksheep.com/products/prod:lucid_h7",
+      "https://www.readymaderc.com/products/details/86342-tbs-lucid-h7-flight-controller-icm42688-ndaa"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": "STM32H743VIH6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (ICM42688) x2 primary; Invensense (MPU6000) x2 fallback for v2 boards",
+        "readme": "Dual ICM42688 (Dual MPU6000 on some v2 boards)",
+        "wiki": "Dual ICM42688 or dual MPU6000",
+        "manufacturer": "ICM42688 x2 (duo gyro)",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": "DPS310",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 driver / MAX7456_CS pin",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (OSD_TYPE 1 MAX7456 driver)",
+        "manufacturer": "AT7456E (SPI2)",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3,UART4,USART6,UART7,UART8)",
+        "readme": "7x UARTs",
+        "wiki": "7x UARTs",
+        "manufacturer": "7",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "CAN support",
+        "wiki": "CAN support",
+        "manufacturer": "1",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "microSD card slot",
+        "wiki": "microSD card slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT=11.0 (calibrated for 6S)",
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": "2-8S per RMRC / 3-8S per TBS website",
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V 0.5A, 5V 3A, 9V 3A",
+        "wiki": null,
+        "manufacturer": "3.3V 200mA, 5V 2A continuous (3A max), 9V 2A continuous (3A max)",
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "36x36x5mm, 30.5x30.5mm mounting, 7g",
+        "agree": "unknown"
+      }
+    ]
   }
 }

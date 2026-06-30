@@ -1,7 +1,7 @@
 {
   "slug": "AeroCogito-H7Digital",
   "name": "AeroCogito-H7Digital",
-  "manufacturer": null,
+  "manufacturer": "AeroCogito",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -93,5 +93,143 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "AeroCogito",
+    "marketing_name": "AeroCogito H7-Digital",
+    "family": "STM32H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "has_sdcard": true,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 11.1,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-SH (BetaFlight standard)",
+      "USB Type-C"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 UARTs (UART4=RC, UART5=companion, UART2=VTX DisplayPort, UART3=ESC telem RX, UART7=DJI RX, UART8=GPS); 10 PWM (M1-8 DShot+bidir, S1-S2 servo); JST-SH BetaFlight-standard connectors; USB-C; 5V+10V BEC; software-switched 10V VTX rail (RELAY2/PE2); no analog OSD; MSP DisplayPort digital only",
+    "discrepancies": [
+      "Our JSON has manufacturer=null; should be AeroCogito",
+      "Our JSON baro chip is 'DPS310' (hwdef driver alias) but the physical chip per README and hwdef comment is DPS368; the DPS310 ArduPilot driver supports both but the part on the board is DPS368",
+      "No dedicated ardupilot_wiki .rst page exists for this board; common-autopilots.rst links to the GitHub README, which is the correct docs_url already stored"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AeroCogito-H7Digital.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AeroCogito-H7Digital/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AeroCogito-H7Digital/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "dimensions_mm": {
+      "length": 41,
+      "width": 41,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3/SPI:42688 (ICM-42688 family alias)",
+        "readme": "ICM-42688-P",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS310 (driver name, comment says DPS368)",
+        "readme": "DPS368",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (UART5/USART2/UART8/UART4/USART3/UART7)",
+        "readme": "6 (from UART mapping table)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "ESC connector table: 11.1V-25.2V (3S-6S)",
+        "readme": "3S-6S (11.1V - 25.2V)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1 pins defined)",
+        "readme": "yes (microSD slot for blackbox)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins in hwdef)",
+        "readme": "not mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED=1, HAL_OSD_TYPE_DEFAULT=5 (MSP DisplayPort, no chip)",
+        "readme": "Digital HD VTX only, no analog OSD chip",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not specified",
+        "readme": "30.5mm mounting",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": "not specified",
+        "readme": "41mm x 41mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

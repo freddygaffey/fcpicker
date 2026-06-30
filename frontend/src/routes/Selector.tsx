@@ -163,6 +163,7 @@ interface CsvColumn {
 
 const CSV_COLUMNS: CsvColumn[] = [
   { id: "slug",       label: "Board name",         get: (b) => b.slug },
+  { id: "manufacturer", label: "Manufacturer",     get: (b) => b.manufacturer ?? "" },
   { id: "mcu_family", label: "MCU family",         get: (b) => b.mcu.family ?? "" },
   { id: "mcu_part",   label: "MCU part",           get: (b) => b.mcu.part ?? "" },
   { id: "flash_kb",   label: "Flash (KB)",         get: (b) => b.flash_kb ?? "" },
@@ -212,7 +213,12 @@ function passes(b: Board, f: Filters): boolean {
   if (!f.includeDiscontinued && b.manual?.discontinued) return false;
   if (f.query) {
     const q = f.query.trim().toLowerCase();
-    if (q && !b.slug.toLowerCase().includes(q)) return false;
+    if (
+      q &&
+      !b.slug.toLowerCase().includes(q) &&
+      !(b.manufacturer ?? "").toLowerCase().includes(q)
+    )
+      return false;
   }
   if (f.mcu !== "ANY" && mcuFamilyLabel(b.mcu.family) !== f.mcu) return false;
   if (f.vehicles.length > 0) {
@@ -532,6 +538,14 @@ export default function Selector() {
                         <span className="row-bracket">]</span>
                       </Link>
                       {b.manual?.discontinued && <span className="row-disc-tag" title="Discontinued">DISC</span>}
+                      {b.manufacturer && (
+                        <span
+                          className="row-maker"
+                          title="Manufacturer — suggested for discovery; verify exact specs in the linked docs"
+                        >
+                          {b.manufacturer}
+                        </span>
+                      )}
                     </td>
                     {orderedColumns.map((c) => (
                       <Cell key={c.id} col={c} board={b} />

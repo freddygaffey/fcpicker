@@ -1,7 +1,7 @@
 {
   "slug": "JPilot-C",
   "name": "JPilot-C",
-  "manufacturer": null,
+  "manufacturer": "Flyfocus",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -103,5 +103,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flyfocus",
+    "marketing_name": "JPilot-C",
+    "family": "JPilot",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM-45686",
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "DPS280"
+    ],
+    "has_sdcard": true,
+    "weight_g": 5,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "80-pin mezzanine connector",
+      "SPI4 external header (SCK/MISO/MOSI on PE12/PE13/PE14 + EXTERN_CS on PB5)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "80-pin mezzanine board; 14x PWM/DShot outputs; 2x CAN (CANFD, each with built-in 120-ohm termination); 6x hardware UART plus USB; 1x I2C for external compass; SPI4 external header; dual battery voltage/current monitoring; analog airspeed input; servo rail voltage sense",
+    "discrepancies": [
+      "data/boards/JPilot-C.json has manufacturer=null; should be 'Flyfocus' per hwdef README",
+      "data/boards/JPilot-C.json baro chip_display is 'DPS310' but hwdef driver line is 'BARO DPS280'; the SPI alias 'dps310' caused the display to pick up the wrong variant name \u2014 DPS280 is the correct chip designation",
+      "README.md advertises '2x barometer' but only 1 (DPS280) is enabled in hwdef.dat; the second baro footprint (ICP201XX on SPI2/BARO2_CS at PE2) is entirely commented out with note 'ICP baro over SPI not supported yet', so our data correctly has 1 baro"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JPilot-C.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JPilot-C/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JPilot-C/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-future-wiki-changes.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-partners.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32,
+      "width": 32,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H7 (stated as 'Based on STM32H7 system-on-chip')",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_count",
+        "agree": "agree",
+        "hwdef": "2 (ICM45686 + ICM42688)",
+        "readme": "2x IMU",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu1_model",
+        "agree": "agree",
+        "hwdef": "Invensensev3 SPI:icm45686",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu2_model",
+        "agree": "agree",
+        "hwdef": "Invensensev3 SPI:icm42688",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_count",
+        "agree": "partial",
+        "hwdef": "1 active (DPS280); 1 commented out (ICP201XX)",
+        "readme": "2x barometer",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_chip",
+        "agree": "partial",
+        "hwdef": "DPS280 (driver line); bus alias 'dps310'",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "compass",
+        "agree": "agree",
+        "hwdef": "no built-in compass; I2C probe enabled for external",
+        "readme": "no builtin compass; external via I2C",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (UART7, USART1, USART2, USART3, UART8, UART4)",
+        "readme": "6 UART ports (ports 1-6)",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "2 (CAN1, CAN2, CANFD)",
+        "readme": "2 CAN buses",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "Micro SD Card for Logging/LUA Scripting",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": "32x32x8mm",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": "5g",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "osd",
+        "agree": "agree",
+        "hwdef": "no OSD driver",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": null,
+        "readme": "Flyfocus (https://flyfocus.pl/avionics/)",
+        "wiki": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

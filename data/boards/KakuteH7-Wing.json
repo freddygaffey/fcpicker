@@ -1,7 +1,7 @@
 {
   "slug": "KakuteH7-Wing",
   "name": "KakuteH7-Wing",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -113,5 +113,168 @@
     "discontinued": false,
     "imu_count": 1,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro KakuteH743-WING",
+    "family": "Kakute",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 28,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9V/12V",
+        "volts": 9,
+        "amps": 2
+      },
+      {
+        "rail": "6V/7.2V",
+        "volts": 6,
+        "amps": 6
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 1
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "JST-GH (GPS/Compass)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "14 PWM outputs (1-10 DShot, 5-8 BiDirDShot); 7 UARTs (UART7 TELEM1 w/CTS/RTS, USART2 TELEM2, USART1 GPS, USART3 GPS2, UART5 User, USART6 RC-input/alt-UART, UART8 User); CAN1; 3x I2C; switchable 9V/12V VTX supply; 2 switchable camera inputs; USB-C plus separate extender dongle",
+    "discrepancies": [
+      "data/boards JSON has manufacturer=null; should be Holybro per README and wiki",
+      "README and wiki list only ICM42688 as the IMU, but hwdef.dat defines a second IMU \u2014 BMI088 on SPI1 \u2014 as well; the data JSON correctly captures both",
+      "README says '9V/12V, 1.5A BEC' for VTX but wiki says '9V/12V, 2A (3A peak)'; wiki likely reflects the production specification",
+      "README and wiki say '6x UARTs' but hwdef.dat defines 7 physical UART buses; the undercount appears to exclude USART6 which defaults to RC input only (can be reconfigured via BRD_ALT_CONFIG=1)",
+      "data/boards JSON manual.imu_count=1 but board has 2 IMUs (BMI088 + ICM42688)",
+      "data/boards JSON has bec=[] (empty); at least four BEC rails are present per wiki (5V, 9V/12V, 6V/7.2V, 3.3V)",
+      "hwdef probes both BMP280 and SPL06 at the same I2C address 0x76 (alternate fitted parts); README and wiki mention only BMP280"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteH7-Wing.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7-Wing/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7-Wing/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-kakuteh7wing.rst"
+    ],
+    "dimensions_mm": {
+      "length": 45,
+      "width": 30,
+      "height": 13.5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + ICM42688",
+        "readme": "ICM42688 only",
+        "wiki": "ICM42688 only",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 + SPL06 (alternate probe at same I2C addr)",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (UART7,USART2,USART1,USART3,UART5,USART6,UART8)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": null,
+        "wiki": "1",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC2)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "MAX7456 SPI alias",
+        "readme": "AT7456E",
+        "wiki": "AT7456E / MAX7456 driver",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S",
+        "wiki": "2S-8S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "45x30x13.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "28g (with USB extender)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Holybro (comment in hwdef.dat)",
+        "readme": "Holybro",
+        "wiki": "Holybro",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "JHEMCU-GSF405A",
   "name": "JHEMCU-GSF405A",
-  "manufacturer": null,
+  "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -87,5 +87,141 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JHEMCU",
+    "marketing_name": "JHEMCU GSF405A AIO Flight Controller",
+    "family": "AIO Whoop",
+    "mcu_part": "STM32F405OG6",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 3.3,
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "1-2S",
+    "voltage_min_v": 3,
+    "voltage_max_v": 8.4,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": null
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "Micro USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ELRS 2.4GHz (built-in onboard receiver)",
+    "pinout_notes": "4 motor outputs on AIO 5A ESC; PWM5=LED strip; UART1=ELRS built-in RX (pads also available); UART2=external; UART3=GPS (near I2C); UART4=general; UART6=telemetry; I2C for external compass; micro USB",
+    "discrepancies": [
+      "Current data has manufacturer=null; should be JHEMCU per README and hwdef comment.",
+      "Current data mcu.part is 'STM32F405xx' (family designator from MCU line); README specifies the actual silicon as STM32F405OG6.",
+      "Physical specs (dimensions, weight, voltage range, BEC) and OSD/wireless fields are entirely absent from current data despite being documented in README."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JHEMCU-GSF405A.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A/readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/ (searched; no GSF405A page found; closest pages are common-jhemcuf405pro.rst and common-jhemcu-h743hd.rst for different boards)"
+    ],
+    "dimensions_mm": {
+      "length": 25.5,
+      "width": 25.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405OG6 (specific part)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "mpu6000 (SPI alias, Invensense family)",
+        "readme": "MPU6000",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1,USART2,USART3,UART4,USART6)",
+        "readme": "5",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "yes (MAX7456 driver, OSD_CS on SPI3)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "8MB dataflash on SPI3",
+        "readme": "8MB",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "1S-2S",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "3.3g",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "USART1 wired to on-board ELRS receiver (DEFAULT_SERIAL1_PROTOCOL 23)",
+        "readme": "ExpressLRS 2.4GHz built-in",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

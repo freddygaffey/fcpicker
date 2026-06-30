@@ -1,7 +1,7 @@
 {
   "slug": "F35Lightning",
   "name": "F35Lightning",
-  "manufacturer": null,
+  "manufacturer": "Furious FPV",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -85,7 +85,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-furiousfpv-f35.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -100,5 +100,141 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Furious FPV",
+    "marketing_name": "Furious FPV F-35 Lightning",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "MPU9250"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "compass_models": [
+      "AK8963"
+    ],
+    "osd_chip": "MAX7456",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6x PWM (S1-S6); USART1=Telem1, UART5=Telem2, USART2=GPS, UART4=TX-only, USART6=TX-only with HW inverter; RC input on USART3-RX; I2C1 via solder pads; OSD on SPI1; IMU+BARO on SPI3; USB OTG",
+    "correct_wiki_stem": "common-furiousfpv-f35",
+    "discrepancies": [
+      "docs_url is null but local wiki page exists at common-furiousfpv-f35.rst",
+      "manufacturer is null in current data but should be Furious FPV",
+      "current data has power.monitor_inputs=0 but hwdef defines both BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC pins",
+      "osd_chip not set in current data; hwdef enables MAX7456-type OSD (HAL_OSD_TYPE_DEFAULT 1) on SPI1",
+      "compass AK8963 is integrated inside the MPU9250 package; chip_display is null in current data"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/F35Lightning.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F35Lightning/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-furiousfpv-f35.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu",
+        "hwdef": "STM32F405xx",
+        "wiki": "STM32F4 ARM microcontroller",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu",
+        "hwdef": "Invensense SPI:mpu9250 (MPU9250)",
+        "wiki": "InvenSense IMU (accel, gyro, compass)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro",
+        "hwdef": "BMP280",
+        "wiki": "not specified",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass",
+        "hwdef": "AK8963 probe_mpu9250 (internal to MPU9250)",
+        "wiki": "compass included in InvenSense IMU",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 hardware UARTs (USART1, UART5, USART2, UART4, USART6)",
+        "wiki": "6x serial port inputs (includes USB)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "6 PWM outputs (S1-S6)",
+        "wiki": "6x PWM outputs",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage",
+        "hwdef": "not explicit",
+        "wiki": "2S to 6S input power",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd",
+        "hwdef": "OSD_ENABLED=1, HAL_OSD_TYPE_DEFAULT=1 (MAX7456 type), SPIDEV osd on SPI1",
+        "wiki": "Onboard OSD",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "sdcard",
+        "hwdef": "commented out (no SD card)",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec",
+        "hwdef": "not explicit",
+        "wiki": "internal 5V regulator supplying servo rail, 3A capacity",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

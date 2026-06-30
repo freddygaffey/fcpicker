@@ -1,7 +1,7 @@
 {
   "slug": "NucleoH755",
   "name": "NucleoH755",
-  "manufacturer": null,
+  "manufacturer": "STMicroelectronics",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -94,5 +94,107 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "STMicroelectronics",
+    "marketing_name": "STM32 Nucleo-H755ZI-Q",
+    "family": "STM32H7",
+    "mcu_part": "STM32H755ZIT6U",
+    "imu_models": [
+      "ICM20948"
+    ],
+    "baro_models": [
+      "BMP388"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "USART2=TELEM1, UART7=TELEM2, USART1=GPS, UART4=RCIN/OUT, UART5=DEBUG; SPI3 for ICM20948; I2C2 for BMP388; CAN1; SDMMC1; 12x PWM outputs; USB OTG on PA11/PA12",
+    "discrepancies": [
+      "Current JSON mcu.part is 'STM32H757xx' (from hwdef MCU config line used as a proxy), but the actual silicon on the NucleoH755 board is STM32H755ZIT6U \u2014 hwdef comment explicitly states 'H755 is almost identical to H757, so utilizing its STM32H757xx.py file'",
+      "Current JSON spi_count=1 lists only SPI3, but hwdef.dat defines pins for both SPI1 (PA5/PA6/PA7) and SPI3 (PB3/PB4/PB5); SPI1 has no attached SPIDEV device so may be intentionally omitted",
+      "manufacturer is null in JSON; this is an STMicroelectronics Nucleo-144 evaluation board"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/NucleoH755.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NucleoH755/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NucleoH755/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NucleoH755/defaults.parm",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/scripts/STM32H755xx.py (existence confirmed)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H757xx (config proxy)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "STM32H755ZIT6U",
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev2 SPI:icm20948 \u2192 ICM20948",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 I2C:0:0x77",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK09916:probe_ICM20948 (embedded in ICM20948)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, UART7, USART1, UART4, UART5)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1 pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "no wiki page found for NucleoH755",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

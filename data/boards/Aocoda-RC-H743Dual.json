@@ -1,7 +1,7 @@
 {
   "slug": "Aocoda-RC-H743Dual",
   "name": "Aocoda-RC-H743Dual",
-  "manufacturer": null,
+  "manufacturer": "Aocoda-RC",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -125,5 +125,167 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Aocoda-RC",
+    "marketing_name": "Aocoda-RC H743Dual",
+    "family": "STM32H7",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "MPU6000",
+      "BMI270"
+    ],
+    "baro_models": [
+      "MS5611",
+      "DPS310",
+      "BMP280"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "W25N01GV (128MB)",
+    "has_sdcard": false,
+    "weight_g": 8.8,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB Type-C",
+      "SH1.0 6P (DJI HD VTX)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 motor outputs S1-S8 on dual ESC connectors, 2 servo S9-S10, 2 servo/GPIO SE1/SE2, 1 LED strip (all PWM13); 7 UARTs SERIAL1-4 + 6-8 (SERIAL5 absent); I2C for external compass/GPS; no CAN; PINIO1 controls 9V DCDC",
+    "discrepancies": [
+      "README Features says UART: 8CH, but hwdef SERIAL_ORDER has EMPTY at SERIAL5 position and wiki explicitly states 7x UARTs; README is wrong, correct count is 7",
+      "README Features section says PWM output: 10CH + Servo: 2CH = 12 implied, but body says up to 12 PWM outputs, wiki says 12x PWM, and hwdef assigns 13 PWM slots (12 motor/servo + 1 LED stripe); README features line is inconsistent internally",
+      "data/boards JSON has manufacturer: null \u2014 should be Aocoda-RC",
+      "data/boards JSON has power.monitor_inputs: 0 \u2014 board has 2 independent voltage+current monitors (BATT and BATT2, both wired in hwdef with dedicated ADC pins)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Aocoda-RC-H743Dual.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Aocoda-RC-H743Dual/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Aocoda-RC-H743Dual/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-aocoda-h743dual.rst"
+    ],
+    "dimensions_mm": {
+      "length": 37,
+      "width": 37,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family)",
+        "readme": "STM32H743VIH6",
+        "wiki": "STM32H743VIH6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (SERIAL5 is EMPTY in SERIAL_ORDER)",
+        "readme": "8CH",
+        "wiki": "7x UARTs",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense/mpu6000 + BMI270x2 (all probed; dual-version board)",
+        "readme": "MPU6000/BMI270x2",
+        "wiki": "MPU6000 or 2x BMI270",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 + DPS310 + BMP280 (all probed)",
+        "readme": "DPS310/MS5611/BMP280",
+        "wiki": "DPS310 (only primary listed)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "W25N01GV via DATAFLASH littlefs:w25nxx",
+        "readme": "128MB",
+        "wiki": "128MByte Flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS on SPI2",
+        "readme": "MAX7456 driver",
+        "wiki": "MAX7456 driver",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "37mm x 37mm",
+        "wiki": "37mm x 37mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "8.8g",
+        "wiki": "8.8g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5mm x 30.5mm",
+        "wiki": "30.5mm x 30.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3-6S Lipo",
+        "wiki": "3-6S Lipo",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/2.5A + 9V/3A",
+        "wiki": "5V 2.5A + 9V 3A",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

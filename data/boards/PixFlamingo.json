@@ -1,7 +1,7 @@
 {
   "slug": "PixFlamingo",
   "name": "PixFlamingo",
-  "manufacturer": null,
+  "manufacturer": "Dheeran Labs",
   "mcu": {
     "family": "STM32L4xx",
     "part": "STM32L4R5xx"
@@ -107,5 +107,109 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Dheeran Labs",
+    "marketing_name": "PixFlamingo",
+    "mcu_part": "STM32L4R5xx",
+    "imu_models": [
+      "ICM42670",
+      "LSM9DS0"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "LIS3MDL"
+    ],
+    "has_sdcard": true,
+    "uart_count": 3,
+    "can_count": 1,
+    "notable_connectors": [
+      "TELEM1 (USART3, CTS/RTS)",
+      "TELEM2 (USART1)",
+      "GPS (UART4)",
+      "I2C2",
+      "CAN1",
+      "Safety switch",
+      "Buzzer",
+      "microSD (SDMMC1)",
+      "USB OTG-FS"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "9x PWM outputs (PWM1-8 on TIM1/TIM4 DShot-capable, PWM9 on TIM15 not DShot); TELEM1=USART3 with CTS/RTS, TELEM2=USART1, GPS=UART4; 1x CAN1; 1x I2C2; microSD via SDMMC1; RGB LED; safety switch and buzzer",
+    "discrepancies": [
+      "docs_url points to common-pixflamingo-f767.html which documents the STM32F767-based PixFlamingo-F767 variant; this board is APJ_BOARD_ID PixFlamingoL4R5_V1 with STM32L4R5xx MCU \u2014 no dedicated wiki page exists for the L4R5 variant",
+      "manufacturer is null in our data but hwdef USB_STRING_MANUFACTURER identifies 'Dheeran labs'",
+      "wiki F767 page lists 5 UARTs and 10 PWM for the F767 variant; the L4R5 hwdef defines only 3 hardware UARTs (USART3, USART1, UART4) and 9 PWM outputs",
+      "wiki F767 page lists MPU6500/ICM20602 as the second IMU; the L4R5 hwdef uses LSM9DS0 (with separate LIS3MDL compass) instead"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PixFlamingo.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixFlamingo/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-pixflamingo-f767.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32L4R5xx (MCU STM32L4xx STM32L4R5xx)",
+        "wiki": "STM32F767 (F767 variant page \u2014 different board)",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM42670 (Invensensev3 SPI:icm42670) + LSM9DS0 (LSM9DS0 SPI:lsm9ds0_g)",
+        "wiki": "ICM42670 + MPU6500/ICM20602 (F767 variant \u2014 different hardware)",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 (BARO MS5611 SPI:ms5611)",
+        "wiki": "MS5611/BMP280/DPS310 (F767 variant, partial match)",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "LIS3MDL (COMPASS LIS3MDL SPI:lis3mdl)",
+        "wiki": "not mentioned on F767 page",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "3 hardware UARTs (USART3, USART1, UART4) in SERIAL_ORDER",
+        "wiki": "5 UARTs stated (F767 variant \u2014 different)",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "1 (CAN1: PB8/PB9)",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "true (SDMMC1 on PC8-PC12, PD2)",
+        "wiki": "microSD card slot confirmed (F767 page)",
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": "Dheeran labs (USB_STRING_MANUFACTURER)",
+        "wiki": "Dheeran Labs",
+        "manufacturer": null
+      }
+    ]
   }
 }

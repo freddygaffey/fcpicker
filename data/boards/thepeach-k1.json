@@ -1,7 +1,7 @@
 {
   "slug": "thepeach-k1",
   "name": "thepeach-k1",
-  "manufacturer": null,
+  "manufacturer": "ThePeach",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -33,9 +33,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 6,
+      "fmu": 5,
       "io": 8,
-      "total": 14
+      "total": 13
     },
     "ethernet": false,
     "sdcard": true,
@@ -110,5 +110,138 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ThePeach",
+    "marketing_name": "ThePeach FCC-K1",
+    "family": "FMUv3",
+    "mcu_part": "STM32F427VIT6",
+    "imu_models": [
+      "ICM-20602",
+      "MPU-9250"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK8963"
+    ],
+    "has_sdcard": true,
+    "weight_g": 65,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5.5,
+    "uart_count": 5,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "SERIAL1=USART2 (TELEM1 w/RTS/CTS), SERIAL2=USART3 (TELEM2 w/RTS/CTS), SERIAL3=UART4 (GPS1), SERIAL4=UART8 (GPS2), SERIAL5=UART7 (Debug); 8 IO + 5 FMU PWM outputs; 1x CAN; 2x I2C; SDIO microSD; RAMTRON FRAM on SPI2",
+    "discrepancies": [
+      "Our data has manufacturer: null, but hwdef USB_STRING_MANUFACTURER, README, and wiki all confirm 'ThePeach'",
+      "README says '4x UART Ports' (excluding debug UART7), but hwdef SERIAL_ORDER and wiki both define 5 user serial ports; our uart_count: 5 matches hwdef/wiki and is correct",
+      "hwdef.dat lists 5 FMU PWM lines (PE14/PE13/PE11/PE9/PD13) with PD14 commented out, so FMU outputs are 5 not 6 as README/wiki state '8+5 PWM'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/thepeach-k1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/thepeach-k1/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/thepeach-k1/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thepeach-k1.rst"
+    ],
+    "dimensions_mm": {
+      "length": 61.1,
+      "width": 40.2,
+      "height": 24.8
+    },
+    "field_checks": [
+      {
+        "field": "manufacturer",
+        "hwdef": "ThePeach (USB_STRING_MANUFACTURER)",
+        "readme": "ThePeach",
+        "wiki": "ThePeach",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (family)",
+        "readme": "STM32F427VIT6",
+        "wiki": "STM32F427VIT6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM-20602 (SPI:icm20602 / ICM20602_CS), MPU-9250 (SPI:mpu9250 / MPU9250_CS)",
+        "readme": "ICM-20602, MPU-9250",
+        "wiki": "ICM-20602, MPU-9250",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 (BARO MS5611 SPI:ms5611)",
+        "readme": "MS5611",
+        "wiki": "MS5611",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK8963 (COMPASS AK8963:probe_mpu9250)",
+        "readme": null,
+        "wiki": "MPU9250 built-in compass (AK8963)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, UART4, UART8, UART7 in SERIAL_ORDER)",
+        "readme": "4 ('4x UART Ports: TELEM1, TELEM2, GPS, SERIAL4')",
+        "wiki": "5 (SERIAL1-SERIAL5)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1",
+        "wiki": "1",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDIO pins + HAL_OS_FATFS_IO)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "65g",
+        "wiki": "65g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "40.2 x 61.1 x 24.8 mm",
+        "wiki": "40.2 x 61.1 x 24.8mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage",
+        "hwdef": null,
+        "readme": "POWER input 5V\u20135.5V; USB 4.75V\u20135.25V (5V Pixhawk-style, no direct battery input)",
+        "wiki": "POWER 5V\u20135.5V; USB 4.75V\u20135.25V",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

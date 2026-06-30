@@ -1,7 +1,7 @@
 {
   "slug": "AtomRCF405NAVI",
   "name": "AtomRCF405NAVI",
-  "manufacturer": null,
+  "manufacturer": "AtomRC",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -101,5 +101,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "AtomRC",
+    "marketing_name": "AtomRC F405-NAVI",
+    "family": "F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "SPL06",
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 21,
+    "voltage_cells": "2-7S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 5
+      },
+      {
+        "rail": "5V/9V",
+        "volts": null,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH 6-pin (GPS/Compass)",
+      "JST-GH 6-pin (DJI air units)",
+      "JST-GH 6-pin (remote USB/Buzzer)",
+      "Type-C USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "SERIAL0=USB, SERIAL1=USART1, SERIAL2=USART2 (SBUS/RC via inverter), SERIAL3=USART3 (GPS1), SERIAL4=UART4 (GPS2), SERIAL5=UART5 (DJI OSD), SERIAL6=USART6 (solder pads); 9 PWM outputs (PWM9=LED strip); AT7456E OSD on SPI2; BMI270 on SPI1; SD card on SPI3",
+    "discrepancies": [
+      "wiki lists only SPL-06 barometer but hwdef also probes BMP280 at the same I2C address (0x76) \u2014 firmware supports both for alternate PCB populations; JSON correctly includes both",
+      "wiki states 8x PWM outputs but hwdef defines 9 (PWM9 is a LED-strip pad, noted in wiki as LED); JSON correctly records 9 total",
+      "manufacturer field is null in JSON but board is made by AtomRC"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AtomRCF405NAVI.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AtomRCF405NAVI/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-atomrcf405-navi.rst"
+    ],
+    "dimensions_mm": {
+      "length": 50,
+      "width": 30,
+      "height": 12
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (generic)",
+        "wiki": "STM32F405RGT6",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270",
+        "wiki": "BMI270",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 + BMP280 (both probed at I2C:0:0x76)",
+        "wiki": "SPL-06 only",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (AT7456E_CS SPI2)",
+        "wiki": "AT7456E",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1-3, UART4-5, USART6)",
+        "wiki": "6x UARTs",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDCARD_CS SPI3)",
+        "wiki": "SD Card Slot",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "wiki": "50mm",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "wiki": "30mm",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "21g",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "wiki": "30V",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

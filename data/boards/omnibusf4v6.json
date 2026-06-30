@@ -1,7 +1,7 @@
 {
   "slug": "omnibusf4v6",
   "name": "omnibusf4v6",
-  "manufacturer": null,
+  "manufacturer": "Airbot",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Airbot",
+    "marketing_name": "Omnibus F4 V6",
+    "family": "Omnibus F4",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AB7456",
+    "has_sdcard": false,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9.9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1
+      },
+      {
+        "rail": "8V",
+        "volts": 8,
+        "amps": 1
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "6-pin JST-SH 1.0 (GPS/Compass)",
+      "8-pin JST-SH (ESC/motor)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 PWM outputs; USART1 telem, USART6 GPS, UART4 RX-only, USART2 TX-only, USART3 available via BRD_ALT_CONFIG=1; I2C1 for external compass; SPI2 dataflash bus present but flash chip population uncertain",
+    "discrepancies": [
+      "hwdef.dat top comment states 'no flash log storage' but the file then defines SPIDEV dataflash on SPI2 with FLASH_CS and enables HAL_LOGGING_DATAFLASH_ENABLED 1 \u2014 internal contradiction; flash chip may be unpopulated on some units",
+      "No dedicated ArduPilot wiki page exists for omnibusf4v6 (docs_url correctly null); nearest page common-omnibusf4pro covers different board variants",
+      "Airbot product page references 'SD Card support' but hwdef defines no SDMMC interface \u2014 Airbot page likely describes Betaflight firmware capability or a different board revision; ArduPilot hwdef is authoritative and confirms no SD card"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/omnibusf4v6.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/omnibusf4v6/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-omnibusf4pro.rst",
+      "https://store.myairbot.com/flight-controller/omnibusf4v6.html",
+      "https://blog.unmanned.tech/omnibus-f4-v6-flight-controller-guide/"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F405xx",
+        "wiki": null,
+        "manufacturer": "STM32F405",
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensense SPI:mpu6000 (comment: mpu6000 imu)",
+        "wiki": null,
+        "manufacturer": "MPU6000 via SPI",
+        "readme": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "BMP280 SPI:bmp280 (comment: bmp280 barometer)",
+        "wiki": null,
+        "manufacturer": "BMP280",
+        "readme": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "7456 series (SPIDEV osd on SPI3)",
+        "wiki": null,
+        "manufacturer": "AB7456",
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "5 (USART1, UART4, USART6, USART3, USART2)",
+        "wiki": null,
+        "manufacturer": "5x UARTs",
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "no SDMMC interface defined",
+        "wiki": null,
+        "manufacturer": "no sdcard in hwdef",
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "no CAN pins",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "disagree",
+        "hwdef": "HAL_LOGGING_DATAFLASH_ENABLED=1 with SPI2 FLASH_CS defined",
+        "wiki": null,
+        "manufacturer": "comment at top of hwdef.dat says 'no flash log storage'",
+        "readme": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "unknown",
+        "hwdef": "not specified",
+        "wiki": null,
+        "manufacturer": "3-6S (from product page)",
+        "readme": null
+      },
+      {
+        "field": "dimensions",
+        "agree": "unknown",
+        "hwdef": "not specified",
+        "wiki": null,
+        "manufacturer": "36x36mm per Airbot store page",
+        "readme": null
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "agree": "unknown",
+        "hwdef": "not specified",
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm per Airbot store page",
+        "readme": null
+      }
+    ]
   }
 }

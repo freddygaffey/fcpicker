@@ -1,7 +1,7 @@
 {
   "slug": "TMotorH743",
   "name": "TMotorH743",
-  "manufacturer": null,
+  "manufacturer": "T-Motor",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -86,8 +86,8 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TMotorH743/README.md",
-  "repo_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-tmotor-h7-mini.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TMotorH743/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,
@@ -101,5 +101,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "T-Motor",
+    "marketing_name": "T-Motor H7 Mini",
+    "family": "T-Motor H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688",
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI FPV (UART7)",
+      "I2C for external compass (SDA/SCL pads)",
+      "USB (OTG)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1 (ESC telemetry), UART3, UART5 (GPS), UART6 (RC input), UART7 (DJI VTX), UART8 (SBUS/SmartAudio); M1-M4 motor outputs on TIM5 with BiDirDShot on M1/M3; M9/PWM9 (LED strip) on TIM1; OSD on SPI2; 16MB dataflash on SPI3; SPI4+GYRO2_CS defined but no device configured",
+    "correct_wiki_stem": "common-tmotor-h7-mini",
+    "discrepancies": [
+      "docs_url points to GitHub hwdef README (https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TMotorH743/README.md) instead of the ArduPilot wiki page (common-tmotor-h7-mini)",
+      "manufacturer is null in current data; should be T-Motor",
+      "BEC outputs (5V/2A and 10V/1.5A) not captured in data power.bec field",
+      "OSD chip (AT7456E) not captured",
+      "Onboard 16MB (128Mbits) dataflash not captured as blackbox_flash",
+      "README and wiki Features section says '9x PWM Outputs (8 Motor Output, 1 LED)' but the PWM Output section of both docs and the hwdef confirm only 5 outputs (M1-M4 + LED); current data value of 5 is correct, docs feature header is wrong",
+      "README and wiki Features section lists UART numbers as '(1,5,6,7,9)' which is incorrect; hwdef maps USART1, USART3, UART5, USART6, UART7, UART8 \u2014 the '3' and '8' are omitted and '9' is listed erroneously; uart_count of 6 in current data is correct"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/TMotorH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TMotorH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TMotorH743/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-tmotor-h7-mini.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (STM32H7xx family, 480MHz)",
+        "readme": "STM32H743 32-bit processor running at 480 MHz",
+        "wiki": "STM32H743 32-bit processor running at 480 MHz",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 on SPI1/GYRO1_CS + Invensensev3 (ICM42688) on SPI1/GYRO1_CS \u2014 same CS, alternative hardware",
+        "readme": "ICM42688/BMI270",
+        "wiki": "ICM42688/BMI270",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2 / HAL_OSD_TYPE_DEFAULT 1 (MAX7456-compatible driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (OSD_TYPE 1 / MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 DEVID1 FLASH1_CS MODE3 104MHz",
+        "readme": "128Mbits (= 16MB)",
+        "wiki": "128Mbits",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER has USART1, USART3, UART5, USART6, UART7, UART8 = 6",
+        "readme": "6x UARTs (lists '1,5,6,7,9' in Features \u2014 internally inconsistent)",
+        "wiki": "6x UARTs (same inconsistent parenthetical)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1, HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "OSD - AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT 11.0 consistent with 6S",
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN bus lines defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined; dataflash is SPI flash, not SD",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not specified in hwdef",
+        "readme": "BEC 5V/2A, 10V/1.5A",
+        "wiki": "BEC 5V/2A, 10V/1.5A",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "PWM(1)-PWM(4) on TIM5 for motors + PWM(9) on TIM1 for LED = 5 total",
+        "readme": "Features says '9x PWM Outputs' but PWM section says 'up to 5 PWM outputs'",
+        "wiki": "Same contradiction: Features says 9, PWM section says 5",
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

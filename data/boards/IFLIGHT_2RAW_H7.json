@@ -1,7 +1,7 @@
 {
   "slug": "IFLIGHT_2RAW_H7",
   "name": "IFLIGHT_2RAW_H7",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -93,5 +93,171 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight Thunder H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "SPL06-001"
+    ],
+    "blackbox_flash": "1GBit",
+    "has_sdcard": false,
+    "weight_g": 14,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1.5
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C (via dongle)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs: UART1 DisplayPort/HD-VTX, UART2 RC, UART3-4 GPS, UART6 ESC-Telemetry; 9 PWM (M1-M8 motor + M9 LED); 2x I2C; 1GBit onboard flash exposed as virtual SD (no physical card slot); VTX power switch GPIO81 (RELAY2); 5V+10V switchable BECs; no CAN",
+    "correct_wiki_stem": "common-iflight-thunder-H7",
+    "discrepancies": [
+      "README and wiki both state '6x UARTs' but hwdef SERIAL_ORDER has only 5 physical UARTs (USART1/2/3, UART4, USART6); slot 5 is EMPTY \u2014 docs overcounting by one",
+      "JSON io.sdcard=true but hardware has 1GBit onboard NOR flash exposed as a virtual SD interface (no physical microSD card slot); blackbox_flash should be '1GBit' and has_sdcard false",
+      "JSON manufacturer is null; should be 'iFlight'",
+      "JSON imus[0].chip is 'Invensensev3' (driver alias); real silicon part is ICM42688P per README and wiki",
+      "docs_url points to GitHub hwdef README \u2014 dedicated ArduPilot wiki page exists at common-iflight-thunder-H7.rst and would be a better canonical docs_url"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/IFLIGHT_2RAW_H7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/IFLIGHT_2RAW_H7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/IFLIGHT_2RAW_H7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-iflight-thunder-H7.rst"
+    ],
+    "dimensions_mm": {
+      "length": 42,
+      "width": 42,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:imu1 (alias)",
+        "readme": "ICM42688P",
+        "wiki": "ICM42688P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:1:0x76",
+        "readme": "SPL06-001",
+        "wiki": "SPL06-001",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1/2/3, UART4, USART6)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V 1.5A + 10V 1.5A",
+        "wiki": "5V 1.5A + switchable 10V 1.5A",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard (onboard 1GBit flash as virtual SD)",
+        "readme": "1GBit exposed as microSD card",
+        "wiki": "1GBit non-removeable SD card for logging",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_hole_dia_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "4mm dia",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "14g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "42x42mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_TYPE_DEFAULT 5 (MSP DisplayPort, no dedicated OSD chip)",
+        "readme": "MSP DisplayPort OSD",
+        "wiki": "MSP DisplayPort OSD_TYPE 5",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "revo-mini",
   "name": "revo-mini",
-  "manufacturer": null,
+  "manufacturer": "OpenPilot",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -27,9 +27,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 8,
+      "fmu": 6,
       "io": 0,
-      "total": 8
+      "total": 6
     },
     "ethernet": false,
     "sdcard": false,
@@ -97,5 +97,133 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "OpenPilot",
+    "marketing_name": "OpenPilot RevoMini",
+    "family": "OpenPilot Revolution",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5883L"
+    ],
+    "blackbox_flash": "16Mbit SPI NOR flash (2MB)",
+    "has_sdcard": false,
+    "weight_g": 6,
+    "voltage_max_v": 5,
+    "uart_count": 2,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-SH (Mainport)",
+      "JST-SH (FlexiPort)",
+      "OPLink port (SPI breakout, not modem)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "SERIAL0=USB, SERIAL1=USART1 (Mainport/telem), SERIAL2=empty, SERIAL3=USART3 (FlexiPort/GPS); 6 PWM outputs active (PWM7/8 on TIM8 disabled in default config because TIM8_CH1 is used for RCInput on PC6); PPM/SBUS RC input only; 5V max power input from ESC/BEC; onboard SPI3 dataflash for logging; no SD card, no CAN",
+    "discrepancies": [
+      "Current data compass field 'HMC5843' reflects the ArduPilot driver name only; the physical chip on the RevoMini is the HMC5883L per the local wiki RST (explicitly named 'Honeywell HMC5883L') and the hwdef pin label DRDY_HMC5883 \u2014 HMC5843 is a combined ArduPilot driver covering the whole Honeywell family",
+      "Current data lists 8 PWM outputs (fmu) but in the default ArduPilot firmware config only 6 are active; PWM7/8 (PC8/PC9, TIM8_CH3/CH4) are commented out in hwdef because TIM8_CH1 on PC6 is claimed for RCInput",
+      "wiki describes power as '5V max on RevoMini' (not 4.8-10V of the full-size Revolution) \u2014 current data has no voltage limits set",
+      "blackbox_flash not captured in current data; onboard SPI dataflash (SPI3, HAL_LOGGING_DATAFLASH_ENABLED) is a 16Mbit/2MB SPI NOR flash chip"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/revo-mini.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/revo-mini/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/revo-mini-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-openpilot-revo-mini.rst",
+      "https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968084/OpenPilot+Revolution",
+      "https://qwinout.com/products/f17008-mini-openpilot-cc3d-revolution-flight-controller-for-diy-fpv-racing-drone-mini-rc-multicopter-quadcopter-210-250-330",
+      "https://github.com/rs2k/raceflight/blob/master/docs/Board%20-%20Revo.md"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family only)",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 (SPIDEV alias)",
+        "wiki": "InvenSense MPU6000",
+        "manufacturer": "MPU6000",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 I2C:0:0x77",
+        "wiki": "MS5611",
+        "manufacturer": "MS5611",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "driver HMC5843; pin labeled DRDY_HMC5883",
+        "wiki": "Honeywell HMC5883L",
+        "manufacturer": "HMC5883L",
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "2 (USART1, USART3)",
+        "wiki": "SERIAL1=Mainport, SERIAL3=FlexiPort (2 hardware UARTs)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "wiki": "5V max on RevoMini",
+        "manufacturer": "5V max",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no sdcard pin)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 DEVID1 FLASH_CS + HAL_LOGGING_DATAFLASH_ENABLED",
+        "wiki": null,
+        "manufacturer": "16Mbit SPI flash",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip (minimize_fpv_osd.inc is firmware-size reduction, not an OSD peripheral)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

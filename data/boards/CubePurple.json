@@ -1,7 +1,7 @@
 {
   "slug": "CubePurple",
   "name": "CubePurple",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -112,5 +112,101 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "The Cube Purple",
+    "family": "The Cube",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "MPU9250",
+      "ICM20948"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "80-pin DF17"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "Based on FMUv3 design; all IO via 80-pin DF17 connector. 5 UARTs (USART2/3, UART4/7/8) plus USART6 for IOMCU, 2 CAN, SDIO SD card, 6 FMU PWM + 8 IOMCU PWM = 14 total. Single-IMU/baro variant of Cube Black targeted at ground vehicles.",
+    "discrepancies": [
+      "manufacturer is null in data; USB vendor string says 'Hex/ProfiCNC' but current brand is CubePilot",
+      "wiki (common-thecubepurple-overview.rst) lists only 'InvenSense MPU9250' but hwdef.dat also defines ICM20948 as an alternate newer hardware revision on the same SPI slot",
+      "compass AK8963 (embedded inside MPU9250 on original hardware) is not listed in data compasses array; only AK09916 (probed from ICM20948 on newer hardware) is shown"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubePurple.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubePurple/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thecubepurple-overview.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx",
+        "wiki": "32-bit Cortex M4 @ 168 MHz / 2 MB Flash (consistent with F427)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "MPU9250 (original) + ICM20948 (newer, same slot)",
+        "wiki": "1x InvenSense MPU9250 only",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611",
+        "wiki": "1x MS5611",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK09916 probed from ICM20948 (explicit); AK8963 from MPU9250 implicit via Invensense driver",
+        "wiki": "not specified",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, UART4, UART8, UART7)",
+        "wiki": "not specified",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": "not specified",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDIO: PC8-PC12, PD2)",
+        "wiki": "not specified",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

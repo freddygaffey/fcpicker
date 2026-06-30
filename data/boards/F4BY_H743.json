@@ -1,7 +1,7 @@
 {
   "slug": "F4BY_H743",
   "name": "F4BY_H743",
-  "manufacturer": null,
+  "manufacturer": "F4BY Team",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -132,5 +132,134 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "F4BY Team",
+    "marketing_name": "F4BY H743",
+    "family": "F4BY",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "MPU6000",
+      "IIM-42652",
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843",
+      "QMC5883L",
+      "QMC5883P"
+    ],
+    "has_sdcard": true,
+    "weight_g": 15.5,
+    "mounting_pattern_mm": "45x45",
+    "mounting_hole_dia_mm": 3,
+    "voltage_min_v": 5,
+    "voltage_max_v": 6,
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "USB GHS (external connector)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "50x50mm board, 45x45mm M3 mounting, 16 PWM outputs (8x BDShot capable), 5x UART, 1x CAN, SD card on SPI2, RAMTRON FRAM for params, powered via external 5-6V module (no onboard BEC)",
+    "discrepancies": [
+      "manufacturer is null in JSON; README confirms F4BY Team (https://f4by.com)",
+      "chip_display 'IMU1' for SPI:imu1 is the SPIDEV bus label, not the real chip name; README confirms v3.0.3 uses ICM-42688-P at that slot",
+      "chip_display 'IMU2' for SPI:imu2 is the SPIDEV bus label, not the real chip name; README confirms v3.0.2 uses IIM-42652 at that slot",
+      "local wiki page common-f4by.rst covers the older STM32F407-based F4BY FMU, not this H743 board; no dedicated wiki page exists for F4BY_H743",
+      "voltage_min_v/max_v reflect FC power input range (5-6V from external module), not direct battery voltage; board has no battery input or cell voltage spec",
+      "README spec section lists only QMC5883P as compass sensor; HMC5843 and QMC5883L in hwdef are probed externally via AP_COMPASS_PROBING_ENABLED"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/F4BY_H743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY_H743/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY_H743/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-f4by.rst"
+    ],
+    "dimensions_mm": {
+      "length": 50,
+      "width": 50,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743 32-bit, 480MHz",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "USART1, USART2, USART3, UART4, UART5 (5 total)",
+        "readme": "5x UARTs/serial",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 only",
+        "readme": "1x CAN bus",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensense SPI:mpu6000 + Invensensev3 SPI:imu1 + Invensensev3 SPI:imu2",
+        "readme": "MPU6000 (v3.0.1), IIM-42652 (v3.0.2), ICM-42688-P (v3.0.3)",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 I2C:0:0x77",
+        "readme": "MS5611 Barometer",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "partial",
+        "hwdef": "HMC5843, QMC5883L, QMC5883P (all probed as external via AP_COMPASS_PROBING_ENABLED)",
+        "readme": "QMC5883P Compass (only one listed in specs; section says built-in compass)",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "sdcard on SPI2/FLASH_CS",
+        "readme": "micro SD Card for logging, Lua scripts",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "50x50mm, mounting holes 45x45mm (M3), weight 15.5g",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_min_v",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "Power from external power module range +5.0 ... +6.0V",
+        "wiki": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

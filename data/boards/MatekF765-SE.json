@@ -1,7 +1,7 @@
 {
   "slug": "MatekF765-SE",
   "name": "MatekF765-SE",
-  "manufacturer": null,
+  "manufacturer": "Mateksys",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -53,20 +53,6 @@
     "bec": []
   },
   "imus": [
-    {
-      "chip": "Invensense",
-      "bus": "SPI:icm20602",
-      "variant": null,
-      "slot": "SPI3/CS:IMU2_CS",
-      "chip_display": "ICM20602"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI1/CS:IMU1_CS",
-      "chip_display": "MPU6000"
-    },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
@@ -128,5 +114,149 @@
     "discontinued": false,
     "imu_count": 1,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Mateksys",
+    "marketing_name": "Mateksys F765-WSE",
+    "family": "MatekF765",
+    "mcu_part": "STM32F765VIH6",
+    "imu_models": [
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 22,
+    "voltage_min_v": 6.8,
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "5V peripherals",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9-12V video",
+        "volts": null,
+        "amps": 2
+      },
+      {
+        "rail": "5-7.2V servo",
+        "volts": null,
+        "amps": 8
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs after UART4 replaced by CAN1; outputs 1-4 BiDirDshot; dual switchable camera inputs; analog airspeed port; dual battery monitor inputs; 2x I2C",
+    "discrepancies": [
+      "Our data uart_count=8 and uart_buses includes UART4, but MatekF765-SE hwdef explicitly undefs UART4 (replaced by CAN1 on PD0/PD1); correct uart_count for SE is 7",
+      "Our data mcu.part='STM32F767xx' matches hwdef compile target, but both wiki pages (WSE: STM32F765VIH6, Wing: STM32F765VIT6) report the physical chip as STM32F765 \u2014 Matek uses an F765 while ArduPilot targets the pin-compatible F767xx family for builds",
+      "manufacturer is null in our data; should be 'Mateksys'",
+      "Physical dimensions and weight absent from our data; wiki documents 44x29x14.5mm and 22g for the WSE board",
+      "BEC outputs absent from our data; wiki documents 5V/2A peripherals, 9-12V/2A video, 5-7.2V/8A servo",
+      "Our data imus list chip_display='ICM42688' without the -P suffix; wiki confirms ICM-42688-P specifically",
+      "Our data baros list all three firmware probe targets (BMP280, DPS310, MS5611); physically the current WSE board has DPS310 per the wiki"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MatekF765-SE.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekF765-SE/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekF765-Wing/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-matekf765-wse.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-matekf765-wing.rst"
+    ],
+    "dimensions_mm": {
+      "length": 44,
+      "width": 29,
+      "height": 14.5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (compile target)",
+        "wiki": "STM32F765VIH6",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (UART4 undefed, replaced by CAN)",
+        "wiki": "6.5x (counts half-duplex ports as 0.5)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 (single, SE-specific override)",
+        "wiki": "ICM-42688-P",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280/DPS310/MS5611 probed for hw compat",
+        "wiki": "DPS310 (current hardware)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 SPI alias",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1 interface present)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1 on PD0/PD1, SE-specific)",
+        "wiki": "CAN port listed",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "wiki": "44x29x14.5mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "22g",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_range",
+        "hwdef": null,
+        "wiki": "6.8-30V",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

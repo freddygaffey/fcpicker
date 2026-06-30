@@ -1,7 +1,7 @@
 {
   "slug": "ACNS-F405AIO",
   "name": "ACNS-F405AIO",
-  "manufacturer": null,
+  "manufacturer": "ACNS",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -33,9 +33,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 10,
+      "fmu": 8,
       "io": 0,
-      "total": 10
+      "total": 8
     },
     "ethernet": false,
     "sdcard": true,
@@ -110,5 +110,158 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ACNS",
+    "marketing_name": "ACNS-F405AIO Integrated Flight Controller",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "BMI160",
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "compass_models": [
+      "LIS3MDL"
+    ],
+    "blackbox_flash": "128Mbit",
+    "has_sdcard": true,
+    "weight_g": 9,
+    "voltage_cells": "3-4S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 16.8,
+    "uart_count": 5,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "4x internal motor outputs (BLheli_S 30A, 3-4S), 4x external PWM ports, SBUS input via USART2, Telem on USART1/USART3, GPS on UART4/USART6, 1x CAN port, 1x external SPI port",
+    "discrepancies": [
+      "docs_url points to common-speedybeef405aio (SpeedyBee F405 AIO 40A Bluejay), which is a completely different board by a different manufacturer; no dedicated ACNS-F405AIO wiki page exists in the local ArduPilot wiki",
+      "current JSON has pwm.fmu=10 and pwm.total=10, but hwdef.dat only defines 8 active PWM outputs \u2014 PWM(9) and PWM(10) lines are commented out",
+      "README states '6 UARTs and USB ports' but hwdef SERIAL_ORDER defines only 5 UARTs (USART1, USART3, UART4, USART6, USART2) plus USB; JSON uart_count=5 is correct",
+      "README names the MCU as STM32F405RET (512KB flash) but hwdef.dat sets FLASH_SIZE_KB 1024, which corresponds to STM32F405RGT (1024KB flash); README likely contains a typo"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ACNS-F405AIO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ACNS-F405AIO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ACNS-F405AIO/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef405aio.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-acns-cm4pilot.rst"
+    ],
+    "dimensions_mm": {
+      "length": 39,
+      "width": 39,
+      "height": 10
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx, FLASH_SIZE_KB 1024",
+        "readme": "STM32F405RET",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "IMU BMI160 SPI:bmi160; IMU Invensensev3 SPI:icm42688",
+        "readme": "BMI160, ICM42688",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "COMPASS LIS3MDL SPI:lis3mdl",
+        "readme": "LIS3MDLTR",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1, USART3, UART4, USART6, USART2)",
+        "readme": "6 UARTs (incorrect)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1 pins defined)",
+        "readme": "1 CAN port",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI3 DEVID4 SDCARD_CS",
+        "readme": "1 microSD card slot port",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 DEVID5 FLASH_CS",
+        "readme": "128M flash on board",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "#define OSD_ENABLED 0 (commented out / disabled)",
+        "readme": "no OSD mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "8 active (PWM1-8; PWM9 and PWM10 commented out)",
+        "readme": "8 PWM output (4 Internal ESCs, 4 External PWM ports)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": "not specified",
+        "readme": "39mm X 39mm X 10mm, 9g (without shell)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "HAL_BATT_VOLT_SCALE 9.2 (implies wide range)",
+        "readme": "4 BLheli_S ESCs 3-4S 30A",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": "n/a",
+        "readme": "n/a",
+        "wiki": "common-speedybeef405aio.rst describes SpeedyBee F405 AIO (different board)",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

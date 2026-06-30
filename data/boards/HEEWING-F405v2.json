@@ -1,7 +1,7 @@
 {
   "slug": "HEEWING-F405v2",
   "name": "HEEWING-F405v2",
-  "manufacturer": null,
+  "manufacturer": "HEEWING",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -89,5 +89,144 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "HEEWING",
+    "marketing_name": "HEEWING F405 V2",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C (via remote dongle)",
+      "GPS port with compass support"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "9 usable PWM outputs (M1-M2, M5-M6, M9 bidirectional dshot); 6 hardware UARTs (UART4 NC, UART2 dedicated RCIN by default); I2C for external compass/airspeed; 16MB onboard dataflash logging (v2 addition)",
+    "discrepancies": [
+      "Data file shows pwm.fmu=10 and pwm.total=10, but hwdef PA15/PWM(10) is commented '# no output' and marked NODMA; README and wiki both state 9 PWM outputs \u2014 usable count is 9, not 10",
+      "Data file uart_count=6 matches hwdef SERIAL_ORDER count, but README says '4 UARTs' and wiki says '4x UARTs/serial for GPS and other peripherals' because UART4 is not pinned out (NC) and UART2 is dedicated RCIN by default",
+      "Data file manufacturer=null; should be 'HEEWING'",
+      "Data file has no osd_chip recorded; hwdef and wiki confirm AT7456E",
+      "Data file has no blackbox_flash recorded; v2 hwdef adds 16MB onboard dataflash (not present in v1)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/HEEWING-F405v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-heewingf405.rst"
+    ],
+    "dimensions_mm": {
+      "length": 44.3,
+      "width": 34.3,
+      "height": 13.7
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "wiki": "STM32F405RGT6",
+        "readme": "STM32F405",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 (SPIDEV alias)",
+        "wiki": "ICM-42688P",
+        "readme": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x77",
+        "wiki": "SPL-06",
+        "readme": "SLP06 (typo)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2 (AT7456E family, HAL_OSD_TYPE_DEFAULT 1)",
+        "wiki": "AT7456E OSD",
+        "readme": "MAX7456 OSD (driver name)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash added in v2 hwdef.dat",
+        "wiki": null,
+        "readme": "16Mb dataflash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER: USART3 USART1 UART5 UART4 USART6 USART2)",
+        "wiki": "4x UARTs/serial + 1x RC input",
+        "readme": "4 UARTs",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "pwm outputs",
+        "hwdef": "10 defined (PWM1-10), PWM10 marked '# no output'",
+        "wiki": "9x PWM outputs",
+        "readme": "9 PWM outputs",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_SCALE implies up to 6S",
+        "wiki": "2S - 6S Lipo PMU unit",
+        "readme": "up to 6S LiPo batteries",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no sdcard; v2 adds dataflash SPIDEV",
+        "wiki": "no SD Card (V2 has internal flash)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "wiki": "9V/3A VTX BEC and 5V/5A servo/peripheral BEC (from PMU unit)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "BeastF7",
   "name": "BeastF7",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -93,5 +93,164 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight Beast F7 45A AIO",
+    "family": "Beast",
+    "mcu_part": "STM32F745",
+    "imu_models": [
+      "MPU6000",
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 8.5,
+    "mounting_pattern_mm": "25.5x25.5",
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "Integrated 45A 4-in-1 BLHeli-S ESC",
+      "DJI connector (UART2/UART3)",
+      "NeoPixel LED output (PWM5)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1=Telem/Alt RCin, UART2=DJI, UART3=DJI RCin (default RC), UART4=GPS, UART7=User; 4 bidirectional DShot motor outputs + NeoPixel LED (PWM5); no external I2C connector; integrated 45A 4-in-1 ESC; built-in voltage+current monitoring (up to 6S/300A)",
+    "discrepancies": [
+      "hwdef comment says '16mb' flash but README says '8Mb' and wiki says '8MB'; README/wiki considered more reliable so blackbox_flash set to 8MB",
+      "hwdef has two hardware revisions: v1 uses MPU6000 (InvenSense), v2 uses BMI270 (Bosch); CS pin is named BMI270_CS and firmware comment confirms 'v1 mpu6000 and v2 bmi270'; current catalog JSON only lists MPU6000",
+      "wiki specs section says 'I2C port for external compass, airspeed sensor, etc.' but wiki warning and README both state there is no external I2C connector; wiki specs line is incorrect",
+      "BMP280 baro present in v1 hardware only; wiki notes 'not in V2 version' and includes a barometer-less operation warning",
+      "current catalog JSON has manufacturer=null; should be 'iFlight'",
+      "current catalog JSON has power.bec=[] but board has a 5V/2.5A BEC per README and wiki",
+      "current catalog JSON has power.monitor_inputs=0 but board has built-in voltage+current sensing (PC3/PC2 ADC pins in hwdef)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BeastF7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-iflight-beastf7AIO.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32.5,
+      "width": 32.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx",
+        "readme": "BGA-STM32F745",
+        "wiki": "STM32F745 BGA",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "mpu6000 alias (BMI270_CS pin; comment: v1=mpu6000, v2=bmi270)",
+        "readme": "MPU6000",
+        "wiki": "InvenSense MPU6000",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280 (not in V2 version)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1/2/3, UART4, UART7)",
+        "readme": "5 UARTs",
+        "wiki": "5x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "comment says 16mb",
+        "readme": "8Mb Onboard Flash",
+        "wiki": "8MB on board Flash",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E_CS SPIDEV osd SPI4",
+        "readme": "OSD: AT7456E",
+        "wiki": "Built-in OSD (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_PIN defined, no cell count",
+        "readme": "up to 6S LiPo",
+        "wiki": "7.4V ~ 25V DC (2-6S)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPI dataflash only, no SD",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "32.5mm x 32.5mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "25.5x25.5mm mount pattern",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "8.5g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V 2.5A BEC",
+        "wiki": "5V 2.5A BEC for peripherals",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "KakuteF4-Wing",
   "name": "KakuteF4-Wing",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,146 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro KakuteF4-Wing Flight Controller",
+    "family": "Kakute",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "9V/12V (VTX)",
+        "volts": null,
+        "amps": 1.5
+      },
+      {
+        "rail": "6V/7.2V (servo)",
+        "volts": null,
+        "amps": null
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 1
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 PWM outputs (outputs 1-4 BiDirDShot capable); USART1=GPS, USART2=Telem, USART3=RC input (all serial RC protocols), UART5=user, USART6=user; 1x I2C (external compass/airspeed); 16MB onboard dataflash (SPI3); AT7456E OSD (SPI2); ICM42688 IMU (SPI1); USB-C; no built-in compass",
+    "discrepancies": [
+      "Our data has manufacturer=null; README and wiki both confirm Holybro as the manufacturer",
+      "Our data imu chip listed as driver family 'Invensensev3' \u2014 README and wiki both state the physical chip is ICM42688; the Invensensev3 driver label is a bus alias, not a part number",
+      "README and wiki both spell the barometer as 'SLP06' (typo); hwdef.dat and our data correctly show 'SPL06'",
+      "README and wiki features section says '2S-8S' input voltage but the battery monitoring section of the same documents says 'up to 6S LiPo batteries' \u2014 internal inconsistency; the 2S-8S figure is more likely correct for board power input"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteF4-Wing.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4-Wing/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4-Wing/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-KakuteF4-Wing.rst",
+      "https://holybro.com (sitemap checked \u2014 KakuteF4-Wing product page not found; product appears discontinued)",
+      "https://docs.holybro.com/sitemap-pages.xml (no KakuteF4-Wing entry found)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405 32-bit processor",
+        "wiki": "STM32F405 32-bit processor",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias for SPI:imu1)",
+        "readme": "ICM42688 Acc/Gyro",
+        "wiki": "ICM42688 Acc/Gyro",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SLP06 (typo)",
+        "wiki": "SLP06 (typo)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2; HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD; OSD_TYPE 1 (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 FLASH1_CS (flash chip present)",
+        "readme": null,
+        "wiki": "16MB dataflash for logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no sdcard defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1,USART2,USART3,UART5,USART6 = 5",
+        "readme": "5x UARTs/serial",
+        "wiki": "5x UARTs/serial",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S (features) but battery monitoring says up to 6S",
+        "wiki": "2S-8S (features) but battery monitoring says up to 6S",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "APJ_BOARD_ID AP_HW_Holybro-KakuteF4-Wing",
+        "readme": "Holybro",
+        "wiki": "Holybro",
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

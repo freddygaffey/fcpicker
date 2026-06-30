@@ -1,7 +1,7 @@
 {
   "slug": "OrqaH7QuadCore",
   "name": "OrqaH7QuadCore",
-  "manufacturer": null,
+  "manufacturer": "Orqa",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -103,5 +103,151 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Orqa",
+    "marketing_name": "Orqa FC 3030 H7 QuadCore",
+    "family": "Orqa H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB (128Mbit)",
+    "has_sdcard": true,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 4,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST-GH ESC connector",
+      "MFC connector"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "10x PWM (8 motor + 2 servo); UART3=RC/GHST half-duplex, UART6=MAVLink/SiK, UART7=GPS, UART8=ESC telemetry; 1x CAN; I2C for external compass; onboard 16MB dataflash + microSD; CAM switch GPIO74",
+    "discrepancies": [
+      "Current data has manufacturer=null; README identifies manufacturer as Orqa (enterprise.orqafpv.com)",
+      "Current data records IMU chip as driver family 'Invensensev3'; README explicitly identifies real chips as dual ICM42688",
+      "Current data has bec_outputs=[]; README lists BEC 5V/2A and BEC 10V/2.5A",
+      "Current data lacks osd_chip; README identifies AT7456E (MAX7456-compatible)",
+      "Current data lacks blackbox_flash; README states 128Mbit (16MB) onboard dataflash",
+      "README internal conflict: Features section says battery input 2S-8S, but Battery Monitoring section says voltage sensor handles 'up to 6S LiPo batteries'",
+      "README states BATT_VOLT_MULT 8.3 but hwdef.dat defines HAL_BATT_VOLT_SCALE 11.0 \u2014 parameter name and value differ"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/OrqaH7QuadCore.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/OrqaH7QuadCore/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/OrqaH7QuadCore/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias)",
+        "readme": "dual ICM42688",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:1:0x77",
+        "readme": "DPS310",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI2 (128Mbit implied)",
+        "readme": "128Mbit",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 configured",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 (USART3, USART6, UART7, UART8)",
+        "readme": "4x UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1",
+        "readme": "1x CAN",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S (Features); up to 6S (Battery Monitoring)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/2A and 10V/2.5A",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "compass",
+        "hwdef": "no builtin compass, external I2C probing enabled",
+        "readme": "no builtin compass",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

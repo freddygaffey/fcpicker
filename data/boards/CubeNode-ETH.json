@@ -1,7 +1,7 @@
 {
   "slug": "CubeNode-ETH",
   "name": "CubeNode-ETH",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -18,10 +18,9 @@
     "spi_buses": [
       "SPI3"
     ],
-    "can_count": 2,
+    "can_count": 1,
     "can_buses": [
-      "CAN1",
-      "CAN2"
+      "CAN1"
     ],
     "canfd": false,
     "usb_count": 1,
@@ -80,5 +79,113 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "CubePilot CubeNode ETH",
+    "family": "CubeNode",
+    "mcu_part": "STM32H757xx",
+    "imu_models": [
+      "ICM45686"
+    ],
+    "has_sdcard": false,
+    "uart_count": 1,
+    "can_count": 1,
+    "notable_connectors": [
+      "5-pin Ethernet (CubePilot/CubeLAN standard)",
+      "CAN (DroneCAN)",
+      "UART with RTS/CTS (PPP)"
+    ],
+    "has_baro": false,
+    "has_osd": false,
+    "pinout_notes": "SERIAL_ORDER OTG1 UART8; UART8 has RTS/CTS for PPP at 12.5 Mbaud; CAN1 only (CAN2 pins not populated); Ethernet via LAN8720 PHY in RMII mode; ICM45686 IMU physically present on SPI3 but disabled in ETH firmware",
+    "discrepancies": [
+      "can_count in data is 2 but only CAN1 is electrically configured \u2014 CAN2 pins (PB5/PB6) are commented out in CubeNode/hwdef.dat; can_count should be 1",
+      "uart_buses in data lists [UART7] but CubeNode-ETH/hwdef.dat overrides the parent and uses UART8 (with RTS/CTS); uart_buses should be [UART8]",
+      "manufacturer is null in data but should be CubePilot (confirmed by wiki and product name)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeNode-ETH.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeNode-ETH/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeNode/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/include/network_PPPGW.inc",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-cubepilot-cubenodeeth.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H757xx (MCU STM32H7xx STM32H757xx)",
+        "wiki": "STM32 H7",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM45686 via Invensensev3 driver (SPIDEV icm45686, SPI3)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_baro",
+        "agree": "agree",
+        "hwdef": "No BARO line; HAL_BARO_ALLOW_INIT_NO_BARO defined confirms no baro",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "1 UART (UART8) + 1 USB (OTG1); SERIAL_ORDER OTG1 UART8",
+        "wiki": "mentions one UART port",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_buses",
+        "agree": "disagree",
+        "hwdef": "UART8 (CubeNode-ETH overrides parent UART7 with UART8 for RTS/CTS support)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": "Data says UART7 but ETH hwdef explicitly replaces it with UART8"
+      },
+      {
+        "field": "can_count",
+        "agree": "disagree",
+        "hwdef": "CAN1 only \u2014 CAN2 pins PB5/PB6 are commented out in parent hwdef",
+        "wiki": "mentions single CAN port",
+        "manufacturer": null,
+        "readme": "Data says 2 but only CAN1 is configured"
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": null,
+        "wiki": "CubePilot",
+        "manufacturer": "CubePilot",
+        "readme": "Data is null; wiki and product name confirm CubePilot"
+      },
+      {
+        "field": "has_osd",
+        "agree": "agree",
+        "hwdef": "No OSD lines",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "No SD card defined; EXT_FLASH_SIZE_MB 0 in network_PPPGW.inc",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      }
+    ]
   }
 }

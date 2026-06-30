@@ -1,7 +1,7 @@
 {
   "slug": "DAKEFPVH743",
   "name": "DAKEFPVH743",
-  "manufacturer": null,
+  "manufacturer": "DAKEFPV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -106,5 +106,149 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "DAKEFPV",
+    "marketing_name": "DAKEFPV H743",
+    "family": "STM32H7xx",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "4S-12S",
+    "voltage_min_v": 14.8,
+    "voltage_max_v": 50.4,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI/HD VTX connector with DisplayPort",
+      "CAM1/CAM2 dual switchable camera inputs",
+      "SBUS inverted input on R5",
+      "USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs: UART1=GPS, UART2=MAVLink, UART3=ESC telem, UART4=DisplayPort, UART5=RCin/SBUS; 12V VTX power GPIO-controlled; dual switchable camera inputs; no built-in compass; I2C for external compass",
+    "discrepancies": [
+      "JSON can_count=1 is wrong: DAKEFPVH743 hwdef.dat undefs the Pro's CAN1 pins (PD0/PD1/PD2) and reassigns PD0/PD1 to UART4, leaving no CAN bus on the non-Pro board; README also does not mention CAN",
+      "JSON manufacturer=null should be 'DAKEFPV' per README and wiki",
+      "JSON pwm.fmu=24 is likely a build-script artifact from not resolving `undef` directives; hwdef analysis yields 14 total PWM outputs (M1-8 + S1-4 + OSD + LED); README states 13 (counts 12 motors + 1 LED, omitting S1-4 and OSD)",
+      "Wiki features list '1x CAN port' is shared for both H743 and H743 Pro without distinguishing that the non-Pro lacks CAN \u2014 this is misleading in the shared RST page"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/DAKEFPVH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743Pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-dakefpvh743pro.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "partial",
+        "hwdef": "Invensensev3 (driver alias, not exact part)",
+        "readme": "Dual ICM42688",
+        "wiki": "Dual ICM42688",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "partial",
+        "hwdef": "SPIDEV osd SPI2 (MAX7456-compatible)",
+        "readme": "AT7456E (features list); MAX7456 (OSD section)",
+        "wiki": "AT7456E (features); MAX7456 (OSD section)",
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "agree",
+        "hwdef": "SPIDEV dataflash SPI3",
+        "readme": "16MByte",
+        "wiki": "16MByte",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "8 UARTs (SERIAL_ORDER has 8 UARTs)",
+        "readme": "8x UARTs",
+        "wiki": "8x UARTs",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "disagree",
+        "hwdef": "CAN1 pins (PD0/PD1/PD2) undefed and PD0/PD1 reassigned to UART4 \u2014 no CAN on non-Pro",
+        "readme": "No CAN mentioned",
+        "wiki": "1x CAN port (listed for both H743 and H743 Pro, but applies only to Pro)",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": "BATT_VOLT_MULT 16.0 supports 12S",
+        "readme": "4S-12S",
+        "wiki": "4S-12S",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "3.3V 0.5A; 5V 3A; 12V 3A gpio-controlled",
+        "wiki": "3.3V 0.5A; 5V 3A; 12V 3A for video gpio-controlled",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "No SD card defined",
+        "readme": "Not mentioned",
+        "wiki": "Not mentioned",
+        "manufacturer": null
+      }
+    ]
   }
 }

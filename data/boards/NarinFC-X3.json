@@ -1,7 +1,7 @@
 {
   "slug": "NarinFC-X3",
   "name": "NarinFC-X3",
-  "manufacturer": null,
+  "manufacturer": "VOLOLAND",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -105,5 +105,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "VOLOLAND",
+    "marketing_name": "NarinFC-X3",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42688-P",
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "DPS368XTSA1"
+    ],
+    "osd_chip": "MAX7456",
+    "has_sdcard": true,
+    "weight_g": 8,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 36,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST SH1.0",
+      "JST GH 6P (CAN)",
+      "USB Type-C",
+      "2.54mm DuPont"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1=DJI/SBUS, UART2=GPS, UART3=DisplayPort, UART4=Telem1, UART6=RC Input, UART7=Telem2 (flow control), UART8=ESC Telem; 1x CAN (JST GH 6P); I2C1 external, I2C2 internal (baro); 13 PWM outputs (1-10 bidir DShot); MAX7456 analog OSD; MicroSD slot",
+    "discrepancies": [
+      "Current JSON lists IMU chip as 'Invensensev3' (ArduPilot driver family label); actual physical part is ICM-42688-P per hwdef.dat comments ('# SPI1 for IMU1 (ICM42688)') and README/wiki",
+      "Current JSON lists baro chip as 'DPS310' (ArduPilot driver label); actual physical part is DPS368XTSA1 per README and wiki \u2014 driver supports DPS368 but silently uses 'DPS310' label in hwdef",
+      "README and wiki features table incorrectly states '5 x UART' and '12 x PWM'; hwdef SERIAL_ORDER defines 7 hardware UARTs and 13 PWM outputs \u2014 those same documents' own UART mapping and PWM Output sections confirm the correct counts of 7 and 13",
+      "README and wiki battery monitoring section states 'voltage sensor can handle up to 6S' but power input specification says 2S-8S (6-36VDC); BATT_VOLT_MULT=11.0 with 3.3V ADC gives ~36V max consistent with 8S, making the '6S' claim incorrect",
+      "Current JSON has manufacturer: null; should be 'VOLOLAND' (VOLOLAND Inc.)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/NarinFC-X3.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-X3/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-X3/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-NarinFC-X3.rst"
+    ],
+    "dimensions_mm": {
+      "length": 38,
+      "width": 38,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM-42688 (comment: 'ICM42688'), driver label Invensensev3",
+        "readme": "ICM-42688-P x 2",
+        "wiki": "ICM-42688 x 2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (driver label, comment: 'DPS310 integrated')",
+        "readme": "DPS368XTSA1",
+        "wiki": "DPS368XTSA1",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (SERIAL_ORDER: USART1,USART2,USART3,UART4,USART6,UART7,UART8)",
+        "readme": "5 (features table) / 7 (UART mapping section)",
+        "wiki": "5 (features table) / 7 (UART mapping section)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S (6-36VDC)",
+        "wiki": "2S-8S (6-36VDC)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "38mm x 38mm",
+        "wiki": "38mm x 38mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "8g",
+        "wiki": "8g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5x30.5mm",
+        "wiki": "30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (SPIDEV osd SPI2 DEVID4 MAX7456_CS)",
+        "readme": "MAX7456 (OSD_TYPE 1)",
+        "wiki": "MAX7456",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "true (BARO DPS310 I2C:0:0x77)",
+        "readme": "true (DPS368XTSA1)",
+        "wiki": "true (DPS368XTSA1)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "none (no COMPASS line)",
+        "readme": "none (no builtin compass)",
+        "wiki": "none (no builtin compass)",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

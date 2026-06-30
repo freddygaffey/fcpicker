@@ -1,7 +1,7 @@
 {
   "slug": "NarinFC-H7",
   "name": "NarinFC-H7",
-  "manufacturer": null,
+  "manufacturer": "VOLOLAND CO., LTD",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -172,5 +172,176 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "VOLOLAND CO., LTD",
+    "marketing_name": "NarinFC-H7",
+    "family": "NarinFC",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ADIS16470",
+      "ICM-20649",
+      "BMI088"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310",
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "weight_g": 106,
+    "voltage_min_v": 4.3,
+    "voltage_max_v": 5.4,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH 6P (TELEM1, TELEM2)",
+      "JST-GH 4P (CAN1, CAN2, I2C ports)",
+      "JST-GH 6P (UART4, DEBUG)",
+      "JST-GH 10P (GPS & Safety)",
+      "JST-GH 7P (SPI)",
+      "USB-C",
+      "2.54mm DuPont (PWM M1-M14)",
+      "2mm DuPont (Power Input)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 UARTs: USART2 (TELEM1), USART6 (TELEM2), USART1 (GPS1), UART4 (GPS2), UART8 (RC/carrier), UART7 (DEBUG); 2x CAN; 4x I2C; 14 PWM (M1-12 DShot, M1-8 BiDir, M13-14 timer-only); 2x USB (OTG1+OTG2/HS); FRAM (SPI2/ramtron) for param storage; SDMMC for logging; SPI5 external connector with 3 CS pins; IMU heater enabled",
+    "discrepancies": [
+      "Current JSON has manufacturer=null; README and wiki both clearly state VOLOLAND CO., LTD",
+      "Current JSON manual block has dimensions_mm=null and weight_g=null; README and wiki both list 93.4x46.4x34.1mm and 106g",
+      "Current JSON lists 6 IMU entries including alternates (ICM42688, ICM20689 variants); the README/wiki identify the primary H7 hardware as ADIS16470+ICM-20649+BMI088 \u2014 ICM42688 and ICM20689 are hwdef-defined socket alternates not present on standard H7 production hardware",
+      "Voltage range 4.3-5.4V is regulated 5V input (power module), not direct battery \u2014 voltage_cells is not applicable; the JSON power.bec is empty which is correct"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/NarinFC-H7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-H7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/NarinFC-H7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-NarinFC-H7.rst"
+    ],
+    "dimensions_mm": {
+      "length": 93.4,
+      "width": 46.4,
+      "height": 34.1
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "partial",
+        "hwdef": "ADIS16470, ICM42688(alt), ICM20689(alt), BMI088, ICM20649, ICM20689_board(alt)",
+        "readme": "ADIS16470, ICM-20649, BMI088",
+        "wiki": "ADIS16470(H7), ICM-20649(H7), BMI088",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 x2",
+        "readme": "MS5611*2",
+        "wiki": "MS5611*2",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "IST8310, RM3100",
+        "readme": null,
+        "wiki": "RM3100 (mentioned in features)",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1/2/6, UART4/7/8)",
+        "readme": "2 GPS ports + telemetry ports implied",
+        "wiki": "matches README",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1+CAN2",
+        "readme": "2x CAN bus ports",
+        "wiki": "2x CAN bus ports",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "SD CARD listed",
+        "wiki": "SD CARD listed",
+        "manufacturer": null
+      },
+      {
+        "field": "length_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "93.4mm",
+        "wiki": "93.4mm",
+        "manufacturer": null
+      },
+      {
+        "field": "width_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "46.4mm",
+        "wiki": "46.4mm",
+        "manufacturer": null
+      },
+      {
+        "field": "height_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "34.1mm",
+        "wiki": "34.1mm",
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "106g",
+        "wiki": "106g",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_min_v",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "4.3V",
+        "wiki": "4.3V",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_max_v",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "5.4V",
+        "wiki": "5.4V",
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": null,
+        "readme": "VOLOLAND CO., LTD",
+        "wiki": "VOLOLAND CO., LTD",
+        "manufacturer": null
+      }
+    ]
   }
 }

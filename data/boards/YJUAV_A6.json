@@ -1,7 +1,7 @@
 {
   "slug": "YJUAV_A6",
   "name": "YJUAV_A6",
-  "manufacturer": null,
+  "manufacturer": "YJUAV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -147,7 +147,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6ultra.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-yjuav-a6se.html",
   "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6/README.md",
   "manual": {
     "status": "not_started",
@@ -162,5 +162,133 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "YJUAV",
+    "marketing_name": "YJUAV A6",
+    "family": "A6",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688",
+      "IIM42652"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "RM3100",
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "CAN1",
+      "CAN2",
+      "POWER A (analog 5V)",
+      "POWER C (CAN+5V)",
+      "GPS1+Safety (10-pin)",
+      "GPS2 (6-pin)",
+      "TELEM1",
+      "TELEM2",
+      "External SPI",
+      "I2C4",
+      "USB (OTG1)",
+      "USB EX (OTG2)",
+      "SBUS/RSSI",
+      "Safety switch",
+      "Debug (SWD+UART)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "14 PWM in 4 groups (TIM1:1-4, TIM2:5-8, TIM3:9-12, TIM4:13-14); ch1-8 bidir DShot; 3 IMUs on SPI1/SPI2; RM3100 compass on SPI1; DPS310 baro on SPI4; RAMTRON FRAM on SPI4; 6 UARTs (USART1/2/3, UART5/7/8) + 2 USB; 2 CAN; IMU heater",
+    "discrepancies": [
+      "docs_url points to common-yjuav-a6se (A6SE, STM32H750, 11 PWM, 5 UARTs) but YJUAV_A6 is STM32H743 with 14 PWM and 6 UARTs \u2014 wrong board; no dedicated YJUAV_A6 wiki page exists in the local wiki",
+      "hwdef IMU entries use generic Invensense/Invensensev3 driver aliases rather than real part numbers; README explicitly names the installed chips as ICM42688 (IMU1), ICM42688 (IMU2), IIM42652 (IMU3)",
+      "README lists 'Three IMUs: ICM42688, ICM42688 and IIM42652' but the data.json imus[] array contains 6 entries (3 slots \u00d7 2 driver probe entries per slot) \u2014 the effective physical IMU count is 3, not 6",
+      "README UART mapping table says 'SERIAL5 -> UART6 (SBUS)' but hwdef configures UART8 (not UART6) for the SBUS/DSM port \u2014 README contains a typo",
+      "BMP388 appears as a second barometer in hwdef/data.json but shares the identical CS pin (BAROMETER_CS) with the DPS310; it is an alternate probe/compatibility fallback, not a second physical chip; README only mentions DPS310 as installed",
+      "README claims '3 I2C and 3 CAN ports' but hwdef defines only 2 I2C buses (I2C2, I2C4) and 2 CAN buses (CAN1, CAN2); README is counting physical connector ports, not bus controllers"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/YJUAV_A6.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/YJUAV_A6/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-yjuav-a6se.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-yjuav-a6se-h743.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-yjuav-a6ultra.rst",
+      "https://doc.yjuav.net/en/index.php/flight-controller/ (no plain A6 page found)",
+      "https://doc.yjuav.net/autopilot/ (no plain A6 page found)",
+      "https://api.github.com/repos/yunjiuav/Hardware/contents/A6 (schematics PDFs only)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense/Invensensev3 aliases for imu1, imu2, imu3 (generic driver labels, not part numbers)",
+        "readme": "ICM42688, ICM42688, IIM42652",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 + BMP388 (both probed on same BAROMETER_CS pin)",
+        "readme": "DPS310",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1, USART2, USART3, UART5, UART8, UART7)",
+        "readme": "6 UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 buses (CAN1, CAN2)",
+        "readme": "3 CAN ports (physical connectors; POWER C also breaks out CAN)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1 defined)",
+        "readme": "microSD card slot port listed in features",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip or OSD define",
+        "readme": "not mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "common-yjuav-a6se covers A6SE (STM32H750, 11 PWM, 5 UARTs) \u2014 a different board entirely",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

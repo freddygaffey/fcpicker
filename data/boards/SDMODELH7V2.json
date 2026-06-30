@@ -1,7 +1,7 @@
 {
   "slug": "SDMODELH7V2",
   "name": "SDMODELH7V2",
-  "manufacturer": null,
+  "manufacturer": "SDMODEL",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -123,5 +123,159 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SDMODEL",
+    "marketing_name": "SDMODEL SDH7 V2",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "MPU6000",
+      "ICM42688",
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V VTX",
+        "volts": 9,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-6P DJI HD VTX",
+      "Micro-C USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (internal module on UART2, not accessible via ArduPilot)",
+    "pinout_notes": "6 UARTs (UART2 internal BT only); 9 PWM outputs (M1-M8 motors + M9 LED/NeoPixel); AT7456E OSD; IST8310 compass; 9V/1.5A VTX BEC on JST-GH-6P; RC input on UART6 RX (default) or UART3",
+    "discrepancies": [
+      "JSON manufacturer is null but README and wiki identify the board as SDMODEL SDH7 V2 by SDMODEL",
+      "JSON power.bec is empty but wiki documents a 9V/1.5A BEC for VTX",
+      "JSON io.pwm.fmu is 13 but hwdef defines 9 PWM outputs (M1-M8 + LED/M9) and both README and wiki confirm 9 PWM outputs",
+      "Wiki 'Battery Monitoring' section says 'no internal current sensor' but README states 'built-in voltage and current sensor' (130A capable) \u2014 README is likely correct as ADC current pin is wired",
+      "Wiki PWM Output body says 'up to 8 PWM outputs' but wiki Specifications says '9x PWM outputs' \u2014 internal wiki inconsistency; README and hwdef agree on 9"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SDMODELH7V2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SDMODELH7V2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SDMODELH7V2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-SDMODELH7V2.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743 32-bit processor",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "mpu6000/icm42688/bmi270 probed at same SPI4/CS:mpu6000_CS (hardware variants)",
+        "readme": "MPU6000",
+        "wiki": "InvenSense MPU6000",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 and SPL06 at same I2C address 0x76 (hardware variants)",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C:0:0x0E",
+        "readme": "IST8310",
+        "wiki": "IST8310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/6/7)",
+        "readme": "6 UARTs",
+        "wiki": "6 UARTs/serial",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "none defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "2S-6S Lipo",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "MAX7456/AT7456E via SPI2",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPI1 dedicated to SDCard",
+        "readme": "microSD card slot",
+        "wiki": "MicroSD Card Slot for logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "9 defined (PWM 1-9)",
+        "readme": "9 PWM outputs",
+        "wiki": "9 (spec) / 8 (body text contradiction)",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V on JST-GH-6P pin 1 (RELAY2 controlled)",
+        "wiki": "9V 1.5A BEC for VTX",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "bluetooth power switch GPIO; UART2 to internal BT module",
+        "readme": "UART2 connected to internal BT module not usable by ArduPilot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

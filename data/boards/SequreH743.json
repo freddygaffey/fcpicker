@@ -1,7 +1,7 @@
 {
   "slug": "SequreH743",
   "name": "SequreH743",
-  "manufacturer": null,
+  "manufacturer": "Sequre",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -108,5 +108,167 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Sequre",
+    "marketing_name": "Sequre H743",
+    "family": "SequreH743",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "MPU6000",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "BMP280",
+      "DPS310",
+      "DPS368"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 7.5,
+    "mounting_pattern_mm": "20x20 / 30.5x30.5",
+    "voltage_cells": "4-8S",
+    "voltage_min_v": 14.8,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P (DJI HD VTX / Air Unit)",
+      "Type-C USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: USART1 RC/ELRS, USART2 SmartAudio, UART4 spare, USART6 GPS, UART7 DisplayPort, UART8 ESC Telemetry; 8 bidirectional DShot motor outputs + 1 LED (PWM9); dual BEC 5V/2.5A and 10V/2A; SH1.0-6P HD VTX connector (pin 1 = 10V); I2C pads for external compass",
+    "discrepancies": [
+      "README.md and wiki both state voltage sensor handles 'up to 6S LiPo' but manufacturer specification is clearly 4-8S LiPo/LiHV \u2014 README/wiki are incorrect on voltage range",
+      "hwdef.dat defines only DPS310 baro driver but README and wiki list 'DPS368 and DPS310 on rev 2' as separate variants \u2014 DPS368 hardware is handled by the DPS310 driver in ArduPilot so the JSON baro list should include DPS368 as a real chip variant",
+      "Current JSON imus[] has two entries sharing the same SPI2/GYRO1_CS slot \u2014 these represent hardware revision variants (V1=MPU6000, V2=ICM42688), not two simultaneously-installed chips; the representation is correct but may confuse consumers",
+      "manufacturer mounting hole spec states Phi4mm for both 20x20 and 30.5x30.5 patterns, which is atypical (20x20 normally uses M2, 30.5x30.5 normally uses M3); likely refers to the drilled hole clearance diameter rather than screw thread diameter \u2014 mounting_hole_dia_mm left null"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SequreH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SequreH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SequreH743/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-sequreh743.rst",
+      "https://sequremall.com/products/sequre-h743-mpu6000-fc-4-8s-dual-bec-for-x8-racing-aerial-photography-freestyle"
+    ],
+    "dimensions_mm": {
+      "length": 36.5,
+      "width": 36.5,
+      "height": 6
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743xx at 480MHz",
+        "wiki": "STM32H743xx at 480MHz",
+        "manufacturer": "STM32H743"
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensense/imu1 (MPU6000 family) + Invensensev3/icm42688 \u2014 same SPI2/GYRO1_CS slot, two HW revisions",
+        "readme": "MPU6000 (V1), ICM42688 (V2 version)",
+        "wiki": "MPU6000 (V1), ICM42688 (V2 version)",
+        "manufacturer": "MPU6000 (V1 page)"
+      },
+      {
+        "field": "baro_models",
+        "agree": "partial",
+        "hwdef": "BMP280 I2C:0:0x76, DPS310 I2C:0:0x76",
+        "readme": "BMP280 (DPS368 and DPS310 on rev 2)",
+        "wiki": "BMP280 (DPS368 and DPS310 on V2)",
+        "manufacturer": "BMP280 / DPS310 / DPS368"
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "disagree",
+        "hwdef": "BATT_VOLT_SCALE=11.0 supports ~33V (8S compatible)",
+        "readme": "up to 6S LiPo",
+        "wiki": "up to 6S LiPo",
+        "manufacturer": "4-8S LiPo/LiHV"
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "USART1+USART2+UART4+USART6+UART7+UART8 = 6",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs",
+        "manufacturer": "6"
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "not mentioned"
+      },
+      {
+        "field": "has_osd",
+        "agree": "agree",
+        "hwdef": "SPIDEV osd SPI1, OSD_TYPE_DEFAULT=1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "MAX7456 / AT7456E",
+        "manufacturer": "AT7456E"
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "agree",
+        "hwdef": "SPIDEV dataflash SPI3, HAL_LOGGING_DATAFLASH_ENABLED=1",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "16MB"
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "no SDCARD definition",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "20x20mm / 30.5x30.5mm Phi4mm"
+      },
+      {
+        "field": "dimensions",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "36.5x36.5x6mm, 7.5g"
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "5V/2.5A and 10V/2A"
+      }
+    ]
   }
 }

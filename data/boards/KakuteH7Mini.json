@@ -1,7 +1,7 @@
 {
   "slug": "KakuteH7Mini",
   "name": "KakuteH7Mini",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -108,5 +108,125 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Kakute H7 Mini",
+    "family": "Kakute H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "MPU6000",
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB (v1.1) / 128MB (v1.5)",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7,
+    "voltage_max_v": 26,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6x UARTs (1,2,3,4,6,7); UART1 for DJI VTX; UART3 for GPS; UART6 for RC input (SBUS/CRSF/etc); UART7 for ESC telemetry (RX only); 9x PWM (M1-M8 motor + M9 LED strip); switchable VTX power via RELAY2",
+    "discrepancies": [
+      "Our data had manufacturer=null; correct value is Holybro",
+      "hwdef 'mpu6000' SPIDEV entry is a legacy bus alias \u2014 v1.5 hardware ships ICM-42688-P on the same CS pin, confirmed by wiki; README only documents MPU6000 (v1.1)",
+      "README states 'Onboard Flash: 128Mbits' (=16MB), matching v1.1 only; wiki explicitly states v1.5 ships 128MB flash; hwdef uses jedec_nor auto-detect so both are supported"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteH7Mini.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-kakuteh7mini.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743 32-bit processor",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 + Invensensev3 SPI:icm42688 (both on same CS pin, one probe succeeds)",
+        "readme": "MPU6000 only",
+        "wiki": "V1.1: MPU6000, V1.5: ICM-42688-P",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:0:0x76 + SPL06 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/6/7)",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs/serial",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "2S-6S (battery monitor scale 11.1x for 6S)",
+        "readme": "2S-6S",
+        "wiki": "7V ~ 26V (=2S-6S)",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (driver alias; CS pin named MAX7456_CS)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "jedec_nor autodetect on SPI1",
+        "readme": "128Mbits = 16MB",
+        "wiki": "16 MByte (v1.1) / 128 MByte (v1.5)",
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined",
+        "readme": null,
+        "wiki": "on-board data flash logging (no SD mention)",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN bus pins)",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "BEC 5V 2A",
+        "wiki": "5V 2A supply for peripherals",
+        "agree": "agree"
+      }
+    ]
   }
 }

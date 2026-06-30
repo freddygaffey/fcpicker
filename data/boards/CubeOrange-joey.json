@@ -1,7 +1,7 @@
 {
   "slug": "CubeOrange-joey",
   "name": "CubeOrange-joey",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -126,5 +126,117 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "CubeOrange Joey",
+    "family": "Cube",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM20602",
+      "ICM20948",
+      "ICM20649"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH 1.25mm (all external ports)",
+      "80-pin DF17 carrier board connector",
+      "Spektrum satellite",
+      "micro USB",
+      "JST-GH USB"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5x UARTs (SERIAL1-5): USART2 Telem1, USART3 Telem2, UART4 GPS1, UART8 GPS2, UART7 CONS/SERIAL5; IOMCU on USART6 (internal); 14 PWM (8 IO + 6 FMU AUX); 2x CAN; 2x I2C; 2x USB (OTG1 + OTG2 SLCAN); ADSB on SERIAL5 carrier-board variant",
+    "discrepancies": [
+      "Third IMU in data/boards/CubeOrange-joey.json has chip_display 'ICM20948' but the actual chip is ICM20649: hwdef.inc line 232 CHECK_ICM20649 checks the 'icm20948' SPI alias against INV2_WHOAMI_ICM20649, and README.md explicitly lists 'ICM20602, ICM20948 and ICM20649'; the alias 'icm20948' is a legacy bus label only",
+      "manufacturer field is null in our data; should be CubePilot (USB_STRING_MANUFACTURER in CubeOrange-joey/hwdef.dat is 'CubePilot')",
+      "Wiki (common-thecubeorange-overview.rst line 44) lists processor as STM32H753 while hwdef.dat declares STM32H743xx; the H753 and H743 share the same die (H753 adds crypto/hash), hwdef targets H743xx family which governs firmware builds"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeOrange-joey.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrange-joey/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrange/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrange/hwdef.inc",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrange/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thecubeorange-overview.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32H743xx",
+        "wiki": "STM32H753",
+        "readme": "STM32H743",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "disagree",
+        "hwdef": "ICM20602 + ICM20948 + ICM20649 (CHECK_ICM20649 on 'icm20948' alias)",
+        "wiki": "ICM20602, ICM20948, ICM20649",
+        "readme": "ICM20602, ICM20948, ICM20649",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 x2",
+        "wiki": "MS5611 x2",
+        "readme": "two MS5611 SPI barometers",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "AK09916 via ICM20948",
+        "wiki": "AK09916 MAG",
+        "readme": "builtin SPI AK09916 magnetometer in ICM20948",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "5 (USART2/3, UART4/8/7)",
+        "wiki": "5 general purpose serial ports",
+        "readme": "5 UARTs plus USB",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 + CAN2",
+        "wiki": "2x CAN Bus",
+        "readme": "CAN1 and CAN2 ports",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "sdcard.inc included + HAL_OS_FATFS_IO",
+        "wiki": null,
+        "readme": "microSD card slot",
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": "CubePilot (USB_STRING_MANUFACTURER)",
+        "wiki": "CubePilot",
+        "readme": "CubePilot / ProfiCNC",
+        "manufacturer": null
+      }
+    ]
   }
 }

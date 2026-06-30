@@ -1,7 +1,7 @@
 {
   "slug": "MUPilot",
   "name": "MUPilot",
-  "manufacturer": null,
+  "manufacturer": "MUGIN UAV",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -69,34 +69,6 @@
       "chip_display": "ICM20602"
     },
     {
-      "chip": "BMI055",
-      "bus": "SPI:bmi055_a",
-      "variant": null,
-      "slot": "SPI1/CS:BMI055_A_CS",
-      "chip_display": "BMI055"
-    },
-    {
-      "chip": "BMI088",
-      "bus": "SPI:bmi055_a",
-      "variant": null,
-      "slot": "SPI1/CS:BMI055_A_CS",
-      "chip_display": "BMI055"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:icm20689",
-      "variant": null,
-      "slot": "SPI1/CS:ICM20689_CS",
-      "chip_display": "ICM20689"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:icm20602",
-      "variant": null,
-      "slot": "SPI1/CS:ICM20602_CS",
-      "chip_display": "ICM20602"
-    },
-    {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688",
       "variant": null,
@@ -119,13 +91,6 @@
     }
   ],
   "baros": [
-    {
-      "chip": "MS5611",
-      "bus": "SPI:ms5611",
-      "variant": null,
-      "slot": "SPI4/CS:MS5611_CS",
-      "chip_display": "MS5611"
-    },
     {
       "chip": "MS5611",
       "bus": "SPI:ms5611",
@@ -186,5 +151,131 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MUGIN UAV",
+    "marketing_name": "MUPilot Flight Controller",
+    "family": "FMUv5",
+    "mcu_part": "STM32F765",
+    "imu_models": [
+      "ICM20689",
+      "ICM20602",
+      "ICM42688",
+      "BMI055",
+      "BMI088"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "weight_g": 106,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "GPS+Safety (10-pin)",
+      "TELEM1 (6-pin, CTS/RTS)",
+      "TELEM2 (6-pin, CTS/RTS)",
+      "UART4/GPS2 (6-pin)",
+      "DEBUG (6-pin)",
+      "CAN1/CAN2 (4-pin each)",
+      "POWER1 (6-pin, analog)",
+      "POWER2 (6-pin, analog or I2C)",
+      "DSM/SBUS/RSSI",
+      "SPI5 expansion",
+      "SBUS OUT"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 main PWM M1-M8 via STM32F103 IOMCU (no DShot), 6 aux PWM A1-A6 via FMU (DShot capable, 3.3V/5V selectable); 6 UARTs (Telem1, Telem2, GPS, GPS2, UART6, UART7/Debug) plus USB and USB2 (SLCAN); 2 CAN; 4 I2C; dual power-brick inputs (POWER1 analog-only, POWER2 analog or I2C); builtin RGB LED and safety switch",
+    "discrepancies": [
+      "README and wiki say 'STM32F765 Microcontroller' but the fmuv5 hwdef MCU target is STM32F767xx; the fmuv5 hwdef comment explains F765 is register-compatible with F767 (lacks TFT only), so the actual chip is STM32F765",
+      "README and wiki list 'MPU6000' as the second IMU, but the hwdef CS pin is named ICM20602_CS and the driver entry is 'Invensense SPI:icm20602'; ICM20602 and MPU6000 are distinct chips \u2014 the README appears outdated",
+      "Our catalog JSON has pwm.total=16 but README and wiki both state 14 PWM outputs (8 IOMCU main + 6 FMU aux)",
+      "Our catalog JSON has manufacturer=null; confirmed MUGIN UAV from README and wiki",
+      "Our catalog JSON has dimensions_mm=null; README and wiki confirm 91x46x31mm, 106g"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MUPilot.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MUPilot/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MUPilot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv5/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-MUPilot.rst"
+    ],
+    "dimensions_mm": {
+      "length": 91,
+      "width": 46,
+      "height": 31
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (MCU target in fmuv5, register-compatible with F765)",
+        "readme": "STM32F765",
+        "wiki": "STM32F765",
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20689, ICM20602, ICM42688, BMI055, BMI088",
+        "readme": "ICM20689, MPU6000, BMI055",
+        "wiki": "ICM20689, MPU6000, BMI055",
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 (x2, SPI4 and SPI6)",
+        "readme": "Two MS5611 SPI barometers",
+        "wiki": "Two MS5611 SPI barometers",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 via I2C (internal and external)",
+        "readme": "IST8310 magnetometer",
+        "wiki": "IST8310 magnetometer",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 UARTs (USART1/2/3, UART4/6/7)",
+        "readme": "6 UARTs plus USB",
+        "wiki": "6 UARTs plus USB",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1, CAN2",
+        "readme": "two CAN ports",
+        "wiki": "two CAN ports",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "sdcard=true (from fmuv5)",
+        "readme": "MicroSD card slot",
+        "wiki": "MicroSD card slot",
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "91mm x 46mm x 31mm",
+        "wiki": "91mm x 46mm x 31mm",
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "106g",
+        "wiki": "106g",
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "ORBITH743",
   "name": "ORBITH743",
-  "manufacturer": null,
+  "manufacturer": "Orbit Technology",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -104,5 +104,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Orbit Technology",
+    "marketing_name": "ORBITH743",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "256MB (W25N02KV NAND)",
+    "has_sdcard": false,
+    "weight_g": 8.4,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "volts": 5,
+        "amps": 3,
+        "rail": "5V peripheral BEC"
+      },
+      {
+        "volts": 10,
+        "amps": 3,
+        "rail": "10V video BEC (GPIO controlled via RELAY2/GPIO81)"
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB Type-C",
+      "SH1.0 6P (HD VTX / DJI Air Unit)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs: UART1 ESC telem (no DMA), UART2 user, UART3 DisplayPort/DJI HD, UART4 user, UART5 RC input, UART6 GPS, UART7-8 user; 8 motor outputs (DShot/BiDir/PWM, timer groups 1/2 3/4 5/6 7/8), 4 servo outputs PWM-only (TIM2/TIM4), 1 LED output (PWM/DShot/serial LED); dual switchable analog camera inputs (GPIO82/RELAY3); 2x independent power monitors; 5V/3A and GPIO-switched 10V/3A BECs",
+    "discrepancies": [
+      "hwdef.dat declares driver 'DPS310' (BARO DPS310 I2C:0:0x76) but README and wiki both identify the physical barometer chip as 'DPS368' \u2014 the DPS310 ArduPilot driver also supports DPS368, so the driver label does not match the physical part",
+      "current data has manufacturer=null; manufacturer is Orbit Technology (orbitteknoloji.com.tr)",
+      "current data has power.monitor_inputs=0 but the board exposes 2 fully-wired independent power monitors (BATT and BATT2) per hwdef ADC pin assignments and README"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ORBITH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ORBITH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ORBITH743/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-orbith743.rst"
+    ],
+    "dimensions_mm": {
+      "length": 39.8,
+      "width": 38.3,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family only)",
+        "readme": "STM32H743VIH6",
+        "wiki": "STM32H743VIH6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "2x ICM42688 (SPIDEV icm42688_1/icm42688_2)",
+        "readme": "InvenSense 2x ICM42688",
+        "wiki": "InvenSense 2x ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (driver name)",
+        "readme": "DPS368",
+        "wiki": "DPS368",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1/2/3, UART4/5, USART6, UART7/8)",
+        "readme": "8x UARTs",
+        "wiki": "8x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "yes \u2014 MAX7456_CS on SPI2, OSD_ENABLED=1",
+        "readme": "yes, MAX7456, Built-in OSD",
+        "wiki": "yes, MAX7456",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "W25N02KV NAND via SPI3/FLASH_CS",
+        "readme": "256MB Flash for data logging",
+        "wiki": "256MB Flash for data logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no sdcard definition",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not specified",
+        "readme": "2-6S LiPo",
+        "wiki": "2-6S LiPo",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not specified in hwdef",
+        "readme": "5V/3A + 10V/3A (GPIO controlled)",
+        "wiki": "5V/3A + 10V/3A (GPIO controlled)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": "not applicable",
+        "readme": "38.3mm x 39.8mm, 8.4g",
+        "wiki": "38.3mm x 39.8mm, 8.4g",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not applicable",
+        "readme": "30.5mm x 30.5mm",
+        "wiki": "30.5mm x 30.5mm",
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

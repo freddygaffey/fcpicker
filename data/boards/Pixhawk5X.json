@@ -1,7 +1,7 @@
 {
   "slug": "Pixhawk5X",
   "name": "Pixhawk5X",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -116,7 +116,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-pixhawk-overview.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-holybro-ph5x.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -131,5 +131,134 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Pixhawk 5X",
+    "family": "Pixhawk FMUv5X",
+    "mcu_part": "STM32F767",
+    "imu_models": [
+      "ICM-42688P",
+      "ICM-20649",
+      "ICM-20602"
+    ],
+    "baro_models": [
+      "BMP388"
+    ],
+    "compass_models": [
+      "BMM150"
+    ],
+    "has_sdcard": true,
+    "weight_g": 23,
+    "voltage_max_v": 6,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST GH"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "Modular design: FC module (38.8x31.8x14.6mm, 23g) + separate baseboard (52.4x103.4x16.7mm, 51g). 16 PWM outputs (8 FMU + 8 IO via IOMCU STM32F100), 7 UARTs (TELEM1/2/3, GPS1/2, USER, DEBUG), 2x CAN, onboard RAMTRON SPI FRAM for param storage, SDMMC2 microSD, Ethernet hardware present (MAC in STM32F767) but not enabled in ArduPilot on F7. All external connectors JST GH.",
+    "correct_wiki_stem": "common-holybro-ph5x",
+    "discrepancies": [
+      "docs_url points to generic common-pixhawk-overview.html instead of the Pixhawk5X-specific page common-holybro-ph5x",
+      "manufacturer field is null in our data but hwdef USB_STRING_MANUFACTURER and wiki both confirm Holybro",
+      "wiki lists MCU as STM32F765 but hwdef.dat specifies STM32F767xx (F767 is correct \u2014 it includes Ethernet MAC which matches the commented-out Ethernet section in hwdef)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Pixhawk5X.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk5X/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-ph5x.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "dimensions_mm": {
+      "length": 38.8,
+      "width": 31.8,
+      "height": 14.6
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "disagree",
+        "hwdef": "STM32F767xx",
+        "wiki": "STM32F765",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM42688 + ICM20649 + ICM20602 (3 IMUs)",
+        "wiki": "ICM-42688P, ICM-20649, ICM-20602",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "2x BMP388",
+        "wiki": "2x BMP388",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "BMM150",
+        "wiki": "BMM150",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "7 (UART7, UART5, USART1, UART8, USART2, UART4, USART3; USART6 is internal IOMCU)",
+        "wiki": "7 in UART mapping (SERIAL1-7)",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": "2 CAN buses",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC2 defined",
+        "wiki": "not explicitly mentioned but implied",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "FC module 38.8x31.8x14.6mm; baseboard 52.4x103.4x16.7mm",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "FC module 23g; baseboard 51g",
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "agree",
+        "hwdef": "Holybro (USB_STRING_MANUFACTURER)",
+        "wiki": "Holybro",
+        "readme": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

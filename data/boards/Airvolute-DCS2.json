@@ -1,7 +1,7 @@
 {
   "slug": "Airvolute-DCS2",
   "name": "Airvolute-DCS2",
-  "manufacturer": null,
+  "manufacturer": "Airvolute",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -100,5 +100,123 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Airvolute",
+    "marketing_name": "Airvolute DCS2.Pilot",
+    "family": "DroneCore 2.0",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "BMP390"
+    ],
+    "has_sdcard": true,
+    "uart_count": 3,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST GH 1.25mm 3-pin (PPM/RC input)",
+      "JST GH 1.25mm 12-pin (FMU SEC - 4x PWM, 2x UART)",
+      "BM23PF0.8-10DS-0.35V 10-pin (EXT SENS - external SPI/I2C)",
+      "microSD (MEM2085-00-115-00-A)",
+      "JST GH 1.25mm 4-pin (CAN1/CAN2 via adapter board)",
+      "505110-1692 Ethernet"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "Secondary onboard FMU; 4 PWM outputs (DShot/bidir, 2 groups), SERIAL1/2 on FMU SEC 12-pin, SERIAL3 (PPM-only RX) on 3-pin, 2 CAN buses on adapter board, RMII 100Mbps Ethernet via onboard switch, external SPI4+I2C1 header for sensors. Initial flash via SWD only.",
+    "discrepancies": [
+      "JSON ethernet:false is wrong \u2014 hwdef.dat defines full RMII Ethernet (9 ETH pins + BOARD_PHY_RMII + PHY address) and README lists Ethernet as a feature",
+      "JSON manufacturer is null but should be Airvolute",
+      "README says '2 UARTS' but hwdef.dat defines USART1+USART2+USART3 (3 hardware UARTs); JSON uart_count:3 correctly matches hwdef",
+      "JSON canfd:false but README states CAN buses support FD mode up to 8 Mbits; STM32H743 has FDCAN hardware (no explicit hwdef define found, ambiguous)",
+      "ICM42688 IMU is on external SPI4 bus via EXT SENS connector (not soldered onboard); hwdef pre-wires it but it requires external sensor attached",
+      "Baro hwdef driver name is BMP388 but CS pin is BMP390_CS and README calls it BMP390; real chip is BMP390 (chip_display BMP390 in JSON is correct)",
+      "wiki docs_url points to GitHub hwdef README rather than ardupilot.org wiki \u2014 no dedicated wiki page exists for DCS2; common-airvolute-DroneCore-Suite.rst covers the older DroneCore.Suite (Cube Orange-based) product only"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Airvolute-DCS2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Airvolute-DCS2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Airvolute-DCS2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-airvolute-DroneCore-Suite.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (SPI1 onboard) + Invensense ICM42688 (SPI4 external)",
+        "readme": "BMI088",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 driver, CS pin BMP390_CS",
+        "readme": "BMP390",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1+USART2+USART3 = 3",
+        "readme": "2 UARTS",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1+CAN2 = 2",
+        "readme": "2 CAN buses",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "ethernet",
+        "hwdef": "Full RMII ETH1 defined",
+        "readme": "Ethernet listed as feature",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "readme": "SD card connector",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "No COMPASS line; ALLOW_ARM_NO_COMPASS defined; LIS3MDL only as SPIDEV alias",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_outputs",
+        "hwdef": "PWM(1-4) on TIM2/TIM1 = 4 outputs",
+        "readme": "4 PWM outputs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "BETAFPV-F405",
   "name": "BETAFPV-F405",
-  "manufacturer": null,
+  "manufacturer": "BETAFPV",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,139 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "BETAFPV",
+    "marketing_name": "BETAFPV F405 AIO Family (Whoop AIO / AIO FC / Toothpick V5)",
+    "family": "F405 AIO",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "mounting_pattern_mm": "26x26 (Whoop/AIO); 25.5x25.5 (Toothpick)",
+    "voltage_cells": "1-4S (1S-2S Whoop; 2S-3S AIO; 2S-4S Toothpick)",
+    "voltage_min_v": 3.7,
+    "voltage_max_v": 16.8,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C (on remote dongle)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ELRS 2.4GHz integrated (Whoop and AIO variants only; Toothpick has no internal ELRS)",
+    "pinout_notes": "5 PWM outputs: M1-M4 internal 4-in-1 ESC (bi-dir DShot), M5 NeoPixel LED strip; UART1 GPS, UART3 ELRS/SBUS, UART4 MSP DisplayPort, UART5 SBUS RX-only, UART6 spare; no compass; no SD card; dataflash logging via SPI2",
+    "discrepancies": [
+      "manufacturer is null in current data; should be BETAFPV",
+      "IMU chip stored as driver alias 'Invensensev3' instead of real chip ICM-42688-P (confirmed by README and wiki)",
+      "power.bec is empty array in current data but board has 5V 2A BEC per README and wiki",
+      "power.monitor_inputs=0 in current data but board has integrated voltage and current sensing (ADC pins PC2/PC1)",
+      "Wiki AIO section lists 'BMP210/DPS310' as baro but hwdef only enables BMP280 and SPL06 drivers; 'BMP210' appears to be a wiki typo (likely BMP280), and SPL06 driver likely covers the DPS310-compatible chip on AIO variant",
+      "Toothpick variant has no baro (hwdef comment: '# 4S version has no baro') but has_baro in data would be ambiguous for this multi-variant slug"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BETAFPV-F405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-betafpvf405.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F4xx STM32F405xx",
+        "readme": "STM32F405RGT6 168MHz",
+        "wiki": "STM32F405RGT6 ARM (168MHz)",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "disagree",
+        "hwdef": "IMU Invensensev3 (driver alias, not chip name)",
+        "readme": "ICM42688-P",
+        "wiki": "ICM-42688P",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "partial",
+        "hwdef": "BARO BMP280 + BARO SPL06 (same CS pin, runtime detection)",
+        "readme": "BMP280",
+        "wiki": "Whoop=BMP280; AIO=BMP210/DPS310; Toothpick=none",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "SPIDEV osd SPI3, OSD_TYPE_DEFAULT=1 (AT7456E/MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "OSD_TYPE 1 (MAX7456 driver)",
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "agree",
+        "hwdef": "SPIDEV dataflash SPI2 FLASH1_CS",
+        "readme": "16Mb Onboard Flash",
+        "wiki": "16MByte flash for logging",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "partial",
+        "hwdef": "5 (USART1, USART3, UART4, UART5, USART6 in SERIAL_ORDER)",
+        "readme": "Up to 5 UARTs",
+        "wiki": "Whoop=3 usable; AIO=4 usable; Toothpick=4 usable (UART5 not pinned on some variants)",
+        "manufacturer": null
+      },
+      {
+        "field": "has_osd",
+        "agree": "agree",
+        "hwdef": "OSD_ENABLED=1, HAL_OSD_TYPE_DEFAULT=1",
+        "readme": "OSD: AT7456E",
+        "wiki": "OSD Support confirmed",
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": "BETAFPV (README header)",
+        "readme": "BETAFPV",
+        "wiki": "BETAFPV",
+        "manufacturer": "BETAFPV"
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "partial",
+        "hwdef": "voltage sensor can handle up to 6S per README",
+        "readme": "voltage sensor can handle up to 6S",
+        "wiki": "Whoop 1S-2S; AIO 2S-3S; Toothpick 2S-4S (input power); 5V 2A BEC",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "no SD card defined; uses dataflash (FLASH1_CS on SPI2)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

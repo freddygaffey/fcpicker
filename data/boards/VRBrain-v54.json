@@ -1,7 +1,7 @@
 {
   "slug": "VRBrain-v54",
   "name": "VRBrain-v54",
-  "manufacturer": null,
+  "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -30,9 +30,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 14,
+      "fmu": 12,
       "io": 0,
-      "total": 14
+      "total": 12
     },
     "ethernet": false,
     "sdcard": true,
@@ -107,5 +107,117 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Laser Navigation",
+    "marketing_name": "VR Brain 5.4",
+    "family": "VRBrain",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "3 UARTs (USART1/2/3) + USB OTG; 12 active PWM outputs (PWM13\u201314 commented out in hwdef, data overcounts at 14); 2 I2C buses; 3 SPI buses; SD card slot on SPI3; FRAM (ramtron) on SPI3 for parameter storage; 3 relay GPIOs; buzzer; battery voltage+current sense via ADC1",
+    "discrepancies": [
+      "manufacturer is null in data but hwdef USB_STRING_MANUFACTURER and wiki USB-IDs.rst both confirm 'Laser Navigation'",
+      "io.pwm.fmu is 14 in data but hwdef has only 12 active PWM channels (PWM1-12); PWM13 (PE5) and PWM14 (PE6) are commented out \u2014 build.py parser appears to include commented lines",
+      "No dedicated ArduPilot wiki page exists for VRBrain-v54; docs_url is null (correct that there is no URL, but a wiki page gap exists \u2014 common-autopilots.rst only has an external virtualrobotix.it link for 'VR Brain 5')"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VRBrain-v54.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRBrain-v54/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/USB-IDs.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-history-of-ardupilot.rst",
+      "https://vrbrain.wordpress.com/vrbrain-5/",
+      "WebSearch: VRBrain v54 specifications dimensions mounting",
+      "WebSearch: VirtualRobotix VRBrain 5.4 specifications STM32F427"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 \u2192 MPU6000",
+        "wiki": null,
+        "manufacturer": "MPU6000 (per VRBrain 5 product pages)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 I2C:1:0x1e (external) + HMC5843 I2C:0:0x1e (internal)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART1, USART2, USART3) + OTG1/USB",
+        "wiki": null,
+        "manufacturer": "3 serial ports",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pin definitions)",
+        "wiki": null,
+        "manufacturer": "CANBUS mentioned on VRBrain 5 product page (may not apply to v54 hwdef)",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI3 DEVID1 + HAL_OS_FATFS_IO 1",
+        "wiki": null,
+        "manufacturer": "1 SD Card Slot until 64 GB",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "12 active (PWM1-12; PWM13-14 on PE5/PE6 commented out)",
+        "wiki": null,
+        "manufacturer": "Up to 12 RC outputs at 490 Hz",
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Laser Navigation (USB_STRING_MANUFACTURER)",
+        "wiki": "Laser Navigation (USB-IDs.rst: 0x27AC = Laser Navigation)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

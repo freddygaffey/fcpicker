@@ -1,7 +1,7 @@
 {
   "slug": "skyviper-v2450",
   "name": "skyviper-v2450",
-  "manufacturer": null,
+  "manufacturer": "SkyRocket",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -79,7 +79,7 @@
   "vehicles": [
     "copter"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/skyrocket.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -94,5 +94,120 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SkyRocket",
+    "marketing_name": "Sky Viper v2450GPS",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "ICM20789"
+    ],
+    "baro_models": [
+      "ICM20789"
+    ],
+    "compass_models": [
+      "BMM150"
+    ],
+    "has_sdcard": false,
+    "voltage_cells": "1S",
+    "voltage_max_v": 4.2,
+    "uart_count": 2,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "WiFi 2.4GHz via Sonix companion board; CC2500 and CYRF6936 onboard RC radio (SPI-attached)",
+    "pinout_notes": "1S brushed-motor quad; USART2 (telem), UART4 (GPS); FRAM (ramtron SPI2) for parameter storage; logging to Sonix companion SD; no OSD; CC2500/CYRF6936 RC radio via SPI2",
+    "correct_wiki_stem": "skyrocket",
+    "discrepancies": [
+      "Current data shows IMU chip_display 'MPU6000' but the real physical part is ICM20789 \u2014 'mpu6000' in hwdef is a legacy SPI bus alias for the ICM20789 accel/gyro interface; wiki confirms 'ICM20789 IMU including 3-axis accelerometer, gyro and barometer'",
+      "Current data has manufacturer null; should be SkyRocket",
+      "docs_url is null but relevant wiki pages exist at copter/skyrocket.rst and dev/skyviper.rst",
+      "Wiki hardware section lists '5x serial ports' (FMUv3 hardware capability) but hwdef SERIAL_ORDER configures only OTG1 + USART2 + UART4 (2 UARTs); current data uart_count:2 is correct for configured ports"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/skyviper-v2450.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/skyviper-v2450/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/include/skyviper.inc",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket.rst",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket-hardware.rst",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket-software.rst",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/skyviper.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx",
+        "wiki": "STM32 CPU (vague)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "IMU Invensense SPI:mpu6000 (mpu6000 is legacy alias for ICM20789 SPI registers)",
+        "wiki": "ICM20789 IMU including 3-axis accelerometer, gyro and barometer",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO ICM20789 I2C:1:0x63",
+        "wiki": "ICM20789 (same combo chip as IMU)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "COMPASS BMM150 I2C:0:0x10",
+        "wiki": "not mentioned",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "2 configured (USART2 + UART4 in SERIAL_ORDER; UART7 pins present but unused)",
+        "wiki": "5x serial ports (FMUv3 hardware count)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 0 explicitly set",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "analog battery monitor with HAL_BATT_VOLT_SCALE 10.1",
+        "wiki": "1S battery (4.2V max)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "STORAGE_FLASH_PAGE 22 (flash param storage); no SD card lines in FC hwdef",
+        "wiki": "SD card is in Sonix companion board, not FC",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

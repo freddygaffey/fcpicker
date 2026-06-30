@@ -1,7 +1,7 @@
 {
   "slug": "CubeGreen-solo",
   "name": "CubeGreen-solo",
-  "manufacturer": null,
+  "manufacturer": "CubePilot (Hex/ProfiCNC)",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -156,5 +156,119 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot (Hex/ProfiCNC)",
+    "marketing_name": "CubePilot CubeGreen (Solo variant)",
+    "family": "Cube",
+    "mcu_part": "STM32F427",
+    "imu_models": [
+      "MPU9250",
+      "LSM9DS0",
+      "ICM20602",
+      "ICM20948"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "LSM303D",
+      "AK8963",
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH",
+      "DF17 80-pin (carrier board interface)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs: SERIAL1=UART2(Telem1), SERIAL2=UART3(Telem2), SERIAL3=UART4(GPS), SERIAL4=UART8(GPS2), SERIAL5=UART7(spare/CONS); 8 MAIN PWM from STM32F100 IOMCU + 6 AUX PWM from FMU; 2x CAN; all external connectors JST-GH; module mates to carrier board via 80-pin DF17",
+    "correct_wiki_stem": "common-thecube-overview",
+    "discrepancies": [
+      "data[manufacturer] is null but should be CubePilot (Hex/ProfiCNC) \u2014 confirmed by hwdef USB_STRING_MANUFACTURER and wiki",
+      "local wiki (common-thecube-overview) lists ICM20648 as third IMU but hwdef.dat explicitly names ICM20948; and wiki says ICM2076xx for backup but hwdef names ICM20602 \u2014 hwdef is authoritative",
+      "docs_url points to GitHub hwdef README (not a wiki page); closest wiki page for the underlying hardware is common-thecube-overview (The Cube Black)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeGreen-solo.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeGreen-solo/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeGreen-solo/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeBlack/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thecube-overview.rst",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/solo_arducopter_upgrade.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (from fmuv3/hwdef.dat: MCU STM32F4xx STM32F427xx)",
+        "wiki": "32-bit ARM Cortex M4, 168 MHz (consistent)",
+        "manufacturer": null,
+        "readme": "STM32F427 microcontroller",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "mpu9250_ext, lsm9ds0_ext, mpu9250, icm20602_ext, icm20948_ext, icm20948 \u2014 MPU9250(x2), LSM9DS0, ICM20602, ICM20948(x2)",
+        "wiki": "InvenSense MPU9250, ICM20948 and/or ICM20648 as first/third; ST Micro L3GD20+LSM303D or InvenSense ICM2076xx as backup",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 x2 (SPI:ms5611_ext + SPI:ms5611)",
+        "wiki": "Two redundant MS5611 barometers",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER: OTG1 USART2 USART3 UART4 UART8 UART7 = 5 hardware UARTs + USB",
+        "wiki": "5x general purpose serial ports",
+        "manufacturer": null,
+        "readme": "5 UARTs plus USB",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1, CAN2",
+        "wiki": "2x CAN Bus interface",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDIO pins defined (PC8-PC12, PD2)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "USB_STRING_MANUFACTURER Hex/ProfiCNC",
+        "wiki": "CubePilot (rebranded name)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "LSM303D (SPI:lsm9ds0_ext_am), AK8963:probe_mpu9250, AK09916:probe_ICM20948",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

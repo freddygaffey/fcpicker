@@ -1,7 +1,7 @@
 {
   "slug": "CBU-H7-Stamp",
   "name": "CBU-H7-Stamp",
-  "manufacturer": null,
+  "manufacturer": "CBUnmanned",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -122,5 +122,144 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CBUnmanned",
+    "marketing_name": "CBUnmanned H743 Stamp",
+    "family": "H7 Stamp",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "ICM-42688",
+      "ICM-42688",
+      "ICM-42670"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "compass_models": [
+      "BMM150"
+    ],
+    "has_sdcard": true,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5,
+    "uart_count": 8,
+    "can_count": 2,
+    "notable_connectors": [
+      "1.27mm stamp header (optional; supports direct solder mounting)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 UARTs (3 with RTS/CTS; SERIAL6=RCIN), 10 PWM with BiDir DShot on first 8, 2 CAN with 120\u03a9 termination, 4 I2C (I2C1/2 internal, I2C3/4 external with 2.2k pull-ups), external SPI4, Ethernet RMII with internal magnetics; 5V regulated input only",
+    "correct_wiki_stem": "common-StampH743",
+    "discrepancies": [
+      "Barometer conflict: hwdef.dat comment (line 150) and BARO driver directive both specify BMP280 at I2C:1:0x76, while the wiki (common-StampH743.rst) lists 'Infineon DPS310' and the README I2C section also says 'I2C 2 - Internal for DPS310 Barometer' \u2014 the README Sensors section says BMP280, creating internal contradiction; hwdef driver is authoritative for what firmware uses but hardware may have changed",
+      "Weight conflict: hwdef README says 3g, wiki (common-StampH743.rst) says 1.9g \u2014 sources disagree; weight_g left null",
+      "hwdef.dat comment at line 100 says 'IMU1 ICM-42760-P' but the SPIDEV alias is icm42670, max SPI speed is 8MHz (matching ICM-42670 limit), and both README and wiki confirm ICM-42670 \u2014 the hwdef pin-comment is a typo",
+      "docs_url in our data points to GitHub hwdef README (not the ArduPilot wiki); the canonical wiki page is common-StampH743.rst",
+      "manufacturer is null in our data; should be 'CBUnmanned'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CBU-H7-Stamp.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CBU-H7-Stamp/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CBU-H7-Stamp/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-StampH743.rst"
+    ],
+    "dimensions_mm": {
+      "length": 24.25,
+      "width": 22,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32H743xx (family)",
+        "readme": "STM32H743IIK6",
+        "wiki": "STM32H743IIK6",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "icm42688 x2 + icm42670 x1 (Invensensev3 driver; IMU1 pin-comment wrong as ICM-42760-P)",
+        "readme": "x2 ICM-42688 + x1 ICM-42670",
+        "wiki": "x2 ICM-42688 + x1 ICM-42670",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "disagree",
+        "hwdef": "BMP280 I2C:1:0x76",
+        "readme": "BMP280 (Sensors section) / DPS310 (I2C section) \u2014 internally inconsistent",
+        "wiki": "DPS310",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "BMM150 I2C:0:0x10",
+        "readme": "BMM150",
+        "wiki": "BMM150",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "8 (USART1-3, UART4-5, USART6, UART7-8)",
+        "readme": "x8 UARTs inc RC",
+        "wiki": "x8 UARTs inc RC",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 + CAN2",
+        "readme": "x2 CAN",
+        "wiki": "x2 CAN",
+        "manufacturer": null
+      },
+      {
+        "field": "length_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "24.25mm",
+        "wiki": "24.25mm",
+        "manufacturer": null
+      },
+      {
+        "field": "width_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "22mm",
+        "wiki": "22mm",
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "disagree",
+        "hwdef": null,
+        "readme": "3g",
+        "wiki": "1.9g",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_min_v",
+        "agree": "agree",
+        "hwdef": "5V power enable pins, 3.3V LDOs",
+        "readme": "5v Main Power in",
+        "wiki": "5v Main Power in",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC2 defined",
+        "readme": "Micro SD Card for Logging/LUA Scripting",
+        "wiki": "x1 MicroSD card slot",
+        "manufacturer": null
+      }
+    ]
   }
 }

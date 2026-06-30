@@ -1,7 +1,7 @@
 {
   "slug": "JFB110",
   "name": "JFB110",
-  "manufacturer": null,
+  "manufacturer": "JAE (Japan Aviation Electronics Industry)",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H755xx"
@@ -45,7 +45,7 @@
     },
     "ethernet": false,
     "sdcard": true,
-    "sbus_out": true,
+    "sbus_out": false,
     "iomcu": false,
     "adc_inputs": 12
   },
@@ -137,5 +137,140 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JAE (Japan Aviation Electronics Industry)",
+    "marketing_name": "JAE JFB-110",
+    "mcu_part": "STM32H755",
+    "imu_models": [
+      "SCHA63T",
+      "IIM-42652",
+      "IIM-42652"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "weight_g": 60,
+    "voltage_min_v": 4.9,
+    "voltage_max_v": 5.5,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "JAE MX77 series automotive-grade waterproof connectors",
+      "High-speed USB Type-C (OTG)",
+      "8-pin PWR1/PWR2 power brick ports",
+      "40-pin port 101",
+      "32-pin port 102",
+      "12-pin port 103"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "40-pin port 101: Telem1, GPS1/2, CAN1, I2C1/2, RC input, SBUS out, safety switch, buzzer. 32-pin port 102: Telem2, CAN2, I2C4, PWM 1-8, FMU CAP. 12-pin port 103: USB OTG, PWM 9-16. Two 8-pin PWR1/PWR2 ports for external power bricks at 4.9-5.5V.",
+    "discrepancies": [
+      "manufacturer is null in data/boards/JFB110.json; all sources (hwdef USB_STRING_MANUFACTURER, README, wiki) confirm JAE (Japan Aviation Electronics Industry)",
+      "dimensions_mm and weight_g are null in manual block; wiki states 67x88x17mm and 60g",
+      "hwdef.dat comment text says 'ICM42652' but CS pin names use 'IIM42652' \u2014 wiki explicitly calls them 'TDK InvenSense IIM-42652' (industrial variant); the comment is mislabeled",
+      "voltage_min_v / voltage_max_v represent power brick input (4.9\u20135.5V), not direct battery cell voltage; board has no on-board BEC from battery"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JFB110.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JFB110/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JFB110/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-jae-jfb110.rst"
+    ],
+    "dimensions_mm": {
+      "length": 88,
+      "width": 67,
+      "height": 17
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H755xx",
+        "wiki": "STM32H755",
+        "manufacturer": null,
+        "readme": "STM32H755",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SCHA63T + Invensensev3 (iim42652_1, iim42652_2)",
+        "wiki": "1x SCHA63T and 2x TDK InvenSense IIM-42652",
+        "manufacturer": null,
+        "readme": "SCHA63T and IIM42652 x2",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI x2",
+        "wiki": "2x MS5611",
+        "manufacturer": null,
+        "readme": "MS5611 SPI barometer x2",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C:ALL_INTERNAL + ALL_EXTERNAL",
+        "wiki": "Built-in iSentek IST8310",
+        "manufacturer": null,
+        "readme": "builtin I2C IST8310 magnetometer",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (UART7, UART5, USART1, UART4, USART6, UART8, USART3)",
+        "wiki": "5 UARTs plus USB/RCIN/SBUS_OUT (informal count)",
+        "manufacturer": null,
+        "readme": "5 UARTs plus USB, RCIN, SBUS_OUT",
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1, CAN2",
+        "wiki": "two CAN ports",
+        "manufacturer": null,
+        "readme": "two CAN ports",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 defined",
+        "wiki": "MicroSD card slot",
+        "manufacturer": null,
+        "readme": "microSD card slot",
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm / width_mm / height_mm",
+        "hwdef": null,
+        "wiki": "67mm x 88mm x 17mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "60g",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Japan Aviation Electronics Industry Ltd.",
+        "wiki": "JAE (Japan Aviation Electronics Industry)",
+        "manufacturer": null,
+        "readme": "JAE",
+        "agree": "disagree"
+      }
+    ]
   }
 }

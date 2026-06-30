@@ -1,7 +1,7 @@
 {
   "slug": "AEDROXH7",
   "name": "AEDROXH7",
-  "manufacturer": null,
+  "manufacturer": "Aedrox",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -96,5 +96,169 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Aedrox",
+    "marketing_name": "AEDROX H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "blackbox_flash": "W25N",
+    "has_sdcard": false,
+    "weight_g": 8.5,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2.3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0-6P (DJI Air Unit / HD VTX, 10V on pin 1)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 UARTs (UART1 MAVLink, UART2 GPS, UART3 RC/SBUS, UART4 MAVLink, UART7 ESC telem, UART8 DisplayPort); 9 PWM (8 bidirectional DShot + LED); 1 CAN; 10V 2.3A VTX BEC (GPIO-controlled) + 5V 2.3A BEC; no built-in compass; I2C1 external connector, I2C2 internal baro",
+    "discrepancies": [
+      "Our data lists baro chip as 'DPS310' (hwdef driver alias) but README and wiki both specify 'DPS368'; the ArduPilot DPS310 driver supports both DPS310 and DPS368, so the physical chip is DPS368",
+      "README.md incorrectly states 'Onboard OSD using OSD_TYPE 1 (MAX7456 driver)' \u2014 this is a copy-paste error from another board; hwdef sets HAL_OSD_TYPE_DEFAULT=5 (MSP DisplayPort) and no MAX7456 SPIDEV exists; wiki correctly omits any MAX7456 claim",
+      "README/wiki feature list says '1x I2C' but hwdef defines two I2C buses (I2C1 for external connector, I2C2 internal for baro)",
+      "manufacturer, physical specs (dimensions, weight, mounting), and BEC outputs not populated in our data despite being fully specified in README and wiki",
+      "README PWM section mistakenly refers to 'SPEDIX F405' \u2014 clear copy-paste error; wiki corrects this to generic 'autopilot'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AEDROXH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AEDROXH7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AEDROXH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-aedroxh7.rst"
+    ],
+    "dimensions_mm": {
+      "length": 38,
+      "width": 38,
+      "height": 5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688",
+        "readme": "ICM42688-P",
+        "wiki": "ICM42688-P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (driver alias; supports DPS310 and DPS368)",
+        "readme": "DPS368",
+        "wiki": "DPS368",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/7/8)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1",
+        "wiki": "1",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "false (OSD_TYPE 5 = MSP DisplayPort, no MAX7456 SPIDEV)",
+        "readme": "claims MAX7456 OSD_TYPE 1 (copy-paste error)",
+        "wiki": "DisplayPort only, no MAX7456 mentioned",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5x30.5mm",
+        "wiki": "30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_hole_dia_mm",
+        "hwdef": null,
+        "readme": "4mm",
+        "wiki": "4mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "8.5g",
+        "wiki": "8.5g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "38x38x5mm",
+        "wiki": "38x38x5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "up to 6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD card lines)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx",
+        "readme": "Flash Memory (non-specific)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "DroneerF405",
   "name": "DroneerF405",
-  "manufacturer": null,
+  "manufacturer": "Droneer",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,167 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Droneer",
+    "marketing_name": "Droneer F405",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "M25P16",
+    "has_sdcard": false,
+    "weight_g": 7,
+    "voltage_cells": "3-8S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "10V VTX",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-4P (10V Tramp/HD VTX)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs: UART1 (Tramp/VTX), UART2 (RCIN/SBUS via inverter), UART3 (User), UART4 (GPS), UART5 (ESC Telem); 9 PWM outputs (M1-M8 ESC + M9 LED); dual camera inputs; no built-in compass",
+    "discrepancies": [
+      "manufacturer is null in data; hwdef README and wiki both identify it as Droneer",
+      "osd_chip not recorded in data; hwdef SPIDEV table and README/wiki confirm MAX7456",
+      "blackbox_flash not recorded in data; hwdef comment names M25P16 (2 MB SPI dataflash on SPI3)",
+      "bec_outputs is empty in data; README and wiki list 5V/3A + 10V/2A VTX BECs",
+      "physical dimensions and weight not populated in manual block; README and wiki both state 37x37mm, 7g"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/DroneerF405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DroneerF405/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DroneerF405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-DroneerF405.rst"
+    ],
+    "dimensions_mm": {
+      "length": 37,
+      "width": 37,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 / SPI:icm42688 (ICM42688-P)",
+        "readme": "ICM42688-P",
+        "wiki": "ICM42688-P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (SPIDEV osd, SPI2)",
+        "readme": "max7456",
+        "wiki": "MAX7456",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "M25P16 (SPI3, HAL_LOGGING_DATAFLASH_ENABLED)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1/2/3, UART4/5)",
+        "readme": "5",
+        "wiki": "5",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SDIO present",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3S to 8S",
+        "wiki": "3S to 8S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "7g",
+        "wiki": "7g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm / width_mm",
+        "hwdef": null,
+        "readme": "37x37mm",
+        "wiki": "37x37mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/3A + 10V/2A VTX",
+        "wiki": "5V/3A + 10V/2A VTX",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Droneer (droneer.com)",
+        "readme": "Droneer (droneer.com)",
+        "wiki": "Droneer (droneer.co)",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

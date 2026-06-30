@@ -1,7 +1,7 @@
 {
   "slug": "mRoControlZeroClassic",
   "name": "mRoControlZeroClassic",
-  "manufacturer": null,
+  "manufacturer": "mRobotics",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -120,5 +120,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mRobotics",
+    "marketing_name": "mRo Control Zero Classic",
+    "family": "mRo Control Zero",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI088",
+      "ICM-20602",
+      "ICM-20948"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "weight_g": 4.14,
+    "voltage_min_v": 5.25,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "DF-13"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "12 PWM outputs DMA-capable switchable 3.3V/5V; USART2+3 with hardware flow control (Telem1/2); UART4 GPS1; UART7 GPS2; UART8 FrSky; USART1 additional; 2x CAN (silent-pin controlled); Spektrum satellite RC; Pixhawk 1 identical case and DF-13 connector layout",
+    "discrepancies": [
+      "Second IMU chip_display in JSON shows 'ICM20608' but the actual chip is ICM-20602: hwdef CS pin is named ICM_20602_CS, hwdef header comment explicitly says 'ICM20602 6DOF', and docs.3dr.com confirms ICM-20602. The SPIDEV alias 'icm20608' is a legacy ArduPilot bus label, not the part number.",
+      "hwdef header comment says '5x UARTs (2x with hardware flow control)' but the actual SERIAL_ORDER defines 6 hardware UARTs (USART2, USART3, UART4, UART7, UART8, USART1). The docs.3dr.com page also says 5 UARTs. The hwdef comment and external docs appear outdated relative to the actual SERIAL_ORDER.",
+      "JSON field manufacturer is null; should be mRobotics (USB_STRING_MANUFACTURER in hwdef is 'mRo').",
+      "docs_url (https://store.mrobotics.io/product-p/m10048d.htm) now 302-redirects to the 3DR homepage rather than the product page; the current equivalent URL is https://store.3dr.com/control-zero-classic/ or https://docs.3dr.com/autopilots/control-zero-classic/. No local ArduPilot wiki page exists for this board (autopilots.rst links directly to the vendor store URL with no .rst page).",
+      "height_mm of 15mm is the with-case measurement from docs; bare PCB height is not separately documented."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mRoControlZeroClassic.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoControlZeroClassic/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mro-control-zero-F7.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-3DR_Control_Zero_OEM_G.rst",
+      "https://docs.3dr.com/autopilots/control-zero-classic/",
+      "https://store.3dr.com/control-zero-classic/"
+    ],
+    "dimensions_mm": {
+      "length": 70,
+      "width": 40,
+      "height": 15
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx (STM32H743ZIT6 per comment)",
+        "wiki": null,
+        "manufacturer": "STM32H743 Cortex M7",
+        "readme": null
+      },
+      {
+        "field": "imu_models[0] BMI088",
+        "agree": "agree",
+        "hwdef": "BMI088 on SPI5 (bmi088_a/bmi088_g aliases)",
+        "wiki": "BMI088 (F7 wiki page, same sensor set)",
+        "manufacturer": "Bosch BMI088",
+        "readme": null
+      },
+      {
+        "field": "imu_models[1] ICM-20602 vs ICM-20608",
+        "agree": "disagree",
+        "hwdef": "SPIDEV alias 'icm20608' but CS pin = ICM_20602_CS; comment says 'ICM20602 6DOF'",
+        "wiki": "ICM-20602 (F7 wiki for same design)",
+        "manufacturer": "ICM-20602 per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "imu_models[2] ICM-20948",
+        "agree": "agree",
+        "hwdef": "Invensensev2 SPI:icm20948",
+        "wiki": "ICM-20948 (F7 wiki)",
+        "manufacturer": "ICM-20948 per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "baro_models DPS310",
+        "agree": "agree",
+        "hwdef": "BARO DPS310 SPI:dps310",
+        "wiki": "DPS310 (F7 wiki)",
+        "manufacturer": "Infineon DPS310 per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "compass_models AK09916",
+        "agree": "agree",
+        "hwdef": "COMPASS AK09916:probe_ICM20948",
+        "wiki": null,
+        "manufacturer": "AK09916 internal per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "partial",
+        "hwdef": "6 in SERIAL_ORDER (USART2/3/UART4/7/8/USART1); header comment says '5x UARTs'",
+        "wiki": null,
+        "manufacturer": "5 per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 + CAN2",
+        "wiki": null,
+        "manufacturer": "2 per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC1 pins defined",
+        "wiki": null,
+        "manufacturer": "SD card socket per product listing",
+        "readme": null
+      },
+      {
+        "field": "dimensions length_mm x width_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "70mm x 40mm (PCB) per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "4.14g per docs.3dr.com",
+        "readme": null
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "None listed in docs (no mounting holes)",
+        "readme": null
+      },
+      {
+        "field": "voltage input",
+        "agree": "unknown",
+        "hwdef": "Battery monitor ADC pins present; VDD_3V3/1V8 sensor enables",
+        "wiki": null,
+        "manufacturer": "5.25V minimum input per docs.3dr.com (regulated 5V board, not direct LiPo)",
+        "readme": null
+      }
+    ]
   }
 }

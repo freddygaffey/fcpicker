@@ -1,7 +1,7 @@
 {
   "slug": "speedybeef4",
   "name": "speedybeef4",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -92,5 +92,157 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F4 AIO",
+    "family": "SpeedyBee F4",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 8.8,
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9.9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "volts": 3.3,
+        "amps": null,
+        "rail": null
+      },
+      {
+        "volts": 4.5,
+        "amps": null,
+        "rail": null
+      },
+      {
+        "volts": 5,
+        "amps": 2,
+        "rail": null
+      },
+      {
+        "volts": 9,
+        "amps": 2,
+        "rail": null
+      }
+    ],
+    "uart_count": 4,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB",
+      "I2C port (for external GPS/baro)"
+    ],
+    "has_baro": false,
+    "has_osd": true,
+    "wireless": "Bluetooth (onboard, connected to UART5, for SpeedyBee App)",
+    "pinout_notes": "6x PWM outputs (PC6-PC9 on TIM8 group, PA15 on TIM2, PA8 on TIM1); 4x UARTs (USART1, UART4, USART3, UART5 \u2014 UART5 shared with onboard Bluetooth); I2C1 for external sensors; SPI1 for IMU, SPI2 for OSD, SPI3 for onboard dataflash; integrated voltage and current sensing (200A sensor); RC input on PA3/TIM9",
+    "discrepancies": [
+      "Current JSON baros[] lists BMP085 but the board has NO built-in barometer \u2014 hwdef has HAL_BARO_ALLOW_INIT_NO_BARO and the wiki warns 'This autopilot does not have a barometer'; the BMP085 probe is for an optional external sensor on I2C",
+      "Current JSON manufacturer is null; should be SpeedyBee",
+      "Wiki specs page says '4x PWM outputs' but hwdef defines 6 PWM outputs (PC6-PC9 on TIM8 plus PA15 and PA8)",
+      "Wiki describes the IMU as providing 'accel, gyro, compass' but no compass is built-in; hwdef probes external compass only via I2C",
+      "hwdef CS pin alias is MAX7456_CS but physical chip per manufacturer is AT7456E (pin-compatible MAX7456 clone)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/speedybeef4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef4.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://www.speedybee.com/speedy-bee-f4-aio-flight-controller/"
+    ],
+    "dimensions_mm": {
+      "length": 39,
+      "width": 36,
+      "height": 7
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "wiki": "STM32F405",
+        "manufacturer": "STM32F405",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "mpu6000 alias (Invensense SPI)",
+        "wiki": "InvenSense MPU6000",
+        "manufacturer": "MPU6000",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "probes BMP085 externally; HAL_BARO_ALLOW_INIT_NO_BARO defined",
+        "wiki": "explicitly says no built-in barometer",
+        "manufacturer": "no baro mentioned",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 (USART1, UART4, USART3, UART5)",
+        "wiki": "4x serial ports",
+        "manufacturer": "4 UART ports",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "6 (PC6-PC9 + PA15 + PA8)",
+        "wiki": "4x PWM outputs",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS CS pin / osd SPIDEV",
+        "wiki": null,
+        "manufacturer": "AT7456E",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "dataflash on SPI3 FLASH_CS (no size given)",
+        "wiki": "on-board data flash mentioned",
+        "manufacturer": "16MB onboard dataflash",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "wiki": "3S to 6S",
+        "manufacturer": "3S-6S",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "no Bluetooth defined in pin assignments",
+        "wiki": "Onboard Bluetooth listed",
+        "manufacturer": "Built-in Bluetooth on UART5 for SpeedyBee App",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPI3 comment says 'sdcard and onboard flash' but no SD card SPIDEV defined, only dataflash",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

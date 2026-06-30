@@ -1,7 +1,7 @@
 {
   "slug": "ARK_FPV",
   "name": "ARK_FPV",
-  "manufacturer": null,
+  "manufacturer": "ARK Electronics",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -104,5 +104,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ARK Electronics",
+    "marketing_name": "ARK FPV Flight Controller",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "IIM-42653"
+    ],
+    "baro_models": [
+      "BMP390"
+    ],
+    "compass_models": [
+      "IIS2MDC"
+    ],
+    "has_sdcard": true,
+    "weight_g": 7.5,
+    "voltage_cells": "2-12S",
+    "voltage_min_v": 5.5,
+    "voltage_max_v": 54,
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST-GH",
+      "JST-SH",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "9 PWM outputs (CH1-4 bidir DSHOT TIM5, CH5-8 TIM8, CH9 TIM4); 6 UARTs: UART7 (Telem, flow ctrl), UART5 (VTX/DisplayPort), USART1 (GPS), USART2 (user/SBUS RX), UART4 (ESC telem), USART6 (RC); 1 CAN; SPI6 ext bus for OSD or external IMU; debug header (USART3+SWD); MSP-DisplayPort OSD via VTX connector",
+    "discrepancies": [
+      "hwdef uses BMP388 driver name but README and wiki both explicitly state the physical chip is BMP390 (BMP390 is software-compatible with BMP388 driver \u2014 real chip is BMP390)",
+      "wiki features section says '5x UARTS' but hwdef SERIAL_ORDER contains 6 physical UARTs (UART7, UART5, USART1, USART2, UART4, USART6) \u2014 hwdef is authoritative; uart_count=6 is correct",
+      "our data has manufacturer=null; should be 'ARK Electronics'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ARK_FPV.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ARK_FPV/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ARK_FPV/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ARK_FPV/common.inc",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-ark-fpv.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:iim42653 (SPIDEV alias 'iim42653')",
+        "readme": "Invensense IIM-42653",
+        "wiki": "Invensense IIM-42653",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 (driver name)",
+        "readme": "Bosch BMP390",
+        "wiki": "Bosch BMP390",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IIS2MDC I2C:2:0x1E",
+        "readme": "ST IIS2MDC",
+        "wiki": "IIS2MDC",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (UART7 UART5 USART1 USART2 UART4 USART6)",
+        "readme": "6 physical UARTs in pinout tables",
+        "wiki": "5x UARTS",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1",
+        "readme": "CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 pins defined",
+        "readme": "Micro SD",
+        "wiki": "Micro SD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1, HAL_OSD_TYPE_DEFAULT 5 (MSP DisplayPort)",
+        "readme": "OSD Support section, MSP-DisplayPort on DJI-compatible JST-SH",
+        "wiki": "OSD Support section",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_SCALE 21 (12S capable per battery comment)",
+        "readme": "5.5V - 54V (2S - 12S)",
+        "wiki": "5.5V - 54V (2S - 12S)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "3.6 x 3.6 x 0.8 cm",
+        "wiki": "3.6 x 3.6 x 0.8 cm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "7.5g with MicroSD card",
+        "wiki": "7.5g with MicroSD card",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "12V 2A output; 5V 2A output",
+        "wiki": "12V 2A output; 5V 2A output (300mA system + 200mA heater + 1.5A peripherals)",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

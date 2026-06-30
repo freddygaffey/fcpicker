@@ -1,7 +1,7 @@
 {
   "slug": "luminousbee4",
   "name": "luminousbee4",
-  "manufacturer": null,
+  "manufacturer": "LuminousBees",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -108,5 +108,124 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "LuminousBees",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "BMI088"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843",
+      "LIS3MDL"
+    ],
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "7 PWM outputs (TIM1 x4 + TIM4 x3); DW1000 UWB chip onboard (SPI4); Ramtron FRAM for parameter storage (SPI2); ESP8266 WiFi module on USART2 (telem1); 1-axis battery monitor (voltage + current); UART7 is debug port (NODMA); APJ_BOARD_ID matches Pixracer (PX4_FMU_V4)",
+    "discrepancies": [
+      "Compass SPIDEV entries for HMC5843 and LIS3MDL are missing from hwdef.dat: SPI1 bus (PA5/PA6/PA7) is defined but there are no SPIDEV lines for 'hmc5843' or 'lis3mdl' and no CS pin assignments for them on SPI1. These COMPASS directives appear to be vestigial from a Pixracer-derived design. Without SPIDEV entries these internal compasses cannot be discovered at runtime; they may be absent on the physical hardware or only probed externally.",
+      "SPI1 bus is defined in hwdef (PA5/PA6/PA7, labeled 'sensors bus') but the build script reports only SPI2 and SPI4 in the JSON (correct per SPIDEV table which has no SPI1 entries). The SPI1 pins may be present on the PCB but unused by firmware.",
+      "No README.md exists in the hwdef directory; all physical specs (dimensions, weight, mounting holes, voltage range) are unknown from local sources. Manufacturer's website (luminousbe.es) returned 404 for product pages so physical specs remain null."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/luminousbee4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/luminousbee4/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Pixracer/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/luminousbee5/hwdef.dat",
+      "https://luminousbe.es/",
+      "https://www.hackster.io/news/ardubee-takes-to-kickstarter-as-the-smallest-and-lightest-modular-platform-for-ardupilot-d0379b1c97d6",
+      "https://discuss.ardupilot.org/t/ardubee-is-ready/61702",
+      "https://github.com/ArduPilot/ardupilot/issues/20816"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (explicitly named, SPI4, both accel+gyro)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 (SPI2); DPS310 commented out as 'under test'",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 and LIS3MDL listed (SPI:hmc5843 / SPI:lis3mdl) but no SPIDEV entries or CS pins defined for SPI1 - comment says 'R15 has LIS3MDL instead of HMC5843'",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1, USART2, USART3, UART4, UART7, UART8 - USB is OTG1)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins or buses defined)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDIO pins PC8-PC12, PD2; HAL_OS_FATFS_IO enabled)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "false (no OSD chip defined)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "null (no onboard NOR flash; logging uses SD card; FRAM is for parameters only)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "comment: 'hwdef for Luminousbees flight board'",
+        "wiki": null,
+        "manufacturer": "LuminousBees (luminousbe.es, Made in Italy)",
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "revo-mini-sd",
   "name": "revo-mini-sd",
-  "manufacturer": null,
+  "manufacturer": "OpenPilot (open-source hardware; sold by HobbyKing and others)",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,115 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "OpenPilot (open-source hardware; sold by HobbyKing and others)",
+    "marketing_name": "OpenPilot RevoMini (Revolution Mini)",
+    "family": "STM32F4",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5883L"
+    ],
+    "has_sdcard": true,
+    "voltage_max_v": 5,
+    "uart_count": 5,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 PWM outputs (6 on PWM pins, 7-8 on Flex-IO/RCInput port); RC input on Flex-IO CH3 (PPM/SBUS only); GPS (SERIAL3) on FlexiPort; Telemetry (SERIAL1) on Mainport; USB (SERIAL0); OPLink port exposes external SPI pins (unused by ArduPilot); SD card on SPI3 (PA15 CS); dataflash logging disabled in favor of SD card.",
+    "discrepancies": [
+      "Compass chip conflict: hwdef uses driver alias 'HMC5843' (I2C:0x1E) but the wiki explicitly names 'Honeywell HMC5883L'. In ArduPilot, the HMC5843 driver class covers the HMC5843/HMC5883/HMC5983 family; the physical chip on OpenPilot RevoMini hardware is almost certainly the HMC5883L per wiki. Current board data records chip_display as null and chip as HMC5843 \u2014 should be updated to HMC5883L.",
+      "uart_count partial mismatch: hwdef SERIAL_ORDER lists 5 hardware UARTs (USART1/3/6/2, UART4); wiki default UART section only describes SERIAL0-3. The extra UARTs (SERIAL4/5) are available via BRD_ALT_CONFIG, so both sources are consistent but the wiki underrepresents the full count.",
+      "No physical dimensions or weight data found in any local source. These remain null.",
+      "Manufacturer is null in current data; board is an open-source hardware design by the OpenPilot project, sold by HobbyKing and other retailers."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/revo-mini-sd.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/revo-mini-sd/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/revo-mini-i2c/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-openpilot-revo-mini.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family) / STM32F405xx (specific)",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 (driver alias)",
+        "wiki": "InvenSense MPU6000 IMU",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 I2C:0:0x77",
+        "wiki": "MS5611 barometer",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 I2C:0:0x1E (driver family name)",
+        "wiki": "Honeywell HMC5883L",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1, USART3, USART6, USART2, UART4 per SERIAL_ORDER)",
+        "wiki": "4 named (SERIAL0-3); SERIAL4/5 available via ALT_CONFIG",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes \u2014 SPIDEV sdcard SPI3 DEVID2 SDCARD_CS added by revo-mini-sd",
+        "wiki": "implicitly yes \u2014 shows revoMiniSD image; mentions SPI OPLink port for SD adapters",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "wiki": "5V max on RevoMini",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no MAX7456 or OSD SPIDEV; minimize_fpv_osd.inc minimizes firmware, not hardware OSD",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "onboard dataflash SPI3 DEVID1 present in parent hwdef but HAL_LOGGING_DATAFLASH_ENABLED is undef'd in revo-mini-sd",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

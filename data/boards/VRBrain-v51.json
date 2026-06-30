@@ -1,7 +1,7 @@
 {
   "slug": "VRBrain-v51",
   "name": "VRBrain-v51",
-  "manufacturer": null,
+  "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F407xx"
@@ -30,9 +30,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 14,
+      "fmu": 12,
       "io": 0,
-      "total": 14
+      "total": 12
     },
     "ethernet": false,
     "sdcard": true,
@@ -107,5 +107,116 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Laser Navigation",
+    "marketing_name": "VR Brain 5.1",
+    "family": "VRBrain",
+    "mcu_part": "STM32F407xx",
+    "imu_models": [
+      "MPU-6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "12 PWM outputs (TIM1/2/3/4), 3 UARTs (USART1/2/3), 2 I2C buses, SBUS RC input, SDcard, RAMTRON FRAM for parameter storage, battery voltage+current sensing, 3 relay outputs, buzzer",
+    "discrepancies": [
+      "Current data shows fmu: 14 / total: 14 PWM outputs, but hwdef.dat only has 12 active PWM channels (PWM 13 and 14 on PE5/PE6 are commented out); vrbrain.wordpress.com spec page also confirms 'Up to 12 RC outputs'",
+      "Current data has manufacturer: null; hwdef USB_STRING_MANUFACTURER and local USB-IDs.rst confirm manufacturer is 'Laser Navigation'",
+      "Current data has docs_url: null \u2014 no local wiki RST page exists for this board; wiki only links externally to virtualrobotix.it"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VRBrain-v51.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRBrain-v51/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRBrain-v51/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/USB-IDs.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://vrbrain.wordpress.com/vrbrain-5/",
+      "https://www.lasernavigation.it/vr-brain-autopilot/"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F407xx",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 (MPU-6000)",
+        "wiki": null,
+        "manufacturer": "MPU6000 SPI",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 I2C x2 (one internal, one forced external)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART1, USART2, USART3)",
+        "wiki": null,
+        "manufacturer": "3",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "wiki": null,
+        "manufacturer": "mentions CAN for VRBrain line generally",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDCARD_CS pin + HAL_OS_FATFS_IO enabled)",
+        "wiki": null,
+        "manufacturer": "true",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_fmu",
+        "hwdef": "12 active (PE5/PE6 for PWM13/14 are commented out)",
+        "wiki": null,
+        "manufacturer": "Up to 12 RC outputs",
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Laser Navigation (USB_STRING_MANUFACTURER)",
+        "wiki": "Laser Navigation (USB-IDs.rst)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "X-MAV-AP-H743v2",
   "name": "X-MAV-AP-H743v2",
-  "manufacturer": null,
+  "manufacturer": "X-MAV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -121,5 +121,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "X-MAV",
+    "marketing_name": "AP-H743v2",
+    "family": "STM32H7xx",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI088",
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 9,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0-6P DJI Air Unit / HD VTX connector (9V on pin 1)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs: UART1=GPS, UART2=MAVLink, UART3=DJI DisplayPort, UART4/6/8=User, UART5=RCIN, UART7=ESC telem (RX only); 8 PWM (DShot/BiDir); 1 CAN; 30.5x30.5mm mounting",
+    "discrepancies": [
+      "Wiki (common-X_MAV_H743v2.rst) lists QMC5883P as the built-in compass in both the Features section and the Compass section, but hwdef.dat explicitly declares COMPASS IST8310 twice (external + internal bus) and README.md states IST8310; hwdef is authoritative \u2014 wiki appears to have an error or documents a different hardware revision",
+      "OSD chip labelled AT7456E in hwdef CS-pin name (AT7456E_CS) and README features list, but README prose and wiki OSD section both call it MAX7456; AT7456E is the actual Atmel-branded chip and is pin/software-compatible with the Maxim MAX7456"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/X-MAV-AP-H743v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/X-MAV-AP-H743v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/X-MAV-AP-H743v2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-X_MAV_H743v2.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "compass_chip",
+        "hwdef": "IST8310",
+        "readme": "IST8310",
+        "wiki": "QMC5883P",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + ICM42688P (via CS pin name ICM42688P_CS)",
+        "readme": "BMI088/ICM42688P",
+        "wiki": "BMI088/ICM42688P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_chip",
+        "hwdef": "DPS310",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8",
+        "readme": "8 UARTs",
+        "wiki": "8 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1",
+        "readme": "1 CAN",
+        "wiki": "1 CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "36x36x8mm",
+        "wiki": "36x36x8mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "9g",
+        "wiki": "9g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5x30.5mm, \u03a64mm",
+        "wiki": "30.5x30.5mm, \u03a64mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (CS pin name AT7456E_CS)",
+        "readme": "AT7456E (features list); MAX7456 (OSD section prose)",
+        "wiki": "AT7456E (features list); MAX7456 (OSD section prose)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_max",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "up to 6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V 3A + 5V 3A",
+        "wiki": "9V 3A + 5V 3A",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

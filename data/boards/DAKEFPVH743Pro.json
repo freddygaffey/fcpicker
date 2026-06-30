@@ -1,7 +1,7 @@
 {
   "slug": "DAKEFPVH743Pro",
   "name": "DAKEFPVH743Pro",
-  "manufacturer": null,
+  "manufacturer": "DAKEFPV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -106,5 +106,156 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "DAKEFPV",
+    "marketing_name": "DAKEFPV H743 Pro",
+    "family": "H743",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "4-12S",
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB",
+      "CAN (CAN1)",
+      "dual switchable camera inputs (CAM1/CAM2)",
+      "12V VTX output (GPIO-controlled via RELAY2)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs: UART1=GPS, UART2=MAVLink, UART3=ESC Telem, UART4=DisplayPort, UART5=RCin/SBUS, UART6-8=User. 14 PWM: M1-M8 motors (BDShot capable), S1-S4 servos, OSD (PWM13), LED (PWM14). 1 CAN. No onboard compass (external I2C). AT7456E OSD + DisplayPort simultaneous. 16MB SPI dataflash. GPIO-controlled CAM switch and 12V VTX power.",
+    "discrepancies": [
+      "JSON bec array is empty but README.md and wiki both document three BEC rails: 3.3V/0.5A, 5V/3A, and 12V/3A (video, GPIO-controlled) \u2014 bec_outputs are missing from our data",
+      "Wiki OSD Support section calls the chip 'MAX7456' while the wiki Features section and README.md both name it 'AT7456E'; AT7456E is the correct specific part (a MAX7456-compatible clone)",
+      "JSON stores IMU chip as 'Invensensev3' (the hwdef driver alias for the ICM42xxx family) rather than the physical IC; README.md, wiki, and Alibaba listing all confirm the real parts are dual ICM42688 (specifically ICM42688-P per Alibaba)",
+      "README.md features section states '13x PWM Outputs (12 Motor Output, 1 LED)' but hwdef.dat defines 14 PWM channels (M1-M8, S1-S4, OSD=PWM13, LED=PWM14); the wiki PWM Output section later correctly states 'up to 14 outputs'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/DAKEFPVH743Pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743Pro/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743Pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-dakefpvh743pro.rst",
+      "https://anubisrc.com/product/dakefpv-h743-flight-controller/ (standard H743, not Pro \u2014 used for physical spec cross-reference only)",
+      "https://www.alibaba.com/product-detail/DAKEFPV-H743-Flight-Controller-STM32H743-FC_1601577342967.html"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7xx STM32H743xx",
+        "readme": "STM32H743 @ 480 MHz",
+        "wiki": "STM32H743 @ 480 MHz",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias, two instances on SPI1 and SPI4)",
+        "readme": "Dual ICM42688",
+        "wiki": "Dual ICM42688",
+        "manufacturer": "ICM42688-P (Alibaba listing)",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1,USART2,USART3,UART4,UART5,USART6,UART7,UART8 in SERIAL_ORDER)",
+        "readme": "8x UARTs",
+        "wiki": "8x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1 on PD0/PD1)",
+        "readme": "1x CAN port",
+        "wiki": "1x CAN port",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456-family driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E in features; 'MAX7456 chip' in OSD Support section",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 / HAL_LOGGING_DATAFLASH_ENABLED",
+        "readme": "Onboard Flash: 16MByte",
+        "wiki": "Onboard Flash: 16MByte",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "4S-12S",
+        "wiki": "4S-12S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V/0.5A + 5V/3A + 12V/3A (video, GPIO-controlled)",
+        "wiki": "3.3V/0.5A + 5V/3A + 12V/3A",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SDCARD defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "14 (PWM1-14: M1-8, S1-4, OSD=13, LED=14)",
+        "readme": "13x PWM Outputs",
+        "wiki": "13x in features; up to 14 in PWM section",
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

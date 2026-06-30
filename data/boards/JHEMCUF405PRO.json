@@ -1,7 +1,7 @@
 {
   "slug": "JHEMCUF405PRO",
   "name": "JHEMCUF405PRO",
-  "manufacturer": null,
+  "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -92,5 +92,160 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JHEMCU",
+    "marketing_name": "JHEMCU GHF405AIO-HD (JHEMCUF405PRO)",
+    "family": "GHF405 AIO",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM42605"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 7.1,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH6P 1mm HD VTX connector"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs (USART1,2,3,4,6); 4 motor outputs + 1 LED/PWM; I2C pads exposed; SH6P 1mm HD VTX connector; no CAN; onboard voltage & current sensor",
+    "discrepancies": [
+      "board data: manufacturer is null \u2014 should be JHEMCU",
+      "board data: power.bec is empty \u2014 should be 5V/2.5A + 10V/2A (per README, wiki, and all web sources)",
+      "board data: power.monitor_inputs is 0 \u2014 board has onboard voltage and current sensing (BATT_MONITOR=4 in hwdef)",
+      "board data: blackbox_flash not set \u2014 README and wiki state 8MB onboard dataflash",
+      "board data: osd_chip not set \u2014 README explicitly names AT7456E",
+      "Current vendor web pages for 'updated' GHF405-HD and GHF405 PRO SKUs list ICM42688-P, while hwdef.dat and README/wiki define ICM42605 \u2014 the JHEMCUF405PRO ArduPilot target was written for the ICM42605 hardware revision; manufacturer appears to have silently updated hardware on current production"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JHEMCUF405PRO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCUF405PRO/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCUF405PRO/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-jhemcuf405pro.rst",
+      "https://www.nextfpv.com/products/jhemcu-updated-ghf405-hd-aio-f4-osd-flight-controller-and-built-in-40a-bluejay-2-6s-4in1-esc",
+      "https://speedyfpv.com/products/jhemcu-ghf405aio-icm-pro-40a-25-5x25-5mm-f405-flight-controller-blhelis-40a-4in1-esc-3-6s",
+      "https://pyrodrone.com/products/jhemcu-ghf405-pro-blheli_s-45a-3-6s-aio-whoop-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 33,
+      "width": 33,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": "STM32F405",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42605 (alias confirms ICM42605)",
+        "readme": "ICM42605",
+        "wiki": "ICM42605",
+        "manufacturer": "ICM42688-P (updated version)",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1,2,3,4,6)",
+        "readme": "5x UARTs",
+        "wiki": "5x UARTs",
+        "manufacturer": "5",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": "3S-6S (newer variants)",
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/2.5A, 10V/2A",
+        "wiki": "5V/2.5A, 10V/2A",
+        "manufacturer": "5V/2.5A, 10V/2A",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "OSD using MAX7456 driver",
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash on SPI3",
+        "readme": "8MB",
+        "wiki": "8MB",
+        "manufacturer": "8MB",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SDIO)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "33x33mm, 7.1g, 25.5x25.5mm mounting",
+        "agree": "unknown"
+      }
+    ]
   }
 }

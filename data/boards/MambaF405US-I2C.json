@@ -1,7 +1,7 @@
 {
   "slug": "MambaF405US-I2C",
   "name": "MambaF405US-I2C",
-  "manufacturer": null,
+  "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -79,8 +79,8 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/README.md",
-  "repo_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-mamba-basic-mk3.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,
@@ -94,5 +94,129 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Diatone",
+    "marketing_name": "Mamba Basic F405",
+    "family": "Mamba Basic",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "M25P16 (2MB)",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "I2C pads (SDA/SCL for external compass or barometer)",
+      "USB"
+    ],
+    "has_baro": false,
+    "has_osd": true,
+    "pinout_notes": "USB + 6 UARTs (USART1 RC/SBUS, USART2-3, UART4-5, USART6 GPS); 4 PWM/DShot outputs; I2C1 with pull-ups for external peripherals; shared firmware covers both 30x30 and 20x20 physical variants",
+    "correct_wiki_stem": "common-mamba-basic-mk3",
+    "discrepancies": [
+      "manufacturer is null in current data; README and wiki confirm Diatone",
+      "docs_url points to GitHub hwdef README rather than the ArduPilot wiki page (common-mamba-basic-mk3)",
+      "current data lists BMP280 in baros[], but the wiki's Barometer-less Operation section explicitly states no onboard barometer; the hwdef BMP280 entry probes the EXTERNAL I2C bus only (AP_BARO_BACKEND_DEFAULT_ENABLED 0)",
+      "README/wiki features sections say '4 UARTs' but hwdef SERIAL_ORDER configures 6 UARTs (USART1-3, UART4-5, USART6); our uart_count of 6 matches hwdef capability",
+      "blackbox_flash (M25P16 / 2MB on SPI3) is present in hwdef but not reflected in current data",
+      "firmware is shared between 30x30 and 20x20 physical board variants; mounting dimensions cannot be determined without resolving which variant the slug represents"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MambaF405US-I2C.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405US-I2C/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaF405-2022/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mamba-basic-mk3.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405RGT6",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000",
+        "readme": "MPU6000",
+        "wiki": "MPU6000",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "Probes BMP280 on external I2C:0:0x76 (AP_BARO_BACKEND_DEFAULT_ENABLED 0)",
+        "readme": null,
+        "wiki": "Explicitly states no onboard barometer (Barometer-less Operation section)",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPI2/OSD_CS, MAX7456-compatible driver",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (OTG1 + USART1-3, UART4-5, USART6 in SERIAL_ORDER)",
+        "readme": "4 UARTs (features section), 5 in UART table",
+        "wiki": "4 UARTs (features section)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPI3 FLASH_CS comment: Dataflash M25P16 (2MB)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Diatone (diatone.us)",
+        "wiki": "Diatone",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "up to 6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card configured",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "common-mamba-basic-mk3 covers this board (firmware labeled MambaF405US-I2C)",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

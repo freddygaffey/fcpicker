@@ -1,7 +1,7 @@
 {
   "slug": "PrincipIoTH7Pi",
   "name": "PrincipIoTH7Pi",
-  "manufacturer": null,
+  "manufacturer": "PrincipIoT",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -111,5 +111,174 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "PrincipIoT",
+    "marketing_name": "PrincipIoT H7 Pi",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM-42688P",
+      "IIM-42653"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "compass_models": [
+      "IIS2MDC"
+    ],
+    "has_sdcard": true,
+    "weight_g": 11.3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 11,
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "40-pin Raspberry Pi Zero 2 header (USART3 shared)",
+      "ESC connector with current sense and telemetry input",
+      "VTX SH1.0-5P connector with 10V BEC"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs (USART3 shared with RPi 40-pin header); 9 PWM (6 motors on TIM5/TIM3 with BiDir DShot 1-6, 2 servos TIM15, 1 LED strip TIM1 PWM9); 1 CAN; SD card SDMMC1; USB-C; ESC connector with BATT_CURR sense; VTX 5-pin SH1.0 with GPIO-controlled 10V@2A BEC (GPIO81/RELAY2); FRAM pads on SPI3 unpopulated",
+    "discrepancies": [
+      "hwdef uses DPS310 driver alias but README specifies the physical chip as Infineon DPS368; AP_Baro_DPS310 inherits from AP_Baro_DPS280 and supports DPS368 hardware (same register interface); board JSON should list DPS368 as the actual chip",
+      "Board JSON manufacturer is null but README clearly names PrincipIoT as the manufacturer",
+      "Board JSON bec:[] is empty but README documents two BEC outputs: 5V@2A (board, RPi, peripherals) and GPIO-controlled 10V@2A (VTX)",
+      "README PWM section states 'supports up to 8 PWM outputs' but hwdef and GPIO table define 9 (PWM9 = LED strip on TIM1); README Specifications section correctly states 9 PWM"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PrincipIoTH7Pi.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PrincipIoTH7Pi/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PrincipIoTH7Pi/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-future-wiki-changes.rst",
+      "/Users/fred/ardupilot/libraries/AP_Baro/AP_Baro_DPS280.h"
+    ],
+    "dimensions_mm": {
+      "length": 65,
+      "width": 30,
+      "height": 9
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743 32-bit 480MHz",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models[0]",
+        "hwdef": "Invensensev3 SPI:icm42688",
+        "readme": "Invensense ICM-42688P",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models[1]",
+        "hwdef": "Invensensev3 SPI:iim42653",
+        "readme": "Invensense IIM-42653",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76 (driver alias)",
+        "readme": "Infineon DPS368",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IIS2MDC I2C:1:0x1E",
+        "readme": "ST IIS2MDC",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART2, USART3, UART4, USART6, UART7, UART8)",
+        "readme": "6",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 only",
+        "readme": "CAN (1)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "readme": "Micro SD card",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "65x30x9mm (20mm with RPi)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "11.3g with MicroSD",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3-6S (11-30V)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "5V rail implied; 10V GPIO81 controlled (PINIO1)",
+        "readme": "5V@2A board/RPi/peripherals; 10V@2A VTX GPIO controlled",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED=1 HAL_OSD_TYPE_DEFAULT=5 MSP DisplayPort",
+        "readme": "DisplayPort OSD via SERIAL4/USART6",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

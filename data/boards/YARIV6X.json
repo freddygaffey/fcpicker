@@ -1,7 +1,7 @@
 {
   "slug": "YARIV6X",
   "name": "YARIV6X",
-  "manufacturer": null,
+  "manufacturer": "YARI Robotics",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -131,5 +131,132 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "YARI Robotics",
+    "marketing_name": "YARI V6X",
+    "family": "FMUv6X / PAB",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "ICM-45686",
+      "ICM-45686",
+      "ICM-45686"
+    ],
+    "baro_models": [
+      "ICP-20100",
+      "ICP-20100"
+    ],
+    "compass_models": [
+      "BMM350"
+    ],
+    "has_sdcard": true,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH (Ethernet, CAN, GPS, Telem, I2C, ADC, USB)",
+      "Molex CLIK-Mate (power module inputs)",
+      "Hirose DF40 (PAB 100-pin + 50-pin board-to-board)",
+      "JST-ZH (DSM)",
+      "JST-SH (debug)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "PAB form factor; 8 FMU PWM (A1-8) + 8 IOMCU PWM (M1-8) = 16 total; 3 Telem ports (UART7, UART5, USART2), 2 GPS ports (USART1, UART8), 2 CAN (JST-GH), Ethernet (JST-GH), 2 USB (C + JST-GH); USART6 reserved for IOMCU; all UARTs have DMA",
+    "discrepancies": [
+      "manufacturer is null in boards/YARIV6X.json but README clearly identifies this as 'YARI Robotics'",
+      "marketing_name in manual block is null but README/product name is 'YARI V6X'",
+      "baros[].chip_display is null for both barometer entries; real part is ICP-20100 (confirmed by README and hwdef pin name DRDY1_ICP20100)",
+      "No dedicated ArduPilot wiki .rst page exists; docs_url correctly points to GitHub hwdef directory (only listing is in common-autopilots.rst with same URL)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/YARIV6X.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/YARIV6X/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/YARIV6X/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family alias)",
+        "readme": "STM32H743IIK6 (480MHz, 2MB Flash, 1MB RAM)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "IMU Invensensev3 SPI:icm45686-1/2/3 (x3)",
+        "readme": "3x Invensense ICM-45686",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO ICP201XX I2C:0:0x64 + I2C:2:0x63; pin DRDY1_ICP20100",
+        "readme": "2x Invensense ICP-20100",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "COMPASS BMM350 I2C:0:0x15",
+        "readme": "Bosch BMM350 Magnetometer",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER: UART7, UART5, USART1, UART8, USART2, UART4, USART3 = 7 (excluding USB/IOMCU)",
+        "readme": "7 user-accessible UARTs (SERIAL1-7)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2 = 2",
+        "readme": "2x CAN Ports",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 (PD6/PD7/PB14/PB15/PG11/PB4)",
+        "readme": "MicroSD Slot (Includes 64GB MicroSD card)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "YARI Robotics (sold by YARI Robotics, yarirobotics.com)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip defined",
+        "readme": "no OSD mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SDMMC2 for logging; FRAM (ramtron SPI5) for parameter storage only (HAL_STORAGE_SIZE=32768)",
+        "readme": "FRAM 256KB (parameter storage), MicroSD for logging",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

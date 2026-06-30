@@ -1,7 +1,7 @@
 {
   "slug": "DAKEFPVH743_SLIM",
   "name": "DAKEFPVH743_SLIM",
-  "manufacturer": null,
+  "manufacturer": "DAKEFPV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -106,5 +106,160 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "DAKEFPV",
+    "marketing_name": "DAKEFPV H743 SLIM",
+    "family": "H743 SLIM",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "4-12S",
+    "voltage_max_v": 50.4,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB Type-C",
+      "DJI HD VTX connector",
+      "CAN port"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs: UART1=GPS, UART2=MAVLink, UART3=ESC telem, UART4=DisplayPort, UART5=RCin, UART6-8=User; 14 PWM (M1-8 bidir DShot, S1-4, OSD pad, LED); dual switchable CAM inputs; optional Bluetooth solder pads via UART2",
+    "discrepancies": [
+      "docs_url points to common-dakefpvh743pro (H743/H743 Pro page) which does not cover the SLIM variant; no dedicated SLIM wiki page exists in local wiki",
+      "our data shows manufacturer: null; confirmed DAKEFPV from README",
+      "our data shows power.bec: [] but README specifies BEC 3.3V/0.5A and BEC 5V/3A",
+      "our data shows power.monitor_inputs: 0 but hwdef.dat configures HAL_BATT_VOLT_PIN and HAL_BATT_CURR_PIN (voltage + current sense present)",
+      "wiki common-dakefpvh743pro.rst lists an additional BEC 12V 3A for video (RELAY2/GPIO82 controlled) that is NOT present in the SLIM README; this BEC is H743 Pro-specific",
+      "README features section says 'OSD - AT7456E' but README OSD Support section says 'MAX7456 chip'; AT7456E is a MAX7456-compatible clone and is the correct label for the features list",
+      "SLIM has no onboard SPI flash (no DATAFLASH in hwdef); the standard H743 and H743 Pro have 16MB onboard flash \u2014 SLIM relies on SD card only for blackbox"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/DAKEFPVH743_SLIM.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743_SLIM/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DAKEFPVH743_SLIM/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-dakefpvh743pro.rst",
+      "https://anubisrc.com/product/dakefpv-h743-flight-controller/ (standard H743, not SLIM \u2014 used for cross-reference only)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (x2, family alias)",
+        "readme": "Dual ICM42688",
+        "wiki": "Dual ICM42688",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E (features) / MAX7456 (OSD section)",
+        "wiki": "AT7456E (features) / MAX7456 (OSD section)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1,2,3,UART4,5,USART6,UART7,8)",
+        "readme": "8x UARTs",
+        "wiki": "8x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1",
+        "readme": "1x CAN port",
+        "wiki": "1x CAN port",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "no DATAFLASH or flash SPIDEV defined",
+        "readme": "no mention of onboard flash",
+        "wiki": "16MB (H743 Pro page \u2014 different board)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "4S-12S",
+        "wiki": "4S-12S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "BEC 3.3V 0.5A; BEC 5V 3A",
+        "wiki": "BEC 3.3V 0.5A; BEC 5V 3A; BEC 12V 3A (Pro-only)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "ALLOW_ARM_NO_COMPASS; external probing only",
+        "readme": "no builtin compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "common-dakefpvh743pro.rst covers H743/H743 Pro, NOT H743 SLIM",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

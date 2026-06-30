@@ -633,6 +633,17 @@
 .td-bool-no  { color: var(--ink-dim); }
 
 .td-name { white-space: nowrap; }
+/* Suggested manufacturer — secondary discovery hint, not authoritative. */
+.row-maker {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+  vertical-align: middle;
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
 .row-link {
   color: var(--ap-blue-dark);
   font-weight: 600;

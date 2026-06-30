@@ -1,7 +1,7 @@
 {
   "slug": "VRCore-v10",
   "name": "VRCore-v10",
-  "manufacturer": null,
+  "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F407xx"
@@ -30,9 +30,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 14,
+      "fmu": 12,
       "io": 0,
-      "total": 14
+      "total": 12
     },
     "ethernet": false,
     "sdcard": true,
@@ -100,5 +100,111 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Laser Navigation",
+    "marketing_name": "VR Core 1.0",
+    "family": "VRBrain",
+    "mcu_part": "STM32F407xx",
+    "imu_models": [
+      "MPU-9250"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "12 active PWM outputs (PWM 1-12; 13-14 commented out in hwdef); 3 UARTs (USART1/2/3) + OTG USB; I2C x2; SPI x3; Ramtron FRAM for parameter storage; SD card for logging; RC input on PC7 (TIM8 RCIN); no CAN",
+    "discrepancies": [
+      "hwdef SPIDEV alias is 'mpu9250' but IMU driver line references 'SPI:mpu6000'; the original hardware author (Laser Navigation) explicitly named the device 'mpu9250' in the first commit; the 'SPI:mpu6000' driver line was added later by a third-party contributor as a copy-paste from VRBrain-v51 and appears to be a bug \u2014 physical chip is most likely MPU-9250",
+      "manufacturer field in board data is null; hwdef USB_STRING_MANUFACTURER confirms 'Laser Navigation'",
+      "board data lists mcu.pwm.total=14 but only 12 PWM outputs are uncommented in hwdef (PWM 13 and 14 are commented out)",
+      "no dedicated ArduPilot wiki page found for VRCore-v10; docs_url is correctly null"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VRCore-v10.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRCore-v10/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/include/minimize_features.inc",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRBrain-v51/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/USB-IDs.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "git history: commit 33f7f5b7b6 (initial VRCore-v10 hwdef, Jan 2019)",
+      "git history: commit 13b86e6557 (added explicit IMU/BARO/COMPASS lines, Jun 2025)",
+      "https://www.lasernavigation.it/vr-brain-autopilot/"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F407xx",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SPIDEV alias 'mpu9250' (original author); IMU driver line 'SPI:mpu6000' (later addition, likely copy-paste error)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 I2C:1:0x1e forced external",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART1, USART2, USART3)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard entry present + HAL_OS_FATFS_IO",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Laser Navigation (USB_STRING_MANUFACTURER)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

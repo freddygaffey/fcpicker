@@ -1,7 +1,7 @@
 {
   "slug": "BROTHERHOBBYF405v3",
   "name": "BROTHERHOBBYF405v3",
-  "manufacturer": null,
+  "manufacturer": "BrotherHobby",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,137 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "BrotherHobby",
+    "marketing_name": "BROTHERHOBBYF405v3",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16Mb",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "volts": 10,
+        "amps": 2,
+        "rail": "10V"
+      },
+      {
+        "volts": 5,
+        "amps": 2,
+        "rail": "5V"
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P (DJI HD VTX)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1 (SBUS/inverted from HD VTX connector), UART2 (RC input, DMA-enabled), UART3 (DJI HD VTX/DisplayPort), UART4 (user), UART5 (ESC telemetry), UART6 (GPS); outputs 1-4 on ESC connector, 5-9 via pads; PWM9 is LED pad",
+    "discrepancies": [
+      "data/boards JSON shows IMU chip family as 'Invensensev3' (hwdef bus alias) but real chip is ICM42688P per README and wiki",
+      "data/boards JSON shows power.bec as empty array but board has 10V/2A and 5V/2A BEC outputs per README and wiki",
+      "data/boards JSON shows manufacturer as null; should be BrotherHobby",
+      "data/boards JSON has no blackbox_flash field; board has 16Mb onboard dataflash (SPI3/FLASH1_CS)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BROTHERHOBBYF405v3.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYF405v3/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYF405v3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-brotherhobbyf405v3.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "partial",
+        "hwdef": "Invensensev3 (alias)",
+        "readme": "ICM42688P",
+        "wiki": "ICM42688P",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "MAX7456 driver (OSD_TYPE 1)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "partial",
+        "hwdef": "SPIDEV dataflash SPI3 (16Mb per README)",
+        "readme": "16Mb Onboard Flash",
+        "wiki": "16Mb Onboard Flash",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1/2/3, UART4/5/6)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "0",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "false (no SD card defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": "up to 6S (BATT_VOLT_MULT=11)",
+        "readme": "6S LiPo",
+        "wiki": "6S LiPo",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "disagree",
+        "hwdef": null,
+        "readme": "10V 2A; 5V 2A",
+        "wiki": "10V 2A BEC; 5V 2A BEC",
+        "manufacturer": null
+      }
+    ]
   }
 }

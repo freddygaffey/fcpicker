@@ -125,5 +125,112 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "marketing_name": "FlyingMoon H743",
+    "family": "STM32H7",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM20689",
+      "ICM20649",
+      "ICM42605"
+    ],
+    "baro_models": [
+      "SPL06",
+      "MS5611"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "uart_count": 5,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "16x PWM (TIM5/TIM1/TIM4/TIM3), 5x UART (USART1/2/3, UART4/5), 2x CAN, 2x I2C, USB OTG, safety switch, buzzer, 6x ADC, RAMTRON FRAM for parameter storage; SPI device labeled 'sdcard' on FLASH_CS (likely SPI NOR flash, not physical SD slot)",
+    "discrepancies": [
+      "has_osd: Physical board has MAX7456 CS pin (PA8) wired but firmware OSD support was deliberately removed in commit 5b5dd638 (Jul 2024); current data does not record this and current hwdef has no OSD \u2014 has_osd should be false.",
+      "has_sdcard: The SPIDEV labeled 'sdcard' uses chip-select pin named FLASH_CS on SPI2, suggesting a SPI NOR flash chip used as a virtual filesystem rather than an actual SD card slot; has_sdcard=true in our data is likely incorrect.",
+      "manufacturer: FlyingMoon is an unidentified Chinese manufacturer with no discoverable public web presence; manufacturer field cannot be populated from available sources.",
+      "No README.md exists in hwdef directory and no ArduPilot wiki page was found for this board; all physical specs (dimensions, weight, voltage range, mounting) remain unknown."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlyingMoonH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlyingMoonH743/hwdef.dat",
+      "git log /Users/fred/ardupilot -- libraries/AP_HAL_ChibiOS/hwdef/FlyingMoonH743/",
+      "git show 5b5dd638c1 (commit removing MAX7456)",
+      "git show edb7a76b87 (initial add commit)",
+      "https://github.com/ArduPilot/ardupilot/issues/31288",
+      "WebSearch: FlyingMoon H743 flight controller specifications",
+      "WebSearch: FlyingMoonH743 ardupilot hwdef",
+      "wiki search: grep -ril FlyingMoon /Users/fred/ardupilot_wiki/*/source/docs/"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743xx",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM20689 (ICM20689_CS), ICM20649 (ICM20649_CS), ICM42605 (ICM42605_CS)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "SPL06 at I2C:0:0x76, MS5611 at I2C:0:0x77",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "RM3100 on SPI1/RM3100_CS",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "5 (USART1, UART4, USART2, USART3, UART5)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_osd",
+        "agree": "disagree",
+        "hwdef": "MAX7456 OSD removed from firmware in Jul 2024 commit 5b5dd638; current hwdef has no OSD",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "unknown",
+        "hwdef": "SPIDEV 'sdcard' defined on FLASH_CS (SPI2) with HAL_OS_FATFS_IO=1; pin name FLASH_CS implies SPI NOR flash, not an SD card socket",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      }
+    ]
   }
 }

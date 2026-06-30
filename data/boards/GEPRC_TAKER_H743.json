@@ -1,7 +1,7 @@
 {
   "slug": "GEPRC_TAKER_H743",
   "name": "GEPRC_TAKER_H743",
-  "manufacturer": null,
+  "manufacturer": "GEPRC",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -103,5 +103,155 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "GEPRC",
+    "marketing_name": "GEPRC TAKER H743 BT",
+    "family": "TAKER H743",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688-P",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "SPL06-001"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "512MB",
+    "has_sdcard": false,
+    "weight_g": 8.4,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P (DJI HD VTX, pin 1 is 12V or VBAT-selectable)",
+      "Type-C USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (built-in module on UART3; not currently usable by ArduPilot)",
+    "pinout_notes": "UART3 dedicated to internal BT module (not usable by ArduPilot); 9 PWM outputs total \u2014 M1-M4 on ESC connector, M5-M8 solder pads, M9 defaults to LED strip; SH1.0-6P connector for DJI HD VTX with 12V on pin 1; I2C pads for external compass only",
+    "discrepancies": [
+      "Current data has manufacturer=null; should be GEPRC",
+      "Current data has io.sdcard=true but manufacturer product page explicitly states 512MB onboard blackbox (not removable microSD); README/wiki say 'microSD based' which conflicts with manufacturer \u2014 likely onboard SPI flash accessed via SD protocol",
+      "Current data missing wireless field; board has built-in Bluetooth module on UART3 (not usable by ArduPilot)",
+      "Current data has power.monitor_inputs=0 despite hwdef clearly defining BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC pins",
+      "README features summary says '8 PWM outputs' but hwdef defines 9 channels and README's own PWM section says 'up to 9 PWM/DShot outputs'; current data correctly shows 9",
+      "Local sources (hwdef/README/wiki) only confirm 'up to 6S' maximum; manufacturer specifies 3-6S minimum \u2014 current data does not capture minimum cell count",
+      "Current data has no BEC output entries; manufacturer and retailer confirm dual BEC: 5V@3A and 12V@2.5A",
+      "OSD driver in hwdef uses MAX7456_CS alias but actual chip is AT7456E (pin-compatible clone) per README/wiki/manufacturer \u2014 current data does not record osd_chip"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/GEPRC_TAKER_H743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/GEPRC_TAKER_H743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/GEPRC_TAKER_H743/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-geprc-taker-h743-bt.rst",
+      "https://geprc.com/product/taker-h743-bt-flight-controller/",
+      "https://geprc.com/product/geprc-taker-h743-bt-32bit-65a-stack/",
+      "https://www.rotorama.com/product/geprc-taker-h743-bt-8bit-80a-stack"
+    ],
+    "dimensions_mm": {
+      "length": 38.5,
+      "width": 38.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": "STM32H743",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3/SPI:icm42688 + Invensense/SPI:mpu6000",
+        "readme": "MPU6000+ICM42688 dual IMU",
+        "wiki": "MPU6000+ICM42688 dual IMU",
+        "manufacturer": "MPU6000 + ICM42688-P (dual gyro)",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS on SPI4 (MAX7456-compatible driver)",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": "AT7456E chip",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO SPL06 I2C:0:0x76",
+        "readme": "SPL06-001 barometer",
+        "wiki": "SPL06-001 barometer",
+        "manufacturer": "not listed explicitly",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3, UART4, USART6, UART7, UART8)",
+        "readme": "7 UARTs",
+        "wiki": "7 UARTs",
+        "manufacturer": "7 groups (UART3 fixed for BT)",
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "USART3 RX/TX defined for BT module",
+        "readme": "UART3 connected to internal BT module, not currently usable by ArduPilot",
+        "wiki": "UART3 connected to internal BT module, not currently usable by ArduPilot",
+        "manufacturer": "Bluetooth module integrated",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash / has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI3 SDCARD_CS (io.sdcard:true in current data)",
+        "readme": "microSD based 512MB flash logging",
+        "wiki": "microSD based 512MB flash logging",
+        "manufacturer": "512M onboard black box (not microSD per product page)",
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "voltage sensor handles up to 6S (HAL_BATT_VOLT_SCALE 11.13)",
+        "readme": "voltage sensor can handle up to 6S",
+        "wiki": "voltage sensor can handle up to 6S",
+        "manufacturer": "3-6S LiPo",
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not specified",
+        "readme": "not specified",
+        "wiki": "SH1.0-6P pin 1 is 12V (or VBAT by solder pad selection)",
+        "manufacturer": "5V@3A, 12V@2.5A",
+        "agree": "partial"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "9 PWM channels defined (M1-M8 + M9/LED)",
+        "readme": "features section says 8 PWM; detailed section says up to 9",
+        "wiki": "up to 9 PWM/DShot outputs",
+        "manufacturer": "8 outputs listed",
+        "agree": "partial"
+      }
+    ]
   }
 }

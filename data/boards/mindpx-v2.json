@@ -1,7 +1,7 @@
 {
   "slug": "mindpx-v2",
   "name": "mindpx-v2",
-  "manufacturer": null,
+  "manufacturer": "AirMind",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -120,5 +120,122 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "AirMind",
+    "marketing_name": "MindPX V2",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "MPU-6500",
+      "LSM9DS0"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843",
+      "LSM303D"
+    ],
+    "has_sdcard": true,
+    "weight_g": 40,
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "microSD slot",
+      "USB OTG",
+      "SBUS in",
+      "CAN1",
+      "SPI2 external NRF radio connector"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "16 PWM outputs (8 main TIM1/TIM4 + 8 aux TIM2/TIM3); USART1=RC/SBUS, USART2=TELEM1, USART3=TELEM2, UART4=GPS, UART7=Debug, UART8=FrSky, USART6; SPI1=FRAM (RAMTRON), SPI2=external NRF radio, SPI4=sensors; I2C1=external compass, I2C2=FMU/optical flow; SDIO microSD; 1\u00d7CAN1",
+    "discrepancies": [
+      "manufacturer is null in our catalog data; should be AirMind (confirmed by PX4 docs and AirMind product page at airmind.mindpx.net)",
+      "No local ArduPilot wiki page exists for this board \u2014 docs_url is correctly null",
+      "PX4 docs list IMU as LSM303D (only the accel/mag sub-component) while hwdef correctly identifies the full LSM9DS0 combined package; no factual error in our data"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mindpx-v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mindpx-v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mindpx-v2/hwdef-bl.dat",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "https://docs.px4.io/main/en/flight_controller/mindpx.html",
+      "https://docs.px4.io/v1.13/en/flight_controller/mindpx.html",
+      "https://airmind.mindpx.net/node/58"
+    ],
+    "dimensions_mm": {
+      "length": 59,
+      "width": 40,
+      "height": 16
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F4xx STM32F427xx",
+        "wiki": null,
+        "manufacturer": "168MHz STM32F4 (implied STM32F427)",
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensense SPI:mpu6500 + LSM9DS0 SPI:lsm9ds0_g/lsm9ds0_am",
+        "wiki": null,
+        "manufacturer": "MPU6500 + LSM303D (LSM303D is accel/mag portion of LSM9DS0)",
+        "readme": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": null,
+        "manufacturer": "MEAS MS5611",
+        "readme": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "HMC5843 I2C:0:0x1e + LSM303D SPI:lsm9ds0_am",
+        "wiki": null,
+        "manufacturer": "ST Micro LSM303D (PX4 docs; HMC5843 not listed but external I2C)",
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "7 (USART1,2,3 + UART4,7,8 + USART6)",
+        "wiki": null,
+        "manufacturer": "7 listed in PX4 serial mapping",
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "1 (CAN1)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDIO present (HAL_OS_FATFS_IO 1)",
+        "wiki": null,
+        "manufacturer": "microSD card slot mentioned",
+        "readme": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "AirMind",
+        "readme": null
+      }
+    ]
   }
 }

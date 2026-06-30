@@ -1,7 +1,7 @@
 {
   "slug": "mRoCZeroOEMH7-bdshot",
   "name": "mRoCZeroOEMH7-bdshot",
-  "manufacturer": null,
+  "manufacturer": "mRo",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -105,7 +105,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -120,5 +120,138 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mRo",
+    "marketing_name": "mRo Control Zero OEM H7 (BiDirDShot)",
+    "family": "Control Zero OEM H7",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "BMI088",
+      "ICM20602",
+      "ICM20948"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "weight_g": 3.66,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5,
+    "bec_outputs": [
+      {
+        "rail": "3.3V sensors",
+        "volts": 3.3,
+        "amps": null
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "Samtec FTM-118-02-F-DV 1.00mm 36-pin (front bottom)",
+      "Samtec FTM-118-02-F-DV 1.00mm 40-pin (rear bottom)",
+      "TC2030 JTAG"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "OEM module with solderable Samtec surface-mount connectors on the bottom (no through-hole mounting holes); 8x bidir-DShot capable PWM (TIM1/TIM4/TIM8); USART2/3 with hardware CTS/RTS; 2x CAN; 1x external SPI (SPI6); FRAM (256Kb ramtron on SPI2) for parameter storage; RC input on TIM3_CH2",
+    "correct_wiki_stem": "common-3DR_Control_Zero_OEM_G",
+    "discrepancies": [
+      "Board data chip_display for second IMU is 'ICM20608' but the physical chip is ICM20602: hwdef header comment explicitly says 'ICM20602 6DOF', CS pin is named 'ICM_20602_CS', and wiki confirms ICM20602. The SPIDEV alias 'icm20608' is a legacy bus label only.",
+      "Wiki page (common-3DR_Control_Zero_OEM_G) lists DPS368 barometer for the OEM G revision; the hwdef for mRoControlZeroOEMH7 (parent of bdshot variant) says DPS310 in the BARO line, SPIDEV alias, and header comment. The G revision appears to have upgraded to DPS368; our board (pre-G) uses DPS310.",
+      "docs_url is null; no dedicated wiki page exists for mRoCZeroOEMH7-bdshot. Closest page is common-3DR_Control_Zero_OEM_G which covers a later G-revision of the same hardware family.",
+      "Board data shows 16 FMU PWM channels but the hwdef only defines 8 PWM outputs (PWM1-8 on TIM1/TIM4/TIM8); the bdshot hwdef undefs and redefines the same 8 pins with BIDIR flags.",
+      "Wiki Servo/Motor section mentions 'KakuteH7' and describes different serial assignments (UART5, USART6) than what the hwdef defines (UART7 as SERIAL5); the wiki page has copy-paste errors from a different board."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mRoCZeroOEMH7-bdshot.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoCZeroOEMH7-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoControlZeroOEMH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-3DR_Control_Zero_OEM_G.rst"
+    ],
+    "dimensions_mm": {
+      "length": 34,
+      "width": 20,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743IIK6 (from hwdef comment: STM32H743IIK6)",
+        "wiki": "STM32H743IIK6",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "disagree",
+        "hwdef": "BMI088 + ICM20602 (comment: ICM20602 6DOF; CS pin: ICM_20602_CS; SPIDEV alias icm20608 is legacy label) + ICM20948",
+        "wiki": "BMI088, ICM20602, ICM20948",
+        "manufacturer": null,
+        "readme": "Board data chip_display reads ICM20608 but all local evidence points to ICM20602"
+      },
+      {
+        "field": "baro_models",
+        "agree": "partial",
+        "hwdef": "DPS310 (BARO line + SPIDEV alias + header comment all say DPS310)",
+        "wiki": "DPS368 (wiki is for OEM G revision which upgraded the baro)",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "length_mm",
+        "agree": "agree",
+        "hwdef": "34mm (header comment)",
+        "wiki": "34mm",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "width_mm",
+        "agree": "agree",
+        "hwdef": "20mm (header comment)",
+        "wiki": "20mm",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "agree",
+        "hwdef": "3.66g (header comment)",
+        "wiki": "3.66g",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "5 (USART2, USART3, UART4, UART8, UART7 in SERIAL_ORDER)",
+        "wiki": "5x UARTs (2 with flow control)",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": "2x CAN",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "yes (SDMMC1 pins defined)",
+        "wiki": "MicroSD card socket",
+        "manufacturer": null,
+        "readme": null
+      }
+    ]
   }
 }

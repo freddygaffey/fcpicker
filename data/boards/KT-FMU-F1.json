@@ -1,7 +1,7 @@
 {
   "slug": "KT-FMU-F1",
   "name": "KT-FMU-F1",
-  "manufacturer": null,
+  "manufacturer": "Coolfly",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,145 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Coolfly",
+    "marketing_name": "KT-FMU-F1",
+    "mcu_part": "STM32H743VI",
+    "imu_models": [
+      "BMI088",
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": null
+      },
+      {
+        "rail": "9V (OSD camera)",
+        "volts": 9,
+        "amps": null
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "OSD video in/out (J9/J10 with 9V rail)",
+      "IMU submodule expansion (J12)",
+      "GPS+Safety+Buzzer combo (J8)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: USART1 (telem), USART2 (DisplayPort OSD), USART3 (GPS), UART4 (telem), USART6 (RCIN), UART7 (ESC telem RX), UART8 (telem). 10 PWM on TIM1/TIM3/TIM4. Dual ESC/VBAT connectors (J2/J3, only one at a time). OSD in/out with 9V rail. IMU submodule connector J12 exposes SPI2+I2C1.",
+    "discrepancies": [
+      "manufacturer is null in our data; should be 'Coolfly' per README",
+      "mcu_part stored as 'STM32H743xx' (generic family token from hwdef); README specifies the exact part 'STM32H743VI'",
+      "osd_chip (AT7456E) and has_osd are not populated in our data despite being confirmed in hwdef (SPI1/AT7456E_CS) and README",
+      "bec_outputs is empty in our data; README connector pinouts confirm onboard 5V regulated output on multiple connectors and a 9V rail on OSD connectors",
+      "voltage_cells / voltage_min_v / voltage_max_v are missing from our data; README states 2S-8S input"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KT-FMU-F1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KT-FMU-F1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KT-FMU-F1/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KT-FMU-F1/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Coolfly",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743VI",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + BMI270",
+        "readme": "BMI088 + BMI270",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310",
+        "readme": "DPS310",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310",
+        "readme": "IST8310",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (SPI1)",
+        "readme": "AT7456E (MAX7456 driver)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (slot 5 EMPTY)",
+        "readme": "7",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

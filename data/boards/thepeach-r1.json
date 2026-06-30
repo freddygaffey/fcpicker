@@ -1,7 +1,7 @@
 {
   "slug": "thepeach-r1",
   "name": "thepeach-r1",
-  "manufacturer": null,
+  "manufacturer": "ThePeach",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -110,5 +110,144 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ThePeach",
+    "marketing_name": "ThePeach FCC-R1",
+    "family": "FMUv3",
+    "mcu_part": "STM32F427VIT6",
+    "imu_models": [
+      "ICM-20602",
+      "MPU-9250"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK8963"
+    ],
+    "has_sdcard": true,
+    "weight_g": 100,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5.5,
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "DDR2 (Raspberry Pi CM3+)",
+      "S.BUS in/out",
+      "Safety switch/LED"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 user UARTs: TELEM1/USART2 (RTS/CTS), TELEM2/USART3 (RPi CM3+, RTS/CTS), GPS1/UART4, GPS2/UART8, Debug/UART7. IOMCU on USART6. 1x CAN, 2x I2C, 8+6 PWM (14 total), DDR2 for Raspberry Pi CM3+ integration.",
+    "discrepancies": [
+      "README spec bullets claim '4x UART' but hwdef SERIAL_ORDER lists 5 user-accessible UARTs (USART2, USART3, UART4, UART8, UART7); the README apparently omits the debug UART7 from its count",
+      "Wiki page (common-thepeach-r1.rst line 21) says '8+5 PWM output (8 from IO, 6 from FMU)' which is internally inconsistent \u2014 '8+5' should be '8+6' (total 14) per the README and hwdef",
+      "Current catalog data has manufacturer: null \u2014 should be 'ThePeach'",
+      "Current catalog data has AK8963 compass chip_display: null \u2014 should be 'AK8963'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/thepeach-r1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/thepeach-r1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/thepeach-r1/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thepeach-r1.rst"
+    ],
+    "dimensions_mm": {
+      "length": 101,
+      "width": 49.2,
+      "height": 18.2
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F427xx (family)",
+        "readme": "STM32F427VIT6",
+        "wiki": "STM32F427VIT6",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "icm20602 alias (ICM-20602), mpu9250 alias (MPU-9250)",
+        "readme": "ICM-20602, MPU-9250",
+        "wiki": "ICM-20602, MPU-9250",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611",
+        "readme": "MS5611",
+        "wiki": "MS5611",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "AK8963 probed via MPU-9250",
+        "readme": null,
+        "wiki": "MPU9250 built-in compass (AK8963 implied)",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "partial",
+        "hwdef": "5 (SERIAL_ORDER: USART2, USART3, UART4, UART8, UART7)",
+        "readme": "4x UART (undercount; excludes debug UART7)",
+        "wiki": "5 SERIALs mapped (SERIAL1-5)",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1",
+        "readme": "1x CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "49.2 x 101 x 18.2mm",
+        "wiki": "49.2 x 101 x 18.2mm",
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "100g",
+        "wiki": "100g",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "POWER 5V-5.5V, USB 4.75V-5.25V",
+        "wiki": "POWER 5V-5.5V, USB 4.75V-5.25V",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "HAL_OS_FATFS_IO defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "pwm_outputs",
+        "agree": "partial",
+        "hwdef": "6 FMU PWM (TIM1+TIM4) + 8 IOMCU = 14 total",
+        "readme": "8+6 PWM (14 total)",
+        "wiki": "8+5 PWM \u2014 typo, should be 8+6",
+        "manufacturer": null
+      }
+    ]
   }
 }

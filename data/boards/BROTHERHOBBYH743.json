@@ -1,7 +1,7 @@
 {
   "slug": "BROTHERHOBBYH743",
   "name": "BROTHERHOBBYH743",
-  "manufacturer": null,
+  "manufacturer": "BROTHERHOBBY",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,150 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "BROTHERHOBBY",
+    "marketing_name": "BROTHER HOBBY H743",
+    "family": "STM32H7xx",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688P",
+      "BMI088"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 9,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0-6P (DJI HD VTX, 12V pin 1)",
+      "USB Type-C",
+      "I2C for external compass"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1=ESC Telemetry, UART2=RX/SBUS, UART3=Spare, UART4=Spare, UART6=DJI DisplayPort, UART7=GPS, UART8=Spare; PWM1-8 bidirectional DShot, PWM11-12 servo, PWM13=LED; GPIO81=VTX BEC control, GPIO82=CAM1/CAM2 switch",
+    "discrepancies": [
+      "hwdef.dat uses 'Invensensev3' alias for imu1/imu2 slots; README and wiki confirm these are ICM42688P; BMI088 entries in hwdef support alternate hardware revisions that shipped with BMI088 instead of ICM42688P",
+      "ArduPilot wiki/README states '12V 3A BEC; 5V 3A BEC' but manufacturer product page (brotherhobbystore.com Returner 3-8S H743) lists '5V/2A, 12V/2A' \u2014 current ratings differ (3A vs 2A); source may be a slightly different board variant",
+      "ArduPilot wiki/README says 'voltage sensor can handle up to 6S LiPo' but manufacturer page lists input as '3S-8S'; BATT_VOLT_MULT=11 in hwdef gives ADC headroom to ~36V which supports 8S, so wiki 6S limit may be conservative or refers to default calibration only",
+      "Physical dimensions (38.5x38.5mm, 9g, 30.5x30.5mm mount) sourced from manufacturer's Betaflight-variant product page; no local hwdef/wiki source for these \u2014 may differ slightly from ArduPilot-specific variant"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BROTHERHOBBYH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYH743/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BROTHERHOBBYH743/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-brotherhobbyh743.rst",
+      "https://www.brotherhobbystore.com/products/returner-3-8s-h743-betaflight-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 38.5,
+      "width": 38.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": "STM32H743VIH6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (x2) + BMI088 (x2) \u2014 alternate chip options on same pads",
+        "readme": "ICM42688P",
+        "wiki": "ICM42688P",
+        "manufacturer": "ICM-42688 x2",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": "SPL06-001",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS + HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3,UART4,USART6,UART7,UART8)",
+        "readme": "7 UARTs",
+        "wiki": "7 UARTs",
+        "manufacturer": "7",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "readme": "SDCard",
+        "wiki": "SDCard",
+        "manufacturer": "SD card",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "12V 3A; 5V 3A",
+        "wiki": "12V 3A; 5V 3A",
+        "manufacturer": "5V/2A; 12V/2A",
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT=11 (headroom to ~36V)",
+        "readme": "up to 6S",
+        "wiki": "up to 6S",
+        "manufacturer": "3S-8S",
+        "agree": "disagree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no internal compass; I2C probing enabled for external",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

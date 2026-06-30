@@ -1,7 +1,7 @@
 {
   "slug": "MambaH743v4",
   "name": "MambaH743v4",
-  "manufacturer": null,
+  "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -133,5 +133,182 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Diatone",
+    "marketing_name": "Mamba H743v4",
+    "family": "Mamba",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "MPU6000",
+      "BMI270",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS280",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "128MB",
+    "has_sdcard": false,
+    "weight_g": 11,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6.8,
+    "voltage_max_v": 26,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs: UART1=RC/SBUS, UART2=GPS, UART3=VTX, UART4=WiFi-labeled, UART5=SPort, UART6=ESC Telemetry, UART7=GPS, UART8=general; 9 PWM outputs (M1-M8 motors + M9 LED/extra); I2C for external compass; no CAN",
+    "discrepancies": [
+      "manufacturer field is null in our catalog but README.md and wiki both identify the manufacturer as Diatone",
+      "README.md states the board has a built-in current sensor capable of reading up to 130A, but the wiki states 'The board does not have a built-in current sensor' \u2014 hwdef.dat also defines a BATT_CURRENT_SENS pin and HAL_BATT_CURR_PIN, supporting README over wiki",
+      "wiki omits the v2 hardware variant with dual ICM42688 (README.md and hwdef.dat both document it alongside the Version A dual MPU6000 and Version B BMI270)",
+      "wiki lists only 5V 3A and 9V 3A BECs, but README.md lists four BECs: 3.3V@0.5A, 5V@3A, 5V@3A, 9V@3A"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MambaH743v4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaH743v4/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MambaH743v4/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mambaH743v4.rst"
+    ],
+    "dimensions_mm": {
+      "length": 38,
+      "width": 38,
+      "height": 7.5
+    },
+    "field_checks": [
+      {
+        "field": "manufacturer",
+        "hwdef": "Diatone (comment: 'Diatone MambaH743 mk4 hardware')",
+        "readme": "Diatone",
+        "wiki": "Diatone",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743 at 480MHz",
+        "wiki": "STM32H743 32-bit processor at 480MHz",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Dual Invensense/mpu6000 + BMI270 + Dual Invensensev3/icm42688 (5 IMU lines, 3 variants)",
+        "readme": "Dual MPU6000 (Version A) or BMI270 (Version B) or Dual ICM42688 (v2)",
+        "wiki": "Dual MPU6000 (Version A) or BMI270 (Version B)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS280 or SPL06 at I2C:0:0x76",
+        "readme": "DPS280",
+        "wiki": "DPS280",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (driver alias)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx",
+        "readme": "1GBit",
+        "wiki": "128MB Data Log Flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1,2,3,UART4,5,USART6,UART7,UART8)",
+        "readme": "8x UARTs",
+        "wiki": "8 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not explicit",
+        "readme": "2S-6S",
+        "wiki": "6.8V ~ 26V DC input power",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not explicit",
+        "readme": "3.3V@0.5A, 5V@3A, 5V@3A, 9V@3A",
+        "wiki": "5V 3A, 9V 3A",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SDCARD or SDMMC lines)",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "built-in current sensor",
+        "hwdef": "BATT_CURRENT_SENS pin defined, HAL_BATT_CURR_PIN 13 set",
+        "readme": "built-in current sensor up to 130A",
+        "wiki": "no built-in current sensor",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": "not in hwdef",
+        "readme": "not in README",
+        "wiki": "38mm x 38mm x 7.5mm, 11g",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

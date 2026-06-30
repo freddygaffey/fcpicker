@@ -1,7 +1,7 @@
 {
   "slug": "sparknavi-blue",
   "name": "sparknavi-blue",
-  "manufacturer": null,
+  "manufacturer": "SparkNavi",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -111,5 +111,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SparkNavi",
+    "marketing_name": "SparkNavi Blue",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42652",
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "compass_models": [
+      "HMC5883L"
+    ],
+    "has_sdcard": true,
+    "weight_g": 70,
+    "voltage_max_v": 6,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB-C",
+      "Spektrum satellite port",
+      "I2C expansion",
+      "SPI expansion",
+      "ADC expansion"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs (TELEM1/TELEM2 with CTS/RTS flow control, GPS1, GPS2, Debug); 14 PWM (8 MAIN via STM32F103 IOMCU + 6 AUX with bidirectional DShot); dual CAN with CAN FD; microSD; 2x USB-C (MAVLink + SLCAN); FRAM parameter storage; dual power monitor (POWER1/POWER2 max 6V)",
+    "discrepancies": [
+      "Current data has manufacturer=null; README and common-partners.rst confirm manufacturer is SparkNavi.",
+      "Current data stores compass chip family as 'HMC5843' (the ArduPilot driver name) but the physical chip per README is 'HMC5883L'. The driver HMC5843 covers the HMC5883L family but the display name should be HMC5883L.",
+      "hwdef CS pin is named IIM42652_CS (suggesting TDK industrial IIM-42652) while README and chip_display say ICM42652; the two are functionally identical but the silkscreen/BOM may say IIM-42652.",
+      "hwdef has a DRDY_QMC5883L pin on I2C4 and a comment '#QMC5883L & SPL06' for I2C4 bus, suggesting populated or reserved pads for a QMC5883L compass and SPL06 baro, but neither is configured in the firmware \u2014 only BMP280 (I2C2) and HMC5843/HMC5883L (I2C2) are active.",
+      "Current data has dimensions_mm=null and weight_g=null; README specifies 74x48x17mm and 70g (with MicroSD).",
+      "Current data has no power voltage fields populated; README states maximum power input voltage is 6V on POWER1/POWER2 connectors."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/sparknavi-blue.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/sparknavi-blue/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/sparknavi-blue/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-partners.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-future-wiki-changes.rst"
+    ],
+    "dimensions_mm": {
+      "length": 74,
+      "width": 48,
+      "height": 17
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743 32-bit, 480MHz",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "IIM42652 (CS pin name) + ICM42688 via Invensensev3 driver, SPIDEV aliases icm42652/icm42688",
+        "readme": "InvenSense ICM42688 / ICM42652",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:1:0x76",
+        "readme": "Bosch BMP280 Barometer",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 driver I2C:1:0x1E (driver covers HMC5883L family; DRDY_QMC5883L pin also present on I2C4 but not configured)",
+        "readme": "Honeywell HMC5883L Magnetometer",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1, USART2, USART3, UART4, UART7 (5 exposed; UART8 internal to IOMCU)",
+        "readme": "5 UARTs, two with flow control",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2 with CANFD_SUPPORTED 8",
+        "readme": "Dual CAN",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "Micro SD card",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "7.4 cm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "readme": "4.8 cm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "height_mm",
+        "hwdef": null,
+        "readme": "1.7 cm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "70g with MicroSD",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "readme": "Maximum power input voltage: 6V (POWER1/POWER2 connectors)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "SparkNavi (https://www.sparknavi.com)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

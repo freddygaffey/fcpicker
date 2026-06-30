@@ -1,7 +1,7 @@
 {
   "slug": "FlywooF405HD-AIOv2",
   "name": "FlywooF405HD-AIOv2",
-  "manufacturer": null,
+  "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -102,5 +102,185 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flywoo",
+    "marketing_name": "Goku F405 HD 1-2S AIO v2",
+    "family": "Goku F405",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM-42688P",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "DPS310",
+      "SPL06"
+    ],
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 4.9,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "1-2S",
+    "voltage_min_v": 3,
+    "voltage_max_v": 8.4,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-6P DJI connector",
+      "USB-C (remote dongle)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ELRS 2.4GHz (built-in, on some models)",
+    "pinout_notes": "6 UARTs: UART1=ELRS/RC, UART2=Telem, UART3=User, UART4=GPS, UART5, UART6=DisplayPort; 4 motor outputs + LED pad; 9V VTX switch via relay (GPIO 81/82); no PPM support",
+    "discrepancies": [
+      "README states 25.5x25.5mm mounting hole pitch; wiki (common-flywoof405hd.rst) says 20.5x20.5mm \u2014 README is preferred as the primary source for a 30x30mm overall board",
+      "hwdef uses the BMP280 driver (which also supports register-compatible chips like SPL06) but README and wiki both list DPS310/SPL06 as the two baro options \u2014 BMP280 driver entry in hwdef is detecting SPL06 hardware, not a true BMP280",
+      "README Battery Monitoring section states the voltage sensor handles '2S to 6S' LiPo \u2014 text appears copied verbatim from the FlywooF405S-AIO parent; correct input range per features section and wiki is 1-2S",
+      "Current JSON has manufacturer=null; should be 'Flywoo'",
+      "Parent hwdef (FlywooF405S-AIO) defines HAL_OSD_TYPE_DEFAULT 1 (MAX7456) and an OSD SPI device; HD variant README explicitly says to use OSD_TYPE 5 (MSP DisplayPort) \u2014 MAX7456 chip is likely absent on the HD variant, SPI OSD device inherited but unused"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlywooF405HD-AIOv2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405HD-AIOv2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405HD-AIOv2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405S-AIO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405S-AIO/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-flywoof405hd.rst"
+    ],
+    "dimensions_mm": {
+      "length": 30,
+      "width": 30,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405 32-bit processor",
+        "wiki": "STM32F405 ARM (168MHz)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (ICM42688) + Invensense (MPU6000) on same SPI1/GYRO1_CS slot",
+        "readme": "MPU6000 (SPI) or ICM42688 (SPI)",
+        "wiki": "ICM-42688P IMU or MPU6000",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO BMP280 I2C:0:0x76 and BARO DPS310 I2C:0:0x76",
+        "readme": "DPS310/SPL06",
+        "wiki": "DPS-310 or SPL06 barometer",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "1-2S Lipo (features); '2S to 6S' in Battery Monitoring (copy error)",
+        "wiki": "1S - 2S Lipo input voltage",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3, UART4,5,6)",
+        "readme": "6 hardware UARTs",
+        "wiki": "6x UARTs/serial",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "4.9g",
+        "wiki": "4.9g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm/width_mm",
+        "hwdef": null,
+        "readme": "30x30mm",
+        "wiki": "30x30mm overall",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "25.5/25.5mm square",
+        "wiki": "20.5x20.5 mounting holes",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/2A and 9V/2A",
+        "wiki": "5V 2A BEC; 9V 2A on/off controlled BEC",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd on SPI3/OSD1_CS; HAL_OSD_TYPE_DEFAULT 1 (inherited from parent)",
+        "readme": "OSD_TYPE 5 (MSP DisplayPort)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash on SPI3",
+        "readme": "Onboard 8 Mbytes for Blackbox logging",
+        "wiki": "8MByte flash for logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN bus defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "SERIAL1 \u2192 ELRS (DEFAULT_SERIAL1_PROTOCOL RCIN)",
+        "readme": "Built-in ELRS 2.4 GHz serial receiver (on some models)",
+        "wiki": "internally tied to ELRS board",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

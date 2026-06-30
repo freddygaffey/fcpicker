@@ -1,7 +1,7 @@
 {
   "slug": "SpeedyBeeF405WING",
   "name": "SpeedyBeeF405WING",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,143 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F405 WING",
+    "family": "F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 35,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "VTX (9V/12V/5V selectable)",
+        "volts": 9,
+        "amps": 1.8
+      },
+      {
+        "rail": "Servo (4.9V/6V/7.2V selectable)",
+        "volts": null,
+        "amps": 4.5
+      },
+      {
+        "rail": "5V internal/peripherals",
+        "volts": 5,
+        "amps": 2.4
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH",
+      "USB-C",
+      "DJI air unit (UART5)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "WiFi MAVLink (integrated); Bluetooth advertised but reliability unconfirmed",
+    "pinout_notes": "12 PWM/DShot outputs; 6 UARTs (UART1 RC, UART2 SBUS-inverted, UART3 GPS, UART4/5 user, UART6 internal WiFi); SBUS RC input with inverter; DJI air unit connector on UART5; I2C for external compass; VTX BEC GPIO-controlled via PC13",
+    "discrepancies": [
+      "Current data IMU chip is listed as ICM42605 (hwdef legacy bus alias), but real chip is ICM-42688P per hwdef comment '# ICM42688P on SPI1', README.md, and wiki \u2014 the alias 'icm42605' is a legacy SPI bus label, not the part number",
+      "Manufacturer is null in current data; should be SpeedyBee",
+      "OSD chip AT7456E not captured in current data",
+      "BEC outputs array is empty in current data; board has 3 BECs (9V/12V/5V@1.8A, 4.9V-7.2V@4.5A, 5V@2.4A)",
+      "Physical dimensions and weight are null in current data; wiki gives 52x32x19mm and 35g for WING variant"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SpeedyBeeF405WING.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405WING/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405WING/Readme.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef405wing.rst"
+    ],
+    "dimensions_mm": {
+      "length": 52,
+      "width": 32,
+      "height": 19
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405 168MHz",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "alias icm42605 (comment: ICM42688P on SPI1)",
+        "readme": "ICM42688P",
+        "wiki": "ICM-42688P",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL006",
+        "wiki": "SPL-06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD on SPI2, HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD on SPI3",
+        "readme": "microSDCard",
+        "wiki": "microSDCard",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER: OTG1 USART1 USART2 USART3 UART4 UART5 USART6 = 6 hardware UARTs",
+        "readme": "5x external + 1 internal WiFi = 6",
+        "wiki": "5x external + 1 internal = 6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "UART6 DEFAULT_SERIAL6_BAUD 115 (internal telemetry)",
+        "readme": null,
+        "wiki": "integrated WiFi MAVLink; BT advertised but unconfirmed",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "StellarH7V2",
   "name": "StellarH7V2",
-  "manufacturer": null,
+  "manufacturer": "StingBee",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -104,5 +104,164 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "StingBee",
+    "marketing_name": "StellarH7V2",
+    "family": "Stellar H7",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "DPS310",
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "W25Nxx (SPI4 NAND dataflash)",
+    "has_sdcard": true,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-8S",
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "10x PWM/DShot outputs (ch1-6 BDShot capable, ch7-8 DShot, ch9-10 labeled S5/S6); 7x UARTs (MAVLink x2, GPS, RC, DisplayPort, ESC telem); 1x CAN; 1x I2C; camera switch GPIO for CAM1/CAM2 OSD input selection; buzzer pad",
+    "discrepancies": [
+      "Current data has manufacturer: null \u2014 README and wiki clearly identify StingBee (https://stingbee.com.ua) as the manufacturer",
+      "Current data has mcu.part: STM32H743xx (generic family) \u2014 README and wiki both specify the exact part STM32H743VIH6",
+      "Current data has power.bec: [] \u2014 README and wiki both document a 12V/3A BEC (for VTX) and a 5V/2A BEC (for peripherals)",
+      "Current data does not capture OSD chip \u2014 README and wiki both explicitly name AT7456E; hwdef uses MAX7456 driver (compatible)",
+      "Current data does not capture onboard dataflash \u2014 hwdef defines DATAFLASH littlefs:w25nxx on SPI4 (PE11 FLASH_CS)",
+      "Current data has manual.dimensions_mm: null \u2014 README and wiki both state 41x41mm PCB with 30.5mm M3 mounting holes",
+      "Current data does not capture voltage cell range \u2014 README and wiki both specify 2S-8S LiPo input"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/StellarH7V2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/StellarH7V2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/StellarH7V2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-stellarh7v2.rst"
+    ],
+    "dimensions_mm": {
+      "length": 41,
+      "width": 41,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32H743xx (family)",
+        "readme": "STM32H743VIH6",
+        "wiki": "STM32H743VIH6",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensensev3 SPI:icm42688",
+        "readme": "ICM-42688p",
+        "wiki": "ICM-42688p",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "DPS310 I2C:0:0x76 + BMP280 I2C:0:0x76 (alternatives at same address)",
+        "readme": "DPS310/BMP280",
+        "wiki": "DPS310/BMP280",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "MAX7456 driver (osd SPI2 DEVID2 MAX7456_CS)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "7 (USART1,2,3,UART4,USART6,UART7,UART8)",
+        "readme": "7x UARTs",
+        "wiki": "7x UARTs",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "1 (CAN1)",
+        "readme": "1x CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": "BATT_VOLT_MULT=11.0 consistent with 2-8S range",
+        "readme": "2S-8S",
+        "wiki": "2S-8S",
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "41 x 41mm",
+        "wiki": "41 x 41mm",
+        "manufacturer": null
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "30.5mm M3",
+        "wiki": "30.5mm M3",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "12V 3A (VTX) + 5V 2A (peripherals)",
+        "wiki": "12V 3A (VTX) + 5V 2A (peripherals)",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC1 pins defined (PC8-PC12, PD2)",
+        "readme": "SD Card",
+        "wiki": "SD card for logging",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "no COMPASS line; AP_COMPASS_PROBING_ENABLED for external only",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null
+      }
+    ]
   }
 }

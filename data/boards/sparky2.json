@@ -1,7 +1,7 @@
 {
   "slug": "sparky2",
   "name": "sparky2",
-  "manufacturer": null,
+  "manufacturer": "TauLabs",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -29,9 +29,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 10,
+      "fmu": 7,
       "io": 0,
-      "total": 10
+      "total": 7
     },
     "ethernet": false,
     "sdcard": false,
@@ -99,5 +99,144 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "TauLabs",
+    "marketing_name": "TauLabs Sparky2",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "MPU9250"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK8963"
+    ],
+    "blackbox_flash": "dataflash (size unknown)",
+    "has_sdcard": false,
+    "voltage_min_v": 4.8,
+    "voltage_max_v": 10,
+    "uart_count": 2,
+    "can_count": 1,
+    "notable_connectors": [
+      "MMCX (integrated radio antenna)",
+      "USB",
+      "SWD"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "Integrated radio module (MMCX antenna connector; OPLink-style RF, not configured in ArduPilot hwdef)",
+    "pinout_notes": "SERIAL_ORDER: USB(OTG1), USART3, EMPTY, USART1; 7 PWM outputs per hwdef (PWM1-7); CAN2; 1x I2C; 2x ADC (battery voltage + current); SPI1 for MPU9250, SPI3 for dataflash",
+    "discrepancies": [
+      "JSON power.monitor_inputs=0 is wrong; hwdef defines BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC pins and wiki confirms '2x analog to digital inputs for battery voltage and current monitoring'",
+      "JSON io.pwm.fmu=10 and io.pwm.total=10 do not match hwdef which defines only 7 PWM outputs (PWM1-7); wiki claims 6+4=10 but some of those 4 may be on LED-port pads not configured in ArduPilot hwdef",
+      "JSON manufacturer=null should be 'TauLabs' per wiki title and page content"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/sparky2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/sparky2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-taulabs-sparky2.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx",
+        "wiki": "STM32F405 ARM Cortex-M4",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu9250",
+        "wiki": "InvenSense MPU9250 IMU (accel, gyro, compass)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 I2C:0:0x77",
+        "wiki": "MS5611 barometers",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK8963:probe_mpu9250",
+        "wiki": "InvenSense MPU9250 (includes AK8963 compass)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash on SPI3 + HAL_LOGGING_DATAFLASH_ENABLED",
+        "wiki": "Dataflash for logging",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "2 hardware UARTs (USART1, USART3); SERIAL_ORDER: OTG1 USART3 EMPTY USART1",
+        "wiki": "1x serial input for GPS (implies only 1 exposed serial port)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN2)",
+        "wiki": "1x CAN bus",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card pins",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "wiki": "TauLabs",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "7 PWM outputs defined (PWM1-7)",
+        "wiki": "6x PWM outputs (+4 more on LED port) = 10",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_range",
+        "hwdef": null,
+        "wiki": "4.8V ~ 10V input power via ESC connection",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "power_monitor_inputs",
+        "hwdef": "2 ADC pins: BATT_VOLTAGE_SENS + BATT_CURRENT_SENS",
+        "wiki": "2x analog to digital inputs for battery voltage and current monitoring",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

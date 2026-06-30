@@ -1,7 +1,7 @@
 {
   "slug": "BeastH7",
   "name": "BeastH7",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -97,5 +97,182 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight Beast H7 55A AIO",
+    "family": "Beast AIO",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 8.5,
+    "mounting_pattern_mm": "25.5x25.5",
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI FPV connector (VTX/camera/RC input)",
+      "USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs (USART1/2/3, UART4/7); 4 motor pads internally wired to integrated BLHeli-S 55A 4-in-1 ESC; PWM5 NeoPixel LED; DJI connector carries UART2 (VTX), UART3 (RC input); AT7456E OSD; 16MB SPI flash for blackbox; built-in voltage and 300A current sensor",
+    "discrepancies": [
+      "Current JSON has manufacturer=null but board is clearly iFlight (README and wiki both confirm)",
+      "Wiki (.rst) lists '1MB Flash' in the processor section but hwdef.dat shows FLASH_SIZE_KB=2048 (2MB) which matches the STM32H743 actual spec",
+      "Wiki interfaces section says '45A BLHeli-S ESC' but the board title/README/product name all say 55A \u2014 minor wiki inconsistency",
+      "Wiki has typo 'DSP310' for the barometer; correct part is DPS310 (confirmed by hwdef BARO line and README)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BeastH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastH7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-iflight-beasth7AIO.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32.5,
+      "width": 32.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "manufacturer",
+        "hwdef": "iFlight (README header)",
+        "wiki": "iFlight",
+        "readme": "iFlight",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "wiki": "STM32H743",
+        "readme": "BGA-STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "mpu6000 (SPIDEV alias)",
+        "wiki": "InvenSense MPU6000",
+        "readme": "MPU6000",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310",
+        "wiki": "DSP310 (typo for DPS310)",
+        "readme": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (SPIDEV)",
+        "wiki": null,
+        "readme": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "16MB SPI flash (SPI3)",
+        "wiki": "16MB",
+        "readme": "16Mb Onboard Flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1,2,3 UART4,7)",
+        "wiki": "5x UARTs",
+        "readme": "5 UARTS",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN lines)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "up to 6S (README)",
+        "wiki": "7.4V~25V (~2-6S)",
+        "readme": "up to 6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "wiki": "5V 2.5A BEC",
+        "readme": "5V 2.5A BEC output",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "wiki": "32.5mm",
+        "readme": null,
+        "manufacturer": "32.5 (manual block)",
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "wiki": "32.5mm",
+        "readme": null,
+        "manufacturer": "32.5 (manual block)",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "wiki": "25.5x25.5mm",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "8.5g",
+        "readme": null,
+        "manufacturer": "8.5 (manual block)",
+        "agree": "agree"
+      },
+      {
+        "field": "flash_kb",
+        "hwdef": "2048 (FLASH_SIZE_KB 2048)",
+        "wiki": "1MB (incorrect)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

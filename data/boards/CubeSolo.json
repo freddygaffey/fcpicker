@@ -1,7 +1,7 @@
 {
   "slug": "CubeSolo",
   "name": "CubeSolo",
-  "manufacturer": null,
+  "manufacturer": "3DR",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -156,5 +156,121 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "3DR",
+    "marketing_name": "3DR Solo (Pixhawk 2.0 / FMUv3 autopilot)",
+    "family": "FMUv3",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "MPU9250",
+      "LSM9DS0",
+      "ICM20602",
+      "ICM20948"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "LSM303D",
+      "AK8963",
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "FMUv3-based: 5 UARTs (telem1, telem2, GPS, GPS2, debug/SERIAL5), 2 CAN buses, SDIO microSD, IOMCU (USART6) providing 8 IO PWM outputs plus 6 FMU PWM = 14 total, FRAM (ramtron SPI2) for parameter storage, IMU heater, OreoLED support",
+    "discrepancies": [
+      "manufacturer is null in data; hwdef comment confirms '3DR Solo' and README names this a 'CubeSolo variant of FMUv3' \u2014 manufacturer should be '3DR'",
+      "ICM20602 entry in data has slot 'SPI4/CS:ACCEL_EXT_CS' but CubeSolo hwdef.dat assigns SPIDEV icm20602_ext to GYRO_EXT_CS (not ACCEL_EXT_CS); the fmuv3 base also maps icm20602_ext to GYRO_EXT_CS",
+      "docs_url points to a GitHub hwdef README (not an ardupilot.org wiki page); no dedicated CubeSolo wiki page exists \u2014 closest is copter/solo_arducopter_upgrade.rst which covers the upgrade procedure, not hardware specs",
+      "Physical specs (dimensions, weight, mounting pattern) are all null and cannot be determined from local sources (discontinued product)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeSolo.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeSolo/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeSolo/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/solo_arducopter_upgrade.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-rtf.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (MCU STM32F4xx STM32F427xx in fmuv3/hwdef.dat)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "MPU9250 (x2 original), LSM9DS0 (original), ICM20602 (newer), ICM20948 (x2 newer) \u2014 all confirmed in CubeSolo hwdef.dat IMU lines",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 x2 (SPI:ms5611_ext and SPI:ms5611 via fmuv3/hwdef.dat BARO lines)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "LSM303D (from lsm9ds0_ext_am), AK8963 (probe_mpu9250), AK09916 (probe_ICM20948) \u2014 confirmed in CubeSolo hwdef.dat COMPASS lines",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (SERIAL_ORDER: OTG1 USART2 USART3 UART4 UART8 UART7; USART6 is internal IOMCU)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1 on PD0/PD1, CAN2 on PB6/PB12 in fmuv3/hwdef.dat)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDIO pins (PC8-PC12, PD2) defined in fmuv3/hwdef.dat; HAL_OS_FATFS_IO enabled",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "iomcu",
+        "hwdef": "IOMCU_UART USART6 in fmuv3/hwdef.dat; ROMFS includes iofirmware_lowpolh.bin",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "icm20602_slot",
+        "hwdef": "CubeSolo hwdef.dat: SPIDEV icm20602_ext SPI4 DEVID3 GYRO_EXT_CS",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": "data JSON shows slot 'SPI4/CS:ACCEL_EXT_CS' \u2014 disagrees with hwdef",
+        "agree": "disagree"
+      }
+    ]
   }
 }

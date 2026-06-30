@@ -1,7 +1,7 @@
 {
   "slug": "BlitzF745",
   "name": "BlitzF745",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -102,5 +102,165 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight BLITZ F745",
+    "family": "BLITZ F7",
+    "mcu_part": "STM32F745",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "32MB",
+    "has_sdcard": false,
+    "weight_g": 7.8,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C",
+      "JST-SH (M1-M4 ESC connector)",
+      "DJI HD VTX connector"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "9x PWM (M1-M8 motors + LED/NeoPixel); UART1=DisplayPort/VTX, UART2=RC input, UART3=GPS, UART4/5=user, UART6=ESC Telemetry; no CAN; I2C for external compass only; 5V and 9V BEC outputs",
+    "discrepancies": [
+      "Wiki (common-blitz-f745.rst) states '19V, 2A BEC for powering Video Transmitter' \u2014 manufacturer page confirms a 9V, 2.5A BEC; '19V' appears to be a typo in the wiki for '9V'",
+      "README.md lists only 'BEC output: 5V 2.5A' and omits the 9V BEC that the manufacturer page confirms",
+      "JSON imus[0].chip is stored as 'Invensensev3' (hwdef bus alias/family label) rather than the actual chip 'ICM42688', which is confirmed by the README, wiki, and manufacturer",
+      "JSON manufacturer field is null \u2014 confirmed manufacturer is iFlight"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BlitzF745.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745/defaults.parm",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-blitz-f745.rst",
+      "https://shop.iflight.com/electronics-cat27/BLITZ-F745-Flight-Controller-Pro2141"
+    ],
+    "dimensions_mm": {
+      "length": 36.5,
+      "width": 35,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx",
+        "readme": "BGA-STM32F745, 216MHz",
+        "wiki": "STM32F745 32-bit processor, 216 MHz",
+        "manufacturer": "STM32F745 MCU",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (alias)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688 IMU",
+        "manufacturer": "ICM42688",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 + SPL06 (both probed)",
+        "readme": "DPS310",
+        "wiki": "DPS310 or SPL06",
+        "manufacturer": "DPS310",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI4 (OSD1_CS)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E OSD",
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:jedec_nor",
+        "readme": "32Mbytes Onboard Flash",
+        "wiki": "32 MB flash for logging",
+        "manufacturer": "32MB",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/5, USART6)",
+        "readme": "6 UARTS",
+        "wiki": "6x total UARTs/serial",
+        "manufacturer": "6 UART ports",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no sdcard line)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "voltage sensor can handle up to 6S",
+        "wiki": "2S - 6S Lipo input voltage",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V 2.5A only",
+        "wiki": "5V 2.5A + 19V 2A",
+        "manufacturer": "5V 2.5A + 9V 2.5A",
+        "agree": "disagree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "36.5x35mm, 7.8g",
+        "agree": "unknown"
+      }
+    ]
   }
 }

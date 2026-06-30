@@ -1,7 +1,7 @@
 {
   "slug": "ATOMRCF405NAVI-Deluxe",
   "name": "ATOMRCF405NAVI-Deluxe",
-  "manufacturer": null,
+  "manufacturer": "ATOMRC",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,164 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ATOMRC",
+    "marketing_name": "AtomRC F405-NAVI-Deluxe",
+    "family": "F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "SPL-06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 21,
+    "voltage_cells": "2-7S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "servo",
+        "volts": null,
+        "amps": 5
+      },
+      {
+        "rail": "video",
+        "volts": null,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH 6-pin GPS/Compass",
+      "JST-GH 6-pin DJI/HD video air unit",
+      "JST-GH 6-pin remote USB/Buzzer",
+      "Type-C USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ESP32 Bluetooth",
+    "pinout_notes": "6 UARTs; 12 PWM outputs (PWM12 defaults serial LED); SBUS input via inverter on UART2; I2C for external GPS/compass; integrated ESP32 BLE on UART1 (default off); 3x JST-GH 6-pin connectors for GPS, HD video, USB/buzzer; SD card slot",
+    "discrepancies": [
+      "README states servo BEC is '5.15/6/7.15V selectable, 5A' but wiki states '5V, 5A' \u2014 README appears more authoritative (manufacturer text)",
+      "README states video BEC is '9V/12V, 2A' but wiki states '5V or 9V, 2A' \u2014 README appears more authoritative",
+      "Our board JSON has manufacturer: null \u2014 should be ATOMRC",
+      "Our board JSON has dimensions_mm: null and weight_g: null \u2014 README and wiki both confirm 50x30x12mm, 21g"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ATOMRCF405NAVI-Deluxe.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ATOMRCF405NAVI-Deluxe/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ATOMRCF405NAVI-Deluxe/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-atomrcf405-navi-deluxe.rst"
+    ],
+    "dimensions_mm": {
+      "length": 50,
+      "width": 30,
+      "height": 12
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405RGT6",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688",
+        "readme": "ICM-42688",
+        "wiki": "ICM-42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL-06",
+        "wiki": "SPL-06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_range",
+        "hwdef": null,
+        "readme": "6V-30V",
+        "wiki": "6V-30V",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "50x30x12mm",
+        "wiki": "50x30x12mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "21g",
+        "wiki": "21g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "servo_bec",
+        "hwdef": null,
+        "readme": "5.15/6/7.15V selectable, 5A",
+        "wiki": "5V, 5A",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "video_bec",
+        "hwdef": null,
+        "readme": "9V/12V, 2A",
+        "wiki": "5V or 9V, 2A",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD_CS pin present, HAL_OS_FATFS_IO",
+        "readme": "SD Card Slot",
+        "wiki": "SD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "AT7456E_CS, OSD_ENABLED=1",
+        "readme": "AT7456E OSD",
+        "wiki": "analog OSD enabled by default",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

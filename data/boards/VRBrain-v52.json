@@ -1,7 +1,7 @@
 {
   "slug": "VRBrain-v52",
   "name": "VRBrain-v52",
-  "manufacturer": null,
+  "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F407xx"
@@ -30,9 +30,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 14,
+      "fmu": 12,
       "io": 0,
-      "total": 14
+      "total": 12
     },
     "ethernet": false,
     "sdcard": true,
@@ -100,5 +100,113 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Laser Navigation",
+    "marketing_name": "VR Brain 5.2",
+    "family": "VRBrain",
+    "mcu_part": "STM32F407xx",
+    "imu_models": [
+      "MPU-6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "14 PWM pads labelled in hwdef but only 12 active (PWM13/PWM14 on TIM9 PE5/PE6 are commented out); 3 UARTs (USART1/2/3) plus USB OTG; Ramtron FRAM for parameter storage; SD card via SPI3; RCIN on PC7 TIM8_CH2; battery voltage+current sensing on PC0/PC1; 3 relay outputs",
+    "discrepancies": [
+      "json manufacturer is null but hwdef USB_STRING_MANUFACTURER is 'Laser Navigation' (Laser Navigation SRL, trading as VirtualRobotix)",
+      "json io.pwm.fmu=14 and total=14 but hwdef has only 12 active PWM channels (PWM13 on PE5/TIM9_CH1 and PWM14 on PE6/TIM9_CH2 are commented out with #)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VRBrain-v52.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VRBrain-v52/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/USB-IDs.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-commercial-support.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F407xx",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensense SPI:mpu6000 (MPU-6000)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "HMC5843 I2C:1:0x1e (forced external)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "3 (USART1, USART2, USART3)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "0 (no CAN pins defined)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "yes (SDCARD_CS via PA4 on SPI3)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": "Laser Navigation (USB_STRING_MANUFACTURER)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "pwm_count",
+        "agree": "disagree",
+        "hwdef": "12 active (PWM1-12); PWM13/14 on TIM9 PE5/PE6 are commented out",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

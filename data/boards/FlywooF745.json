@@ -1,7 +1,7 @@
 {
   "slug": "FlywooF745",
   "name": "FlywooF745",
-  "manufacturer": null,
+  "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -123,5 +123,187 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flywoo",
+    "marketing_name": "Flywoo GOKU GN 745 AIO",
+    "family": "GOKU",
+    "mcu_part": "STM32F745VG",
+    "imu_models": [
+      "MPU6000",
+      "ICM42668P",
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06",
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "8MB (v1.0/v1.2) / 16MB (v3)",
+    "has_sdcard": false,
+    "weight_g": 8.5,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 1.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs (UART1-7); 8 PWM outputs (4 internal to 40A BLHeli32 4-in-1 ESC + 4 external pads); I2C for external compass/peripherals; USB VCP; AT7456E OSD; SPI dataflash (no SD card); NeoPixel LED pad",
+    "discrepancies": [
+      "manufacturer is null in JSON; should be 'Flywoo'",
+      "bec_outputs is empty in JSON; hwdef README and wiki confirm 9V/1.5A, 5V/2A, and 3.3V/0.5A BECs",
+      "MCU listed as family 'STM32F745xx' in JSON; wiki specifies exact part STM32F745VG",
+      "BMI270 included in hwdef probe list but README and wiki only identify MPU6000 and ICM42668P as shipped IMU variants; BMI270 is a driver-level fallback probe",
+      "SPL06 and DPS310 included in hwdef baro probe list but README and wiki only confirm BMP280 as the physical barometer; these are driver-level fallback probes",
+      "Physical dimensions (33.5x33.5mm, 8.5g weight, 25.5x25.5mm mounting pattern) are absent from the JSON manual block"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlywooF745.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF745/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF745/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-flywoo-f745.rst"
+    ],
+    "dimensions_mm": {
+      "length": 33.5,
+      "width": 33.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx (family)",
+        "readme": "STM32F745",
+        "wiki": "STM32F745VG",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "MPU6000, BMI270, ICM42688 (three probe aliases at same CS pin)",
+        "readme": "MPU6000 or ICM42668P",
+        "wiki": "MPU6000 or ICM42668P",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280, SPL06, DPS310 (three probe alternatives at I2C 0x76)",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (CS pin named AT7456E_CS on SPI2)",
+        "readme": "MAX7456 driver (compatible)",
+        "wiki": "Built-in OSD (chip not named)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPI1 dataflash (size not specified in hwdef)",
+        "readme": "8MB (v1.0/v1.2) or 16MB (v3)",
+        "wiki": "8MB (v1.0/v1.2) or 16MB (v3)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (SERIAL_ORDER: OTG1 USART1 USART2 USART3 UART4 UART5 USART6 UART7)",
+        "readme": "7",
+        "wiki": "7",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins in hwdef)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "33.5x33.5mm",
+        "wiki": "33.5x33.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "25.5/26.5mm square (ambiguous notation)",
+        "wiki": "25.6x25.6mm",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "8.5g",
+        "wiki": "8.5g (V1.2), 9.4g (V3)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2-6S",
+        "wiki": "7.4V~25V DC (equivalent to 2-6S)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V/1.5A, 5V/2A, 3.3V/0.5A",
+        "wiki": "5V 2A, 9V 1.5A (no 9V on V3)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "No SD card (SPI1 dataflash only)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "No onboard compass (external I2C probing enabled)",
+        "readme": "No builtin compass",
+        "wiki": "No builtin compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

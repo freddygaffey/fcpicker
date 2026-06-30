@@ -1,7 +1,7 @@
 {
   "slug": "HWH7",
   "name": "HWH7",
-  "manufacturer": null,
+  "manufacturer": "HW",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -124,5 +124,156 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "HW",
+    "marketing_name": "HWH7 Flight Controller (RTF-H7-FC-8S)",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42688P",
+      "BMI270"
+    ],
+    "baro_models": [
+      "SPL06",
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "512Mb (optional board variant)",
+    "has_sdcard": true,
+    "voltage_cells": "4-8S",
+    "voltage_min_v": 12,
+    "voltage_max_v": 35.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB Type-C",
+      "8-pin ESC ribbon connectors (x2)",
+      "microSD slot",
+      "CAM1/CAM2 analog video",
+      "VTX 12V power",
+      "I2C external compass pads"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (internal module on UART3, not currently usable by ArduPilot)",
+    "pinout_notes": "8 UARTs: USART1 (RC input), USART2 (DisplayPort), USART3 (internal BT, unused), UART4 (GPS), UART5-7 (user), UART8 (ESC telemetry); 12 PWM outputs, M1-M8 bidirectional DShot; no CAN; camera switching relay (PE2); VTX power relay (PE4)",
+    "discrepancies": [
+      "manufacturer is null in current data; README says board is designed and produced by HW",
+      "osd_chip not recorded in current data; README and hwdef both confirm AT7456E on SPI3",
+      "voltage_cells/voltage_min_v/voltage_max_v all null in current data; README specifies 4S-8S input (12-35.6V)",
+      "bec_outputs is empty in current data; README specifies on-board 5V/3A and 12V/3A BECs",
+      "power.monitor_inputs is 0 in current data; hwdef defines built-in analog voltage+current monitor (ADC on PC0/PC1)",
+      "wireless not recorded; board has internal Bluetooth module on UART3 per README (non-functional in ArduPilot)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/HWH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HWH7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HWH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 + Invensensev3 (ICM42688) on SPI1 and SPI2 (probed)",
+        "readme": "ICM-42688P (default/probed), BMI270 (alternative/probed)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 and DPS310 at I2C:0:0x76",
+        "readme": "SPL06 or DPS310 at 0x76",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS SPI device (AT7456E compatible)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1,2,3,UART4,5,USART6,UART7,8)",
+        "readme": "8 UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "none (no CAN pins defined)",
+        "readme": "not mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 4-bit defined",
+        "readme": "microSD SDMMC1 4-bit",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not specified",
+        "readme": "4S-8S LiPo (12-35.6V)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not specified",
+        "readme": "5V/3A and 12V/3A on-board BECs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass device defined",
+        "readme": "no builtin compass",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "not specified",
+        "readme": "designed and produced by HW",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "BlitzH743Pro",
   "name": "BlitzH743Pro",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -104,5 +104,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight BLITZ H7 Pro",
+    "family": "BLITZ H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 35,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_cells": "2-8S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "DJI connector (UART1/DisplayPort)",
+      "expansion connector (M9-M12, TX7/RX7, CAN, I2C2, 5V/12V)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "13x PWM (M1-M12 motor + M13/LED), 7x UART (USART1 DJI/DisplayPort, USART2 RC, USART3, UART4 GPS, USART6, UART7, UART8), 2x I2C, 1x CAN. 12V BEC is software-switchable via GPIO81 (RELAY2). Expansion board exposes M9-M12, TX7/RX7, CAN, I2C2, RSSI, 5V/12V/GND.",
+    "discrepancies": [
+      "README.md battery monitoring section says 'voltage sensor can handle up to 6S' but the features section says 2S-8S; wiki consistently states 2S-8S and up to 8S \u2014 the 6S note in README appears to be a stale error",
+      "JSON imu chip stored as driver alias 'Invensensev3'; real silicon is ICM42688 per README and wiki",
+      "JSON manufacturer field is null; should be iFlight",
+      "Wiki title renders 'iFlight BLITZ Pro H743' (word-order transposition) vs README and product name 'iFlight BLITZ H7 Pro'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BlitzH743Pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzH743Pro/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzH743Pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-blitzh743pro.rst"
+    ],
+    "dimensions_mm": {
+      "length": 52,
+      "width": 36.9,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 + SPL06 (both at I2C:1:0x76, firmware probes both)",
+        "readme": "DPS310 (v1), SPA06 (v2)",
+        "wiki": "DPS310 (v1), SPA06 (v2)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "yes \u2014 AT7456E via MAX7456 driver (SPIDEV osd SPI2)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes \u2014 SDMMC1 defined",
+        "readme": "32Gb SDCard",
+        "wiki": "integrated microSD chip",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1/2/3, UART4, USART6, UART7, UART8)",
+        "readme": "7",
+        "wiki": "7",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1",
+        "wiki": "1",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S (features) / 6S (battery section \u2014 inconsistent)",
+        "wiki": "2S-8S",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "35g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "36.9x52mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

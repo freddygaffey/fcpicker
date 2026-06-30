@@ -1,7 +1,7 @@
 {
   "slug": "VUAV-TinyV7",
   "name": "VUAV-TinyV7",
-  "manufacturer": null,
+  "manufacturer": "V-UAV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -118,5 +118,139 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "V-UAV",
+    "marketing_name": "VUAV-TinyV7 Flight Controller",
+    "family": "H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM45686",
+      "BMI088"
+    ],
+    "baro_models": [
+      "ICP-20100"
+    ],
+    "compass_models": [
+      "IST8310",
+      "QMC5883L"
+    ],
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 26,
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "ESC connector (6-26V battery input, current sense, UART7_RX, PWM9-12)",
+      "TELEM1 (USART2 with RTS/CTS)",
+      "TELEM2/ADC (UART5 + 2 ADC pins)",
+      "TELEM3 (UART7)",
+      "GPS1/I2C2 (USART1 + safety switch + buzzer)",
+      "GPS2/I2C2 (USART3)",
+      "CAN1",
+      "I2C (I2C4)",
+      "POWER (5V input + voltage/current sense)",
+      "USB OTG (dual virtual port)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs: TELEM1 (USART2, RTS/CTS), TELEM2 (UART5), TELEM3 (UART7), GPS1 (USART1), GPS2 (USART3); 2x USB OTG; 12 PWM outputs (1-8 bidir DShot, 9-12 on ESC connector, no DShot); 1 CAN; RCIN on servo rail; safety switch + buzzer on GPS1 connector; FRAM for parameter storage",
+    "discrepancies": [
+      "JSON manufacturer field is null; should be V-UAV per README and wiki",
+      "JSON IMU1 chip shows driver family name 'Invensensev3' (SPI alias 'imu1'); real part is ICM45686 as explicitly named in README and wiki",
+      "JSON baro chip shows driver family name 'ICP201XX'; real part is ICP-20100 (minor naming difference, same chip)",
+      "README title uses 'VUAV-V7Tiny' while ArduPilot slug and wiki page use 'VUAV-TinyV7' \u2014 naming inconsistency between README and target/wiki"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VUAV-TinyV7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VUAV-TinyV7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VUAV-TinyV7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-vuav-tinyv7.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models[0]",
+        "hwdef": "Invensensev3 (driver alias 'imu1')",
+        "readme": "ICM45686",
+        "wiki": "ICM45686",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models[1]",
+        "hwdef": "BMI088",
+        "readme": "BMI088",
+        "wiki": "BMI088",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models[0]",
+        "hwdef": "ICP201XX",
+        "readme": "ICP-20100",
+        "wiki": "On-board barometer (unnamed)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310, QMC5883L",
+        "readme": "IST8310 (only this mentioned)",
+        "wiki": "on-board compass (unnamed)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 hardware UARTs (USART1/2/3, UART5/7)",
+        "readme": "5 UARTs",
+        "wiki": "5 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1 CAN",
+        "wiki": "1 CAN bus",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "readme": "MicroSD card slot",
+        "wiki": "microSD card slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "readme": "ESC: BAT VCC IN +6V to 26V",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "V-UAV (http://www.v-uav.com/)",
+        "wiki": "V-UAV",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

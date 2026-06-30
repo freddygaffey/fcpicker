@@ -1,7 +1,7 @@
 {
   "slug": "BeastF7v2",
   "name": "BeastF7v2",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -47,13 +47,6 @@
   },
   "imus": [
     {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI1/CS:BMI270_CS",
-      "chip_display": "MPU6000"
-    },
-    {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
       "variant": null,
@@ -61,15 +54,7 @@
       "chip_display": "BMI270"
     }
   ],
-  "baros": [
-    {
-      "chip": "BMP280",
-      "bus": "I2C:0:0x76",
-      "variant": null,
-      "slot": null,
-      "chip_display": null
-    }
-  ],
+  "baros": [],
   "compasses": [],
   "firmware_support": [
     {
@@ -100,5 +85,151 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight Beast F7 v2 AIO",
+    "family": "Beast F7",
+    "mcu_part": "STM32F745xx",
+    "imu_models": [
+      "BMI270"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 8.5,
+    "mounting_pattern_mm": "25.5x25.5",
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI connector (UART1/UART2)"
+    ],
+    "has_baro": false,
+    "has_osd": true,
+    "pinout_notes": "5 PWM outputs: 4 motor (bidirectional DShot capable) + 1 NeoPixel LED. UART1/UART2 on DJI connector; UART3 default RC input; UART4 GPS; UART7 user. No external I2C connector.",
+    "correct_wiki_stem": "common-iflight-beastf7AIO",
+    "discrepancies": [
+      "Current data i2c_buses=['I2C1'] is wrong: BeastF7v2 hwdef.dat undefines I2C1 and replaces it with I2C2 (PB10/PB11 shared with USART3)",
+      "Current data pwm.fmu=7 is wrong: hwdef, README, wiki, and defaults.parm all confirm exactly 5 PWM outputs (4 motor + 1 LED on ch5)",
+      "Wiki page (common-iflight-beastf7AIO) lists 'InvenSense MPU6000 IMU' but that describes v1 only; v2 hwdef explicitly defines BMI270",
+      "README title says '55A' while the embedded store URL says '45A' and the wiki page title also says '45A' \u2014 ESC rating is unresolved",
+      "Flash size conflict: hwdef README says '16Mb Onboard Flash' (interpreted as 16MB) but wiki page says '8MB on board Flash for logging'",
+      "Current data manufacturer is null; all sources confirm iFlight"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BeastF7v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7v2/defaults.parm",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastF7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-iflight-beastf7AIO.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32.5,
+      "width": 32.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx",
+        "readme": "BGA-STM32F745",
+        "wiki": "STM32F745 BGA ARM (216MHz)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (v2 overrides parent's mpu6000 alias)",
+        "readme": "BMI270",
+        "wiki": "MPU6000 (describes v1 only; v2 noted as variant)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "false (undef BARO + HAL_BARO_ALLOW_INIT_NO_BARO)",
+        "readme": "No Barometer",
+        "wiki": "BMP280 not in V2 version",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1/2/3, UART4/7)",
+        "readme": "5 UARTS",
+        "wiki": "5x UARTS",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (inherited from BeastF7 parent)",
+        "readme": "AT7456E",
+        "wiki": "Built-in OSD (chip not named)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash present (size not in hwdef)",
+        "readme": "16Mb Onboard Flash",
+        "wiki": "8MB on board Flash for logging",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V 2.5A BEC",
+        "wiki": "5V 2.5A BEC for peripherals",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "7.4V ~ 25V (2S-6S)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "32.5 x 32.5mm (25.5 x 25.5mm mount)",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "8.5g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "5 (PB1/PB4/PB5/PB0/PD12 after overrides)",
+        "readme": "5 PWM outputs (4 motors + 1 LED)",
+        "wiki": "5x PWM outputs",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

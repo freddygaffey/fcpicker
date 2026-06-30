@@ -121,7 +121,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-pixhackV5-overview.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -136,5 +136,115 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "family": "FMUv5",
+    "mcu_part": "STM32F765",
+    "imu_models": [
+      "ICM20689",
+      "BMI055"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "weight_g": 90,
+    "voltage_min_v": 4.3,
+    "voltage_max_v": 5.4,
+    "uart_count": 6,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 UARTs: USART2 Telem1 (RTS/CTS), USART3 Telem2 (RTS/CTS), USART1 GPS, UART4 GPS2/I2C, USART6 spare, UART7 debug; 8 IOMCU main PWM + 8 FMU aux PWM; 2x CAN; 4x I2C; microSD; FRAM (Ramtron) parameter storage; IOMCU (STM32F100) via UART8",
+    "correct_wiki_stem": "common-pixhackV5-overview",
+    "discrepancies": [
+      "Current data mcu.part=STM32F767xx is the hwdef driver-family alias; the physical MCU confirmed by Pixhawk4/README.md and the hwdef.dat comment is STM32F765 (lacks TFT vs F767)",
+      "Current data includes ICM20602 and BMI088 as physical IMUs, but the Pixhawk4 README and CUAV v5 wiki only confirm ICM20689 + BMI055; ICM20602 and BMI088 are probed in firmware (ICM20602 has its own CS pin PF3 so may exist in some variants) but are not confirmed on reference hardware",
+      "docs_url is null but the closest wiki page common-pixhackV5-overview (CUAV v5) covers this reference design; wiki dimension/weight (44x84x12mm, 90g) applies to CUAV v5 specifically and may not match Holybro Pixhawk4",
+      "Wiki lists 5 general-purpose serial ports, hwdef SERIAL_ORDER and Pixhawk4 README both show 6 hardware UARTs (UART7 debug counts as sixth)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/fmuv5.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv5/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-pixhackV5-overview.rst"
+    ],
+    "dimensions_mm": {
+      "length": 84,
+      "width": 44,
+      "height": 12
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (family alias; comment says F765)",
+        "readme": "STM32F765",
+        "wiki": "32-bit ARM Cortex M7",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20689, ICM20602, BMI055, BMI088 (all probed)",
+        "readme": "ICM20689 and BMI055",
+        "wiki": "ICM20689, BMI055",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "readme": "MS5611 SPI barometer",
+        "wiki": "MS5611 barometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C",
+        "readme": "builtin I2C IST8310 magnetometer",
+        "wiki": "IST8310 magnetometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3, UART4,6,7 in SERIAL_ORDER)",
+        "readme": "6 UARTs plus USB",
+        "wiki": "5x general purpose serial ports",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2",
+        "readme": "two CAN ports",
+        "wiki": "2x CAN Bus ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_min_v / voltage_max_v",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "Operating power: 4.3~5.4V",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

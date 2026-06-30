@@ -1,7 +1,7 @@
 {
   "slug": "F4BY",
   "name": "F4BY",
-  "manufacturer": null,
+  "manufacturer": "Swift-Flyer",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F407xx"
@@ -107,5 +107,117 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Swift-Flyer",
+    "marketing_name": "F4BY FMU",
+    "mcu_part": "STM32F407",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "uart_count": 4,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "12x PWM outputs (TIM1/TIM2/TIM4); SERIAL_ORDER: USB-OTG + USART1/2/3 + UART5 (4 hardware UARTs); UART4 pins also defined (PC10/PC11) but absent from SERIAL_ORDER; SPI1 for IMU, SPI2 for FRAM (parameter storage) and SD card; I2C1+I2C2; RGB+yellow LED; ADC for battery voltage/current, RSSI, servo rail sense",
+    "discrepancies": [
+      "Wiki (common-f4by.rst) lists compass as 'HMC5983' but hwdef.dat uses driver 'HMC5843' at I2C address 0x1E; a pin is also labelled DRDY_HMC5883, creating three different model names \u2014 hwdef is taken as ground truth here",
+      "Wiki says '5x UART serial ports' but hwdef.dat SERIAL_ORDER defines only 4 hardware UARTs (USART2, USART1, USART3, UART5) plus USB OTG; UART4 (PC10/PC11) is pinned out but not in SERIAL_ORDER",
+      "JSON manufacturer is null but hwdef USB_STRING_MANUFACTURER='Swift-Flyer' and wiki both confirm Swift-Flyer as the manufacturer"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/F4BY.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-f4by.rst"
+    ],
+    "dimensions_mm": {
+      "length": 50,
+      "width": 50,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F407xx",
+        "wiki": "STM32 F407 (single 32-bit ARM Cortex M4 with FPU)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000 (alias confirmed MPU6000 by CS pin label EXTI_MPU6000)",
+        "wiki": "InvenSense MPU6000",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 probed at 0x76 and 0x77",
+        "wiki": "MS5611 barometers",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 at I2C 0x1E",
+        "wiki": "HMC5983",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 in SERIAL_ORDER (USART1/2/3 + UART5); UART4 pins defined but excluded",
+        "wiki": "5x UART serial ports",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard on SPI2 + define HAL_OS_FATFS_IO 1",
+        "wiki": "micro SD card (for logs)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "USB_STRING_MANUFACTURER=Swift-Flyer",
+        "wiki": "Swift-Flyer (courtesy credit and buy link)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined \u2192 0",
+        "wiki": "lists CAN in interface types but gives no count",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "wiki": "50mm x 50mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

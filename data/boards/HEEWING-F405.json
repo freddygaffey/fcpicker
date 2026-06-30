@@ -1,7 +1,7 @@
 {
   "slug": "HEEWING-F405",
   "name": "HEEWING-F405",
-  "manufacturer": null,
+  "manufacturer": "HEEWING",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -89,5 +89,131 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "HEEWING",
+    "marketing_name": "HEEWING F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C (on remote dongle)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "9 PWM outputs (M1-M2, M5-M6, M9 support bidir dshot; PWM10 is no-output pad); 6 hardware UARTs: USART3 (UART1 label), USART1 (UART2 label), UART5 (GPS), UART4 (NC), USART6 (VTX TX-only), USART2 (RCIN, full UART with BRD_ALT_CONFIG=1); I2C port for external GPS/compass; no internal compass or dataflash (V1)",
+    "discrepancies": [
+      "Our data uart_count=6 is the raw hardware UART peripheral count; README says '4 UARTs' and wiki says '4x UARTs/serial' because UART4 is NC (not pinned out) and USART2/USART6 serve dedicated limited roles (RCIN and VTX TX-only respectively).",
+      "Our data pwm.fmu=10 and pwm.total=10, but README and wiki both state 9 PWM outputs; PWM(10) is PA15 TIM2_CH1 marked NODMA with comment '# no output' in hwdef.dat.",
+      "README spells the barometer 'SLP06' (typo); correct part designation is SPL06 as used in hwdef.dat and wiki.",
+      "OSD chip is described as MAX7456 in README (driver name) but AT7456E in wiki (actual chip); AT7456E is the Atmel/Renesas functional equivalent of MAX7456 \u2014 both sources are technically consistent but the chip designation differs.",
+      "docs_url uses the /copter/ subdomain; this board is plane-primary (AUTOBUILD_TARGETS Plane) but the wiki page is copied to all vehicle subsites so the URL is not wrong, only suboptimal."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/HEEWING-F405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/HEEWING-F405/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-heewingf405.rst"
+    ],
+    "dimensions_mm": {
+      "length": 44.3,
+      "width": 34.3,
+      "height": 13.7
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405RGT6 ARM (168MHz)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 (SPIDEV alias icm42688 on SPI1)",
+        "readme": "ICM42688",
+        "wiki": "ICM-42688P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x77",
+        "readme": "SLP06 (typo for SPL06)",
+        "wiki": "SPL-06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2, HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "MAX7456 OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 UART peripherals in SERIAL_ORDER (USART3, USART1, UART5, UART4, USART6, USART2)",
+        "readme": "4 UARTs",
+        "wiki": "4x UARTs/serial for GPS and other peripherals",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "voltage sensor handles up to 6S LiPo",
+        "wiki": "2S - 6S Lipo PMU unit",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "yes (OSD_ENABLED, HAL_OSD_TYPE_DEFAULT 1)",
+        "readme": "yes (MAX7456 OSD)",
+        "wiki": "yes (AT7456E OSD)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "yes (BARO SPL06 I2C:0:0x77)",
+        "readme": "yes (SLP06 barometer)",
+        "wiki": "yes (SPL-06 barometer)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "FLASH_CS pin defined in bootloader hwdef but SDCARD_CS commented out",
+        "readme": "NO dataflash",
+        "wiki": "original version has no logging capability; V2 has internal flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "44.3mm x 34.3mm x 13.7mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

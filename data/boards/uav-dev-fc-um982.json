@@ -1,7 +1,7 @@
 {
   "slug": "uav-dev-fc-um982",
   "name": "uav-dev-fc-um982",
-  "manufacturer": null,
+  "manufacturer": "UAV-DEV GmbH",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -103,5 +103,127 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "UAV-DEV GmbH",
+    "marketing_name": "UAV-DEV FC-UM982",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-45686"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "BMM150"
+    ],
+    "has_sdcard": true,
+    "weight_g": 22,
+    "voltage_max_v": 5.2,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH",
+      "USB-C",
+      "Tag-Connect"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "S1 (6-pin JST-GH): SERIAL4+SERIAL5 (USART6+UART7); S2 (6-pin JST-GH): SERIAL1+GNSS (USART1); PWM (8-pin JST-GH): 6x PWM/DShot + ESC telemetry RX; C1/C2 (4-pin JST-GH): 2x CAN FD with 120 Ohm termination; ETH (4-pin JST-GH): 100 Mbit Ethernet; Debug: 6-pin Tag-Connect SWD",
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/uav-dev-fc-um982.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/uav-dev-fc-um982/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/uav-dev-fc-um982/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-uav-dev-fc-um982.rst"
+    ],
+    "dimensions_mm": {
+      "length": 50,
+      "width": 50,
+      "height": 15
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM-45686 (SPIDEV alias icm45686, Invensensev3 driver)",
+        "readme": "TDK Invensense ICM-45686",
+        "wiki": "TDK Invensense ICM-45686",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 SPI:dps310",
+        "readme": "Infineon DPS310",
+        "wiki": "Infineon DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "BMM150 I2C:0:0x10",
+        "readme": "Bosch BMM150",
+        "wiki": "Bosch BMM150",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1, UART8, USART2, USART6, UART7, USART3)",
+        "readme": "6 UARTs",
+        "wiki": "6 UARTs, 4 available externally",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2 with CANFD_SUPPORTED)",
+        "readme": "2 x FD CAN",
+        "wiki": "2 x FD CAN ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1)",
+        "readme": "microSD",
+        "wiki": "microSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "50x50x15mm (without SMA connector)",
+        "wiki": "50x50x15mm (without SMA connector)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "22g with microSD card",
+        "wiki": "22g with microSD card",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "readme": "5.2V input via JST-GH",
+        "wiki": "5.2V input via JST-GH",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "RadiolinkPIX6",
   "name": "RadiolinkPIX6",
-  "manufacturer": null,
+  "manufacturer": "Radiolink",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -111,5 +111,139 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Radiolink",
+    "marketing_name": "RadiolinkPIX6 Flight Controller",
+    "mcu_part": "STM32F765VIT6",
+    "imu_models": [
+      "ICM-42688",
+      "BMI088"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 80,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5x UART (TELEM1/2 with RTS/CTS, GPS1, GPS2, debug UART7); 2x CAN; I2C; external SPI expansion; 16 PWM outputs (8 FMU DShot-capable + 8 IOMCU); POWER1 analog + POWER2 I2C battery monitoring; camera in/video out; JST-GH throughout",
+    "discrepancies": [
+      "hwdef.dat declares MCU class STM32F767xx but README.md and wiki both explicitly name the physical chip as STM32F765VIT6; these are distinct STM32F7 variants with different peripheral sets",
+      "README.md contains typo 'SPA06' for the barometer \u2014 hwdef.dat and wiki both correctly identify it as SPL06",
+      "manufacturer field is null in current data but the board is made by Radiolink"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/RadiolinkPIX6.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/RadiolinkPIX6/Readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/RadiolinkPIX6/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-radiolinkpix6.rst"
+    ],
+    "dimensions_mm": {
+      "length": 94,
+      "width": 51.5,
+      "height": 14.5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (MCU class)",
+        "readme": "STM32F765VIT6",
+        "wiki": "STM32F765VIT6",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (CS=ICM42688_CS) + BMI088",
+        "readme": "InvenSense ICM-42688 + Bosch BMI088",
+        "wiki": "InvenSense ICM-42688 + Bosch BMI088",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06",
+        "readme": "SPA06 (typo)",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310",
+        "readme": "IST8310",
+        "wiki": "IST8310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456 (CS alias AT7456_CS)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, USART1, UART4, UART7)",
+        "readme": "5x UART serial ports",
+        "wiki": "5x UART serial ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "readme": "2x CAN",
+        "wiki": "2x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "80g",
+        "wiki": "80g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "94mm x 51.5mm x 14.5mm",
+        "wiki": "94mm x 51.5mm x 14.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "microSD card",
+        "wiki": "microSD card",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1, HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "AT7456E OSD",
+        "wiki": "internal OSD OSD_TYPE 1",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

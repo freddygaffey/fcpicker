@@ -1,7 +1,7 @@
 {
   "slug": "KakuteF4Mini",
   "name": "KakuteF4Mini",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -99,5 +99,155 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Kakute F4 Mini",
+    "family": "Kakute F4",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 4.4,
+    "mounting_pattern_mm": "20x20",
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.2
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs: USART1 TX-only (FrSky), USART3 (RC input default), UART4 (GPS/Telem1), UART5 RX-only (ESC telemetry default), USART6 (GPS2/Telem2); M1-M4 support bi-directional DShot; 20x20mm stack mount",
+    "discrepancies": [
+      "Barometer chip: README and vendor list BMP280; wiki page lists SPL06; hwdef probes both at same I2C address \u2014 likely a production revision difference (early boards BMP280, later boards SPL06)",
+      "Voltage maximum: wiki states '7V ~ 42V' (implied ~10S) but README explicitly says 'up to 6S LiPo batteries' (25.2V); the 42V figure appears copied from a different board spec",
+      "Data file manufacturer field is null \u2014 should be Holybro",
+      "Data file lists 10 FMU PWM outputs but hwdef defines only 5 and docs consistently show 5 usable outputs (M1-M4 + LED strip on PWM5)",
+      "IMU CS pin is named ICM20689_CS in hwdef while bus alias and README both call the chip MPU6000; ICM20689 is a compatible drop-in that may appear in some production runs"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteF4Mini.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4Mini/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4Mini/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-kakutef4-mini.rst",
+      "https://www.progressiverc.com/products/holybro-kakute-f4-mini-v2-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 32,
+      "width": 29,
+      "height": 6
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": "STM32F405RGT6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SPIDEV alias 'mpu6000', CS pin named ICM20689_CS",
+        "readme": "MPU6000",
+        "wiki": "MPU6000",
+        "manufacturer": "MPU6000 (SPI)",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "probes BMP280 and SPL06 both at I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "SPL06",
+        "manufacturer": "BMP280",
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS SPIDEV",
+        "readme": "MAX7456",
+        "wiki": "MAX7456 driver",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "M25P16 SPIDEV dataflash on SPI3",
+        "readme": "128Mbit dataflash",
+        "wiki": "128Mb flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1, USART3, UART4, UART5, USART6 = 5",
+        "readme": "5 UARTs",
+        "wiki": "5x UARTs/serial",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card pins",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN buses defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "7V ~ 42V (implied ~10S)",
+        "manufacturer": "7V-42V / ~2S-6S (contradictory)",
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "32x29x6mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "20x20mm",
+        "agree": "unknown"
+      }
+    ]
   }
 }

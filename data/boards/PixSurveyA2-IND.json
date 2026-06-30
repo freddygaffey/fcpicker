@@ -1,7 +1,7 @@
 {
   "slug": "PixSurveyA2-IND",
   "name": "PixSurveyA2-IND",
-  "manufacturer": null,
+  "manufacturer": "MakeFlyEasy",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -118,5 +118,105 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MakeFlyEasy",
+    "marketing_name": "PixSurveyA2-IND",
+    "mcu_part": "STM32H743VIT6",
+    "imu_models": [
+      "ICM-42652",
+      "ICM-42652",
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "BMP388",
+      "BMP388"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB Type-C",
+      "CAN1/CAN2 (6 total CAN ports including 2 CAN_POWER)",
+      "GPS1/I2C1 combo",
+      "GPS2/I2C2 combo",
+      "TELEM1/TELEM2",
+      "I2C1/I2C2",
+      "SBUS/PPM input",
+      "Safety/Buzzer (SWITCH)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs: Telem1 (USART2), Telem2 (USART3), GPS1 (UART4), GPS2 (UART8), USER (UART7); 2 CAN buses with 6 physical CAN ports total; 14 PWM (8 via STM32F103 IOMCU, 6 FMU); USB Type-C; SD card slot; RAMTRON FRAM for parameter storage (32KB); dual power monitor inputs (1 analog + 1 CAN/DroneCAN); IMU heater",
+    "discrepancies": [
+      "Current JSON chip_display values for IMUs are ICM42688/ICM42688/ICM40605 \u2014 these are hwdef SPIDEV bus-slot aliases, not real chip identifiers. README and wiki both explicitly state the actual chips are 2x ICM-42652 and 1x ICM-42688-P.",
+      "manufacturer is null in current JSON but README clearly identifies the vendor as MakeFlyEasy (http://www.makeflyeasy.com)."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PixSurveyA2-IND.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixSurveyA2-IND/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixSurveyA2-IND/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-pixsurveya2-ind.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7xx STM32H743xx",
+        "readme": "STM32H743VIT6",
+        "wiki": "STM32H743VIT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 x3 with SPIDEV aliases ICM42688 / ICM42688_ext / ICM40605_ext (aliases only, not chip IDs)",
+        "readme": "2x ICM-42652 (SPI), 1x ICM-42688-P (SPI)",
+        "wiki": "2x ICM-42652 (SPI), 1x ICM-42688-P (SPI)",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO BMP388 x2",
+        "readme": "2x BMP388 (SPI)",
+        "wiki": "2x BMP388 (SPI)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 physical UARTs (USART2, USART3, UART4, UART8, UART7) + 2 USB OTG",
+        "readme": "5 UARTs",
+        "wiki": "5 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2 = 2 buses",
+        "readme": "Two FDCAN ports with multiple connectors (6 total CAN ports)",
+        "wiki": "Two FDCAN ports (6 total CAN ports)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined; HAL_OS_FATFS_IO enabled",
+        "readme": "microSD card slot",
+        "wiki": "microSD card slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "MakeFlyEasy resellers",
+        "wiki": "makeflyeasy",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

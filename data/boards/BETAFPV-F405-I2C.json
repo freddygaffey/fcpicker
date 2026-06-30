@@ -1,7 +1,7 @@
 {
   "slug": "BETAFPV-F405-I2C",
   "name": "BETAFPV-F405-I2C",
-  "manufacturer": null,
+  "manufacturer": "BETAFPV",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,157 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "BETAFPV",
+    "marketing_name": "BETAFPV F4 2-3S 20A AIO FC V1 (I2C firmware variant)",
+    "family": "BETAFPV F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 5.58,
+    "mounting_pattern_mm": "26x26",
+    "voltage_cells": "2-3S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 12.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 4,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C (via dongle)",
+      "SBUS input (inverted, UART5 RX-only)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "4-in-1 integrated ESC (M1-M4, BlueJay, bi-directional DShot), NeoPixel LED (PWM5). I2C2 on TX3/RX3 pads (requires hardware mod to disconnect internal ELRS module). UART1=GPS, UART4=MSP DisplayPort, UART5=SBUS RX-only, UART6=GPS/spare. UART3 pins repurposed for I2C SCL/SDA in this variant.",
+    "discrepancies": [
+      "JSON manufacturer is null; should be BETAFPV",
+      "JSON i2c_count is 0 but the I2C variant hwdef explicitly enables I2C2 on PB10/PB11 \u2014 enabling I2C is the entire purpose of this firmware variant",
+      "JSON IMU chip 'Invensensev3' is the ArduPilot driver alias; README and wiki both state the real chip is ICM-42688-P",
+      "JSON uart_count is 5 inherited from parent hwdef (includes UART3), but I2C variant reassigns UART3 pins to I2C2 and drops them from SERIAL_ORDER, making effective count 4",
+      "Baro ambiguity: parent hwdef/README probes BMP280+SPL06 at same CS address; I2C-variant README says DPS310 (handled by SPL06 driver); wiki AIO row says BMP210/DPS310 (BMP210 appears to be a wiki typo for BMP280); physical chip for AIO is DPS310 per I2C README",
+      "README says voltage sensor handles 'up to 6S' but wiki AIO spec lists 2-3S input range \u2014 sensing range vs operating range conflated in README"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BETAFPV-F405-I2C.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405-I2C/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405-I2C/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BETAFPV-F405/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-betafpvf405.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405RGT6, 168MHz",
+        "wiki": "STM32F405RGT6 ARM (168MHz)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias, SPI:imu1)",
+        "readme": "ICM42688-P",
+        "wiki": "ICM-42688P",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 + SPL06 dual-probe at same CS",
+        "readme": "DPS310 (I2C variant README); BMP280 (parent README)",
+        "wiki": "BMP210/DPS310 for AIO (BMP210 likely typo)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPI OSD device, HAL_OSD_TYPE_DEFAULT=1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "OSD support confirmed",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI2",
+        "readme": "16Mb Onboard Flash",
+        "wiki": "16MByte flash for logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER in I2C variant: USART1, UART4, USART6 active (UART3 removed for I2C; UART5 not in serial order)",
+        "readme": "Lists UART1, UART4, UART5(SBUS), UART6 = 4",
+        "wiki": "AIO: 4 UARTs",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "i2c_count",
+        "hwdef": "I2C_ORDER I2C2; PB10=I2C2_SCL, PB11=I2C2_SDA (i2c variant adds I2C2)",
+        "readme": "I2C compass support via TX3/RX3 (requires hardware mod)",
+        "wiki": "AIO I2C variant described",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1",
+        "readme": "OSD: AT7456E",
+        "wiki": "OSD support mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "HAL_BATT_VOLT_MULT 10.9 implies wide range sensing",
+        "readme": "voltage sensor handles up to 6S (sensing range, not input range)",
+        "wiki": "AIO: 2S-3S input voltage",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "BEC output: 5V, 2A@4V",
+        "wiki": "5V, 2A BEC",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "5.58g (AIO row in comparison table)",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "26mmx26mm mtg (AIO row)",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

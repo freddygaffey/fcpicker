@@ -1,7 +1,7 @@
 {
   "slug": "Here4FC",
   "name": "Here4FC",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -100,5 +100,127 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "CubePilot Here4",
+    "family": "Here",
+    "mcu_part": "STM32H757xx",
+    "imu_models": [
+      "ICM45686"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": false,
+    "weight_g": 60,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5.5,
+    "uart_count": 4,
+    "can_count": 2,
+    "notable_connectors": [
+      "CAN FD (x2)",
+      "DroneCAN"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "GPS module form factor (16x68mm) repurposed as FC; 4 UARTs in SERIAL_ORDER (USART1/UART4/UART8/USART2); 8 PWM motor/servo outputs + 2 WS2812 LED PWM channels; 2 CAN FD buses; 1x RCIN; powered at 5V via connector. Breakout board required for most connections; see CubePilot docs for pinout.",
+    "discrepancies": [
+      "IMU chip conflict: hwdef/README.md says ICM45686 but CubePilot manufacturer docs and the hwdef SPIDEV bus alias both say ICM42688. These could reflect different hardware revisions. Current data shows ICM42688; README says ICM45686. Cannot resolve without physical inspection.",
+      "PWM count: current data records fmu:10 (counting two WS2812 LED PWM channels PWM10/PWM11), but README and manufacturer both advertise 8x PWM. The 2 extra channels are LED-only and should not be counted as motor/servo outputs.",
+      "Manufacturer field is null in current data; should be CubePilot.",
+      "weight_g is null in current data; CubePilot docs state 60g (with cable)."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Here4FC.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Here4FC/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Here4FC/hwdef.dat",
+      "https://docs.cubepilot.org/user-guides/here-4/here-4-manual",
+      "https://docs.cubepilot.org/user-guides/here-4/here-4-base"
+    ],
+    "dimensions_mm": {
+      "length": 68,
+      "width": 16,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H757xx",
+        "readme": "STM32H757",
+        "manufacturer": "STM32H757",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3/SPI:icm42688 (alias)",
+        "readme": "ICM45686",
+        "manufacturer": "ICM42688",
+        "wiki": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611",
+        "readme": "MS5611",
+        "manufacturer": "MS5611",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100",
+        "readme": "RM3100",
+        "manufacturer": "RM3100",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 (SERIAL_ORDER)",
+        "readme": "1 (external user-accessible)",
+        "manufacturer": null,
+        "wiki": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1+CAN2)",
+        "readme": "2x CAN",
+        "manufacturer": "2 (one active at a time per firmware)",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "10 allocated (8 motor + 2 LED)",
+        "readme": "8x PWM",
+        "manufacturer": "8 PWM/BDSHOT",
+        "wiki": null,
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "manufacturer": "16x68mm",
+        "wiki": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "manufacturer": "60g (with cable)",
+        "wiki": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

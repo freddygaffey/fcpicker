@@ -1,7 +1,7 @@
 {
   "slug": "KakuteF4",
   "name": "KakuteF4",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -84,7 +84,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-KakuteF4-Wing.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-holybro-kakutef4.html",
   "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4/README.md",
   "manual": {
     "status": "not_started",
@@ -99,5 +99,165 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Kakute F4 AIO",
+    "family": "KakuteF4",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM20689"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 7,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7,
+    "voltage_max_v": 42,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1.5
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.2
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "micro USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs (UART6 Telem1, UART1 FrSky S.Port, UART4 GPS, UART5 ESC telemetry RX-only, UART3 spare TX-only); 4 motor pads M1-M4 (DShot supported); integrated PDB 120A continuous; MAX7456 OSD; 16MB onboard dataflash; I2C pads for external compass; LED strip pad on TIM8 CH3",
+    "discrepancies": [
+      "Current JSON chip_display 'MPU6000' is wrong \u2014 hwdef.dat CS pin is named ICM20689_CS and README/wiki both confirm the real IMU is ICM20689; 'mpu6000' is only a legacy SPIDEV bus alias",
+      "Current JSON io.pwm.fmu=5 but README and wiki both say 4 PWM motor outputs; hwdef.dat 5th PWM entry (PC8 TIM8_CH3) is the LED strip pad, not a motor output",
+      "Current JSON manufacturer is null but should be Holybro",
+      "hwdef.dat comment says 'dataflash M25P16' (16Mbit = 2MB) but Betaflight wiki and Oscar Liang review both confirm 16MB (128Mbit) onboard dataflash; M25P16 comment is an artifact, not the actual chip"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteF4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteF4/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-kakutef4.rst",
+      "https://betaflight.com/docs/wiki/boards/archive/KAKUTEF4",
+      "https://oscarliang.com/review-holybro-kakute-f4-aio-fc/"
+    ],
+    "dimensions_mm": {
+      "length": 35,
+      "width": 43,
+      "height": 6
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": "STM32F405RGT6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20689 (SPIDEV alias mpu6000, CS pin ICM20689_CS)",
+        "readme": "ICM20689",
+        "wiki": "InvenSense ICM20689",
+        "manufacturer": "ICM20689 (SPI)",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 on SPI3",
+        "readme": "MAX7456",
+        "wiki": "MAX7456 driver (OSD_TYPE 1)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 and SPL06 both probed at I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": "BMP280",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART6, USART1, UART4, UART5, USART3)",
+        "readme": "5 UARTs",
+        "wiki": "5x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "M25P16 comment (2MB if correct)",
+        "readme": "on-board dataflash (size not stated)",
+        "wiki": null,
+        "manufacturer": "16MB / 128Mbit per Betaflight wiki and Oscar Liang",
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "7V~42V, up to 6S",
+        "manufacturer": "2S-6S",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "readme": "6S max (~25.2V)",
+        "wiki": "42V hardware max",
+        "manufacturer": "42V",
+        "agree": "partial"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "BMP280 + SPL06 drivers enabled",
+        "readme": "BMP280 barometer",
+        "wiki": "BMP280 barometers",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1, HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "OSD Support (MAX7456)",
+        "wiki": "OSD Support (MAX7456)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "5 entries (4 motor pads + 1 LED strip pad PC8)",
+        "readme": "4 PWM outputs",
+        "wiki": "4x PWM outputs",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm (Betaflight wiki)",
+        "agree": "agree"
+      }
+    ]
   }
 }

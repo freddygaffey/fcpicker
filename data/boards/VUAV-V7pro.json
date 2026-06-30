@@ -1,7 +1,7 @@
 {
   "slug": "VUAV-V7pro",
   "name": "VUAV-V7pro",
-  "manufacturer": null,
+  "manufacturer": "V-UAV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -139,5 +139,127 @@
     "discontinued": false,
     "imu_count": 3,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "V-UAV",
+    "marketing_name": "VUAV-V7pro Flight Controller",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ADIS16470",
+      "ICM42688-P",
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "TELEM1 (6-pin, RTS/CTS)",
+      "TELEM2 (6-pin, RTS/CTS)",
+      "GPS1/I2C4 (10-pin, safety+buzzer)",
+      "GPS2/I2C3 (6-pin)",
+      "CAN1 (4-pin)",
+      "CAN2 (4-pin)",
+      "I2C1 (4-pin)",
+      "I2C2 (4-pin)",
+      "USB-Ex (4-pin)",
+      "POWER1 (6-pin analog)",
+      "POWER2/CAN1 (6-pin CAN power)",
+      "RS232 (4-pin)",
+      "DEBUG (6-pin SWD)",
+      "RSSI (4-pin)",
+      "ADC (4-pin)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "7 UARTs: Telem1/2 with RTS/CTS, GPS1/2, USER/RC (UART8), RS232 (UART4), DEBUG (UART7); 14 PWM (DShot ch1-12, bidir ch1-8); 4 I2C buses; 2 CAN; POWER1 analog + POWER2 CAN power inputs; safety switch and buzzer share GPS1 port; RCIN pin on servo rail; RGB LED; IMU heater",
+    "discrepancies": [
+      "manufacturer is null in board data; README.md clearly identifies V-UAV (http://www.v-uav.com/) as the manufacturer",
+      "README features summary claims '5 UARTs and 1 USB ports' but the UART Mapping section and hwdef SERIAL_ORDER both show 7 physical UARTs; our stored uart_count:7 is correct",
+      "hwdef.dat declares 4 IMU bus entries (ADIS16470 + 3x Invensensev3 including one RESERVE_CS1 slot) but README states 'Three IMUs: ADIS16470,ICM42688,ICM42688'; the reserve slot is an unpopulated footprint; manual.imu_count:3 is correct",
+      "Invensensev3 driver alias in hwdef does not reveal the exact part; README + Viewpro reseller article confirm the real chip is ICM42688-P"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/VUAV-V7pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VUAV-V7pro/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/VUAV-V7pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-vuav-tinyv7.rst",
+      "https://www.viewprotech.com/index.php?ac=article&at=read&did=621"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": null,
+        "manufacturer": "STM32H743 (Viewpro)",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ADIS1647x (driver) + 3x Invensensev3 (driver)",
+        "readme": "ADIS16470, ICM42688, ICM42688",
+        "wiki": null,
+        "manufacturer": "ADIS16470 + ICM-42688-P x2 (Viewpro)",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 x2",
+        "readme": "two MS5611 SPI barometer",
+        "wiki": null,
+        "manufacturer": "dual barometers (Viewpro)",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100",
+        "readme": "RM3100 SPI magnetometer",
+        "wiki": null,
+        "manufacturer": "RM3100 (Viewpro)",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (SERIAL_ORDER: USART2/6/1/3, UART8/4/7)",
+        "readme": "features says 5+1 RS232; UART mapping shows 7",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "readme": "2 CAN ports",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "readme": "MicroSD card slot port",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "V-UAV (http://www.v-uav.com/)",
+        "wiki": null,
+        "manufacturer": "V-UAV / distributed by Viewpro",
+        "agree": "disagree"
+      }
+    ]
   }
 }

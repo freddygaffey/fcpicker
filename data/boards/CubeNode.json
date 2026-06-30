@@ -1,7 +1,7 @@
 {
   "slug": "CubeNode",
   "name": "CubeNode",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -18,10 +18,9 @@
     "spi_buses": [
       "SPI3"
     ],
-    "can_count": 2,
+    "can_count": 1,
     "can_buses": [
-      "CAN1",
-      "CAN2"
+      "CAN1"
     ],
     "canfd": false,
     "usb_count": 1,
@@ -80,5 +79,121 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "CubePilot CubeNode ETH",
+    "family": "AP_Periph",
+    "mcu_part": "STM32H757xx",
+    "imu_models": [
+      "ICM45686"
+    ],
+    "has_sdcard": false,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5.5,
+    "uart_count": 1,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST SM05B-GHS (Ethernet, 5-pin)",
+      "JST SM06B-GHS (Serial/power, 6-pin with RTS/CTS)",
+      "JST SM04B-GHS (CAN, 4-pin)",
+      "USB-OTG"
+    ],
+    "has_baro": false,
+    "has_osd": false,
+    "pinout_notes": "CAN1 only (CAN2 pins on MCU but not wired on PCB), UART7, USB-OTG, Ethernet RMII via LAN8720 PHY. AP_Periph peripheral firmware only \u2014 not a flight controller.",
+    "discrepancies": [
+      "JSON can_count=2 and can_buses=[CAN1,CAN2] is wrong: CAN2 pins are commented out in hwdef.dat and only one CAN connector is exposed on the physical board; active CAN count is 1",
+      "JSON manufacturer is null; should be CubePilot"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeNode.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeNode/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeNode-ETH/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-cubepilot-cubenodeeth.rst",
+      "https://docs.cubepilot.org/user-guides/cubenode/specifications",
+      "https://github.com/CubePilot/cubepilot-docs/blob/master/cubenode/cubenode-eth/specifications.md"
+    ],
+    "dimensions_mm": {
+      "length": 28.44,
+      "width": 11.43,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H757xx",
+        "manufacturer": "STM32H757xx (dual-core M7 480MHz + M4 240MHz)",
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM45686 (Invensensev3 driver, SPIDEV alias icm45686)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "has_baro",
+        "agree": "agree",
+        "hwdef": "false (no BARO line)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "has_compass",
+        "agree": "agree",
+        "hwdef": "false (no COMPASS line)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "can_count",
+        "agree": "disagree",
+        "hwdef": "1 (CAN2 commented out: #PB5 CAN2_RX CAN2, #PB6 CAN2_TX CAN2)",
+        "manufacturer": "1 CAN connector (JST SM04B-GHS)",
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "1 (UART7; OTG1 is USB not UART)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "ethernet",
+        "agree": "agree",
+        "hwdef": "true (ETH1 RMII, LAN8720 PHY)",
+        "manufacturer": "10/100BaseT Ethernet",
+        "readme": null,
+        "wiki": "yes, described as an ethernet adapter for autopilots"
+      },
+      {
+        "field": "dimensions",
+        "agree": "unknown",
+        "hwdef": null,
+        "manufacturer": "11.43 x 28.44 mm",
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "voltage",
+        "agree": "unknown",
+        "hwdef": null,
+        "manufacturer": "5.0 to 5.5V (serial connector power pin)",
+        "readme": null,
+        "wiki": null
+      }
+    ]
   }
 }

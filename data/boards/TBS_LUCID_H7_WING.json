@@ -1,7 +1,7 @@
 {
   "slug": "TBS_LUCID_H7_WING",
   "name": "TBS_LUCID_H7_WING",
-  "manufacturer": null,
+  "manufacturer": "Team BlackSheep (TBS)",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -64,34 +64,6 @@
       "variant": null,
       "slot": "SPI4/CS:IMU2_CS",
       "chip_display": "IMU2"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000_1",
-      "variant": null,
-      "slot": "SPI1/CS:IMU1_CS",
-      "chip_display": "MPU6000_1"
-    },
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000_2",
-      "variant": null,
-      "slot": "SPI4/CS:IMU2_CS",
-      "chip_display": "MPU6000_2"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu1",
-      "variant": null,
-      "slot": "SPI1/CS:IMU1_CS",
-      "chip_display": "IMU1"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu2",
-      "variant": null,
-      "slot": "SPI4/CS:IMU2_CS",
-      "chip_display": "IMU2"
     }
   ],
   "baros": [
@@ -133,5 +105,156 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Team BlackSheep (TBS)",
+    "marketing_name": "TBS Lucid H7 Wing",
+    "family": "TBS Lucid H7",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "ICM42688",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "3-12S",
+    "voltage_min_v": 8,
+    "voltage_max_v": 50.4,
+    "bec_outputs": [
+      {
+        "rail": "5V FC",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "5V/6V/8.4V selectable",
+        "volts": null,
+        "amps": 8
+      },
+      {
+        "rail": "9V/12V FPV VTX selectable",
+        "volts": null,
+        "amps": 5
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "DJI HD VTX connector (SBUS + DisplayPort)",
+      "MicroSD card slot",
+      "SPI3 external pin headers",
+      "USB"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: USB(SERIAL0), UART1(DJI SBUS), UART2(GPS), UART3(DisplayPort), UART4(Telem1), UART6(RC input), UART7(Telem2 with flow ctrl), UART8(ESC telem); 1 CAN; 13 PWM outputs (M1-M12 + LED); dual switchable camera inputs (GPIO82); VTX power GPIO-controlled",
+    "discrepancies": [
+      "Current data has manufacturer: null \u2014 should be Team BlackSheep (TBS)",
+      "Current data records IMU chip as 'Invensensev3' (the ArduPilot driver family name) rather than the actual part ICM42688 confirmed by README and wiki",
+      "Current data has no physical dimensions \u2014 README and wiki both state 54 x 36 x 13 mm",
+      "Current data has no voltage range or BEC info \u2014 README/wiki specify 3-12S input and three BEC rails (5V 3A FC, 5V/6V/8.4V 8A, 9V/12V 5A VTX)",
+      "Wiki OSD support section calls the chip 'MAX7456' while the README features list says 'AT7456E' \u2014 AT7456E is the actual hardware part; MAX7456 is the compatible ArduPilot driver name. Both refer to the same component.",
+      "Wiki Battery Monitoring section states 'voltage sensor can handle up to 6S' while the board features state 3-12S input range \u2014 the voltage divider circuit is calibrated for 6S but the board electrically accepts up to 12S input"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/TBS_LUCID_H7_WING.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_WING/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-tbs-lucid-h7-wing.rst"
+    ],
+    "dimensions_mm": {
+      "length": 54,
+      "width": 36,
+      "height": 13
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743VIH6",
+        "wiki": "STM32H743VIH6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias for ICM42688)",
+        "readme": "ICM42688 x2",
+        "wiki": "ICM42688 x2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310 (I2C2)",
+        "wiki": "DPS310 (I2C2)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (driver/CS pin name)",
+        "readme": "AT7456E",
+        "wiki": "MAX7456 (OSD section)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3,UART4,USART6,UART7,UART8)",
+        "readme": "7x UART",
+        "wiki": "7x UART",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1x CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1)",
+        "readme": "MicroSD BlackBox",
+        "wiki": "MicroSD BlackBox",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "54 x 36 x 13 mm",
+        "wiki": "54 x 36 x 13 mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3-12S (8V-50.4V)",
+        "wiki": "3-12S (8V-50.4V)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "none (external probe only)",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

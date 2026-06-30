@@ -1,7 +1,7 @@
 {
   "slug": "SVehicle-E2",
   "name": "SVehicle-E2",
-  "manufacturer": null,
+  "manufacturer": "S-Vehicle",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -131,5 +131,121 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "S-Vehicle",
+    "marketing_name": "S-Vehicle E2-Plus",
+    "mcu_part": "STM32H753IIK6",
+    "imu_models": [
+      "ICM-42688P",
+      "BMI088",
+      "ICM-20649"
+    ],
+    "baro_models": [
+      "ICP-20100",
+      "ICP-20100"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB Type-C",
+      "100Mbps Ethernet (RMII)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 FMU PWM (TIM5/TIM4/TIM12) + 8 IOMCU (STM32F103) PWM; SERIAL0=USB, SERIAL1=UART7(TELEM1), SERIAL2=UART5(TELEM2), SERIAL3=USART1(GPS1), SERIAL4=UART8(GPS2), SERIAL5=USART2(TELEM3/RS422), SERIAL6=UART4(User), SERIAL7=USART3(Debug); 2 CAN; FRAM on SPI5 for param storage",
+    "discrepancies": [
+      "hwdef.dat declares MCU family as STM32H743xx but README and PX4 docs both confirm the physical chip is STM32H753IIK6 (H753 adds hardware crypto/security over H743; the H743xx class is used as the ChibiOS firmware target)",
+      "README features section says '6 UARTs plus USB' but hwdef SERIAL_ORDER defines 7 hardware UART ports (UART7, UART5, USART1, UART8, USART2, UART4, USART3); the README UART Mapping itself contradicts this by listing SERIAL1-SERIAL7 (7 ports)",
+      "README features section says '3 I2C ports' (confirmed by PX4 docs) while hwdef defines 4 I2C buses; I2C4 is marked internal (HAL_I2C_INTERNAL_MASK=1) so only 3 are externally accessible \u2014 README/PX4 count is correct for external ports",
+      "README says '14 PWM outputs' (6 FMU A1-A6 + 8 IOMCU M1-M8) and README text confusingly labels '6 outputs as 9 to 16'; hwdef defines 8 FMU PWM channels (TIM5x4, TIM4x2, TIM12x2) making the hardware total 16, not 14"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SVehicle-E2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SVehicle-E2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SVehicle-E2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://docs.px4.io/main/en/flight_controller/svehicle_e2"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32H743xx (family class)",
+        "readme": "STM32H753IIK6",
+        "wiki": null,
+        "manufacturer": "STM32H753IIK6 (per PX4 docs)"
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensensev3/icm42688, BMI088, Invensensev2/icm20649",
+        "readme": "ICM-42688P, BMI088, ICM-20649",
+        "wiki": null,
+        "manufacturer": "ICM-42688-P, BMI088, ICM-20649 (per PX4 docs)"
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "ICP201XX x2",
+        "readme": "dual ICP-20100",
+        "wiki": null,
+        "manufacturer": "dual ICP-20100 (per PX4 docs)"
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "RM3100 I2C:0:0x20",
+        "readme": "RM3100",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "partial",
+        "hwdef": "7 hardware UARTs in SERIAL_ORDER (UART7/UART5/USART1/UART8/USART2/UART4/USART3)",
+        "readme": "6 UARTs plus USB",
+        "wiki": null,
+        "manufacturer": "6 UARTs (PX4 docs)"
+      },
+      {
+        "field": "i2c_count",
+        "agree": "partial",
+        "hwdef": "4 buses (I2C1/I2C2/I2C3/I2C4; I2C4 internal)",
+        "readme": "3 I2C ports",
+        "wiki": null,
+        "manufacturer": "3 I2C Bus Ports (PX4 docs)"
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1/CAN2",
+        "readme": "2 CAN ports",
+        "wiki": null,
+        "manufacturer": "2 CAN ports (PX4 docs)"
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC2 defined",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "pwm_total",
+        "agree": "disagree",
+        "hwdef": "8 FMU PWM (PWM1-8) + 8 IOMCU = 16 total",
+        "readme": "14 PWM outputs (8 IOMCU M1-M8 + 6 FMU A1-A6)",
+        "wiki": null,
+        "manufacturer": "14x PWM Servo Outputs (PX4 docs)"
+      }
+    ]
   }
 }

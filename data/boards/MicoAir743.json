@@ -1,7 +1,7 @@
 {
   "slug": "MicoAir743",
   "name": "MicoAir743",
-  "manufacturer": null,
+  "manufacturer": "MicoAir Tech.",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,171 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MicoAir Tech.",
+    "marketing_name": "MicoAir743",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088",
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 9,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0-6P (DJI Air Unit / HD VTX, 9V on pin 1)",
+      "Micro USB",
+      "1x I2C port (external compass)",
+      "1x SWD"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: UART1 (TELEM1/MAVLink), UART2 (DisplayPort/DJI), UART3 (GPS), UART4 (TELEM2/MAVLink), UART6 (RCIN/SBUS), UART7 (ESC telemetry RX-only), UART8 (User); 10 PWM (ch1-8 bidir DShot); 1 CAN; SH1.0-6P HD VTX connector with 9V on pin 1",
+    "discrepancies": [
+      "manufacturer is null in our JSON; README, hwdef header, and wiki all confirm MicoAir Tech.",
+      "power.bec is empty in our JSON; README and wiki both specify 9V/3A BEC and 5V/3A BEC outputs",
+      "manual.dimensions_mm is null; README and wiki both state 36 x 36 x 8 mm",
+      "manual.weight_g is null; README and wiki both state 9g",
+      "manual.mounting is null; README and wiki both state 30.5 x 30.5mm Phi4mm"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MicoAir743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-MicoAir743.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + BMI270 (both on SPI2)",
+        "readme": "BMI088/BMI270 dual IMUs",
+        "wiki": "BMI088/BMI270 dual IMUs",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310 barometer",
+        "wiki": "DPS310 barometer",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 (external + internal I2C)",
+        "readme": "IST8310 magnetometer",
+        "wiki": "IST8310 magnetometer",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (SPIDEV osd on SPI1)",
+        "readme": "AT7456E OSD",
+        "wiki": "OSD_TYPE 1 (MAX7456 driver, same silicon family)",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1/2/3, UART4, USART6, UART7/8)",
+        "readme": "7 UARTs",
+        "wiki": "7x UARTs/serial",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1",
+        "readme": "1 CAN",
+        "wiki": "1x CAN port",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 configured",
+        "readme": "MicroSD Card Slot",
+        "wiki": "microSD Card Slot for logging",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT 21.12 (up to 6S)",
+        "readme": "voltage sensor handles up to 6S",
+        "wiki": "2S - 6S Lipo input voltage",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not in hwdef",
+        "readme": "9V 3A BEC; 5V 3A BEC",
+        "wiki": "9V 3A BEC; 5V 3A BEC",
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": "not in hwdef",
+        "readme": "36 x 36 x 8 mm",
+        "wiki": "36 x 36 x 8 mm",
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": "not in hwdef",
+        "readme": "9g",
+        "wiki": "9g",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not in hwdef",
+        "readme": "30.5 x 30.5mm, Phi4mm",
+        "wiki": "30.5 x 30.5mm, Phi4mm",
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "MicoAir Tech. (in header comment)",
+        "readme": "MicoAir Tech.",
+        "wiki": "MicoAir Tech.",
+        "agree": "agree"
+      }
+    ]
   }
 }

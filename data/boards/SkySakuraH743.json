@@ -1,7 +1,7 @@
 {
   "slug": "SkySakuraH743",
   "name": "SkySakuraH743",
-  "manufacturer": null,
+  "manufacturer": "SkySakuraRC",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,170 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SkySakuraRC",
+    "marketing_name": "SkySakura H743 Flight Controller",
+    "mcu_part": "STM32H743VIT6",
+    "imu_models": [
+      "ICM42688",
+      "IIM42652"
+    ],
+    "baro_models": [
+      "ICP20100",
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "voltage_cells": "4-12S",
+    "voltage_min_v": 14.8,
+    "voltage_max_v": 50.4,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 5
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 5
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0 (M1-M8 ESC/motor)",
+      "SH1.0 (RC input UART4)",
+      "SH1.0 6-pin (safety button + buzzer + LED)",
+      "HD VTX (DisplayPort OSD + SBUS)",
+      "USB",
+      "CAN"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: UART7 (MAVLink2+flow control), USART1 (MAVLink2), USART2 (USER), USART3 (GPS1), UART4 (RCIN), USART6 (DisplayPort OSD), UART8 (ESC telemetry). 1 CAN bus. 13 PWM outputs (M1-M12 motor, PWM13 NeoPixel LED). First 8 motor outputs support bi-directional DShot. 2xI2C, SPI2 external user port.",
+    "discrepancies": [
+      "manufacturer is null in current data; hwdef USB_STRING_MANUFACTURER says 'SkySakura', README/wiki identify manufacturer as 'SkySakuraRC'",
+      "power.bec is empty [] in current data; README/wiki state 5V@5A and 12V@5A BEC outputs (MAX 60W total, 12V is switchable)",
+      "baros[0].chip_display is null in current data; README/wiki explicitly name this chip as 'ICP20100' (the ICP201XX driver covers the ICP20100/ICP20101 family)",
+      "mcu.part is generic 'STM32H743xx' in current data; README/wiki specify the exact variant 'STM32H743VIT6'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SkySakuraH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkySakuraH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SkySakuraH743/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-SkySakuraH743.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (generic series)",
+        "readme": "STM32H743VIT6",
+        "wiki": "STM32H743VIT6",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models[0] ICM42688",
+        "hwdef": "SPI:icm42688 (Invensensev3 driver)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models[1] IIM42652",
+        "hwdef": "SPI:iim42652 (Invensensev3 driver)",
+        "readme": "IIM42652",
+        "wiki": "IIM42652",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro DPS310",
+        "hwdef": "BARO DPS310 SPI:dps310",
+        "readme": "DPS310 (Barometer1)",
+        "wiki": "DPS310 (Barometer1)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro ICP20100",
+        "hwdef": "BARO ICP201XX I2C:0:0x63 (driver family name)",
+        "readme": "ICP20100 (Barometer2)",
+        "wiki": "ICP20100 (Barometer2)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass IST8310",
+        "hwdef": "COMPASS IST8310 I2C:0:0x0E",
+        "readme": "IST8310",
+        "wiki": "IST8310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (UART7, USART1, USART2, USART3, UART4, USART6, UART8 in SERIAL_ORDER)",
+        "readme": "7 UARTs",
+        "wiki": "7 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 present",
+        "readme": "CAN bus support",
+        "wiki": "CAN bus support",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "4-12s wide voltage support",
+        "wiki": "4-12s wide voltage support",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "VTX_PWR GPIO85 (12VSW relay only)",
+        "readme": "5V 5A and 12V 5A (MAX 60W total, switchable 12V)",
+        "wiki": "5V 5A and 12V 5A (MAX 60W total, switchable 12V)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "SD Card support",
+        "wiki": "SD Card support",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "DEFAULT_SERIAL6_PROTOCOL SerialProtocol_MSP_DisplayPort",
+        "readme": "HD OSD through UART6 (DisplayPort)",
+        "wiki": "HD VTX DisplayPort OSD through UART6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer (current data: null)",
+        "hwdef": "USB_STRING_MANUFACTURER SkySakura",
+        "readme": "produced by SkySakuraRC",
+        "wiki": "produced by [SkySakuraRC]",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

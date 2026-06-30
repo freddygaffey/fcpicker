@@ -1,7 +1,7 @@
 {
   "slug": "skyviper-journey",
   "name": "skyviper-journey",
-  "manufacturer": null,
+  "manufacturer": "SkyRocket",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F412Rx"
@@ -79,7 +79,7 @@
   "vehicles": [
     "copter"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/skyrocket.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -94,5 +94,127 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SkyRocket",
+    "marketing_name": "Sky Viper Journey GPS Drone",
+    "mcu_part": "STM32F412Rx",
+    "imu_models": [
+      "ICM20789"
+    ],
+    "baro_models": [
+      "ICM20789"
+    ],
+    "compass_models": [
+      "BMM150"
+    ],
+    "has_sdcard": false,
+    "weight_g": 145,
+    "voltage_cells": "1S",
+    "voltage_max_v": 4.2,
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "4 PWM motor outputs (TIM3 CH1-4); USART1=debug console, USART2=Sonix companion board, USART6=UBlox M8 GPS; I2C1=ICM20789 IMU+baro, I2C2=BMM150 compass; SPI1=CC2500/CYRF6936/BK2425 integrated radio (TX binding); SPI2=optical flow sensor",
+    "correct_wiki_stem": "skyrocket",
+    "discrepancies": [
+      "imus[0].chip is stored as 'Invensense' (hwdef driver alias at I2C:1:0x68) but the actual chip is ICM20789: the baro entry references the same I2C address (0x68) and the copter wiki explicitly states 'ICM20789 IMU including 3-axis accelerometer, gyro and barometer' - both IMU and baro are a single physical ICM20789 combined chip",
+      "manufacturer is null in our data but should be 'SkyRocket' (SkyRocket Toys)",
+      "docs_url is null but copter wiki page skyrocket.rst explicitly documents the Journey 2018 model under the skyrocket stem",
+      "weight_g is null in our data; wiki states 145g but this is the complete drone weight, not FC board weight alone"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/skyviper-journey.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/skyviper-journey/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/include/skyviper.inc",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket.rst",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket-hardware.rst",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/skyviper.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F412Rx",
+        "wiki": "STM32 (generic)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense (driver alias at I2C:1:0x68)",
+        "wiki": "ICM20789",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "ICM20789 I2C:1:0x63 I2C:1:0x68",
+        "wiki": "ICM20789",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "BMM150 I2C:0:0x10",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART1, USART2, USART6; one EMPTY slot)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD on STM32 FC; Sonix companion board has SD)",
+        "wiki": "SD on Sonix, not on FC",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "wiki": "4.2V (1S battery)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "145g (full drone)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD driver or chip in hwdef",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

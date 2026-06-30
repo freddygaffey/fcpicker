@@ -1,7 +1,7 @@
 {
   "slug": "PixFlamingo-F767",
   "name": "PixFlamingo-F767",
-  "manufacturer": null,
+  "manufacturer": "Dheeran Labs",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -123,5 +123,128 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Dheeran Labs",
+    "marketing_name": "PixFlamingo-F767",
+    "mcu_part": "STM32F767",
+    "imu_models": [
+      "ICM42670",
+      "MPU6500/ICM20602"
+    ],
+    "baro_models": [
+      "MS5611",
+      "BMP280",
+      "DPS310"
+    ],
+    "compass_models": [
+      "LIS3MDL"
+    ],
+    "has_sdcard": true,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5,
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "microSD"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs (TELEM1 USART3 w/CTS-RTS, TELEM2 USART6, GPS1 USART1+I2C2, SERIAL5 UART7, SERIAL6 USART2+GPIO), 10 PWM (1-8 DShot capable, 9-10 not), 1x CAN3, 1x I2C bus (I2C2), USB-C + boot button on separate dongle, internal RGB LED, safety switch, buzzer",
+    "discrepancies": [
+      "manufacturer is null in current data; hwdef USB_STRING_MANUFACTURER, README, and wiki all identify it as 'Dheeran Labs'",
+      "second IMU SPIDEV alias 'mpu6500' is a legacy bus label; README and wiki both document 'MPU6500/ICM20602' for that slot indicating the physical chip may be either; current data only lists MPU6500"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PixFlamingo-F767.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixFlamingo-F767/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixFlamingo-F767/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-pixflamingo-f767.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx",
+        "readme": "STM32F767",
+        "wiki": "STM32F767",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SPIDEV icm42670 (ICM42670 exact part) + SPIDEV mpu6500 (legacy alias)",
+        "readme": "ICM42670, MPU6500/ICM20602",
+        "wiki": "ICM42670, MPU6500/ICM20602",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611, BMP280, DPS310 (alternates on same CS pin)",
+        "readme": "MS5611/BMP280/DPS310",
+        "wiki": "MS5611/BMP280/DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "LIS3MDL SPI:lis3mdl",
+        "readme": "LIS3MDL",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1, USART2, USART3, USART6, UART7)",
+        "readme": "5",
+        "wiki": "5",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN3)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1 pins defined)",
+        "readme": "microSD card slot port",
+        "wiki": "microSD card slot port",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Dheeran Labs (USB_STRING_MANUFACTURER)",
+        "readme": "Dheeran Labs",
+        "wiki": "Dheeran Labs",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": "5V (VCC_IN +5V on POWER_ADC connector)",
+        "readme": "5v input voltage",
+        "wiki": "5v input voltage",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "false (no OSD SPIDEV or driver line)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

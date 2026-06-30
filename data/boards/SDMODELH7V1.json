@@ -1,7 +1,7 @@
 {
   "slug": "SDMODELH7V1",
   "name": "SDMODELH7V1",
-  "manufacturer": null,
+  "manufacturer": "SDMODEL",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -47,27 +47,6 @@
     "bec": []
   },
   "imus": [
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI4/CS:mpu6000_CS",
-      "chip_display": "MPU6000"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:icm42688",
-      "variant": null,
-      "slot": "SPI4/CS:mpu6000_CS",
-      "chip_display": "ICM42688"
-    },
-    {
-      "chip": "BMI270",
-      "bus": "SPI:bmi270",
-      "variant": null,
-      "slot": "SPI4/CS:mpu6000_CS",
-      "chip_display": "BMI270"
-    },
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
@@ -122,5 +101,156 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SDMODEL",
+    "marketing_name": "SDMODEL SDH7 V1",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "128MB (w25nxx NAND flash)",
+    "has_sdcard": false,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9V (VTX)",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-SH-8P x2 (ESC connectors with motor signals M1-M8 and ESC telemetry)",
+      "JST-SH-6P (DJI/VTX connector with 9V)",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ESP32-C3 (Bluetooth LE, internally connected; not yet supported by ArduPilot)",
+    "pinout_notes": "6x UARTs: UART1 (DJI/Telem), UART2 (internal ESP32-C3 BT, not external), UART3 (VTX/SmartAudio), UART4 (GPS), UART6 (RC input/SBUS), UART7 (ESC telemetry, RX only); 8 motor PWM + 1 LED NeoPixel output; I2C for external compass; VTX 9V switchable via RELAY2 (GPIO81); no SD card \u2014 onboard 128MB NAND dataflash for logging",
+    "discrepancies": [
+      "current data has sdcard=true but the board has NO SD card: KakuteH7v2 base hwdef explicitly 'undef sdcard' and 'undef HAL_OS_FATFS_IO', replacing it with a w25nxx 128MB NAND dataflash chip; build.py regex matches the define in the base KakuteH7 hwdef before the undef is applied",
+      "docs_url points to common-SDMODELH7V2.html which describes a DIFFERENT board (MPU6000 IMU, built-in IST8310 compass, MicroSD slot, 2S-6S voltage); SDMODELH7V1 has no dedicated wiki RST page \u2014 the common-autopilots.rst links it to the manufacturer website",
+      "current data lists 17 PWM outputs (fmu=17, total=17) but the board has 9 outputs: 8 motor channels via two JST-SH-8P connectors and 1 LED/NeoPixel output, per README and hwdef",
+      "manufacturer is null in current data; README and manufacturer page confirm SDMODEL as manufacturer",
+      "9V BEC current rating: README states 1.5A but manufacturer page states 3A \u2014 discrepancy cannot be resolved from local sources; manufacturer page value (3A) is likely more authoritative",
+      "baros in current data includes both BMP280 and SPL06 as alternatives; only BMP280 is physically on this board per README and manufacturer; SPL06 entry is a firmware probe fallback from the KakuteH7 base hwdef not a real second chip"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SDMODELH7V1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SDMODELH7V1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SDMODELH7V1/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-SDMODELH7V2.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://www.sdmodel.com.tw/content.php?cn=item&tid=1320&start=0"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "manufacturer": "STM32H743",
+        "wiki": "STM32H743 (V2 page, different board)",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (final, after KakuteH7v2 undef-s mpu6000/icm42688)",
+        "readme": "BMI270",
+        "manufacturer": "BMI270",
+        "wiki": "MPU6000 (V2 page, WRONG board)",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "probes BMP280 and SPL06 (both listed)",
+        "readme": "BMP280 (physical chip)",
+        "manufacturer": "BMP280",
+        "wiki": "BMP280 (V2 page)",
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (undef sdcard + undef HAL_OS_FATFS_IO in KakuteH7v2)",
+        "readme": "no SD card mentioned; '128 MByte flash for logging'",
+        "manufacturer": null,
+        "wiki": "SD card (V2 page, different board)",
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 driver label (SPI2 DEVID4 MAX7456_CS)",
+        "readme": "AT7456E",
+        "manufacturer": "AT7456E",
+        "wiki": "AT7456E (V2 page)",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx on SPI1 (SDCARD_CS pin reused)",
+        "readme": "128 MByte flash for logging",
+        "manufacturer": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4, USART6, UART7)",
+        "readme": "6x UARTs",
+        "manufacturer": "6 UARTs",
+        "wiki": "6 (V2 page)",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "manufacturer": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S",
+        "manufacturer": "2S-8S",
+        "wiki": "2S-6S (V2 page, WRONG board)",
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url_correct",
+        "hwdef": null,
+        "readme": null,
+        "manufacturer": null,
+        "wiki": "common-SDMODELH7V2 describes a different board with MPU6000, IST8310, SD card, 2S-6S",
+        "agree": "disagree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "USART2 mapped to internal BT module (SERIAL2)",
+        "readme": "SERIAL2 internally connected to currently unsupported BT-LE module",
+        "manufacturer": "ESP32-C3 Bluetooth",
+        "wiki": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "FlywooF405S-AIO",
   "name": "FlywooF405S-AIO",
-  "manufacturer": null,
+  "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -102,5 +102,173 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flywoo",
+    "marketing_name": "GOKU F405 1-2S 12A AIO w/ built-in ELRS 2.4g RX",
+    "family": "GOKU F405",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM-42688",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "BMP280",
+      "DPS310"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 8.5,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "1-2S",
+    "voltage_min_v": 3,
+    "voltage_max_v": 8.4,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "ELRS 2.4GHz integrated RX",
+      "I2C external compass pads",
+      "NeoPixel LED pad"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ELRS 2.4GHz (integrated)",
+    "pinout_notes": "SERIAL1=ELRS (USART1, internal), SERIAL2=GPS (USART2), SERIAL3=RC/Output (USART3), SERIAL4=TELEM (UART4), SERIAL5=USER (UART5), SERIAL6=VTX (USART6); 4 motor outputs + LED/PWM5; OSD on SPI3; 8MB dataflash on SPI3",
+    "discrepancies": [
+      "README battery monitoring section states voltage sensor handles '2S to 6S' but the features list and product title both say '1-2S'; the 2-6S claim is a template copy-paste error \u2014 the board has an integrated 12A ESC rated for 1-2S only",
+      "README only documents MPU6000 as the IMU, but hwdef.dat registers both Invensensev3:icm42688 and Invensense:mpu6000 on the same GYRO1_CS pin, indicating ICM-42688 and MPU6000 are hardware alternatives across board revisions",
+      "README only mentions BMP280 as the barometer, but hwdef.dat also registers DPS310 at the same I2C address (0x76) as a hardware alternative",
+      "Our current data file is missing: manufacturer (Flywoo), has_osd (true), osd_chip (MAX7456), wireless (ELRS 2.4GHz), blackbox_flash (8MB), weight_g (8.5), dimensions (30x30mm), mounting (25.5x25.5mm), BEC (5V 2A), and voltage (1-2S)",
+      "README states mounting holes as '25.5/26.5mm square to center of holes' \u2014 the dual value is ambiguous; 25.5x25.5mm is the common standard for this 30mm form-factor class and is used here, but the exact hole diameter (M2 assumed) is not explicitly stated"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlywooF405S-AIO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405S-AIO/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405S-AIO/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-flywoof405hd.rst (checked \u2014 describes a different board, FlywooF405HD, not this one)",
+      "https://flywoo.net/products/goku-versatile-f405-2s-12a-aio-w-build-in-elrs-2-4g-rx-mpu6000 (returned 403, referenced from README only)"
+    ],
+    "dimensions_mm": {
+      "length": 30,
+      "width": 30,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405 32-bit processor",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3:icm42688 AND Invensense:mpu6000 (same CS pin, hardware alternatives)",
+        "readme": "MPU6000 only",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 and DPS310 (same I2C address, hardware alternatives)",
+        "readme": "BMP280 only",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 = MAX7456",
+        "readme": "OSD_TYPE 1 (MAX7456 driver)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash on SPI3 (HAL_LOGGING_DATAFLASH_ENABLED)",
+        "readme": "8Mbytes for Blackbox logging",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1, USART2, USART3, UART4, UART5, USART6 = 6",
+        "readme": "6 hardware UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "SERIAL1 DEFAULT_SERIAL1_PROTOCOL SerialProtocol_RCIN on USART1",
+        "readme": "Built-in ELRS 2.4GHz serial receiver",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "features list: 1-2S Lipo; battery section: '2S to 6S' (contradiction)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "8.5g",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "Standard 25.5/26.5mm square to center of holes (ambiguous)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V Power Out: 2.0A max",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1",
+        "readme": "OSD Support section present, OSD_TYPE 1 (MAX7456)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

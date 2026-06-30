@@ -1,7 +1,7 @@
 {
   "slug": "BlitzF745AIO",
   "name": "BlitzF745AIO",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -93,7 +93,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://ardupilot.org/copter/docs/common-blitz-f745.html",
+  "docs_url": "https://ardupilot.org/copter/docs/common-iflight-blitzf7AIO.html",
   "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745AIO/README.md",
   "manual": {
     "status": "not_started",
@@ -108,5 +108,153 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight BLITZ Whoop F7 AIO",
+    "family": "BLITZ F7",
+    "mcu_part": "STM32F745xx",
+    "imu_models": [
+      "BMI270",
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 10.5,
+    "mounting_pattern_mm": "25.5x25.5",
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI connector (UART1/UART2)",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs (USART1-3, UART4, UART7); 4 motor PWM (internal 55A 4-in-1 ESC, bi-dir DShot) + 1 NeoPixel LED; DJI connector on UART1/UART2; I2C for external compass",
+    "correct_wiki_stem": "common-iflight-blitzf7AIO",
+    "discrepancies": [
+      "docs_url points to common-blitz-f745 (iFlight BLITZ F745/Mini stack board) instead of common-iflight-blitzf7AIO (the correct AIO page)",
+      "AIO wiki states '4x UARTs/serial' but hwdef.dat and README both confirm 5 UARTs (USART1, USART2, USART3, UART4, UART7)",
+      "README states 'BEC output: 5V 2.5A' but AIO wiki states '5V, 2A BEC' \u2014 README (hardware doc) is likely authoritative at 2.5A",
+      "README states 'Barometer: DPS310 or None' but hwdef.dat defines both DPS310 and SPL06 entries, and AIO wiki confirms 'DPS310 or SPL06 barometer'",
+      "manufacturer field is null in current data \u2014 should be 'iFlight'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BlitzF745AIO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745AIO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745AIO/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-blitz-f745.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-iflight-blitzf7AIO.rst"
+    ],
+    "dimensions_mm": {
+      "length": 35,
+      "width": 35,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx",
+        "readme": "BGA-STM32F745, 216MHz",
+        "wiki": "STM32F745 32-bit processor, 216 MHz",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 and ICM42688 (both on same CS pin, hardware variants)",
+        "readme": "BMI270 or ICM42688",
+        "wiki": "BMI270 (AIO wiki lists only BMI270; F745 wiki lists only ICM42688)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 and SPL06",
+        "readme": "DPS310 or None",
+        "wiki": "DPS310 or SPL06 barometer",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1, USART2, USART3, UART4, UART7)",
+        "readme": "5 UARTS",
+        "wiki": "4x UARTs (AIO wiki) \u2014 incorrect",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (HAL_OSD_TYPE_DEFAULT 1 = MAX7456 driver, compatible)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "dataflash on SPI3",
+        "readme": "16Mb Onboard Flash",
+        "wiki": "16MB flash for datalogging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not stated (BATT_VOLT_MULT 10.9 implies 6S capable)",
+        "readme": "up to 6S LiPo batteries",
+        "wiki": "2S - 6S LiHV",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN lines)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (uses SPI dataflash, no SDIO)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "35mm x 35mm (25.5mm mounting pattern)",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "10.5g (AIO wiki)",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "mRoControlZeroOEMH7",
   "name": "mRoControlZeroOEMH7",
-  "manufacturer": null,
+  "manufacturer": "mRo",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -105,7 +105,7 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-3DR_Control_Zero_OEM_G.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -120,5 +120,145 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mRo",
+    "marketing_name": "mRo Control Zero OEM H7",
+    "family": "Control Zero",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "BMI088",
+      "ICM-20602",
+      "ICM-20948"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "weight_g": 3.66,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5,
+    "bec_outputs": [
+      {
+        "rail": "3.3V sensors",
+        "volts": 3.3,
+        "amps": null
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "36-pin Samtec FTM-118-02-F-DV 1mm SMD (bottom front)",
+      "40-pin Samtec FTM-118-02-F-DV 1mm SMD (bottom back)",
+      "TC2030 JTAG/SWD"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "SERIAL1-5 = USART2/3, UART4/8/7; USART2+USART3 have CTS/RTS; 8x PWM (TIM1/TIM4/TIM8); 2x CAN; 3x I2C (all external); Spektrum RC on TIM3_CH2; all signals on bottom Samtec 1mm SMD connectors",
+    "correct_wiki_stem": "common-3DR_Control_Zero_OEM_G",
+    "discrepancies": [
+      "JSON chip_display for second IMU is 'ICM20608' but hwdef comment (line 7), CS pin name (ICM_20602_CS), and wiki all confirm the physical chip is ICM-20602",
+      "Wiki (common-3DR_Control_Zero_OEM_G) lists 'DPS368 Barometer' but hwdef.dat comment and BARO driver line both reference 'DPS310' \u2014 likely DPS368 in hardware (DPS310 driver supports both), wiki probably more accurate for physical chip",
+      "Wiki serial/UART mapping section contains copy-paste artifacts from a KakuteH7 page (mentions UART5, USART6, and 'KakuteH7 supports up to 14 PWM') that do not apply to this board",
+      "JSON manufacturer is null; should be 'mRo'",
+      "docs_url is null but a matching wiki page exists at common-3DR_Control_Zero_OEM_G"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mRoControlZeroOEMH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoControlZeroOEMH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-3DR_Control_Zero_OEM_G.rst"
+    ],
+    "dimensions_mm": {
+      "length": 34,
+      "width": 20,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743IIK6 (header comment)",
+        "wiki": "STM32H743IIK6",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088, ICM20602, ICM20948 (comment + CS pin name ICM_20602_CS)",
+        "wiki": "BMI088, ICM20602, ICM20948",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (comment + driver alias)",
+        "wiki": "DPS368",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, UART4, UART8, UART7)",
+        "wiki": "5 (2 with flow control)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": "2",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": "34mm (header comment)",
+        "wiki": "34mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": "20mm (header comment)",
+        "wiki": "20mm",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": "3.66g (header comment)",
+        "wiki": "3.66g",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1 pins)",
+        "wiki": "MicroSD card socket",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK09916 (probe_ICM20948)",
+        "wiki": "ICM20948 contains mag",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

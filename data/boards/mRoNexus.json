@@ -1,7 +1,7 @@
 {
   "slug": "mRoNexus",
   "name": "mRoNexus",
-  "manufacturer": null,
+  "manufacturer": "mRo",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -108,5 +108,128 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mRo",
+    "marketing_name": "mRo Nexus",
+    "family": "Pixracer",
+    "mcu_part": "STM32H743VIH6",
+    "imu_models": [
+      "ADIS16470",
+      "ICM-40609D"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "mounting_pattern_mm": "31.5x31.5",
+    "voltage_min_v": 5,
+    "voltage_max_v": 5.5,
+    "uart_count": 2,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH",
+      "Micro-C USB",
+      "MicroSD slot"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "4 serial ports total: SERIAL0/SERIAL2 are dual USB OTG (Micro-C), SERIAL3=UART4 (GPS+I2C), SERIAL1=UART7 (RC/spare); 2x CAN (DroneCAN); 1x I2C; no PWM motor outputs (CAN-only FC); RGB LED; FRAM for parameter storage",
+    "discrepancies": [
+      "Wiki (common-mro-nexus.rst) omits the ADIS16470 IMU from the sensors list; hwdef.dat comment and SPIDEV/IMU lines confirm two IMUs (ADIS16470 + ICM-40609D)",
+      "Wiki misspells barometer as 'DSP310' \u2014 correct part is DPS310 (confirmed in hwdef BARO line and SPIDEV table)",
+      "Wiki claims 'integrated ADS-B receiver' in the overview but hwdef.dat contains no ADS-B device or driver \u2014 this feature was apparently planned but not implemented",
+      "Current data has manufacturer: null; hwdef USB_STRING_MANUFACTURER is 'mRo' and wiki links to mRobotics store",
+      "Board dimensions (36x36mm, 31.5x31.5mm mounting pattern) are documented in hwdef.dat comment but are null in current data"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mRoNexus.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoNexus/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mro-nexus.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family label)",
+        "wiki": "STM32H743VIH6",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ADIS16470 + ICM-40609D (both in IMU lines and SPIDEV)",
+        "wiki": "ICM-40609D only (ADIS16470 omitted)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310",
+        "wiki": "DSP310 (typo)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100",
+        "wiki": "RM3100",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1 + CAN2)",
+        "wiki": "Dual CAN/DroneCAN ports",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1 pins defined)",
+        "wiki": "MicroSD card reader",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "2 hardware UARTs (UART4, UART7); 2 additional USB OTG interfaces",
+        "wiki": "4 serial ports listed (SERIAL0-3) incl. 2 USB",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": "36x36mm board, 31.5x31.5mm mounting \u2014 stated in file header comment",
+        "wiki": "not specified (fields blank)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": "ADC sense pins for 5V rails only; no battery input",
+        "wiki": "5-5.5VDC from USB or PowerBrick",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

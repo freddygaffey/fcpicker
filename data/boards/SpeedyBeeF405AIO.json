@@ -1,7 +1,7 @@
 {
   "slug": "SpeedyBeeF405AIO",
   "name": "SpeedyBeeF405AIO",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,176 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F405 AIO 40A Bluejay",
+    "family": "STM32F4",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "SPA06-003"
+    ],
+    "osd_chip": "MAX7456",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 13.6,
+    "mounting_pattern_mm": "25.5x25.5",
+    "voltage_cells": "3-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "WiFi/BT (onboard, UART1, not supported by ArduPilot)",
+    "pinout_notes": "UART1=WiFi/BT internal (unsupported), UART2=SBUS-in (RX only, inverted), UART3=DisplayPort, UART4=User, UART5=GPS, UART6=RCin (DMA); 5 PWM outputs (M1-M4 bidirectional DShot + LED pad); built-in 40A 4-in-1 BlueJay ESC; no built-in compass",
+    "discrepancies": [
+      "Current data lists IMU chip as 'Invensensev3' (hwdef driver family alias); real physical chip is ICM-42688P per README and wiki.",
+      "Current data lists baro chip as 'SPL06' (hwdef driver name); real physical chip is SPA06-003 per README and wiki.",
+      "Physical specs were null in current data: README and wiki both confirm 33x33mm dimensions, 13.6g weight, 25.5x25.5mm mounting pattern, 3-6S input voltage, and 5V/2A BEC output."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SpeedyBeeF405AIO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405AIO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405AIO/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef405aio.rst"
+    ],
+    "dimensions_mm": {
+      "length": 33,
+      "width": 33,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver family alias, SPI1/GYRO1_CS)",
+        "readme": "ICM-42688P",
+        "wiki": "ICM-42688P",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 (driver name, I2C 0x76)",
+        "readme": "SPA06-003",
+        "wiki": "SPA06-003",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "33mm",
+        "wiki": "33mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "readme": "33mm",
+        "wiki": "33mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "13.6g",
+        "wiki": "13.6g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "25.5x25.5mm",
+        "wiki": "25.5x25.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3-6S",
+        "wiki": "3-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "yes (HAL_OSD_TYPE_DEFAULT 1 = MAX7456 driver, SPIDEV osd on SPI3)",
+        "readme": "yes (MAX7456 driver)",
+        "wiki": "yes (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "8MB dataflash on SPI2 (HAL_LOGGING_DATAFLASH_ENABLED)",
+        "readme": "8MBytes for logging",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V, 2.0A max",
+        "wiki": "5V, 2.0A max",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "USART1 WiFi (NODMA, SerialProtocol_None)",
+        "readme": "UART1 tied internally to BT module, not currently supported by ArduPilot",
+        "wiki": "WiFi module, not usable by ArduPilot",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

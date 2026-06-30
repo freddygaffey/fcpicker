@@ -1,7 +1,7 @@
 {
   "slug": "CubeOrangePlus-bdshot",
   "name": "CubeOrangePlus-bdshot",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -50,27 +50,6 @@
     "bec": []
   },
   "imus": [
-    {
-      "chip": "Invensense",
-      "bus": "SPI:icm20602_ext",
-      "variant": null,
-      "slot": "INSTANCE:0",
-      "chip_display": "ICM20602"
-    },
-    {
-      "chip": "Invensensev2",
-      "bus": "SPI:icm20948_ext",
-      "variant": null,
-      "slot": "INSTANCE:1",
-      "chip_display": "ICM20948"
-    },
-    {
-      "chip": "Invensensev2",
-      "bus": "SPI:icm20948",
-      "variant": null,
-      "slot": "INSTANCE:2",
-      "chip_display": "ICM20948"
-    },
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm42688_ext",
@@ -182,5 +161,109 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "Cube Orange+ (CubeOrange+)",
+    "family": "Cube",
+    "mcu_part": "STM32H757xx",
+    "imu_models": [
+      "ICM42688",
+      "ICM20948",
+      "ICM20649",
+      "ICM45686"
+    ],
+    "baro_models": [
+      "MS5611",
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH 1.25mm (all ports)",
+      "DF17 80-pin (carrier board interface)",
+      "Spektrum satellite",
+      "micro USB",
+      "JST-GH USB"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "5 UARTs: Telem1 (RTS/CTS), Telem2 (RTS/CTS), GPS1 (I2C1), GPS2 (I2C2), CONS/SERIAL5; 2 CAN ports; 14 PWM (8 MAIN via STM32F100 IOMCU, 6 AUX direct on H757); 2 POWER monitor ports; ADSB receiver on SERIAL5; RAMTRON parameter storage on SPI2",
+    "discrepancies": [
+      "README.md says 'STM32H743 microcontroller' but hwdef.dat declares MCU STM32H757xx and the wiki confirms STM32H757; README is incorrect (our JSON has the correct H757)",
+      "JSON manufacturer field is null; hwdef.dat USB_STRING_MANUFACTURER is 'CubePilot' and README references cubepilot.org \u2014 should be CubePilot",
+      "README lists only three IMUs (ICM42688, ICM20948, ICM20649) but hwdef.dat adds ICM45686 as a newer alternative for all three IMU slots (INSTANCE:0, 1, and 2), probed via separate BOARD_VALIDATE checks; newer hardware revisions ship ICM45686 in place of or alongside the original triplet"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeOrangePlus.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrangePlus/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrangePlus/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeOrange/hwdef.inc",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-thecubeorange-overview.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H757xx",
+        "readme": "STM32H743 (incorrect)",
+        "wiki": "STM32H757",
+        "agree": "disagree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688, ICM20948, ICM20649, ICM45686 (alt)",
+        "readme": "ICM42688, ICM20948, ICM20649",
+        "wiki": "ICM42688, ICM20948",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 x2",
+        "readme": "two MS5611 SPI barometers",
+        "wiki": "Two Barometers",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK09916 (internal via ICM20948) + AK09916 (I2C ext)",
+        "readme": "AK09916 in ICM20948",
+        "wiki": "AK09916",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART2, USART3, UART4, UART8, UART7)",
+        "readme": "5 UARTs plus USB",
+        "wiki": "5x general purpose serial ports",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "readme": "I2C and CAN ports (CAN1+CAN2)",
+        "wiki": "2x CAN Bus interface",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (sdcard.inc included)",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "CubePilot (USB_STRING_MANUFACTURER)",
+        "readme": "CubePilot website",
+        "wiki": "CubePilot",
+        "agree": "agree"
+      }
+    ]
   }
 }

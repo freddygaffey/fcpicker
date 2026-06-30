@@ -1,7 +1,7 @@
 {
   "slug": "MatekF405-CAN",
   "name": "MatekF405-CAN",
-  "manufacturer": null,
+  "manufacturer": "Matek Systems",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -103,5 +103,127 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Matek Systems",
+    "marketing_name": "Matek M9N-F405",
+    "family": "F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM20602"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "weight_g": 17.5,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_min_v": 4.5,
+    "voltage_max_v": 5.3,
+    "uart_count": 5,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "9 PWM outputs (S1-9 via TIM8/TIM3/TIM4/TIM2), 5 UARTs + USB OTG, 1 CAN bus, SD card on SPI3, onboard NEO-M9N GPS on UART4, RM3100 compass on SPI2, ICM20602 IMU on SPI1, DPS310 baro on I2C; 5V input only (requires external BEC)",
+    "discrepancies": [
+      "Our data records baro chip as 'DPS280' (ArduPilot driver name), but the hwdef section comment explicitly says 'DPS310' and Matek product page for the M9N-F4 hardware confirms the physical chip is a DPS310",
+      "docs_url points to common-matekf405.html (covers F405-STD/CTR/AIO/OSD variants page), which does not document the MatekF405-CAN board at all \u2014 no dedicated wiki page exists for this target in the local wiki",
+      "manufacturer is null in our data; should be 'Matek Systems'",
+      "Physical dimensions and weight are absent from the manual block; the same PCB (M9N-F4-3100) is 36x36x12mm, 17.5g with 30.5x30.5mm mounting holes per Matek website",
+      "voltage_cells not applicable: board accepts only 4.5\u20135.3V via 5V pad (requires external BEC); it does NOT accept direct LiPo input despite having battery ADC monitor pins"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MatekF405-CAN.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekF405-CAN/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-matekf405.rst",
+      "/Users/fred/ardupilot/libraries/AP_Baro/AP_Baro_DPS280.h",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "https://www.mateksys.com/?portfolio=m9n-f4",
+      "https://firmware.ardupilot.org/Copter/stable/MatekF405-CAN/features.txt"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 12
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx",
+        "manufacturer": "STM32F405RGT6",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "SPIDEV alias 'icm20602' + IMU Invensense \u2192 ICM20602",
+        "manufacturer": "ICM20602",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS280 (driver name); section comment says 'DPS310'",
+        "manufacturer": "DPS310",
+        "wiki": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "COMPASS RM3100 SPI:rm3100",
+        "manufacturer": "RM3100 (PNI) on -3100 variant",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1, USART2, USART3, UART4, UART5)",
+        "manufacturer": "4 spare + 1 dedicated to onboard GPS = 5 total",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 present",
+        "manufacturer": "1x CAN (UAVCAN)",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD_CS pin defined on SPI3",
+        "manufacturer": "yes (micro SD mentioned implicitly via 8x PWM +1 LED arrangement)",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no AT7456E or OSD driver defined",
+        "manufacturer": "not listed",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "manufacturer": null,
+        "wiki": "common-matekf405.rst covers F405-STD/CTR/AIO/OSD \u2014 not MatekF405-CAN",
+        "readme": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

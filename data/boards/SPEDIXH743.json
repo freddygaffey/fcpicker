@@ -1,7 +1,7 @@
 {
   "slug": "SPEDIXH743",
   "name": "SPEDIXH743",
-  "manufacturer": null,
+  "manufacturer": "SPEDIX",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -106,5 +106,153 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SPEDIX",
+    "marketing_name": "SPEDIX H743",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42688",
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "MAX7456",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 0,
+    "notable_connectors": [
+      "HD VTX connector",
+      "Dual camera input (CAM1/CAM2 with GPIO switching)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 motor outputs (M1-M8, all bidshot-capable) + M9 (LED/PWM); UART2=RC, UART1=Telem1, UART3=Telem2, UART4=MSP DisplayPort, UART5=ESC telemetry, UART6=GPS, UART7-8=Spare; HD VTX connector with GPIO-controlled switchable 12V BEC; dual camera switching via GPIO83",
+    "discrepancies": [
+      "README and wiki both claim 'CAN support' but hwdef.dat contains no CAN bus configuration or CAN pin assignments \u2014 the board does not appear to have a wired CAN interface; can_count: 0 in current data is correct per hwdef.",
+      "README PWM Output section (and wiki copy) incorrectly refers to 'SPEDIX F405' instead of 'SPEDIX H743' \u2014 likely a copy-paste error from the SPEDIX F405 documentation.",
+      "Current board data stores imu chip as 'Invensensev3' (the hwdef driver alias) rather than the real chip name; README and wiki both explicitly identify the hardware as 'Dual ICM42688'.",
+      "Onboard dataflash logging chip is present (SPIDEV dataflash SPI3 DEVID1 FLASH1_CS at 104MHz) but the exact chip part and capacity are not documented in any local source."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SPEDIXH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXH743/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXH743/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-spedixh743.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias)",
+        "readme": "Dual ICM42688",
+        "wiki": "Dual ICM42688",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "MAX7456",
+        "wiki": "MAX7456",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8",
+        "readme": "8x UARTs",
+        "wiki": "8x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN lines in hwdef.dat)",
+        "readme": "claims CAN support",
+        "wiki": "claims CAN support",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_MULT=11.0 (consistent with 6S)",
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V 0.5A, 5V 3A, 12V 3A",
+        "wiki": "3.3V 0.5A, 5V 3A, 12V 3A",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD card lines)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "true (SPIDEV osd SPI2)",
+        "readme": "MAX7456",
+        "wiki": "MAX7456",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 (onboard flash present, size unknown)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

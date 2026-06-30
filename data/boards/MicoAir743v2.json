@@ -1,7 +1,7 @@
 {
   "slug": "MicoAir743v2",
   "name": "MicoAir743v2",
-  "manufacturer": null,
+  "manufacturer": "MicoAir",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,183 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MicoAir",
+    "marketing_name": "MicoAir743v2",
+    "family": "MicoAir H743",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088",
+      "BMI270"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "compass_models": [
+      "QMC5883L"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 10,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P (DJI Air Unit / HD VTX, 9V on pin 1)",
+      "MicroSD slot"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (onboard, UART8/SERIAL8)",
+    "pinout_notes": "8 UARTs: UART1=MAVLink2, UART2=DisplayPort, UART3=GPS, UART4=MAVLink2, UART5=User, UART6=RCIN, UART7=ESC Telem (RX only), UART8=Bluetooth; 11 PWM (ch1-8 bidir DShot); SH1.0-6P HD VTX connector (9V); 30.5x30.5mm M4 mounting",
+    "discrepancies": [
+      "data/boards/MicoAir743v2.json has manufacturer=null; should be MicoAir (per README and wiki)",
+      "power.bec is empty array in data; README/wiki confirm 9V/3A and 5V/3A BECs present",
+      "manual.wireless is null in data; board has onboard Bluetooth module on UART8",
+      "All physical specs (dimensions_mm, weight_g, mounting) are null in manual block; README states 36x36x8mm, 10g, 30.5x30.5mm M4"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MicoAir743v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir743v2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-MicoAir743v2.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "wiki": "STM32H743",
+        "readme": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + BMI270",
+        "wiki": "BMI088/BMI270 dual IMUs",
+        "readme": "BMI088/BMI270 dual IMUs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x77",
+        "wiki": "SPL06 barometer",
+        "readme": "SPL06 barometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "QMC5883L x2 (external + internal)",
+        "wiki": "QMC5883L",
+        "readme": "QMC5883L magnetometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (SPI1)",
+        "wiki": "AT7456E OSD",
+        "readme": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1/2/3 UART4/5/6/7/8)",
+        "wiki": "8 UARTs",
+        "readme": "8 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN defined)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1)",
+        "wiki": "MicroSD Card Slot",
+        "readme": "MicroSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "wiki": "up to 6S LiPo",
+        "readme": "up to 6S LiPo",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "wiki": "9V 3A BEC; 5V 3A BEC",
+        "readme": "9V 3A BEC; 5V 3A BEC",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "wiki": null,
+        "readme": "30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "wiki": null,
+        "readme": "36x36x8mm",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": null,
+        "readme": "10g",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "UART8 connected to Bluetooth",
+        "wiki": "Integrated BlueTooth module on UART8",
+        "readme": "Integrated Bluetooth module",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

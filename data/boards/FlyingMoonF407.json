@@ -25,10 +25,8 @@
       "SPI1",
       "SPI2"
     ],
-    "can_count": 1,
-    "can_buses": [
-      "CAN1"
-    ],
+    "can_count": 0,
+    "can_buses": [],
     "canfd": false,
     "usb_count": 1,
     "pwm": {
@@ -102,5 +100,114 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "mcu_part": "STM32F407xx",
+    "imu_models": [
+      "ICM20689"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "uart_count": 4,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "16x PWM outputs (TIM1/2/3/4), 4x hardware UARTs (USART1/2/3, UART4), USB OTG, RAMTRON FRAM parameter storage, SPIDEV sdcard on SPI2 with FLASH_CS pin. CAN1 pins PD0/PD1 are commented out in hwdef and not physically connected.",
+    "discrepancies": [
+      "can_count in current data is 1 but both CAN1 pin lines (PD0 CAN1_RX, PD1 CAN1_TX) are explicitly commented out in hwdef.dat \u2014 the build script regex matches the commented text, producing a false positive; actual can_count should be 0.",
+      "Compass was originally RM3100 (I2C:1:0x20) when board was first added in April 2022; changed to IST8310 (I2C:0:0x0E) in October 2025 (commit 46ea8e3d62, PR:31352) \u2014 suggests a hardware revision or vendor correction; current hwdef and current data are in agreement, but only after this update.",
+      "IMU rotation changed from ROTATION_YAW_270 to ROTATION_NONE in the same October 2025 update, consistent with a hardware revision."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlyingMoonF407.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlyingMoonF407/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlyingMoonF407/hwdef-bl.dat",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "/Users/fred/ardupilot/ArduCopter/ReleaseNotes.txt",
+      "git log / git show on ardupilot repo (commits b9b5f055ef, 257c684edf, a23f082869, 46ea8e3d62)",
+      "https://github.com/ArduPilot/ardupilot/issues/31288 (WebFetch)",
+      "WebSearch: FlyingMoon F407 flight controller specifications"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F407xx",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20689 (SPIDEV alias icm20689, CS pin ICM20689_CS, driver family Invensense)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 at I2C:1:0x77 (originally MS56XX family, factored to MS5611 by commit a23f082869)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 at I2C:0:0x0E ROTATION_YAW_180 (changed from RM3100 in Oct 2025)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 (USART1, USART2, USART3, UART4 plus USB OTG on SERIAL_ORDER)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 \u2014 both CAN1 pin lines are commented out (#PD0 CAN1_RX CAN1 / #PD1 CAN1_TX CAN1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard on SPI2 with FLASH_CS pin + HAL_OS_FATFS_IO 1 \u2014 named sdcard but CS pin called FLASH_CS; ambiguous whether true SD slot or SPI flash",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "No OSD chip present; release notes confirm FlyingMoon no longer supports MAX7456 (but FlyingMoonF407 never had it in hwdef)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "No wiki page found for FlyingMoonF407 in /Users/fred/ardupilot_wiki",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

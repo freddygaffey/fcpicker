@@ -1,7 +1,7 @@
 {
   "slug": "Morakot",
   "name": "Morakot",
-  "manufacturer": null,
+  "manufacturer": "Taiphoon",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -111,5 +111,172 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Taiphoon",
+    "marketing_name": "Morakot Flight Controller",
+    "mcu_part": "STM32H743VIT",
+    "imu_models": [
+      "ICM-45686"
+    ],
+    "baro_models": [
+      "BMP390"
+    ],
+    "compass_models": [
+      "IIS2MDC",
+      "QMC5883L"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 7,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-8S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST-GH (ESC1 8-pin)",
+      "JST-GH (ESC2 8-pin)",
+      "JST-GH (CAN 4-pin)",
+      "JST-GH (GPS 6-pin)",
+      "JST-GH (TELEM/UART7 6-pin)",
+      "JST-GH (VTX/DJI HD 7-pin)",
+      "JST-GH (RC 4-pin)",
+      "JST-GH (ETH 4-pin)",
+      "JST-SH (SPI external OSD/IMU 6-pin)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 hardware UARTs (USART1/2/3, UART5/6/7/8); 9x DShot/BiDirDShot motor outputs; 1x CAN; 1x Ethernet (RMII, LAN8720); microSD; AT7456E OSD on SPI4; DJI HD VTX 7-pin connector with 12V video rail; UART7 has RTS/CTS flow control",
+    "discrepancies": [
+      "Our data has baros[0].chip='BMP388' but the real chip is BMP390; BMP388 is only the ArduPilot driver alias (README and wiki both explicitly name 'Bosch BMP390 Barometer')",
+      "Our data has imus[0].chip='Invensensev3' which is the driver class name, not the real part; the actual chip is ICM-45686 (confirmed by CS pin name ICM_45686_1_CS and README/wiki)",
+      "Our data has manufacturer=null but the correct manufacturer is Taiphoon (from README, hwdef USB_STRING_MANUFACTURER, and wiki)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Morakot.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Morakot/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Morakot/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-morakot.rst"
+    ],
+    "dimensions_mm": {
+      "length": 38.5,
+      "width": 30.5,
+      "height": 8.5
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family designation)",
+        "readme": "STM32H743VIT",
+        "wiki": "STM32H743VIT",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 driver on SPI:imu1; CS pin named ICM_45686_1_CS",
+        "readme": "ICM-45686",
+        "wiki": "ICM-45686",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO BMP388 I2C:0:0x76 (driver alias)",
+        "readme": "Bosch BMP390 Barometer",
+        "wiki": "Bosch BMP390 Barometer",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IIS2MDC I2C:0:0x1E + QMC5883L I2C:0:0xd (GPS compass)",
+        "readme": "ST IIS2MDC Magnetometer (built-in)",
+        "wiki": "IIS2MDC (built-in)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 hardware UARTs: USART1/2/3, UART5/6/7/8",
+        "readme": "8x UART (counts USB)",
+        "wiki": "8x UART (counts USB)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1",
+        "readme": "1x CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3S-8S DC Input power",
+        "wiki": "3S-8S DC Input power",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "38.5 x 30.5 mm, height up to 8.5 mm",
+        "wiki": "38.5 x 30.5 mm, height up to 8.5 mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "7 g",
+        "wiki": "7 g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI4 DEVID4 AT7456E_CS; HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "DisplayPort OSD on HD VTX connector",
+        "wiki": "DisplayPort OSD enabled by default",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting",
+        "hwdef": null,
+        "readme": "30.5x30.5 mm M3/M4 with dampers",
+        "wiki": "30.5x30.5 mm M3/M4 with dampers",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "USB_STRING_MANUFACTURER Taiphoon",
+        "readme": "designed and produced by Taiphoon",
+        "wiki": "designed and produced by Taiphoon",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

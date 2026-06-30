@@ -1,7 +1,7 @@
 {
   "slug": "TBS_LUCID_PRO",
   "name": "TBS_LUCID_PRO",
-  "manufacturer": null,
+  "manufacturer": "Team Black Sheep",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -32,9 +32,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 8,
+      "fmu": 6,
       "io": 0,
-      "total": 8
+      "total": 6
     },
     "ethernet": false,
     "sdcard": false,
@@ -101,5 +101,158 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Team Black Sheep",
+    "marketing_name": "TBS LUCID PRO / Freestyle",
+    "family": "LUCID",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM42688",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "4MB",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: UART1=RCin, UART2=SBUS (inverted), UART3=HD DisplayPort, UART4=SmartAudio, UART5=ESC telemetry, UART6=GPS. 6 PWM outputs: M1-M4 (DShot-capable, M2/M4 bidir), PWM5=CAMC, PWM6=LED. Buzzer on PC13. No CAN.",
+    "discrepancies": [
+      "Baro driver in hwdef.dat is 'BMP388' but README.md and wiki both state the physical chip is SPL06; current data inherits the hwdef driver alias instead of the real part number",
+      "PWM output count in current data shows fmu=8 (total=8) but hwdef.dat only enables 6 outputs (PWM 7 and 8 are commented out); README and wiki confirm 6x PWM outputs",
+      "Manufacturer is null in current data; should be 'Team Black Sheep'",
+      "IMU in current data shows two separate entries but both map to the same physical CS pin (GYRO1_CS on SPI1); this is dual-driver probing for two board hardware variants (ICM42688 Freestyle / MPU6000 Pro), not two simultaneous IMUs"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/TBS_LUCID_PRO.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_PRO/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_PRO/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-tbs-lucidpro.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 + Invensense on same GYRO1_CS pin (probe both)",
+        "readme": "ICM42688 (Freestyle) or MPU6000 (Pro)",
+        "wiki": "ICM42688 (Freestyle) or MPU6000 (Pro)",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 (driver alias)",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E via osd SPIDEV on SPI2 with HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (MAX7456 driver)",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "4MB dataflash on SPI3",
+        "readme": "4MByte",
+        "wiki": "4MByte",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/5, USART6)",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "6 active (7-8 commented out)",
+        "readme": "6x PWM Outputs",
+        "wiki": "6x PWM Outputs",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V/0.5A, 5V/3A, 9V/3A",
+        "wiki": "3.3V/0.5A, 5V/3A, 9V/3A",
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "true (BMP388 driver probed)",
+        "readme": "SPL06 present",
+        "wiki": "SPL06 present",
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "true (OSD_ENABLED 1)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (dataflash only)",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass",
+        "hwdef": "none built-in",
+        "readme": "no builtin compass",
+        "wiki": "does not have a builtin compass",
+        "agree": "agree"
+      }
+    ]
   }
 }

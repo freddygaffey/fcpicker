@@ -1,7 +1,7 @@
 {
   "slug": "speedybeef4v5",
   "name": "speedybeef4v5",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F405 V5",
+    "family": "SpeedyBee F4",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "SPA06-003"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 8.1,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-6P (DJI HD VTX/Air Unit)",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (onboard BT module on UART1, not currently supported by ArduPilot)",
+    "pinout_notes": "UART1=internal BT (unusable), UART2=user, UART3=DJI DisplayPort, UART4=GPS, UART5=ESC telemetry, UART6=RCIN; 7 PWM outputs (M1-M4 bidirectional DShot + S5/S6 + LED/M7); 30.5x30.5mm standard mount",
+    "discrepancies": [
+      "docs_url points to common-speedybeef4 (original SpeedyBee F4: MPU6000, no barometer, 4 PWM outputs) \u2014 wrong board entirely; no dedicated wiki page exists for the V5 (common-autopilots.rst links V5 directly to the GitHub hwdef)",
+      "current data lists IMU chip as 'Invensensev3' \u2014 this is only the ArduPilot driver name; the real chip on the board is ICM-42688P (confirmed by README and manufacturer)",
+      "current data lists baro chip as 'SPL06' \u2014 this is only the ArduPilot driver name; the real chip is SPA06-003 (confirmed by README and manufacturer)",
+      "current data has manufacturer null \u2014 should be SpeedyBee",
+      "osd_chip not in current data; actual chip is AT7456E (driven by MAX7456-compatible ArduPilot driver, HAL_OSD_TYPE_DEFAULT 1)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/speedybeef4v5.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v5/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v5/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v5/defaults.parm",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef4.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://fpvstorerc.com/products/speedybee-f405-v5-55a-fc-esc-stack-f405-v5-flight-controller",
+      "https://www.readymaderc.com/products/details/86855-speedybee-f405-v5-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 39,
+      "width": 39,
+      "height": 4.9
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (STM32F4xx family)",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 (but wiki page is for original F4, not V5)",
+        "manufacturer": "STM32F405",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:imu1 (driver alias)",
+        "readme": "ICM-42688P",
+        "wiki": "MPU6000 (wrong wiki page \u2014 original F4)",
+        "manufacturer": "ICM42688P",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76 (driver name)",
+        "readme": "SPA06-003",
+        "wiki": "no barometer listed (wrong wiki page)",
+        "manufacturer": "SPA06-003",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "OSD using MAX7456 driver",
+        "wiki": null,
+        "manufacturer": "AT7456E",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1-3, UART4-5, USART6)",
+        "readme": "6 UARTs",
+        "wiki": null,
+        "manufacturer": "6",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "3S to 6S (wrong wiki page for original F4, happens to match)",
+        "manufacturer": "3-6S",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 (16MB per README)",
+        "readme": "16MBytes for logging",
+        "wiki": null,
+        "manufacturer": "16MB",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 CAN buses",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD card defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

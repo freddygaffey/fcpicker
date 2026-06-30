@@ -1,7 +1,7 @@
 {
   "slug": "CORVON405V2_1",
   "name": "CORVON405V2_1",
-  "manufacturer": null,
+  "manufacturer": "CORVON",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,133 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CORVON",
+    "marketing_name": "CORVON405V2.1",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "BMI088"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: UART1 MAVLink2 DMA, UART2 DJI VTX, UART3 GPS, UART4 MAVLink2, UART5 ESC Telemetry RX-only, UART6 RCin/SBUS inverted RX-only; 10 PWM (ch1-8 DShot, ch1-4 BiDShot); I2C1 for external compass; SPI1 OSD, SPI2 IMU+Baro, SPI3 SDCard",
+    "discrepancies": [
+      "Current data has manufacturer: null \u2014 README and wiki both state 'produced by CORVON'; should be 'CORVON'",
+      "README.md and wiki OSD Support narrative sections say 'MAX7456' but Features list (both README and wiki) and hwdef CS pin name (AT7456E_CS) say AT7456E \u2014 AT7456E is the actual chip; Max7456 references in OSD body text appear to be copy-paste inconsistency",
+      "Current data has bec_outputs: [] \u2014 README and wiki specify two BECs: 9V 3A and 5V 3A",
+      "Current manual block has voltage_cells: null \u2014 sources indicate up to 6S; 2-6S range is typical for this class of FC"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CORVON405V2_1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CORVON405V2_1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CORVON405V2_1/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-corvonf405v2_1.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (bmi088_a accel + bmi088_g gyro)",
+        "readme": "BMI088",
+        "wiki": "BMI088",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (CS pin named AT7456E_CS)",
+        "readme": "Features: AT7456E; OSD Support section: MAX7456",
+        "wiki": "Features: AT7456E; OSD Support section: MAX7456",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3; UART4,5; USART6)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SPIDEV sdcard SPI3)",
+        "readme": "yes",
+        "wiki": "yes",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "CORVON",
+        "wiki": "CORVON",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "up to 6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V 3A; 5V 3A",
+        "wiki": "9V 3A; 5V 3A",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

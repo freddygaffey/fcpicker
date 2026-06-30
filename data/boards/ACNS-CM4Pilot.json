@@ -1,7 +1,7 @@
 {
   "slug": "ACNS-CM4Pilot",
   "name": "ACNS-CM4Pilot",
-  "manufacturer": null,
+  "manufacturer": "ACNS",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -33,9 +33,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 9,
+      "fmu": 8,
       "io": 0,
-      "total": 9
+      "total": 8
     },
     "ethernet": false,
     "sdcard": true,
@@ -103,5 +103,136 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ACNS",
+    "marketing_name": "CM4Pilot Integrated Flight Controller",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "BMI088"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "compass_models": [
+      "LIS3MDLTR"
+    ],
+    "blackbox_flash": "128MB SPI NOR flash (PA14 FLASH_CS, SPI3)",
+    "has_sdcard": true,
+    "weight_g": 26,
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "SBUS input",
+      "External SPI port",
+      "I2C",
+      "Raspberry Pi CM4 integrated"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 PWM/DShot outputs (no BDshot); 5 UARTs (USART1 Telem1, USART3 CM4 link, UART4 GPS, USART6 GPS2, USART2 SBUS/RC) + USB; 1 CAN; 1 I2C; external SPI; analog battery monitor (volt+current); on-board buzzer; 2 microSD slots (one FMU, one CM4)",
+    "discrepancies": [
+      "Current data has manufacturer=null; hwdef APJ_BOARD_ID and directory prefix identify manufacturer as ACNS",
+      "Current data shows pwm.fmu=9 and total=9 but README and wiki both specify 8 motor/servo PWM outputs; 9th entry in hwdef is buzzer on TIM1 GPIO(77) which is not a servo/motor output",
+      "Current data shows power.monitor_inputs=0 but hwdef defines BATT_VOLTAGE_SENS (PC1) and BATT_CURRENT_SENS (PC2) ADC pins and README specifies 1 analog power port",
+      "Current data has no physical dimensions or weight; README specifies 58x50x18mm and 26g (without shell)",
+      "Current data does not capture 128MB onboard SPI flash (PA14 FLASH_CS; SPIDEV dataflash on SPI3); README states '128M flash on board for logging' though HAL_LOGGING_DATAFLASH_ENABLED is commented out in hwdef leaving SD card as primary logging medium"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ACNS-CM4Pilot.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ACNS-CM4Pilot/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ACNS-CM4Pilot/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-acns-cm4pilot.rst"
+    ],
+    "dimensions_mm": {
+      "length": 58,
+      "width": 50,
+      "height": 18
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F4xx STM32F405xx",
+        "wiki": "STM32F405 ARM (168MHz)",
+        "readme": "STM32F405 microcontroller",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "BMI088 (SPI:bmi088_a accel + SPI:bmi088_g gyro)",
+        "wiki": "BMI088 IMU",
+        "readme": "BMI088",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "wiki": "BMP280 barometer",
+        "readme": "BMP280",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "LIS3MDL SPI:lis3mdl (lis3mdl is bus alias)",
+        "wiki": "LIS3MDLTR magnetometer",
+        "readme": "LIS3MDLTR",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "partial",
+        "hwdef": "5 UARTs (USART1/3, UART4, USART6, USART2) + USB OTG1 = 6 in SERIAL_ORDER",
+        "wiki": "5x UARTs",
+        "readme": "6 UARTs and USB ports (counts USB in the 6)",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1",
+        "wiki": "1 CAN",
+        "readme": "1 CAN port",
+        "manufacturer": null
+      },
+      {
+        "field": "pwm_count",
+        "agree": "partial",
+        "hwdef": "8 numbered PWMs (GPIO 50-57) + 1 buzzer on TIM1 GPIO(77)",
+        "wiki": "8x PWM outputs DShot capable",
+        "readme": "8 PWM output",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDCARD_CS on PD2 SPI3",
+        "wiki": "microSDCard for logging",
+        "readme": "2 microSD card slot port",
+        "manufacturer": null
+      },
+      {
+        "field": "power_monitor_inputs",
+        "agree": "disagree",
+        "hwdef": "BATT_VOLTAGE_SENS PC2 ADC1 + BATT_CURRENT_SENS PC1 ADC1 defined",
+        "wiki": "Power module input",
+        "readme": "1 power ports(Analog)",
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions_weight",
+        "agree": "unknown",
+        "hwdef": "not specified",
+        "wiki": "references size image only, no text values",
+        "readme": "58mm x 50mm x 18mm, 26g (without shell)",
+        "manufacturer": null
+      }
+    ]
   }
 }

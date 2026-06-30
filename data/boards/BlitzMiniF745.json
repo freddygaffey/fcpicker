@@ -1,7 +1,7 @@
 {
   "slug": "BlitzMiniF745",
   "name": "BlitzMiniF745",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -48,13 +48,6 @@
     "bec": []
   },
   "imus": [
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:imu1",
-      "variant": null,
-      "slot": "SPI1/CS:GYRO1_CS",
-      "chip_display": "IMU1"
-    },
     {
       "chip": "Invensensev3",
       "bus": "SPI:imu1",
@@ -109,5 +102,182 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight BLITZ Mini F745",
+    "family": "BLITZ F745",
+    "mcu_part": "STM32F745",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310",
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 4.8,
+    "mounting_pattern_mm": "20x20",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0 motor connector (4-in-1 ESC)",
+      "DJI HD VTX connector",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1=DJI VTX/DisplayPort, UART2=RC input (DMA), UART3=GPS (DMA), UART4=user, UART5=user, UART6=ESC telemetry; 5 PWM (M1-M4 motors + M5 LED/NeoPixel); 20x20mm mount",
+    "discrepancies": [
+      "PWM output count in data (fmu=10, total=10) is wrong: BlitzMiniF745 hwdef undefs PE9/PE11/PE13/PE14 (M5-M8) from parent, leaving only 5 outputs (M1-M4 motors + M5 LED on PC9); README.md and wiki both confirm 5 PWM",
+      "manufacturer field is null; should be 'iFlight' per README.md header and store URL",
+      "bec[] is empty; board has a 5V/2.5A BEC per README.md and manufacturer page",
+      "IMU chip stored as driver alias 'Invensensev3' instead of actual silicon 'ICM42688'; README.md, wiki, and manufacturer all confirm ICM42688",
+      "OSD chip AT7456E is absent from data; hwdef defines OSD on SPI4 and README/wiki/manufacturer all list AT7456E",
+      "blackbox_flash is absent from data; README.md (Mini) and manufacturer page both confirm 16MB onboard SPI dataflash"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BlitzMiniF745.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzMiniF745/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzMiniF745/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BlitzF745/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-blitz-f745.rst",
+      "https://shop.iflight.com/BLITZ-Mini-F745-Flight-Controller-Pro2142"
+    ],
+    "dimensions_mm": {
+      "length": 30.5,
+      "width": 27,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx (BGA, 216MHz)",
+        "readme": "BGA-STM32F745 216MHz",
+        "wiki": "STM32F745 32-bit 216MHz",
+        "manufacturer": "STM32F745",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias for ICM42688)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": "ICM42688",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 + SPL06 (both probed at I2C:1:0x76)",
+        "readme": "DPS310",
+        "wiki": "DPS310 or SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPI4 OSD (OSD_TYPE=1 / MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:jedec_nor on SPI3",
+        "readme": "16Mbytes Onboard Flash",
+        "wiki": "16MB on Mini",
+        "manufacturer": "16MB",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1-3, UART4-5, USART6)",
+        "readme": "6 UARTs",
+        "wiki": "6x UARTs",
+        "manufacturer": "6",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_fmu",
+        "hwdef": "5 (M1-M4 via TIM3 + M5/LED via TIM8 on PC9; PE9/PE11/PE13/PE14 undeffed)",
+        "readme": "5 PWM outputs (4 motor + 1 LED)",
+        "wiki": "4 on Mini + 1 LED = 5",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V 2.5A",
+        "wiki": "5V 2.5A BEC",
+        "manufacturer": "5V 2.5A continuous (3A peak)",
+        "agree": "agree"
+      },
+      {
+        "field": "has_compass",
+        "hwdef": "no compass defined; ALLOW_ARM_NO_COMPASS",
+        "readme": "does not have a builtin compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "20x20mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "30.5x27mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "4.8g",
+        "agree": "unknown"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "MatekH743",
   "name": "MatekH743",
-  "manufacturer": null,
+  "manufacturer": "Matek",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -134,5 +134,159 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Matek",
+    "marketing_name": "Matek H743-WING",
+    "family": "MatekH7",
+    "mcu_part": "STM32H743VIT6",
+    "imu_models": [
+      "ICM42688P",
+      "ICM42605",
+      "ICM20602",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 30,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-8S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 36,
+    "bec_outputs": [
+      {
+        "volts": 5,
+        "amps": 2,
+        "rail": "FC/peripherals (3A peak)"
+      },
+      {
+        "volts": 9,
+        "amps": 2,
+        "rail": "camera/VTX (12V option, 3A peak)"
+      },
+      {
+        "volts": 5,
+        "amps": 8,
+        "rail": "servos Vx (5/6/7.2V selectable, 10A peak)"
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0-4P CAN",
+      "USB with remote cable",
+      "SPI3 external breakout"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs (UART4/7/8, USART1/2/3/6), 13 PWM outputs, 2x I2C, 1x CAN, SPI3 external breakout, dual switchable camera inputs, 2 battery monitor inputs (BATT + BATT2), RC input on USART6",
+    "discrepancies": [
+      "Wiki page (common-matekh743-wing.rst) lists only MPU6000+ICM20602 (V1-era hardware) but hwdef comments show V1.5/V2 ships ICM42605+MPU6000 and V3 ships ICM42688P+ICM42605 \u2014 wiki is outdated",
+      "Current data has manufacturer=null; should be 'Matek'",
+      "Current data has power.monitor_inputs=0 but hwdef defines two analog battery monitor inputs (BATT_VOLTAGE_SENS/BATT_CURRENT_SENS and BATT2_VOLTAGE_SENS/BATT2_CURRENT_SENS)",
+      "hwdef uses pin label MAX7456_CS (legacy family name) but manufacturer manual and V3 product pages confirm actual chip is AT7456E",
+      "V3 hardware uses STM32H743VIH6 (BGA package) while V1/V2 use STM32H743VIT6 (LQFP100 package) \u2014 both are the same H743 die; hwdef correctly abstracts as STM32H743xx"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MatekH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH743/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH743-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-matekh743-wing.rst",
+      "https://www.manualslib.com/manual/1887831/Mateksys-H743-Wing.html",
+      "https://rc-innovations.es/en/shop/h743-wing-v3-matek-h743-wing-v3-10785"
+    ],
+    "dimensions_mm": {
+      "length": 54,
+      "width": 36,
+      "height": 13
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family)",
+        "wiki": "STM32H743VIT6",
+        "manufacturer": "STM32H743VIT6 (V1/V2) / STM32H743VIH6 (V3)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "V1: ICM20602+MPU6000; V1.5/V2: ICM42605+MPU6000; V3: ICM42688P+ICM42605 (from hwdef comments)",
+        "wiki": "MPU6000 + ICM20602 only",
+        "manufacturer": "ICM42688-P + ICM42605 (V3)",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76 (primary probe); MS5611 I2C:0:0x77 and BMP280 I2C:0:0x76 also listed",
+        "wiki": "DPS310",
+        "manufacturer": "Infineon DPS310 (I2C2)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS pin label on SPI2",
+        "wiki": null,
+        "manufacturer": "AT7456E (SPI2)",
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (UART7, USART1, USART2, USART3, UART8, UART4, USART6)",
+        "wiki": "7x UARTs",
+        "manufacturer": "7",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "wiki": "CAN port (1)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "wiki": "9V~36V DC",
+        "manufacturer": "9~36V (3~8S LiPo)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined",
+        "wiki": "microSD card mentioned",
+        "manufacturer": "MicroSD card slot (SDIO)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm, \u03a64mm holes (M3 with grommets)",
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "wiki": "tbd mm x tbd mm x tbd mm",
+        "manufacturer": "54x36x13mm, 30g",
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

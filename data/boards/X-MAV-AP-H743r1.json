@@ -1,7 +1,7 @@
 {
   "slug": "X-MAV-AP-H743r1",
   "name": "X-MAV-AP-H743r1",
-  "manufacturer": null,
+  "manufacturer": "X-MAV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -135,5 +135,151 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "X-MAV",
+    "marketing_name": "AP-H743-R1",
+    "family": "AP-H743",
+    "mcu_part": "STM32H743VIT6",
+    "imu_models": [
+      "ICM-42688-P",
+      "BMI270"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "compass_models": [
+      "QMC5883P"
+    ],
+    "has_sdcard": true,
+    "weight_g": 35,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB Type-C",
+      "microSD slot",
+      "POWER1 analog",
+      "POWER2 DroneCAN"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "15 PWM outputs: M1-M8 via IOMCU (STM32F103), A1-A7 via FMU; 6 UARTs (SERIAL1=GPS, SERIAL2=GPS2, SERIAL3-4=MAVLink2, SERIAL5-6=User); 2 CAN; 3 I2C; dedicated S.Bus input; POWER1 analog ADC, POWER2 DroneCAN; FRAM parameter storage (ramtron SPI3)",
+    "discrepancies": [
+      "hwdef.dat uses driver alias 'Invensensev3' for the IMU; README.md confirms the actual part is ICM-42688-P for Version 1 hardware (two hardware versions exist: V1=ICM-42688-P x2, V2=BMI270 x2)",
+      "dimensions (53.5 x 38.4 x 16.2 mm) and weight (35g) are documented in README.md but not yet captured in the manual block of our data",
+      "mounting hole pattern not documented in README.md or hwdef; cannot confirm from local sources",
+      "common-X_MAV_H743v2.rst wiki page describes a different board (AP-H743v2: 30.5x30.5mm stack with OSD, 8 outputs, 1 CAN) - not relevant to AP-H743r1"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/X-MAV-AP-H743r1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/X-MAV-AP-H743r1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/X-MAV-AP-H743r1/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-X_MAV_H743v2.rst (different board \u2014 AP-H743v2, not relevant)"
+    ],
+    "dimensions_mm": {
+      "length": 53.5,
+      "width": 38.4,
+      "height": 16.2
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743VIT6",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 x2 (V1), BMI270 x2 (V2)",
+        "readme": "ICM-42688-P x2 (Version1), BMI270 x2 (Version2)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "QMC5883P",
+        "readme": "QMC5883P",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3,UART4,7,8)",
+        "readme": "6x UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1, CAN2",
+        "readme": "2x CAN Ports",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 pins defined",
+        "readme": "microSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD device defined",
+        "readme": "not mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "53.5 x 38.4 x 16.2 mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "35g",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "not specified",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "iomcu",
+        "hwdef": "IOMCU_UART USART6 + iofirmware_f103",
+        "readme": "IO Processor: STM32F103",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

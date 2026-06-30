@@ -1,7 +1,7 @@
 {
   "slug": "SpeedyBeeF405Mini",
   "name": "SpeedyBeeF405Mini",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,181 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F405 Mini",
+    "family": "F405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM42688-P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 9.6,
+    "mounting_pattern_mm": "20x20",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "amps": 3,
+        "volts": 9
+      },
+      {
+        "rail": "5V",
+        "amps": 2,
+        "volts": 5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-6P (DJI HD VTX, 9V on pin 1)",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Integrated BLE Bluetooth module on UART4 (not currently usable by ArduPilot)",
+    "pinout_notes": "6 UARTs: UART1 DJI-VTX, UART2 RC input/SBUS, UART3 general, UART4 internal BT, UART5 ESC telemetry RX-only, UART6 GPS. 5 PWM: M1-M4 DShot-capable (bidirectional), M5 LED/PWM. No built-in compass; I2C SDA/SCL pads for external.",
+    "discrepancies": [
+      "Current board data has manufacturer=null; should be SpeedyBee",
+      "Current board data imus[0].chip='Invensensev3' is the ArduPilot driver family name, not the physical part; README and wiki confirm the actual chip is ICM42688-P",
+      "Current board data power.bec is empty; board has 9V/3A BEC (VTX) and 5V/2A BEC (peripherals) per wiki",
+      "Current board manual block has no physical specs; wiki provides 30x32x7.8mm, 9.6g, 20x20 mounting",
+      "Wiki (common-speedybeef405-mini.rst) writes 'DSP-310 barometer' which is a typo for DPS310 (confirmed correct by hwdef.dat)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SpeedyBeeF405Mini.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405Mini/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SpeedyBeeF405Mini/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef405-mini.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32,
+      "width": 30,
+      "height": 7.8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx (generic)",
+        "readme": "STM32F405",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver family alias)",
+        "readme": "ICM42688-P",
+        "wiki": "ICM-42688P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310",
+        "readme": "DPS310",
+        "wiki": "DSP-310 (typo)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3",
+        "readme": "8Mb flash logging",
+        "wiki": "8MByte flash for logging",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 in SERIAL_ORDER",
+        "readme": "6 UARTs",
+        "wiki": "5+1 internal BT = 6 total",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN buses",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_SCALE 11.0 consistent with 6S",
+        "readme": "up to 6S LiPo",
+        "wiki": "9V and 5V BECs imply direct battery input; 4.75-5.25V listed as separate 5V rail spec",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not in hwdef",
+        "readme": "not in README",
+        "wiki": "9V 3A (VTX), 5V 2A (peripherals)",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "32mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "30mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "9.6g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "20x20 implied by product link",
+        "manufacturer": "20x20 stack",
+        "agree": "agree"
+      }
+    ]
   }
 }

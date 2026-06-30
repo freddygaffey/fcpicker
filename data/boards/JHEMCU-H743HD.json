@@ -1,7 +1,7 @@
 {
   "slug": "JHEMCU-H743HD",
   "name": "JHEMCU-H743HD",
-  "manufacturer": null,
+  "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -105,5 +105,149 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JHEMCU",
+    "marketing_name": "JHEMCU H743 HD",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688P",
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "W25N01G (128MB)",
+    "has_sdcard": false,
+    "voltage_cells": "3S-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH6P 1mm (DJI FPV)",
+      "SH8P 1mm (4-in-1 ESC)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 accessible UARTs (UART8 defined in hwdef but has no exposed pads \u2014 requires soldering to bare processor pins); 9 PWM outputs (8 motors + 1 LED/PWM); RC input on USART2; DisplayPort on USART6; ESC telemetry on UART7; GPS default on UART4",
+    "discrepancies": [
+      "Current JSON uart_count=8 is misleading: hwdef defines UART8 but README and wiki explicitly state 7 accessible UARTs; UART8 has no pinout and requires soldering directly to processor pins",
+      "Current JSON manufacturer=null but should be JHEMCU (confirmed by README and wiki)",
+      "Current JSON second IMU chip_display is 'ICM42688P2' \u2014 the '2' is only the SPI bus alias suffix (icm42688p2); both IMUs are the same ICM42688P part",
+      "Wiki states 'no internal current sensor' but hwdef defines HAL_BATT_CURR_PIN 13 with HAL_BATT_CURR_SCALE 58.8, and README lists 'Voltage & current sensor' \u2014 wiki is incorrect on this point",
+      "Current JSON has no BEC outputs, OSD chip, or onboard flash data populated"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JHEMCU-H743HD.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-H743HD/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-H743HD/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-jhemcu-h743hd.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7xx STM32H743xx",
+        "readme": "STM32H743 32-bit processor running at 480 MHz",
+        "wiki": "STM32H743 32-bit processor running at 480 MHz",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688p (SPI1) and Invensensev3 SPI:icm42688p2 (SPI4)",
+        "readme": "dual ICM42688P",
+        "wiki": "dual ICM42688P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2, HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx on SPI3",
+        "readme": "1 Gbits (W25N01G)",
+        "wiki": "1 Gbits (W25N01G)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 UART peripherals defined (USART1-3, UART4-5, USART6, UART7-8)",
+        "readme": "7x UARTs (1,2,3,4,5,6,7)",
+        "wiki": "7x UARTs (1,2,3,4,5,6,7)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3S-6S",
+        "wiki": "3S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "BEC 5V/2.5A, 10V/2.0A",
+        "wiki": "BEC 5V/2.5A, 10V/2.0A",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "current_sensor",
+        "hwdef": "HAL_BATT_CURR_PIN 13, HAL_BATT_CURR_SCALE 58.8 defined",
+        "readme": "Voltage & current sensor",
+        "wiki": "no internal current sensor",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

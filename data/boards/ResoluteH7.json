@@ -1,7 +1,7 @@
 {
   "slug": "ResoluteH7",
   "name": "ResoluteH7",
-  "manufacturer": null,
+  "manufacturer": "Standard Systems",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -97,5 +97,145 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Standard Systems",
+    "marketing_name": "Resolute H7 Flight Controller",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "4-6S",
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "12V VTX",
+        "volts": 12,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "DJI HD VTX connector (SERIAL1)",
+      "ESC connector (M1-M4)",
+      "Dual switchable camera inputs (CAM1/CAM2)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: USART1 (DisplayPort), USART2 (RCin), USART3/UART4 (user), USART6 (GPS), UART7 (SmartAudio), UART8 (ESC telemetry); 12 PWM outputs (M1-8 bidirectional DShot, PWM9 LED, PWM10-11 servo, PWM12 camera control); 1 CAN; controllable 12V VTX rail (RELAY2); dual camera switch (RELAY3)",
+    "discrepancies": [
+      "Barometer chip: hwdef uses the 'DPS310' ArduPilot driver entry but both README and wiki consistently state the physical part is 'DPS368'. The DPS310 driver supports DPS368 (same Infineon family). The board JSON records DPS310 which is the driver name, not the physical chip.",
+      "OSD chip: README and wiki features list say 'AT7456E' (Atmel part) but the wiki OSD Support section text says 'MAX7456 chip' and hwdef uses pin name MAX7456_CS. AT7456E is pin-compatible with MAX7456; both names refer to effectively the same device. Naming is inconsistent across sources.",
+      "Blackbox flash: hwdef.dat comment identifies the SPI3 flash as W25Q128 (16MB) with dataflash logging enabled, but the board JSON has no blackbox_flash field populated.",
+      "Voltage and BEC: README and wiki document 4S-6S battery input and three BEC rails (3.3V/0.5A, 5V/3A, 12V VTX/3A) but the board JSON has null voltage_cells and an empty bec array.",
+      "Battery monitoring: board JSON shows power.monitor_inputs=0 but hwdef defines two ADC pins (BATT_VOLTAGE_SENS PC0, BATT_CURRENT_SENS PC1) with HAL_BATT_MONITOR_DEFAULT=4, confirming onboard voltage and current sensing.",
+      "hwdef.dat comment for SPI1 spells the IMU as 'ICM62688' which is a typo; all other references (SPIDEV alias, README, wiki) confirm ICM42688."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ResoluteH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ResoluteH7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ResoluteH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-resoluteh7.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 (alias for ICM42688; hwdef comment typo says ICM62688)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 driver (I2C:0:0x76)",
+        "readme": "DPS368",
+        "wiki": "DPS368",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 (SPIDEV alias and pin name MAX7456_CS)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (features list) / MAX7456 (OSD section body)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1/2/3, UART4/6/7/8)",
+        "readme": "7x UARTs",
+        "wiki": "7x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 only",
+        "readme": "1x CAN port",
+        "wiki": "1x CAN port",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "W25Q128 (16MB) on SPI3, HAL_LOGGING_DATAFLASH_ENABLED",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_SCALE=11.0 consistent with 4S-6S",
+        "readme": "4S-6S",
+        "wiki": "4S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V/0.5A, 5V/3A, 12V VTX/3A",
+        "wiki": "3.3V/0.5A, 5V/3A, 12V VTX/3A",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

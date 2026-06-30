@@ -1,7 +1,7 @@
 {
   "slug": "airbotf4",
   "name": "airbotf4",
-  "manufacturer": null,
+  "manufacturer": "Airbot",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -89,5 +89,130 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Airbot",
+    "marketing_name": "Airbot F4 (also sold as Flip32 F4)",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 2,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB Micro (OTG)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "USART1 on PA9/PA10; USART6 on PC6/PC7; 6 PWM (PB0,PB1,PA3,PA2,PA1,PA8); MPU6000 on SPI1; MS5611 on I2C2 (PB10/11); SPI3 16MB flash for logging; PPM/RCIN on PB14 (TIM12_CH1); solder-pad/pin-header based connections",
+    "discrepancies": [
+      "manufacturer is null in catalog data but board is made by Airbot (myairbot.com); board is also sold as Flip32 F4",
+      "physical specs (dimensions 36x36mm, mounting 30.5x30.5mm, 5V/1.5A BEC, 2-6S input) are absent from catalog manual block",
+      "imu chip_display in JSON is 'MPU6000_CS' (CS pin label) rather than the chip model 'MPU6000'"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/airbotf4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/airbotf4/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/airbotf4/hwdef-bl.dat",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "https://dronehitech.com/airbot-flip-f4-flight-controller/",
+      "https://blog.quadmeup.com/flip32-f4-airbot-f4-pinout/"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "wiki": null,
+        "manufacturer": "STM32F405 (confirmed by dronehitech)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense SPI:mpu6000_cs; CS pin named MPU6000_CS; SPIDEV alias mpu6000",
+        "wiki": null,
+        "manufacturer": "MPU6000 (confirmed by multiple web sources)",
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 I2C:0:0x77",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "2 (USART1 + USART6; SERIAL_ORDER has EMPTY slot at pos 3)",
+        "wiki": null,
+        "manufacturer": "web (Betaflight context) notes 3 physical UARTs but UART3 shares pins with I2C2",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card; uses STORAGE_FLASH_PAGE + SPI dataflash",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3; HAL_LOGGING_DATAFLASH_ENABLED 1; chip size not in hwdef",
+        "wiki": null,
+        "manufacturer": "16MB dataflash chip (dronehitech)",
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not specified",
+        "wiki": null,
+        "manufacturer": "2S-6S recommended (web sources)",
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": "not specified",
+        "wiki": null,
+        "manufacturer": "36mm (dronehitech, airoboo)",
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not specified",
+        "wiki": null,
+        "manufacturer": "30.5x30.5mm (dronehitech, airoboo)",
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "SPEDIXF405",
   "name": "SPEDIXF405",
-  "manufacturer": null,
+  "manufacturer": "SPEDIX",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,141 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SPEDIX",
+    "marketing_name": "SPEDIX F405",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "4MB",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "Dual camera inputs (CAM1/CAM2)",
+      "HD VTX connector (MSP DisplayPort)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "SERIAL1=MSP DisplayPort (UART1/DJI), SERIAL2=SBUS/Spare (UART2), SERIAL3=RCin (UART3), SERIAL4=GPS (UART4), SERIAL5=ESC Telemetry (UART5), SERIAL6=Spare (UART6); 8 motor outputs + 1 LED pad; dual camera switch via GPIO82",
+    "discrepancies": [
+      "Our boards JSON stores imu chip as 'Invensensev3' (the ArduPilot driver family name) rather than the actual silicon part ICM42688 identified in both the README and wiki"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SPEDIXF405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXF405/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SPEDIXF405/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-spedixf405.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 32-bit processor",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver family alias)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2, HAL_OSD_TYPE_DEFAULT 1 (MAX7456-compatible)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 (no SD card)",
+        "readme": "4MByte onboard flash",
+        "wiki": "4MByte onboard flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,USART2,USART3,UART4,UART5,USART6)",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V/0.5A, 5V/3A, 9V/3A for video",
+        "wiki": "3.3V/0.5A, 5V/3A, 9V/3A for video",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no COMPASS line, ALLOW_ARM_NO_COMPASS defined",
+        "readme": "no onboard compass",
+        "wiki": "no onboard compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

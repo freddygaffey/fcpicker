@@ -1,7 +1,7 @@
 {
   "slug": "KakuteH7Mini-Nand",
   "name": "KakuteH7Mini-Nand",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -47,20 +47,6 @@
     "bec": []
   },
   "imus": [
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI4/CS:MPU6000_CS",
-      "chip_display": "MPU6000"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:icm42688",
-      "variant": null,
-      "slot": "SPI4/CS:MPU6000_CS",
-      "chip_display": "ICM42688"
-    },
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
@@ -115,5 +101,143 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Holybro Kakute H7 Mini (v1.3)",
+    "family": "Kakute H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "128MB NAND (W25Nxx)",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7,
+    "voltage_max_v": 26,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs (1,2,3,4,6,7); 9 PWM (M1-M8 + LED strip); UART6 for RC input (SBUS/serial protocols); UART7 for ESC telemetry (RX-only); OSD on SPI2; VTX power switching via RELAY2; 1x I2C for external compass; no CAN",
+    "discrepancies": [
+      "manufacturer is null in our data but should be Holybro (confirmed by hwdef README and wiki)",
+      "osd_chip not populated in our data; real chip is AT7456E per README (MAX7456 is only the driver alias used in hwdef)",
+      "baro_models in our data includes SPL06 alongside BMP280, but the Nand-specific README states only BMP280; the SPL06 probe line is inherited from the parent hwdef as a firmware fallback for other board revisions and is not physically present on the Nand variant",
+      "blackbox_flash not populated in our data; hwdef.dat specifies littlefs:w25nxx (W25Nxx NAND) and README states 1GBit = 128MB"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteH7Mini-Nand.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini-Nand/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini-Nand/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7Mini/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-kakuteh7mini.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743 at 480MHz",
+        "wiki": "STM32H743 32-bit processor",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (SPI4, CS=MPU6000_CS pin)",
+        "readme": "BMI270",
+        "wiki": "V1.3: BMI270",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 + SPL06 probe at I2C:0:0x76 (inherited parent fallback)",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 driver alias (SPI2 DEVID4)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 buses: USART1/2/3, UART4, USART6, UART7",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs/serial",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN bus entries)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "2S-6S / 7V~26V",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "BEC 5V 2A",
+        "wiki": "5V 2A supply for peripherals",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "littlefs:w25nxx (NAND, 1GBit)",
+        "readme": "1GBit NAND",
+        "wiki": "128MByte (v1.3)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no sdcard define)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Holybro",
+        "wiki": "Holybro",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

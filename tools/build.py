@@ -30,6 +30,7 @@ DATA_DIR = ROOT / "data"
 FRONTEND_PUBLIC = ROOT / "frontend" / "public"
 ARDUPILOT_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
 BEC_OVERRIDES = ROOT / "data" / "bec_overrides.json"
+DOCS_OVERRIDES = ROOT / "data" / "docs_overrides.json"
 SITE_BASE_URL = "https://fcpicker.pebnum.com"
 ARDUPILOT_WIKI_ROOT = Path.home() / "ardupilot_wiki"
 ARDUPILOT_WIKI_DOCS = ARDUPILOT_WIKI_ROOT / "common" / "source" / "docs"
@@ -281,6 +282,44 @@ def read_hwdef_text(board_dir: Path) -> str:
     return "\n".join(parts)
 
 
+def _apply_undef(text: str, keyword: str) -> str:
+    """Honor `undef <KEYWORD>` directives for IMU/BARO/COMPASS lines.
+
+    ArduPilot hwdefs that inherit from a parent (e.g. `include ../fmuv5/...`)
+    often `undef IMU` to wipe the inherited sensor set before declaring their
+    own. `undef <KEYWORD>` removes everything defined so far, so only
+    definition lines after the *last* such undef survive. Without this the
+    parser lists phantom inherited sensors (e.g. CUAVv5 showed 9 IMUs).
+    """
+    # ArduPilot's hwdef.py clears the whole sensor list whenever the bare
+    # token IMU/BARO/COMPASS appears anywhere in an `undef` line (trailing
+    # device names are no-ops); match that exactly.
+    undef_re = re.compile(rf"^\s*undef\b.*\b{keyword}\b")
+    def_re = re.compile(rf"^\s*{keyword}\s+\S")
+    lines = text.split("\n")
+    last_undef = -1
+    for i, ln in enumerate(lines):
+        if undef_re.match(ln):
+            last_undef = i
+    if last_undef < 0:
+        return text
+    return "\n".join(
+        ln for i, ln in enumerate(lines)
+        if not (i < last_undef and def_re.match(ln))
+    )
+
+
+def _strip_comments(text: str) -> str:
+    """Remove `#` comments from hwdef text.
+
+    In ChibiOS hwdef syntax `#` always starts a comment (directives are bare
+    `define`/`undef`, never `#define`). Commented-out lines must not be parsed:
+    without this, the PWM/CAN/etc. regexes count disabled pins — e.g. a board
+    with `# PD0 CAN1_RX` (CAN removed) was still reported as having CAN.
+    """
+    return "\n".join(line.split("#", 1)[0] for line in text.splitlines())
+
+
 def is_autopilot(slug: str) -> bool:
     if any(pat in slug for pat in PERIPHERAL_PATTERNS):
         return False
@@ -296,6 +335,8 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
     text = read_hwdef_text(board_dir)
     if not text:
         return None
+    # Strip comments so disabled (`#`-commented) pin/feature lines aren't parsed.
+    text = _strip_comments(text)
 
     mcu_m = MCU_RE.search(text)
     flash_m = FLASH_RE.search(text)
@@ -311,14 +352,14 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
         for m in SPIDEV_FULL_RE.finditer(text)
     }
 
-    def _sensors(rx):
+    def _sensors(rx, stext):
         # Each line may reference more than one SPI bus (BMI088 declares both
         # an accel and a gyro bus). Collect every slot the line touches so we
         # can detect mutually-exclusive chip variants that share a chip-select
         # with another sensor entry (e.g. BMI088 fallback for an ICM42688
         # populated on the same footprint).
         raw = []
-        for m in rx.finditer(text):
+        for m in rx.finditer(stext):
             tail = m.group(3) or ""
             bm = BOARD_MATCH_RE.search(tail)
             variant = bm.group(1).strip() if bm else None
@@ -398,9 +439,9 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
             out.append((r[0], r[1], r[2], canon if canon else r[3], r[4]))
         return out
 
-    imus = _sensors(IMU_RE)
-    baros = _sensors(BARO_RE)
-    compasses = _sensors(COMPASS_RE)
+    imus = _sensors(IMU_RE, _apply_undef(text, "IMU"))
+    baros = _sensors(BARO_RE, _apply_undef(text, "BARO"))
+    compasses = _sensors(COMPASS_RE, _apply_undef(text, "COMPASS"))
 
     if not imus:
         return None
@@ -491,6 +532,30 @@ _TOKEN_SPLIT = re.compile(r"[A-Z]+(?=[A-Z][a-z])|[A-Z]?[a-z0-9]+|[A-Z]+|\d+")
 # Generic words that match too many boards; ignore them when scoring.
 _STOP_TOKENS = {"the", "common", "overview", "fc", "v", "ardupilot", "autopilot", "flight"}
 
+# Hardware-variant qualifiers used to disambiguate which wiki page a board maps
+# to when several share a base name (e.g. kakutef7 → ...aio vs ...mini). Matched
+# as substrings of the normalized stem; only consulted to break ties between
+# candidates that already share the same base overlap.
+_VARIANT_TOKENS = (
+    "mini", "nano", "pro", "plus", "wing", "aio", "lite", "extreme",
+    "ultra", "dual", "prime", "hd", "rf", "se", "v1", "v2", "v3", "v4", "v5",
+)
+
+
+def _variants_in(norm: str) -> set[str]:
+    return {t for t in _VARIANT_TOKENS if t in norm}
+
+
+def _readme_heading(readme: str | None) -> str:
+    """First markdown heading of a hwdef README — the board's canonical name."""
+    if not readme:
+        return ""
+    for line in readme.splitlines():
+        s = line.strip()
+        if s.startswith("#"):
+            return s.lstrip("#").strip()
+    return ""
+
 
 def _tokens(s: str) -> list[str]:
     return [t.lower() for t in _TOKEN_SPLIT.findall(s) if t.lower() not in _STOP_TOKENS]
@@ -535,7 +600,10 @@ def build_docs_map() -> dict[str, tuple[str, list[str], str]]:
                 entries.add((stem, platform))
 
     out: dict[str, tuple[str, list[str], str]] = {}
-    for doc, platform in entries:
+    # Sorted, not raw set iteration: set order is randomized per process
+    # (string hash seeding), which made first-wins key registration — and thus
+    # the matched docs_url — non-deterministic across builds.
+    for doc, platform in sorted(entries):
         core = doc[len("common-"):] if doc.startswith("common-") else doc
         for suffix in ("-overview", "-autopilot"):
             if core.endswith(suffix):
@@ -581,7 +649,11 @@ def match_index_url(slug: str, index_map: dict[str, str]) -> str | None:
     return index_map.get(key) or index_map.get("the" + key)
 
 
-def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -> str | None:
+def match_docs_url(
+    slug: str,
+    docs_map: dict[str, tuple[str, list[str], str]],
+    readme: str | None = None,
+) -> str | None:
     """Match a board slug to a wiki doc using progressively looser strategies.
 
     1. Exact normalized-string match.
@@ -591,6 +663,11 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -
     4. Meaningful-token overlap: every alphabetic token of length >= 3 in the
        slug must appear (exact or substring) in some wiki token of length
        >= 3, AND at least 2 such tokens must agree.
+
+    When several wiki pages tie on overlap (e.g. ...kakutef7aio vs
+    ...kakutef7mini both contain "kakutef7"), the variant qualifier in the
+    board's README heading / slug breaks the tie — deterministically, and
+    preferring the base page when the board declares no variant.
     """
     if not docs_map:
         return None
@@ -602,9 +679,27 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -
         doc, _t, platform = docs_map["the" + key]
         return _doc_url(doc, platform)
 
-    # Substring containment on normalized strings. Best = longest overlap.
+    board_vars = _variants_in(_norm(_readme_heading(readme))) | _variants_in(key)
+
+    def _pick(cands: list[tuple[str, str]]) -> tuple[str, str]:
+        # cands: (wkey, doc, platform-bearing tuple) reduced to (wkey, doc, platform).
+        # Prefer: most board-matching variant tokens, then fewest wrong
+        # variant tokens, then shortest stem (base page), then lexicographic.
+        return min(
+            cands,
+            key=lambda c: (
+                -len(_variants_in(c[0]) & board_vars),
+                len(_variants_in(c[0]) - board_vars),
+                len(c[0]),
+                c[1],
+            ),
+        )[1:]
+
+    # Substring containment on normalized strings. Best = longest overlap;
+    # ties resolved by variant qualifier (above), not set/dict order.
     if len(key) >= 6:
-        best_sub: tuple[int, str, str] | None = None
+        best_overlap = 0
+        tied: list[tuple[str, str, str]] = []
         for wkey, (doc, _wtoks, platform) in docs_map.items():
             if len(wkey) < 6:
                 continue
@@ -614,10 +709,14 @@ def match_docs_url(slug: str, docs_map: dict[str, tuple[str, list[str], str]]) -
                 overlap = len(wkey)
             else:
                 continue
-            if best_sub is None or overlap > best_sub[0]:
-                best_sub = (overlap, doc, platform)
-        if best_sub:
-            return _doc_url(best_sub[1], best_sub[2])
+            if overlap > best_overlap:
+                best_overlap = overlap
+                tied = [(wkey, doc, platform)]
+            elif overlap == best_overlap:
+                tied.append((wkey, doc, platform))
+        if tied:
+            doc, platform = _pick(tied)
+            return _doc_url(doc, platform)
 
     # Token overlap, last resort. Score using ALL slug tokens (exact-match
     # works for short tokens like "3"/"dr"/"g"; substring only for ≥3-char
@@ -661,16 +760,28 @@ def load_bec_overrides() -> dict[str, list[dict]]:
     return {k: v for k, v in raw.items() if not k.startswith("_") and isinstance(v, list)}
 
 
+def load_docs_overrides() -> dict[str, str]:
+    """Load hand/AI-verified docs_url corrections per slug. These win over the
+    fuzzy matcher for boards where it links the wrong variant or a different
+    product (found by the fc-verify-enrich cross-check). Keys starting with
+    `_` are metadata."""
+    if not DOCS_OVERRIDES.exists():
+        return {}
+    raw = json.loads(DOCS_OVERRIDES.read_text())
+    return {k: v for k, v in raw.items() if not k.startswith("_") and isinstance(v, str)}
+
+
 def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str, tuple[str, list[str], str]]) -> None:
     bec_map = load_bec_overrides()
+    docs_overrides = load_docs_overrides()
     index_map = build_index_url_map()
     for p in parsed:
         # The hwdef README on GitHub, if this board ships one.
         readme_url = HWDEF_README_URL.format(slug=p.slug) if p.readme is not None else None
-        # Primary link: a real wiki page is always preferred; otherwise fall
-        # back to the maintainer-chosen index URL, then the hwdef README.
-        wiki = match_docs_url(p.slug, docs_map)
-        p.docs_url = wiki or match_index_url(p.slug, index_map) or readme_url
+        # Primary link: an explicit override wins; then a real wiki page;
+        # otherwise fall back to the maintainer-chosen index URL, then README.
+        wiki = match_docs_url(p.slug, docs_map, p.readme)
+        p.docs_url = docs_overrides.get(p.slug) or wiki or match_index_url(p.slug, index_map) or readme_url
         # Secondary "source" link (the hwdef README, or an external index URL),
         # shown alongside docs_url when it's a distinct destination.
         second = readme_url or match_index_url(p.slug, index_map)
@@ -859,6 +970,11 @@ def export_per_board(session: Session, out_dir: Path) -> int:
         payload["manual"] = manual
         if ai_block is not None:
             payload["ai"] = ai_block
+            # Surface the AI-suggested manufacturer as a (secondary) discovery
+            # field when the build pipeline has none of its own. It's a filter
+            # aid, not authoritative — the docs link remains the source of truth.
+            if not payload.get("manufacturer") and ai_block.get("manufacturer"):
+                payload["manufacturer"] = ai_block["manufacturer"]
         path.write_text(json.dumps(payload, indent=2) + "\n")
         written += 1
     return written

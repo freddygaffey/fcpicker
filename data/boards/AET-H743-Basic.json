@@ -1,7 +1,7 @@
 {
   "slug": "AET-H743-Basic",
   "name": "AET-H743-Basic",
-  "manufacturer": null,
+  "manufacturer": "AeroEggTech",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -112,5 +112,176 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "AeroEggTech",
+    "marketing_name": "AET-H743-Basic Flight Controller",
+    "family": "STM32H7xx",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM42688P",
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "SPL06",
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 45,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 4
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2
+      },
+      {
+        "rail": "VX",
+        "volts": 5,
+        "amps": 10
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "MicroSD",
+      "Dedicated USB board",
+      "2-way camera input"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Integrated Bluetooth (SPP + BLE), UART7",
+    "pinout_notes": "SERIAL0/5=USB, SERIAL1-4+6-8=UART (7 hardware UARTs); UART7 shared with onboard Bluetooth; RCIN on UART6; UART7 has CTS/RTS flow control",
+    "discrepancies": [
+      "README.md and wiki both claim '8 UARTs' but hwdef.dat defines exactly 7 physical UART buses (USART1, USART2, USART3, UART4, USART6, UART7, UART8); SERIAL5 maps to USB2 (OTG2/SLCAN), not a hardware UART \u2014 our uart_count of 7 is correct",
+      "manufacturer field in our data is null but should be AeroEggTech per README and wiki",
+      "SPL06 and DPS310 are listed as alternative BOM options at the same I2C address (0x76); firmware probes both \u2014 not a defect but worth noting that only one is physically present per unit",
+      "VX servo rail BEC voltage is selectable 5V/6V/7V; stored as 5.0V (default) in bec_outputs"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AET-H743-Basic.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AET-H743-Basic/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AET-H743-Basic/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-AET-H743-Basic.rst"
+    ],
+    "dimensions_mm": {
+      "length": 47,
+      "width": 36,
+      "height": 17
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688_0 + icm42688_1 (2x)",
+        "readme": "Dual ICM42688P IMUs",
+        "wiki": "Dual ICM42688P IMUs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76 + DPS310 I2C:0:0x76",
+        "readme": "DPS310 or SPL06 barometer",
+        "wiki": "DPS310 or SPL06 barometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456_CS (SPI2, osd alias)",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "47mm (36x47x17)",
+        "wiki": "47mm (36x47x17)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "readme": "36mm (36x47x17)",
+        "wiki": "36mm (36x47x17)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "45g",
+        "wiki": "45g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2-6S",
+        "wiki": "2-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3,UART4,USART6,UART7,UART8)",
+        "readme": "8 UARTs",
+        "wiki": "8 UARTs",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1 CAN",
+        "wiki": "1 CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "readme": "MicroSD Card Slot",
+        "wiki": "MicroSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "UART7 shared (Bluetooth implied by SERIAL7 MAVLink2 note)",
+        "readme": "Integrated Bluetooth module (SPP + BLE) on UART7",
+        "wiki": "Integrated Bluetooth module (SPP + BLE) on UART7",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AP_COMPASS_PROBING_ENABLED=1, HAL_I2C_INTERNAL_MASK=0",
+        "readme": "No built-in compass",
+        "wiki": "No built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

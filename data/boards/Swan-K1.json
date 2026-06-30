@@ -1,7 +1,7 @@
 {
   "slug": "Swan-K1",
   "name": "Swan-K1",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -131,5 +131,132 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "SWAN-K1 HWing",
+    "family": "FMUv5",
+    "mcu_part": "STM32F767xx",
+    "imu_models": [
+      "ICM20689",
+      "ICM20602",
+      "BMI055",
+      "BMI088"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 FMU PWM outputs only (no IOMCU); SERIAL_ORDER: USB OTG1, USART2, UART4, USART1, USART6, UART7, USB OTG2; RC input on USART6 TX (SBus, SERIAL4_PROTOCOL 23); 2 CAN buses; 9 ADC inputs; 2 power monitor inputs; FRAM (RAMTRON 16 kB) for parameter storage",
+    "discrepancies": [
+      "board data has iomcu:true but hwdef.dat explicitly undefines IOMCU_UART, UART8_TX, UART8_RX and the comment states 'variant of fmuv5 without the IOMCU' \u2014 iomcu should be false",
+      "board data shows pwm.io:8 and total:16 but without an IO MCU there are only 8 FMU outputs (io:0, total:8)",
+      "manufacturer is null in board data; the board is labelled 'Holybro Swan-K1' in common-rtf.rst and sold on holybro.com \u2014 should be Holybro",
+      "SERIAL_ORDER in Swan-K1 hwdef has only 5 non-USB UARTs (drops USART3 from fmuv5 parent); board data lists USART3 in uart_buses \u2014 USART3 is defined at pin level but not in the serial order and is effectively unused",
+      "docs_url points to /copter/ subdomain; AUTOBUILD_TARGETS is Plane and vehicle is a tailsitter QuadPlane \u2014 /plane/ subdomain is more appropriate (though page is also published to copter)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Swan-K1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Swan-K1/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Swan-K1/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Swan-K1/defaults.parm",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/fmuv5/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-Swan-K1.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-rtf.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://holybro.com/products/swan-k1",
+      "https://store.hequavtech.com/products/swan-k1-pro-pnp"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F767xx",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM20689 (SPI1/ICM20689_CS), ICM20602 (SPI1/ICM20602_CS), BMI055 or BMI088 (SPI1/BMI055_A_CS + BMI055_G_CS)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 (SPI4/ms5611)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "IST8310 I2C:ALL_EXTERNAL:0x0E and I2C:ALL_INTERNAL:0x0E",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null
+      },
+      {
+        "field": "iomcu",
+        "agree": "disagree",
+        "hwdef": "no IOMCU \u2014 undef IOMCU_UART, undef UART8_TX, undef UART8_RX explicitly; comment: 'without the IOMCU'",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": "not mentioned"
+      },
+      {
+        "field": "uart_count",
+        "agree": "partial",
+        "hwdef": "5 UARTs in SERIAL_ORDER (USART2, UART4, USART1, USART6, UART7); 6 UART buses defined at pin level (USART3 pins inherited from fmuv5 but not in serial order)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": "not mentioned"
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 and CAN2",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": "not mentioned"
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC1 (PC8-PC12, PD2)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": "not mentioned"
+      },
+      {
+        "field": "has_osd",
+        "agree": "agree",
+        "hwdef": "no OSD chip defined",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": "not mentioned"
+      },
+      {
+        "field": "manufacturer",
+        "agree": "unknown",
+        "hwdef": "hwdef comment says 'from Foxtech' (vehicle maker); board sold on holybro.com; wiki RTF page labels it 'Holybro Swan-K1'",
+        "manufacturer": "Holybro (per product page and wiki RTF label)",
+        "readme": null,
+        "wiki": "Holybro (common-rtf.rst label)"
+      }
+    ]
   }
 }

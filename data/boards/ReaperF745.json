@@ -1,7 +1,7 @@
 {
   "slug": "ReaperF745",
   "name": "ReaperF745",
-  "manufacturer": null,
+  "manufacturer": "Foxeer",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -99,5 +99,155 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Foxeer",
+    "marketing_name": "Foxeer Reaper F745 AIO",
+    "family": "Reaper F745",
+    "mcu_part": "STM32F745VG",
+    "imu_models": [
+      "BMI270",
+      "ICM-42688",
+      "MPU6000"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 8.6,
+    "mounting_pattern_mm": "25.5x25.5",
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "Micro USB",
+      "DJI Goggle connector (USART1)",
+      "I2C port for external compass/baro"
+    ],
+    "has_baro": false,
+    "has_osd": true,
+    "pinout_notes": "SERIAL1=USART1(DJI RCIN), SERIAL2=USART2(RC default/DMA), SERIAL3=UART3(Telem), SERIAL4=UART4(Telem), SERIAL7=UART7(GPS/DMA); M1-M4 internal to integrated 45A BlueJay ESC, M5=NeoPixel/LED pad",
+    "correct_wiki_stem": "common-foxeerf745aio",
+    "discrepancies": [
+      "Flash size conflict: hwdef README.md says '128MBit' (16MB) but wiki common-foxeerf745aio says '16Mbit' (2MB) \u2014 wiki value is likely a typo; README is more authoritative",
+      "docs_url currently points to GitHub hwdef README rather than the ArduPilot wiki page common-foxeerf745aio which covers V2/V3/V4 variants",
+      "Current board JSON lists 3 IMU entries (BMI270, ICM42688, MPU6000) on the same CS pin \u2014 these are mutually exclusive hardware variants (V2=BMI270, V3=ICM-42688, V4=MPU6000), not simultaneously installed chips",
+      "Current board JSON bec[] is empty but wiki documents a 5V 2.5A BEC for peripherals"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/ReaperF745.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ReaperF745/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/ReaperF745/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-foxeerf745aio.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32.5,
+      "width": 32.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx (family)",
+        "readme": "STM32F745",
+        "wiki": "STM32F745VG",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 / Invensensev3(icm42688) / Invensense(mpu6000) \u2014 alternates on same CS",
+        "readme": "BMI270 (V2 listed)",
+        "wiki": "BMI-270 on V2, ICM-42688 on V3, MPU6000 on V4",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E_CS SPI device alias 'osd' on SPI1",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "dataflash SPI4 device present, size not stated in hwdef",
+        "readme": "128MBit (=16MB)",
+        "wiki": "16Mbit (=2MB)",
+        "agree": "disagree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1, USART2, USART3, UART4, UART7 = 5",
+        "readme": "5x UARTs",
+        "wiki": "5x UARTs",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S",
+        "wiki": "7.4V~25V (2-6S)",
+        "agree": "agree"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "HAL_BARO_ALLOW_INIT_NO_BARO defined",
+        "readme": "no built-in barometer",
+        "wiki": "no built-in barometer",
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED 1, HAL_OSD_TYPE_DEFAULT 1",
+        "readme": "OSD - AT7456E",
+        "wiki": "AT7456E OSD",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "5V 2.5A BEC for peripheral",
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "32.5 x 32.5mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "25.5 x 25.5mm",
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "8.6g",
+        "agree": "unknown"
+      }
+    ]
   }
 }

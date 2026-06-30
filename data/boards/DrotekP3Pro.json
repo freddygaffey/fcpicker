@@ -1,7 +1,7 @@
 {
   "slug": "DrotekP3Pro",
   "name": "DrotekP3Pro",
-  "manufacturer": null,
+  "manufacturer": "Drotek",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F469xx"
@@ -119,5 +119,157 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Drotek",
+    "marketing_name": "Drotek Pixhawk 3 Pro",
+    "family": "FMUv4pro",
+    "mcu_part": "STM32F469xx",
+    "imu_models": [
+      "ICM-20608",
+      "MPU-9250"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "AK8963",
+      "LIS3MDL"
+    ],
+    "has_sdcard": true,
+    "weight_g": 45,
+    "voltage_min_v": 4,
+    "voltage_max_v": 5.7,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH",
+      "microUSB",
+      "ESP8266 WiFi header"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "ESP8266 (optional WiFi module via dedicated header)",
+    "pinout_notes": "6 UARTs (TELEM1/2, GPS, GPS2, SERIAL4/FrSky, DEBUG), 2 CAN buses, microSD via SDIO, IOMCU co-processor, 14 PWM outputs (6 FMU + 8 IO), 2 power monitor inputs, ESP8266 WiFi pins",
+    "discrepancies": [
+      "Primary IMU chip conflict: hwdef.dat SPI alias is 'icm20608' and CS pin is labeled '20608_CS', but Drotek gitbook manufacturer documentation lists the primary IMU as 'ICM-20602'. These are distinct Invensense chips with different noise specs; hwdef evidence favors ICM-20608 but manufacturer docs say ICM-20602.",
+      "No local ArduPilot wiki page exists for this board; common-autopilots.rst links only to the external Drotek gitbook (https://drotek.gitbook.io/pixhawk-3-pro/) so docs_url remains null.",
+      "Dimensions and weight (71x49x23mm, 45g) are for the board with case \u2014 bare board dimensions are not published.",
+      "Mounting hole pattern not found in any available source; typical Pixhawk standard is 45x45mm M3 but this is unconfirmed for Pixhawk 3 Pro."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/DrotekP3Pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/DrotekP3Pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst",
+      "https://drotek.gitbook.io/pixhawk-3-pro/hardware/specifications",
+      "https://drotek.gitbook.io/pixhawk-3-pro/hardware/power-architecture-1",
+      "https://github.com/drotek/Docs-Pixhawk3Pro/blob/master/hardware/specifications.md",
+      "https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller"
+    ],
+    "dimensions_mm": {
+      "length": 71,
+      "width": 49,
+      "height": 23
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F469xx",
+        "manufacturer": "STM32F469 (referenced via 384 KB RAM / 2 MB Flash consistent with F469)",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER: USART2, USART3, UART4, UART8, USART1, UART7; OTG1=USB excluded)",
+        "manufacturer": "6 general purpose serial ports",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1 + CAN2)",
+        "manufacturer": "Two CAN Bus interfaces",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models[0]",
+        "hwdef": "icm20608 (SPIDEV alias 'icm20608', CS pin '20608_CS')",
+        "manufacturer": "ICM-20602 (Drotek gitbook specification page)",
+        "readme": null,
+        "wiki": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "imu_models[1]",
+        "hwdef": "mpu9250 (SPIDEV alias 'mpu9250', IMU Invensense SPI:mpu9250)",
+        "manufacturer": "MPU-9250",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 (BARO MS5611 SPI:ms5611)",
+        "manufacturer": "MS5611",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK8963 (probe_mpu9250) + LIS3MDL (SPI:lis3mdl)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDIO: PC8-PC12 SDIO_D0-D3/CK, PD2 SDIO_CMD)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "manufacturer": "71 x 49 x 23 mm with case (Drotek gitbook + GitHub docs)",
+        "readme": null,
+        "wiki": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "manufacturer": "45g with case (Drotek gitbook)",
+        "readme": null,
+        "wiki": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_input",
+        "hwdef": null,
+        "manufacturer": "4.0-5.7V via power brick ports (no direct battery input)",
+        "readme": null,
+        "wiki": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "ESP8266 GPIOs present (8266_GPIO2, 8266_GPI0, 8266_PD, 8266_RST, VDD_5V_WIFI_EN)",
+        "manufacturer": null,
+        "readme": null,
+        "wiki": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

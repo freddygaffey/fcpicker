@@ -1,7 +1,7 @@
 {
   "slug": "PilotGaeaSH7V1-bdshot",
   "name": "PilotGaeaSH7V1-bdshot",
-  "manufacturer": null,
+  "manufacturer": "PilotGaea",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -104,5 +104,165 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "PilotGaea",
+    "marketing_name": "PilotGaeaSH7V1-bdshot",
+    "family": "PilotGaea SH7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42688P",
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 10.5,
+    "voltage_cells": "3-8S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1.5
+      },
+      {
+        "rail": "8V",
+        "volts": 8,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB Type-C",
+      "MicroSD"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART7/SERIAL1 (CTS/RTS) Telem1; USART1/SERIAL2 Telem2; USART2/SERIAL3 GPS; UART4/SERIAL6 MSP-DisplayPort; USART6/SERIAL7 RCIN with hardware SBUS inversion; 11 physical PWM outputs (1-8 BDShot-capable via DMA, 11-12 PWM-only, 13 default NeoPixel LED); 1x CAN; dual camera switching via relay; 8V BEC switchable by MCU GPIO",
+    "discrepancies": [
+      "manufacturer is null in data file but README clearly states 'designed and produced by PilotGaea'",
+      "data power.monitor_inputs is 0 but board has 2 battery monitor inputs (BATT on ADC pins 10/11 and BATT2 on ADC pins 18/7)",
+      "data bec[] is empty but board has two BECs: 5V/1.5A and 8V/1.5A",
+      "README says '5.5 UARTs' using a non-standard counting convention but 6 full hardware UART buses are defined in hwdef (UART7, USART1, USART2, UART8, UART4, USART6); uart_count=6 in data is correct",
+      "hwdef defines pin IMU2_CS (PC13) on SPI4 as a CS pin but no SPIDEV line uses it \u2014 only IMU3_CS is used for icm42688_1; board ships with 2 active IMUs, not 3",
+      "osd_chip not populated in data; AT7456E confirmed by README (hwdef uses MAX7456-compatible pin naming but AT7456E is the actual part)",
+      "dimensions_mm and weight_g not populated in data; README specifies 36x36x17mm and 10.5g"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PilotGaeaSH7V1-bdshot.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PilotGaeaSH7V1-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PilotGaeaSH7V1-bdshot/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-future-wiki-changes.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 17
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7xx STM32H743xx",
+        "readme": "STM32H743 microcontroller",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688_0 and SPI:icm42688_1 (2 IMUs on SPI1 and SPI4)",
+        "readme": "Dual ICM42688P IMUs (on SPI1 and SPI4)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS310 I2C:0:0x77",
+        "readme": "DPS310 barometer",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2 DEVID4 MAX7456_CS (MAX7456-compatible pin naming)",
+        "readme": "AT7456E OSD",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined (PC8-PC12, PD2)",
+        "readme": "MicroSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 hardware UARTs in SERIAL_ORDER (UART7, USART1, USART2, UART8, UART4, USART6)",
+        "readme": "5.5 UARTs (unusual counting, UART7 with CTS/RTS)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 bus defined (PD0/PD1)",
+        "readme": "1x CAN bus",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "ALLOW_ARM_NO_COMPASS; AP_COMPASS_PROBING_ENABLED for external only",
+        "readme": "no built-in compass",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3-8s Li battery input",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "10.5g",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "36 x 36 x 17 mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/1.5A BEC; 8V/1.5A BEC",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

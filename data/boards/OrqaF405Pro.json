@@ -1,7 +1,7 @@
 {
   "slug": "OrqaF405Pro",
   "name": "OrqaF405Pro",
-  "manufacturer": null,
+  "manufacturer": "Orqa",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -99,5 +99,137 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Orqa",
+    "marketing_name": "Orqa FC 3030 F405",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 4,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH ESC connector",
+      "JST-GH MFC connector",
+      "Micro-C USB",
+      "VTX connector"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "4 UARTs: USART1 (RC/GHST half-duplex), USART3 (GPS), UART5 (ESC Telemetry RX only), USART6 (MAVLink2). 8x PWM motor outputs (M1-M8), outputs 1-4 support bi-directional DShot. 1x I2C for external compass. Onboard 16MB SPI dataflash for logging. Dual camera input with VTX switch on GPIO74.",
+    "discrepancies": [
+      "Wiki (common-OrqaF405.rst) claims 'MicroSD Card Slot for logging' but hwdef.dat has no sdcard \u2014 only 16MB onboard SPI dataflash (SPIDEV dataflash SPI3); has_sdcard is false",
+      "Wiki UART Mapping lists SERIAL4 -> UART4 (MAVLink2, TX only DMA-enabled) but hwdef.dat SERIAL_ORDER has EMPTY at position 4; board has exactly 4 physical UARTs per hwdef and README",
+      "Our data has manufacturer=null but should be 'Orqa' per README and wiki",
+      "Our data shows 2 IMU driver entries (Invensense + Invensensev3) sharing the same CS pin (PA4/GYRO1_CS) \u2014 only 1 physical chip is present; README and wiki both confirm it is MPU6000"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/OrqaF405Pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/OrqaF405Pro/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/OrqaF405Pro/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-OrqaF405.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 microcontroller",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense + Invensensev3 probed on same PA4 CS pin",
+        "readme": "MPU6000",
+        "wiki": "MPU6000",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS310 I2C:0:0x77",
+        "readme": "DPS310",
+        "wiki": "DPS310 Barometer",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2, HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E OSD",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3 (HAL_LOGGING_DATAFLASH_ENABLED)",
+        "readme": "128Mbit onboard flash",
+        "wiki": "16Mbyte dataflash",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no sdcard line present",
+        "readme": "not mentioned",
+        "wiki": "claims MicroSD Card Slot \u2014 INCORRECT",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER: OTG1 USART1 EMPTY USART3 EMPTY UART5 USART6 = 4 UARTs",
+        "readme": "4x UARTs",
+        "wiki": "lists SERIAL4->UART4 implying 5 \u2014 INCORRECT",
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "voltage sensor for 6S",
+        "readme": "2S-6S",
+        "wiki": "2S - 6S",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not in hwdef",
+        "readme": "BEC 5V 2A, BEC 10V 2A",
+        "wiki": "10V 2A BEC, 5V 2A BEC",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no internal compass, external via I2C",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "agree": "agree"
+      }
+    ]
   }
 }

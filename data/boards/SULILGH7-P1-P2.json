@@ -123,8 +123,8 @@
     "tracker",
     "blimp"
   ],
-  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SULILGH7-P1-P2/README.md",
-  "repo_url": null,
+  "docs_url": "https://ardupilot.org/copter/docs/common-suligh7.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SULILGH7-P1-P2/README.md",
   "manual": {
     "status": "not_started",
     "form_factor": null,
@@ -138,5 +138,100 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "marketing_name": "SULILGH7P1/P2 Flight Controller",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "BMI088",
+      "ICM42688-P",
+      "ICM20689"
+    ],
+    "baro_models": [
+      "BMP581",
+      "ICP20100"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 UARTs: Telem1 (USART2), Telem2 (USART3), GPS1 (USART1), GPS2 (UART4), RC/UART8, Debug/UART7; 2 CAN; 2 OTG USB; 16 PWM (8 IO via STM32F103 + 8 FMU); Ethernet (LAN8742A RMII); SD card (SDMMC2); FRAM (RAMTRON via SPI5) for parameter storage; IMU heater on P2",
+    "correct_wiki_stem": "common-suligh7",
+    "discrepancies": [
+      "docs_url points to the GitHub hwdef README (https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SULILGH7-P1-P2/README.md) rather than the ArduPilot wiki page; correct wiki stem is common-suligh7",
+      "Current data baro entry shows chip 'ICP201XX' (the ArduPilot driver family name) but the README and wiki both confirm the physical chip is 'ICP20100'",
+      "README and wiki PWM section erroneously names 'STM32H753 FMU controller'; the MCU section in both sources and the hwdef.dat correctly identify the processor as STM32H743IIK6 \u2014 the H753 mention is a copy-paste error",
+      "No manufacturer is listed; this is open-source hardware by individual designer 'shuyedeye' published on OSHW Hub"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/SULILGH7-P1-P2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SULILGH7-P1-P2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/SULILGH7-P1-P2/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-suligh7.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family/type)",
+        "readme": "STM32H743IIK6 (MCU section); STM32H753 (PWM section \u2014 error)",
+        "wiki": "STM32H743IIK6 (MCU section); STM32H753 (PWM section \u2014 error)",
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088, Invensensev3/icm42688, Invensense/icm20689",
+        "readme": "BMI088, ICM42688-P, ICM20689",
+        "wiki": "BMI088, ICM42688-P, ICM20689",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP581 (SPI), ICP201XX (I2C driver name)",
+        "readme": "BMP581, ICP20100",
+        "wiki": "BMP581, ICP20100",
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C:0:0x0E (internal) + IST8310 I2C:ALL_EXTERNAL:0x0E",
+        "readme": "IST8310",
+        "wiki": "IST8310",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 hardware UARTs (USART1/2/3, UART4/7/8; USART6 reserved for IOMCU)",
+        "readme": "6 (SERIAL1\u20135, SERIAL7)",
+        "wiki": "6 (SERIAL1\u20135, SERIAL7)",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 pins present",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD SPIDEV or driver line",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

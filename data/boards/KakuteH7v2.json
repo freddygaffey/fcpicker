@@ -1,7 +1,7 @@
 {
   "slug": "KakuteH7v2",
   "name": "KakuteH7v2",
-  "manufacturer": null,
+  "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -47,27 +47,6 @@
     "bec": []
   },
   "imus": [
-    {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI4/CS:mpu6000_CS",
-      "chip_display": "MPU6000"
-    },
-    {
-      "chip": "Invensensev3",
-      "bus": "SPI:icm42688",
-      "variant": null,
-      "slot": "SPI4/CS:mpu6000_CS",
-      "chip_display": "ICM42688"
-    },
-    {
-      "chip": "BMI270",
-      "bus": "SPI:bmi270",
-      "variant": null,
-      "slot": "SPI4/CS:mpu6000_CS",
-      "chip_display": "BMI270"
-    },
     {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
@@ -122,5 +101,179 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Holybro",
+    "marketing_name": "Kakute H7 V2",
+    "family": "Kakute",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "128MB",
+    "has_sdcard": false,
+    "weight_g": 8,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "3S-8S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH 6-pin (VTX/DJI HD)",
+      "2x JST-SH 8-pin (ESC/motor)",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth LE (onboard, unsupported in ArduPilot)",
+    "pinout_notes": "6x UARTs: UART1 DJI/Telem, UART2 BT (internal), UART3 VTX, UART4 GPS, UART6 RC input, UART7 ESC telemetry; 9 PWM outputs (M1-M8 + LED pad); VTX power RELAY2-controlled",
+    "discrepancies": [
+      "data/boards/KakuteH7v2.json has sdcard:true but hwdef.dat explicitly has `undef sdcard` and `undef HAL_OS_FATFS_IO` \u2014 board uses onboard W25N 1Gbit NAND dataflash for logging and has no SD card slot",
+      "data PWM io.fmu=17/total=17 is wrong \u2014 hwdef include chain plus README/wiki/manufacturer all confirm 9 PWM outputs (M1-M8 + 1 LED pad)",
+      "voltage range is inconsistent across sources: hwdef README says max 6S; wiki and PX4 say 2S-8S; Holybro manufacturer docs say 3S-8S; manufacturer spec (3S-8S) is most authoritative for physical capability",
+      "wiki says 5V BEC at 1.5A but Holybro manufacturer docs and PX4 docs both say 5V at 2A continuous",
+      "data manufacturer field is null \u2014 should be Holybro (confirmed by README, wiki, and official docs)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/KakuteH7v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-holybro-kakuteh7-v2.rst",
+      "https://docs.holybro.com/autopilot/kakute-h7-v1-v2-mini/kakute-h7-v2/overview",
+      "https://docs.px4.io/main/en/flight_controller/kakuteh7v2"
+    ],
+    "dimensions_mm": {
+      "length": 35,
+      "width": 35,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743 32-bit processor",
+        "manufacturer": "STM32H743",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (sole entry after `undef IMU` + re-add)",
+        "readme": "BMI270 IMU",
+        "wiki": "BMI270 IMU",
+        "manufacturer": "BMI270",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 + SPL06 both at I2C:0:0x76 (firmware probes both)",
+        "readme": "BMP280 barometer",
+        "wiki": "BMP280 barometer",
+        "manufacturer": "BMP280",
+        "agree": "partial"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false \u2014 `undef sdcard` + `undef HAL_OS_FATFS_IO`; uses W25N dataflash instead",
+        "readme": "Onboard Flash: 1GBit (no SD card mentioned)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx (1Gbit NAND)",
+        "readme": "Onboard Flash: 1GBit",
+        "wiki": "128 MByte flash for logging",
+        "manufacturer": "128 MByte flash",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3,4,6,7)",
+        "readme": "6 UARTs",
+        "wiki": "6x UARTs",
+        "manufacturer": "6 UARTs",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins in full include chain)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "2S-8S",
+        "manufacturer": "3S-8S",
+        "agree": "disagree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "9V 1.5A BEC; 5V 1.5A",
+        "manufacturer": "9V 1.5A; 5V 2A",
+        "agree": "partial"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "MAX7456 driver; CS pin MAX7456_CS on SPI2",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD (MAX7456 driver)",
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "9 (PWM 1-8 motors + PWM 9 LED from parent)",
+        "readme": "9 PWM outputs",
+        "wiki": "up to 9 PWM outputs",
+        "manufacturer": "9x PWM Outputs (8 Motor + 1 LED)",
+        "agree": "disagree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "35x35mm, 30.5x30.5mm mount, 8g",
+        "agree": "unknown"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass defined; ALLOW_ARM_NO_COMPASS",
+        "readme": "no builtin compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

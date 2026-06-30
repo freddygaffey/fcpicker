@@ -1,7 +1,7 @@
 {
   "slug": "BOTWINGF405",
   "name": "BOTWINGF405",
-  "manufacturer": null,
+  "manufacturer": "BOTLAB DYNAMICS",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -102,5 +102,143 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "BOTLAB DYNAMICS",
+    "marketing_name": "BOTWINGF405",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "32MB (W25Q256 per README/wiki; hwdef comment erroneously says W25Q128)",
+    "has_sdcard": false,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "9V (GPIO controlled)",
+        "volts": 9,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH 6-pin GPS/Compass",
+      "JST-GH 6-pin HD VTX",
+      "JST-GH 8-pin ESC",
+      "JST-GH 4-pin Receiver",
+      "JST-GH 5-pin User",
+      "JST-GH 5-pin Camera",
+      "4x JST-GH 4-pin LED/NeoPixel"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6x UARTs (USART1 RC/SBUS, USART2 ESC telem, USART3 DisplayPort, UART4 user, UART5 user, USART6 GPS); 5 PWM outputs (M1-M4 BDshot-capable, PWM5 NeoPixel LED); AT7456E analog OSD + DisplayPort simultaneous; 9V BEC GPIO-controlled via RELAY1",
+    "discrepancies": [
+      "hwdef.dat comment says 'W25Q128' (16MB) but README.md and wiki both specify W25Q256 (32MB); hwdef comment is likely a copy-paste error \u2014 README/wiki consensus is W25Q256",
+      "Our data lists AK8963 as a compass but README and wiki explicitly state there is NO onboard compass; AK8963 is only an optional external compass that can be connected via I2C \u2014 the hwdef probes for it externally with HAL_I2C_INTERNAL_MASK=0",
+      "manufacturer is null in current data; should be BOTLAB DYNAMICS"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BOTWINGF405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BOTWINGF405/Readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BOTWINGF405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-botwingf405.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405RGT6",
+        "wiki": "STM32F405RGT6",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "Invensensev3 / alias icm42688",
+        "readme": "ICM42688P",
+        "wiki": "ICM42688P",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "partial",
+        "hwdef": "AK8963 I2C:0:0x0c (external probe, HAL_I2C_INTERNAL_MASK=0)",
+        "readme": "No onboard compass; AK8963 optional external",
+        "wiki": "No onboard compass; external AK8963 supported",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "AT7456E on SPI3",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "disagree",
+        "hwdef": "W25Q128 (hwdef comment, 16MB)",
+        "readme": "W25Q256, 32MB",
+        "wiki": "W25Q256, 32MB",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1/2/3, UART4/5, USART6)",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTs",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "2S-6S LiPo",
+        "wiki": "2S-6S LiPo",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "agree",
+        "hwdef": "5V and 9V BEC (GPIO81 controls 9V)",
+        "readme": "5V@2A, 9V@2A GPIO controlled",
+        "wiki": "5V@2A, 9V@2A GPIO controlled",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "no sdcard defined",
+        "readme": "no SD card mentioned",
+        "wiki": "no SD card mentioned",
+        "manufacturer": null
+      }
+    ]
   }
 }

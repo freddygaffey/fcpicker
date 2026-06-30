@@ -1,7 +1,7 @@
 {
   "slug": "modalai_fc-v1",
   "name": "modalai_fc-v1",
-  "manufacturer": null,
+  "manufacturer": "ModalAI",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -107,5 +107,112 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ModalAI",
+    "marketing_name": "ModalAI Flight Core v1",
+    "mcu_part": "STM32F765II",
+    "imu_models": [
+      "ICM-42688-P",
+      "ICM-20602"
+    ],
+    "baro_models": [
+      "BMP388"
+    ],
+    "has_sdcard": true,
+    "weight_g": 6,
+    "uart_count": 7,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 PWM outputs; 7 UARTs (Telem1=UART7, Telem2=UART5, GPS=USART1, GPS2=UART4, Telem3=USART2, Spektrum=USART6, Debug=USART3); 1x CAN; dual USB OTG; SD card via SDMMC2; PPM RC input; no built-in compass; INA231 I2C power monitor; 256KB FRAM parameter storage",
+    "discrepancies": [
+      "manufacturer is null in current data; should be ModalAI per README",
+      "mcu.part is STM32F767xx in current data (hwdef build alias), but real silicon is STM32F765II per README \u2014 hwdef comment explicitly states 'It is a F765, which is the same as F767 but without the TFT interface'",
+      "README lists BMI088 as a third IMU (SPI6) but it is disabled/commented out in hwdef.dat due to lack of DMA channels; our active IMU list correctly omits it but this should be noted",
+      "weight_g is null in manual block; README specifies 6 g"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/modalai_fc-v1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/modalai_fc-v1/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/modalai_fc-v1/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (alias with comment: actually F765)",
+        "readme": "STM32F765II",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688 (active, SPI2) + ICM-20602 (active, SPI1); BMI088 commented out (SPI6, no DMA)",
+        "readme": "ICM-20602 (SPI1), ICM-42688-P (SPI2), BMI088 (SPI6)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 I2C:0:0x76",
+        "readme": "BMP388 (I2C4)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 UARTs in SERIAL_ORDER (excluding 2 USB OTG)",
+        "readme": "3 serial ports listed in Features table (understated); pinout section shows 7",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1",
+        "readme": "CAN bus listed as input",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 pins defined",
+        "readme": "microSD Card listed as feature",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass driver; AP_COMPASS_PROBING_ENABLED=1 for external only",
+        "readme": "no built-in compass; external only",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "6 g",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD driver",
+        "readme": "no OSD mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

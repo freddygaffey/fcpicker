@@ -1,7 +1,7 @@
 {
   "slug": "FlywooF745Nano",
   "name": "FlywooF745Nano",
-  "manufacturer": null,
+  "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -123,5 +123,155 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flywoo",
+    "marketing_name": "Flywoo GOKU GN F745 Nano",
+    "family": "GOKU GN F745",
+    "mcu_part": "STM32F745VG",
+    "imu_models": [
+      "MPU6000",
+      "ICM42668P",
+      "BMI270"
+    ],
+    "baro_models": [
+      "BMP280",
+      "SPL06",
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 2.3,
+    "mounting_pattern_mm": "16x16",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "2-4S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 16.8,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "4 motor ESC signals on external connector with voltage/current sense; 7 UARTs (USART1-3, UART4-5, USART6, UART7); I2C for external compass; USB; built-in AT7456E OSD; 5V 2A BEC; NeoPixel LED pad",
+    "discrepancies": [
+      "Current data has manufacturer null; should be Flywoo",
+      "Current data has marketing_name null; should be Flywoo GOKU GN F745 Nano",
+      "hwdef uses icm42688 driver alias but both the parent README and wiki confirm the physical chip is ICM42668P (not ICM42688); the Invensensev3 driver handles both",
+      "OSD chip AT7456E present in hwdef SPI2 definition but missing from current data",
+      "Blackbox dataflash (16MB SPI flash on SPI1) enabled in hwdef but missing from current data",
+      "Physical dimensions (22x23.5mm), weight (2.3g), mount pattern (16x16mm), voltage (2-4S), and BEC specs all missing from current data manual block",
+      "Current data shows 12 total PWM outputs but parent hwdef defines only 10 channels (PWM1-10 including NeoPixel on PWM9); AIO README documents 8 motor outputs; Nano physically exposes fewer"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlywooF745Nano.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF745Nano/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF745/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF745/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-flywoo-f745.rst"
+    ],
+    "dimensions_mm": {
+      "length": 22,
+      "width": 23.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32F745xx",
+        "wiki": "STM32F745VG",
+        "readme": "STM32F745",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "partial",
+        "hwdef": "mpu6000/bmi270/icm42688 (aliases)",
+        "wiki": "MPU6000 or ICM42668P",
+        "readme": "MPU6000 or ICM42668P",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "BMP280/SPL06/DPS310 on I2C:0:0x76",
+        "wiki": "BMP280",
+        "readme": "BMP280",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "7 (USART1,2,3,UART4,5,USART6,UART7)",
+        "wiki": "7x UARTs",
+        "readme": "7 hardware UARTs",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "0 (no CAN pins defined)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_osd",
+        "agree": "agree",
+        "hwdef": "AT7456E on SPI2",
+        "wiki": "Built-in OSD",
+        "readme": "OSD using OSD_TYPE 1 (MAX7456 driver)",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "STORAGE_FLASH_PAGE (no SD)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "22mm x 23.5mm",
+        "readme": "33.5x33.5mm (AIO only)",
+        "manufacturer": null
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "16mm x 16mm",
+        "readme": "25.5/26.5mm (AIO only)",
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "2.3g (Nano)",
+        "readme": "8.5g (AIO only)",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "4S MAX for Nano (7.4V-25V stated for AIO, 4S MAX for Nano)",
+        "readme": "2-6S (AIO only)",
+        "manufacturer": null
+      }
+    ]
   }
 }

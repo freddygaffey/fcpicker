@@ -1,7 +1,7 @@
 {
   "slug": "MFT-SEMA100",
   "name": "MFT-SEMA100",
-  "manufacturer": null,
+  "manufacturer": "MFT Savunma ve Havac\u0131l\u0131k LTD. \u015eT\u0130.",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -107,5 +107,135 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MFT Savunma ve Havac\u0131l\u0131k LTD. \u015eT\u0130.",
+    "marketing_name": "MFT-SEMA100",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "BMI088"
+    ],
+    "baro_models": [
+      "BMP390"
+    ],
+    "compass_models": [
+      "LIS3MDL"
+    ],
+    "has_sdcard": true,
+    "weight_g": 15,
+    "mounting_pattern_mm": "55x56",
+    "mounting_hole_dia_mm": 4,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "XT30-PW (5V power input)",
+      "2.54mm pin headers"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "12 PWM outputs in 5 groups, 6 UARTs (UART8 RX-only), 2 CAN buses, 4 I2C buses, XT30-PW 5V regulated power input; battery voltage monitoring reads up to 6S via ADC",
+    "discrepancies": [
+      "Barometer chip: hwdef registers 'BARO BMP388' (ArduPilot driver name) but README and wiki explicitly state 'BMP390'; BMP390 uses the BMP388 driver and is backward-compatible \u2014 actual chip is almost certainly BMP390. Data JSON currently shows BMP388.",
+      "UART count: hwdef defines 6 hardware UART buses (USART1, USART2, USART3, UART5, UART7, UART8) confirmed by SERIAL_ORDER; README and wiki both incorrectly claim '5 UARTs'.",
+      "I2C count: hwdef defines 4 I2C buses (I2C1\u2013I2C4) via I2C_ORDER; README claims '2 I2Cs' and wiki claims '3 I2Cs' \u2014 both are wrong.",
+      "Compass chip name: README and wiki both spell it 'LIB3MDL' (typographical error); hwdef and data JSON correctly identify it as 'LIS3MDL'.",
+      "Manufacturer: data/boards JSON has null; README and wiki identify the manufacturer as 'MFT Savunma ve Havac\u0131l\u0131k LTD. \u015eT\u0130.'.",
+      "Power monitoring: data JSON shows monitor_inputs=0 but hwdef clearly defines BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC pins with HAL_BATT_MONITOR_DEFAULT=4."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MFT-SEMA100.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MFT-SEMA100/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MFT-SEMA100/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mft-sema100.rst"
+    ],
+    "dimensions_mm": {
+      "length": 64,
+      "width": 65,
+      "height": 10
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088",
+        "readme": "BMI088",
+        "wiki": "BMI088",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 (driver alias \u2014 BMP388 driver also supports BMP390)",
+        "readme": "BMP390",
+        "wiki": "BMP390",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "LIS3MDL",
+        "readme": "LIB3MDL (typo)",
+        "wiki": "LIB3MDL (typo)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1, USART2, USART3, UART5, UART7, UART8)",
+        "readme": "5",
+        "wiki": "5",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1, CAN2)",
+        "readme": "2",
+        "wiki": "2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SPIDEV sdcard SPI1)",
+        "readme": "MicroSD Card Slot",
+        "wiki": "MicroSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": "64x65x10",
+        "wiki": "64x65x10",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "55x56 mm, \u03a64mm",
+        "wiki": "55x56 mm, \u03a64mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "15g",
+        "wiki": "15g",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

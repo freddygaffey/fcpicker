@@ -1,7 +1,7 @@
 {
   "slug": "BeastH7v2",
   "name": "BeastH7v2",
-  "manufacturer": null,
+  "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -47,13 +47,6 @@
   },
   "imus": [
     {
-      "chip": "Invensense",
-      "bus": "SPI:mpu6000",
-      "variant": null,
-      "slot": "SPI1/CS:MPU6000_CS",
-      "chip_display": "MPU6000"
-    },
-    {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
       "variant": null,
@@ -62,13 +55,6 @@
     }
   ],
   "baros": [
-    {
-      "chip": "DPS310",
-      "bus": "I2C:0:0x76",
-      "variant": null,
-      "slot": null,
-      "chip_display": null
-    },
     {
       "chip": "DPS310",
       "bus": "I2C:0:0x76",
@@ -107,5 +93,165 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "iFlight",
+    "marketing_name": "iFlight Beast H7 v2 55A AIO",
+    "family": "Beast H7",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 8.8,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI connector (UART1/UART2)",
+      "Micro USB",
+      "XT60H power lead"
+    ],
+    "has_baro": false,
+    "has_osd": true,
+    "pinout_notes": "UART1+UART2 on DJI plug-and-play connector; UART7 mapped as GPS serial; I2C exposed on UART3 pins with BRD_ALT_CONFIG=1 for external compass; 4 motor pads (all DShot/bidir-capable) + NeoPixel LED pad (PWM5); no SD card; 16MB onboard flash for logging",
+    "discrepancies": [
+      "JSON io.pwm.fmu=7 and total=7 but hwdef (max PWM index is 5) and README both state 5 PWM outputs (4 motors + 1 NeoPixel LED); build.py appears to be miscounting",
+      "JSON manufacturer is null; correct value is iFlight",
+      "Wiki page common-iflight-beasth7AIO is for the V1 (lists InvenSense MPU6000 IMU) not the V2 (BMI270); the docs_url correctly points to the GitHub hwdef README which is V2-specific",
+      "Wiki lists weight as 8.5g but two manufacturer-sourced retail pages specify 8.8g for V2",
+      "Wiki calls the barometer DSP310 (typo for DPS310) and states it is absent in V2; README/hwdef indicate DPS310 is present in SOME V2 units (firmware configured with HAL_BARO_ALLOW_INIT_NO_BARO=1 to handle both cases)",
+      "Wiki page contains warning that there is no way to connect an external compass, but the V2 README documents I2C available on UART3 pins via BRD_ALT_CONFIG=1"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/BeastH7v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastH7v2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastH7v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/BeastH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-iflight-beasth7AIO.rst",
+      "https://www.unmannedtechshop.co.uk/products/iflight-beast-h7-v2-55a-aio-flight-controller",
+      "https://flymod.net/en/item/iflight_beast_h7_55a_aio"
+    ],
+    "dimensions_mm": {
+      "length": 32.5,
+      "width": 32.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "BGA-STM32H743",
+        "wiki": "STM32H743 BGA (1MB Flash noted, likely typo for 2MB)",
+        "manufacturer": "BGA-STM32H743",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (SPI:bmi270 alias on MPU6000_CS pin)",
+        "readme": "BMI270",
+        "wiki": "InvenSense MPU6000 (wiki page covers V1, not V2)",
+        "manufacturer": "BMI270",
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 on I2C:0:0x76, HAL_BARO_ALLOW_INIT_NO_BARO=1",
+        "readme": "DPS310 or None",
+        "wiki": "DSP310 (typo), states not in V2",
+        "manufacturer": "None",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1/2/3, UART4, UART7)",
+        "readme": "5",
+        "wiki": "5",
+        "manufacturer": "5",
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E on SPI4",
+        "readme": "AT7456E",
+        "wiki": "Built-in OSD (no part named)",
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "16MB dataflash on SPI3",
+        "readme": "16Mb",
+        "wiki": "16MB",
+        "manufacturer": "16Mb",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not explicit",
+        "readme": "up to 6S",
+        "wiki": "7.4V~25V DC",
+        "manufacturer": "2-6S",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not explicit",
+        "readme": "5V 2.5A",
+        "wiki": "5V 2.5A",
+        "manufacturer": "5V 2.5A",
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": "not specified",
+        "readme": "not specified",
+        "wiki": "32.5x32.5mm",
+        "manufacturer": "32.5x32.5mm",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not specified",
+        "readme": "not specified",
+        "wiki": "25.5x25.5mm",
+        "manufacturer": "25.5x25.5mm \u03c63mm",
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": "not specified",
+        "readme": "not specified",
+        "wiki": "8.5g",
+        "manufacturer": "8.8g",
+        "agree": "disagree"
+      },
+      {
+        "field": "pwm_fmu",
+        "hwdef": "5 (PWM1-4 motors + PWM5 NeoPixel)",
+        "readme": "5 PWM outputs",
+        "wiki": "5 PWM outputs",
+        "manufacturer": "not specified",
+        "agree": "disagree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "CSKY405",
   "name": "CSKY405",
-  "manufacturer": null,
+  "manufacturer": "ClearSky",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,128 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "ClearSky",
+    "marketing_name": "CSKY405",
+    "family": "STM32F4",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "BMI088"
+    ],
+    "baro_models": [
+      "BMP390"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      },
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs (UART4/USART1/UART5/USART3/USART6/USART2); 10 DShot-capable PWM outputs; I2C port for external compass/airspeed; SD card; internal AT7456E OSD; 12V VTX BEC with GPIO84 control; RC input on RX2 with inverter",
+    "discrepancies": [
+      "hwdef uses 'BARO BMP388' (ArduPilot driver alias that covers BMP390) but README, wiki, and manufacturer page all confirm the physical chip is BMP390; current JSON baro chip 'BMP388' is the driver name not the real part",
+      "current JSON has manufacturer null; should be ClearSky (http://csky.space)",
+      "current JSON has empty power.bec; board has two BEC outputs: 5V/2.5A for internals/peripherals and 12V/2A for VTX (GPIO-switched)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CSKY405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CSKY405/Readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CSKY405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-CSKYF405.rst",
+      "http://csky.space/products/csky_405"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405 168MHz",
+        "wiki": "STM32F405RGT6 ARM (168MHz)",
+        "manufacturer": "STM32F405RGT6",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (SPI:bmi088_a + SPI:bmi088_g)",
+        "readme": "BMI088 Acc/Gyro",
+        "wiki": "BMI088 IMU",
+        "manufacturer": "Bosch BMI088",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP388 (driver alias)",
+        "readme": "BMP390",
+        "wiki": "BMP390",
+        "manufacturer": "Bosch BMP390",
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER: UART4/USART1/UART5/USART3/USART6/USART2)",
+        "readme": "6x UARTs",
+        "wiki": "6x UARTS",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S - 6S Lipo",
+        "wiki": "2S-6S DC input",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard present; HAL_OS_FATFS_IO 1",
+        "readme": "microSDCard for logging",
+        "wiki": "SD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd (OSD_CS, MAX7456 driver alias)",
+        "readme": "AT7456E OSD",
+        "wiki": "OSD_TYPE 1 (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN definitions",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "12V GPIO84 BEC enable; no BEC definitions in hwdef",
+        "readme": "12V 2A for VTX + 5V 2.5A for peripherals",
+        "wiki": "5V 2.5A BEC + 12V 2A BEC for video",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

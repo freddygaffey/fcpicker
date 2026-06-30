@@ -1,7 +1,7 @@
 {
   "slug": "Nucleo-G491",
   "name": "Nucleo-G491",
-  "manufacturer": null,
+  "manufacturer": "STMicroelectronics",
   "mcu": {
     "family": "STM32G491",
     "part": "STM32G491xx"
@@ -80,5 +80,120 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "STMicroelectronics",
+    "marketing_name": "STM32 Nucleo-64 (G491RE) \u2014 ArduPilot CAN Peripheral",
+    "family": "STM32G491",
+    "mcu_part": "STM32G491xx",
+    "imu_models": [
+      "Invensense (exact model unknown, I2C 0x69)"
+    ],
+    "baro_models": [
+      "DPS280 (hwdef BARO line); hwdef comment says DPS310 \u2014 likely DPS310 physically"
+    ],
+    "has_sdcard": false,
+    "uart_count": 1,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "AP_PERIPH CAN node only. USART1 (PA9/PA10) for telemetry/STDOUT, CAN1 (PB8/PB9), I2C1 (PA15/PB7). LED on PA5. SWD on PA13/PA14. ADC (PB11) for battery current sense. No SPI, no SD card, no PWM outputs.",
+    "discrepancies": [
+      "hwdef BARO driver line uses 'DPS280' but the inline comment immediately above it says '(DPS310)' \u2014 exact physical baro chip is ambiguous; DPS310 is more likely given the comment",
+      "JSON manufacturer is null but this is an STMicroelectronics Nucleo-64 development board",
+      "JSON marketing_name is null \u2014 board is the STM32 Nucleo-64 G491RE used as an AP_PERIPH CAN node",
+      "Exact Invensense IMU model cannot be determined from hwdef alone (driver 'Invensense' covers many chips; I2C address 0x69 is consistent with MPU-6000/6050/9250 or ICM-42xxx with SDO high)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Nucleo-G491.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Nucleo-G491/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Nucleo-G491/hwdef-bl.dat",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "/Users/fred/ardupilot/libraries/AP_Baro/AP_Baro_DPS280.h"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32G491xx",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "1 (USART1 only)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_chip",
+        "hwdef": "DPS280 (driver line) / DPS310 (comment)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_chip",
+        "hwdef": "Invensense I2C:0:0x69",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD lines)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "flash_kb",
+        "hwdef": "256",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "spi_count",
+        "hwdef": "0 (no SPI buses)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_total",
+        "hwdef": "0 (no servo/motor outputs \u2014 AP_PERIPH CAN node)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "docs_url",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "no wiki page found for this board",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

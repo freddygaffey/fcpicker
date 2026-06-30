@@ -1,7 +1,7 @@
 {
   "slug": "FlysparkF4",
   "name": "FlysparkF4",
-  "manufacturer": null,
+  "manufacturer": "FlySpark",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,163 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "FlySpark",
+    "marketing_name": "FlySpark F4",
+    "family": "STM32F4",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "MAX7456",
+    "has_sdcard": true,
+    "weight_g": 10.5,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "4.5V",
+        "volts": 4.5,
+        "amps": 1
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1=DisplayPort/MSP, UART2=RCIN/SBUS (inverted), UART3=spare, UART4=Bluetooth (unsupported by ArduPilot), UART5=ESC telemetry, UART6=GPS; M1-M8 motor outputs (M1-M4 bidirectional DShot), M9=serial LED; I2C1 for external compass/rangefinder",
+    "discrepancies": [
+      "data/boards/FlysparkF4.json has manufacturer=null; README clearly identifies manufacturer as FlySpark (flyspark.in)",
+      "data/boards/FlysparkF4.json imus[0].chip='Invensensev3' is the ArduPilot driver alias; README states the real chip is ICM-42688-P",
+      "data/boards/FlysparkF4.json power.monitor_inputs=0 but hwdef.dat defines BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC pins (voltage and current monitoring are present)",
+      "README.md internal discrepancy: Features section says 'MAX7456 OSD chip' but OSD Support section says 'AT7456 chip' (AT7456E is a compatible clone; likely MAX7456 is the actual part)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlysparkF4.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlysparkF4/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlysparkF4/hwdef.dat"
+    ],
+    "dimensions_mm": {
+      "length": 41.6,
+      "width": 39.4,
+      "height": 7.8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405 (168 MHz)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias)",
+        "readme": "ICM-42688-P",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI2 (chip not named)",
+        "readme": "MAX7456 (features) / AT7456 (OSD section)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER OTG1 USART1 USART2 USART3 UART4 UART5 USART6)",
+        "readme": "6",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins)",
+        "readme": "not mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI3",
+        "readme": "MicroSD card slot",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not explicit",
+        "readme": "3S-6S LiPo",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": "not stated",
+        "readme": "41.6x39.4x7.8mm",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not stated",
+        "readme": "30.5x30.5mm (4mm holes)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "not stated",
+        "readme": "FlySpark (flyspark.in)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

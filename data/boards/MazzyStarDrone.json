@@ -1,7 +1,7 @@
 {
   "slug": "MazzyStarDrone",
   "name": "MazzyStarDrone",
-  "manufacturer": null,
+  "manufacturer": "VimDrones",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F745xx"
@@ -29,9 +29,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 8,
+      "fmu": 6,
       "io": 0,
-      "total": 8
+      "total": 6
     },
     "ethernet": false,
     "sdcard": true,
@@ -113,5 +113,126 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "VimDrones",
+    "marketing_name": "Mazzy Star Drone",
+    "mcu_part": "STM32F745xx",
+    "imu_models": [
+      "BMI088",
+      "ICM20689"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "has_sdcard": true,
+    "voltage_cells": "2S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 8.4,
+    "uart_count": 4,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "6 active motor PWM outputs (PWM1-6); USART1/USART2/UART4/USART3 in SERIAL_ORDER; USART6 for RCIN (RX-only); UART7 for ESC; I2C1 for barometer; SPI4 for IMUs (BMI088 + ICM20689); SPI1 for SD card; IMU heater enabled (HAL_HAVE_IMU_HEATER, target 60C)",
+    "discrepancies": [
+      "manufacturer is null in current data; README.md and vimdrones.com confirm manufacturer is VimDrones",
+      "chip_display for first IMU is 'BMI055' but hwdef.dat explicitly declares 'IMU BMI088' \u2014 bmi055_a/bmi055_g are SPI bus alias names only, not the chip model; real chip is BMI088",
+      "io.pwm.fmu is 8 in current data but only 6 PWM outputs are active in hwdef.dat; PWM(7) and PWM(8) are commented out (those pins are shared with LED and buzzer)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MazzyStarDrone.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MazzyStarDrone/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MazzyStarDrone/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-rtf.rst",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-stores.rst",
+      "https://shop.vimdrones.com/products/light-show-drone"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F745xx",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 (line: IMU BMI088 SPI:bmi055_a SPI:bmi055_g) + ICM20689 (line: IMU Invensense SPI:icm20689)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 (BARO BMP280 I2C:0:0x76)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 (COMPASS IST8310 I2C:ALL_EXTERNAL and ALL_INTERNAL)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 in SERIAL_ORDER (USART1/USART2/UART4/USART3); USART6 and UART7 also defined but not in SERIAL_ORDER",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDCARD_CS, SPI1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "pwm_fmu",
+        "hwdef": "6 active PWM outputs (PWM1-6 uncommented); PWM7/PWM8 commented out",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Vimdrones (vimdrones.com)",
+        "wiki": "VimDrones (common-rtf.rst lists VimDrones partner)",
+        "manufacturer": "VimDrones",
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": null,
+        "wiki": null,
+        "manufacturer": "2S LiPo 7.6V 3000mAh (shop.vimdrones.com)",
+        "agree": "unknown"
+      }
+    ]
   }
 }

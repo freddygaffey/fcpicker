@@ -1,7 +1,7 @@
 {
   "slug": "LongBowF405WING",
   "name": "LongBowF405WING",
-  "manufacturer": null,
+  "manufacturer": "lefei rc",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,142 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "lefei rc",
+    "marketing_name": "LongBowF405WING",
+    "mcu_part": "STM32F405RGT6",
+    "imu_models": [
+      "ICM42688P"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "VTX (9V/12V/5V selectable)",
+        "volts": null,
+        "amps": 1.8
+      },
+      {
+        "rail": "servo (4.9V/6V/7.2V selectable)",
+        "volts": null,
+        "amps": 6
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.4
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C",
+      "DJI air unit connector (UART5/DisplayPort)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Internal wireless telemetry module (MAVLink2, tied to UART6)",
+    "pinout_notes": "12x PWM/DShot outputs in 5 groups; UART1 (user/ELRS), UART2 (SBUS RC/UART), UART3 (GPS), UART4 (user), UART5 (DJI/DisplayPort), UART6 (internal wireless); I2C for external compass; microSD; USB-C; GPIO VTX power control (GPIO81) and camera switch (GPIO82)",
+    "discrepancies": [
+      "Our data has manufacturer: null \u2014 should be 'lefei rc' (confirmed by README and wiki)",
+      "Our data has chip_display 'ICM42688' but the actual part is ICM42688P (P suffix confirmed by README and wiki)",
+      "OSD chip (AT7456E) is not captured in our current JSON data",
+      "Internal wireless telemetry module on UART6 not captured in our current JSON data"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/LongBowF405WING.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/LongBowF405WING/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/LongBowF405WING/Readme.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-longbowf405wing.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx (family only)",
+        "wiki": "STM32F405RGT6",
+        "readme": "STM32F405 168MHz",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 (alias)",
+        "wiki": "ICM-42688P",
+        "readme": "ICM42688P",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x77",
+        "wiki": "SPL-06",
+        "readme": "SPL006",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1-6)",
+        "wiki": "5 external + 1 internal = 6",
+        "readme": "5 external + 1 internal = 6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "wiki": "2S-6S",
+        "readme": "2S-6S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "true (AT7456E via SPI2, OSD_ENABLED)",
+        "wiki": "true (AT7456E mentioned)",
+        "readme": "AT7456E OSD",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SPI3 / SDCARD_CS)",
+        "wiki": "microSDCard",
+        "readme": "microSDCard",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV 'osd' on SPI2 (no explicit part)",
+        "wiki": null,
+        "readme": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "USART6 tied to internal wireless (DEFAULT_SERIAL6_BAUD 115)",
+        "wiki": "Internal Wireless Telemetry Module",
+        "readme": "6th UART internally tied to Wireless board",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "FoxeerH743v1",
   "name": "FoxeerH743v1",
-  "manufacturer": null,
+  "manufacturer": "Foxeer",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -102,5 +102,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Foxeer",
+    "marketing_name": "Foxeer H7 MPU6000",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 7.8,
+    "voltage_cells": "2-8S",
+    "voltage_min_v": 6,
+    "voltage_max_v": 33.6,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "DJI Connector",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7 UARTs: UART1 (RC/SBUS), UART2 (VTX/Tramp), UART3 (user), UART4 (DJI connector RC/SBUS), UART6 (GPS), UART7 (DJI OSD), UART8 (ESC telemetry). 9x PWM outputs M1-M8 plus M9/LED. DJI connector provides RC input and OSD output.",
+    "discrepancies": [
+      "README (hwdef) says battery input is 2S-8S but wiki says 4S-8S; README is treated as authoritative",
+      "README lists three BECs (3.3V/0.5A, 5V/2A, 10V/2A) but the wiki only documents two (5V/2A, 10V/2A), omitting the 3.3V rail",
+      "Wiki dimensions field reads '37mm x 372mm x 19mm' - the second value (372mm) is an obvious data-entry typo; board length/width cannot be confirmed from local sources",
+      "hwdef has dual IMU probe entries (Invensense driver on imu1 at 8MHz max and Invensensev3 driver on imu2 at 16MHz max) both mapped to the same GYRO1_CS pin on SPI2, indicating firmware probes for either MPU6000-family or ICM-42xxx-family at the same physical slot; README and wiki name only MPU6000 as the physical chip",
+      "Current board JSON has manufacturer=null; should be Foxeer"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FoxeerH743v1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FoxeerH743v1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FoxeerH743v1/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-foxeerh743v1.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7xx / STM32H743xx",
+        "readme": "STM32H743 32-bit @ 480MHz",
+        "wiki": "STM32H743 ARM (480MHz)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensense (imu1, 8MHz max) + Invensensev3 (imu2, 16MHz max) both on GYRO1_CS SPI2 \u2014 single physical slot with dual-driver probe",
+        "readme": "MPU6000",
+        "wiki": "MPU-6000",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310",
+        "wiki": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "SPIDEV osd SPI1 / HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": "MAX7456 driver (OSD_TYPE 1) \u2014 AT7456E is MAX7456-compatible",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3, HAL_LOGGING_DATAFLASH_ENABLED=1",
+        "readme": "128Mbit (=16MB)",
+        "wiki": "16MB data logging flash",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "SERIAL_ORDER: OTG1 USART1 USART2 USART3 UART4 EMPTY USART6 UART7 UART8 = 7 UARTs",
+        "readme": "7x UARTs",
+        "wiki": "7x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined; can_count=0",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "no SD card defined; sdcard=false",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S",
+        "wiki": "4S-8S",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "3.3V/0.5A, 5V/2A, 10V/2A",
+        "wiki": "5V/2A and 10V/2A only (no 3.3V BEC mentioned)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "7.8g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "37mm x 372mm x 19mm (372mm is a clear typo; true width unknown)",
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

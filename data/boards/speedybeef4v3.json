@@ -1,7 +1,7 @@
 {
   "slug": "speedybeef4v3",
   "name": "speedybeef4v3",
-  "manufacturer": null,
+  "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,122 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SpeedyBee",
+    "marketing_name": "SpeedyBee F405 v3",
+    "family": "SpeedyBee F4",
+    "mcu_part": "STM32F405xx",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 9.6,
+    "mounting_pattern_mm": "30.5x30.5",
+    "voltage_cells": "3-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25,
+    "bec_outputs": [
+      {
+        "volts": 5,
+        "amps": 2,
+        "rail": "5V peripheral"
+      },
+      {
+        "volts": 9,
+        "amps": 2,
+        "rail": "9V video"
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "JST-GH-6P (DJI HD VTX, 9V pin 1)",
+      "4-in-1 ESC connector",
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "Bluetooth (internal module on UART4, not usable by ArduPilot)",
+    "pinout_notes": "6 UARTs: UART1 DJI-VTX, UART2 RCIN, UART3 CAM, UART4 internal BT (unusable), UART5 ESC telemetry, UART6 GPS; 9 PWM outputs (M1-M4 on ESC connector, M5-M8 pads, M9 LED/PWM); SBUS input separate from UART2 RX",
+    "discrepancies": [
+      "README.md incorrectly lists 'DPS280 barometer' for this board; hwdef.dat specifies BARO SPL06 with AP_BARO_SPL06_ENABLED, and the wiki confirms V3 uses SPL06 (DPS310 is the V4 variant). The README appears to have copy-paste error from the V4 specs.",
+      "hwdef.dat uses MAX7456_CS pin name and MAX7456 driver alias (HAL_OSD_TYPE_DEFAULT 1), but the physical OSD chip confirmed by README and wiki is the AT7456E (a MAX7456-compatible clone)."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/speedybeef4v3.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v3/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/speedybeef4v3/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-speedybeef4-v3.rst"
+    ],
+    "dimensions_mm": {
+      "length": 41.6,
+      "width": 39.4,
+      "height": 7.8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 ARM microcontroller",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "BMI270 (SPI:bmi270 alias, BMI270_CS pin)",
+        "readme": "BMI270 IMU",
+        "wiki": "V3:BMI270",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "disagree",
+        "hwdef": "SPL06 (BARO SPL06 I2C:0:0x76, AP_BARO_SPL06_ENABLED 1)",
+        "readme": "DPS280 (incorrect)",
+        "wiki": "V3:SPL06",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1/2/3, UART4/5, USART6)",
+        "readme": "6 UARTs",
+        "wiki": "6x serial port inputs",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": "BATT_VOLT_MULT implies up to 6S",
+        "readme": "6S LiPo (up to 6S)",
+        "wiki": "3S-6S, 9V-25V",
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDCARD_CS on SPI2, HAL_OS_FATFS_IO 1",
+        "readme": "SDCard listed in Features",
+        "wiki": "Micro SD card slot",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "partial",
+        "hwdef": "MAX7456_CS pin, HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD",
+        "manufacturer": null
+      }
+    ]
   }
 }

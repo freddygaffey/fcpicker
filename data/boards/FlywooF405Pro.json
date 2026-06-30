@@ -1,7 +1,7 @@
 {
   "slug": "FlywooF405Pro",
   "name": "FlywooF405Pro",
-  "manufacturer": null,
+  "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -93,5 +93,142 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Flywoo",
+    "marketing_name": "GOKU F405 Pro",
+    "family": "GOKU",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 5.5,
+    "mounting_pattern_mm": "20x20 or 30.5x30.5",
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C",
+      "JST-GH-6P DJI HD VTX connector",
+      "4-in-1 ESC connector",
+      "I2C for external compass"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: UART1=GPS, UART2=ESC telemetry (RX only), UART3=DJI/FPV (DMA), UART4=SBUS/RC (inverted, TX DMA), UART5=DJI SBUS inverter feed, UART6=RC serial (DMA); 9 PWM: M1-M4 on ESC connector (bi-directional DShot), M5-M8 pads, M9=LED/NeoPixel; dual mount pattern 20x20 and 30.5x30.5mm",
+    "discrepancies": [
+      "hwdef.dat driver specifies DPS310 barometer at I2C:0x76, but both the README and wiki list BMP280 \u2014 hwdef.dat is authoritative as it is compiled into firmware; board may have been revised from BMP280 to DPS310 with README/wiki not updated",
+      "README incorrectly lists BATT_VOLT_PIN=12 and BATT_CURR_PIN=13 \u2014 hwdef.dat and wiki correctly show BATT_VOLT_PIN=13 (PC3) and BATT_CURR_PIN=12 (PC2)",
+      "README says input voltage is 2-6S LiPo; wiki says 9V-25V (3S-6S) \u2014 minimum cell count conflicts between sources, likely 3S minimum for 10V BEC rail to function"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlywooF405Pro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405Pro/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlywooF405Pro/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-flywoof405pro.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F4xx / STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver family for ICM42688)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 at I2C:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT=1 (MAX7456-compatible driver)",
+        "readme": null,
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash SPI3",
+        "readme": "16MB",
+        "wiki": "16Mbytes",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1,2,3, UART4,5, USART6)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2-6S",
+        "wiki": "3S-6S (9V-25V)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "5.5g",
+        "wiki": "5.5g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "20x20 or 30.5x30.5mm",
+        "wiki": "20x20 or 30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V 2A, 10V 2A",
+        "wiki": "5V 2A BEC, 10V 2A for Video",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

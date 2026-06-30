@@ -1,7 +1,7 @@
 {
   "slug": "MicoAir405v2",
   "name": "MicoAir405v2",
-  "manufacturer": null,
+  "manufacturer": "MicoAir",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,144 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MicoAir",
+    "marketing_name": "MicoAir F405 V2",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "BMI088"
+    ],
+    "baro_models": [
+      "SPL06"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P DJI HD VTX (9V on pin 1)",
+      "Micro-C USB",
+      "MicroSD slot"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: UART1 (DMA), UART2 (DJI VTX), UART3 (GPS), UART4, UART5 (ESC telem RX only), UART6 (SBUS inverted RX); 10 PWM ch1-8 DShot ch1-4 bi-dir DShot; I2C1 for external compass; AT7456E OSD on SPI1; SDCard on SPI3",
+    "discrepancies": [
+      "Current JSON has manufacturer: null \u2014 should be MicoAir (confirmed by README and wiki)",
+      "Current JSON has empty bec_outputs \u2014 board has 9V/3A and 5V/3A BECs per README and wiki",
+      "Current JSON lacks has_osd / osd_chip \u2014 board has AT7456E OSD confirmed in hwdef (AT7456E_CS CS pin, SPIDEV osd) and README"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MicoAir405v2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir405v2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir405v2/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-MicoAir405v2.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu",
+        "agree": "agree",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "BMI088 (SPI:bmi088_a + SPI:bmi088_g)",
+        "readme": "BMI088",
+        "wiki": "BMI088",
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "SPL06 (SPI:spl06)",
+        "readme": "SPL06",
+        "wiki": "SPL06",
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "AT7456E (AT7456E_CS pin, SPIDEV osd on SPI1)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E / MAX7456 driver",
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1-3, UART4-5, USART6)",
+        "readme": "6",
+        "wiki": "6",
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SPIDEV sdcard on SPI3",
+        "readme": "SDCard",
+        "wiki": "MicroSD Card Slot",
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "up to 6S",
+        "wiki": "2S-6S",
+        "manufacturer": null
+      },
+      {
+        "field": "bec_outputs",
+        "agree": "agree",
+        "hwdef": null,
+        "readme": "9V 3A BEC; 5V 3A BEC",
+        "wiki": "9V 3A BEC; 5V 3A BEC",
+        "manufacturer": null
+      },
+      {
+        "field": "compass",
+        "agree": "agree",
+        "hwdef": "no compass lines; ALLOW_ARM_NO_COMPASS defined; I2C external probe enabled",
+        "readme": "no built-in compass, external via I2C",
+        "wiki": "no built-in compass, external via I2C",
+        "manufacturer": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": "MicoAir (http://micoair.com/ in README)",
+        "readme": "MicoAir",
+        "wiki": "MicoAir",
+        "manufacturer": null
+      }
+    ]
   }
 }

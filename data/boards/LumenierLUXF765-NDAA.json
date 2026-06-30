@@ -1,7 +1,7 @@
 {
   "slug": "LumenierLUXF765-NDAA",
   "name": "LumenierLUXF765-NDAA",
-  "manufacturer": null,
+  "manufacturer": "Lumenier",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -99,5 +99,139 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Lumenier",
+    "marketing_name": "Lumenier LUX F765 NDAA",
+    "family": "LUX F765",
+    "mcu_part": "STM32F765",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB (W25Q128JV)",
+    "has_sdcard": true,
+    "voltage_cells": "3S-6S",
+    "voltage_min_v": 9,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": null
+      },
+      {
+        "rail": "10V",
+        "volts": 10,
+        "amps": null
+      }
+    ],
+    "uart_count": 8,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST SH 1.0mm (most ports)",
+      "JST GH 1.25mm (CANbus)",
+      "USB Type-C (2.0)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "8 UARTs (Telem1, Telem2, GPS1, GPS2, ESC Telem, DisplayPort, RCinput, Spare); 12 motor/servo PWM + 1 LED output; 1 CAN (JST GH); GPS+I2C port; Receiver port; HD VTX 10V port; buzzer; camera control",
+    "discrepancies": [
+      "JSON mcu.part is 'STM32F767xx' (ChibiOS build target) but the physical chip is STM32F765; hwdef.dat comment explicitly states 'It is a F765, which is the same as F767 but without the TFT interface', and both README and wiki confirm STM32F765",
+      "JSON manufacturer is null but the manufacturer is Lumenier"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/LumenierLUXF765-NDAA.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/LumenierLUXF765-NDAA/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/LumenierLUXF765-NDAA/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-luxf765-ndaa.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F767xx (build target; comment: 'It is a F765')",
+        "readme": "STM32F765",
+        "wiki": "STM32F765",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688 (SPIDEV icm42688, IMU Invensensev3)",
+        "readme": "ICM42688",
+        "wiki": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": "BMP280",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (SPIDEV osd, SPI3)",
+        "readme": "AT7456E",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "8 (USART1, UART5, USART3, UART8, USART2, UART4, UART7, USART6)",
+        "readme": "8 UART Ports",
+        "wiki": "8 UART Ports",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "CANbus Support",
+        "wiki": "CANbus Support",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3S to 6S Battery Voltage",
+        "wiki": "3S to 6S Battery Voltage",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "W25Q128JV SPI2 (128Mbit)",
+        "readme": "128Mbit/16Mbyte Flash",
+        "wiki": "128Mbit/16Mbyte",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPIDEV sdcard SPI4",
+        "readme": "microSD Card Slot",
+        "wiki": "microSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass lines; ALLOW_ARM_NO_COMPASS defined",
+        "readme": "no built-in compass",
+        "wiki": "no built-in compass",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "MatekH7A3",
   "name": "MatekH7A3",
-  "manufacturer": null,
+  "manufacturer": "Matek Systems",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H7A3xx"
@@ -95,5 +95,165 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Matek Systems",
+    "marketing_name": "Matek H7A3-slim",
+    "family": "H7",
+    "mcu_part": "STM32H7A3RIT6",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "SPL06-001"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "128MB NAND (W25N01GV)",
+    "has_sdcard": false,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "11x DShot-capable PWM outputs; SERIAL0=USB, SERIAL1=USART1(telem), SERIAL2=USART2(RC), SERIAL3=USART3(GPS), SERIAL4-6=UART4/5/USART6(user); 9V BEC GPIO-controlled via PINIO1; 4x ADC; 1x CAN; 1x I2C",
+    "discrepancies": [
+      "manufacturer is null in current JSON; should be 'Matek Systems'",
+      "power.bec is empty in current JSON; board has 9V/2A and 5V/2A BECs",
+      "osd_chip missing from current JSON (AT7456E confirmed by hwdef comment and README)",
+      "blackbox_flash missing from current JSON (128MB W25N01GV NAND confirmed by README and hwdef DATAFLASH line)",
+      "physical dimensions missing from current JSON (36x36mm PCB, 30.5x30.5mm M3 mounting per README)",
+      "voltage_cells missing from current JSON (2-6S per README)"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MatekH7A3.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/Readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/hwdef.inc",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MatekH7A3/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H7A3xx",
+        "readme": "STM32H7A3RIT6",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3/icm42688 alias",
+        "readme": "ICM-42688p",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 I2C:0:0x76",
+        "readme": "SPL06-001",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (comment + HAL_OSD_TYPE_DEFAULT 1)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx",
+        "readme": "W25N01GV 128MB NAND",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/5, USART6)",
+        "readme": "6x UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN2)",
+        "readme": "1x CAN",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SD_CS pin defined but no SDCARD config; DATAFLASH is NAND",
+        "readme": "128MB NAND for logging; no SD card mentioned",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-6S Lipo input",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "9V GPIO-controlled via PINIO1",
+        "readme": "9V/2A BEC + 5V/2A BEC",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5mm M3 mounting",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "36x36mm PCB",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

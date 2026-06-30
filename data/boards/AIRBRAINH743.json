@@ -1,7 +1,7 @@
 {
   "slug": "AIRBRAINH743",
   "name": "AIRBRAINH743",
-  "manufacturer": null,
+  "manufacturer": "Gear Up",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -102,5 +102,158 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Gear Up",
+    "marketing_name": "AIRBRAINH743",
+    "family": "STM32H7",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "compass_models": [
+      "LIS2MDL"
+    ],
+    "blackbox_flash": "128MB",
+    "has_sdcard": false,
+    "voltage_cells": "3-10S",
+    "voltage_max_v": 42,
+    "bec_outputs": [
+      {
+        "volts": 5,
+        "amps": 2,
+        "rail": "5V"
+      },
+      {
+        "volts": 10,
+        "amps": 2.5,
+        "rail": "10V"
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "HD VTX connector (UART5+UART3 MSP DisplayPort)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "7x UARTs (USB=SERIAL0, USART1-3, UART4-5, UART7-8); 9x PWM (8 motor bidshot-capable + 1 LED/M9); RC input on USART2; GPS on UART4; ESC telemetry on UART7; GPS2 on UART8; MSP DisplayPort on USART3; I2C1 for baro+compass; SPI1 for IMU; SPI2 for 128MB dataflash; SPI4 AUX exposed",
+    "discrepancies": [
+      "Barometer model discrepancy: hwdef.dat uses the DPS310 driver (BARO DPS310 I2C:0:0x76) but README explicitly names the physical chip as DPS368. The ArduPilot DPS310 driver supports both; README is authoritative for the physical part.",
+      "Our JSON shows manufacturer=null but README clearly states the board is designed and produced by Gear Up (https://takeyourgear.com/).",
+      "Our JSON shows IMU chip as 'Invensensev3' (the driver family alias) but README explicitly names the real part as ICM-42688-P.",
+      "README has an internal contradiction: Features section says 'Battery input voltage: 3S-10S' but the Battery Monitoring section says 'voltage sensor can handle up to 6S LiPo batteries'. The 6S claim is inconsistent with the features list and the voltage divider scale (HAL_BATT_VOLT_SCALE=15.0 allows ~49V at 3.3V ADC, covering 10S).",
+      "Our JSON shows spi_count=2 with [SPI1, SPI2] but hwdef.dat defines three SPI buses: SPI1 (IMU), SPI2 (dataflash), and SPI4 (AUX, no device attached).",
+      "Our JSON shows power.monitor_inputs=0 but hwdef.dat defines both BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC inputs with scaling constants."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AIRBRAINH743.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AIRBRAINH743/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AIRBRAINH743/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-autopilots.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743xx (32-bit, 480 MHz)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (driver alias for ICM-42xxx family)",
+        "readme": "ICM-42688-P (explicitly named)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (driver name)",
+        "readme": "DPS368 (explicitly named)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "LIS2MDL I2C:0:0x1E",
+        "readme": "LIS2MDL",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3,UART4,5,7,8)",
+        "readme": "7x UARTs",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "BATT_VOLT_SCALE=15 (supports ~49V ADC max)",
+        "readme": "3S-10S in features; 'up to 6S' in Battery Monitoring section (internal contradiction)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "DATAFLASH littlefs:w25nxx on SPI2",
+        "readme": "128 Mbytes flash-based logging",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no sdcard defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "OSD_ENABLED=1, HAL_OSD_TYPE_DEFAULT=5 (MSP DisplayPort, software)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "Gear Up (https://takeyourgear.com/)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/2A and 10V/2.5A",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

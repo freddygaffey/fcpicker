@@ -1,7 +1,7 @@
 {
   "slug": "mRoControlZeroF7",
   "name": "mRoControlZeroF7",
-  "manufacturer": null,
+  "manufacturer": "mRobotics",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F777xx"
@@ -117,5 +117,146 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mRobotics",
+    "marketing_name": "mRobotics Control Zero F7",
+    "family": "mRo Control Zero",
+    "mcu_part": "STM32F777IIK6",
+    "imu_models": [
+      "BMI088",
+      "ICM-20602",
+      "ICM-20948"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "weight_g": 5.3,
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "Molex PicoClasp 30-pin (front and rear)",
+      "TC2030 JTAG",
+      "Spektrum DSM satellite"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "30-pin Molex PicoClasp front/rear; 8x DShot/PWM outputs (groups 1-4, 5/6, 7/8); Spektrum DSM input with bind pin; USART2/3 have HW flow control; USART6 RX-only used for RC input (not in SERIAL_ORDER)",
+    "discrepancies": [
+      "Current JSON shows chip_display 'ICM20608' for the second IMU slot, but the hwdef CS pin is named ICM_20602_CS, the hwdef header comment explicitly says 'ICM20602 6DOF', and the wiki confirms 'Invensense ICM-20602'. The SPIDEV alias 'icm20608' is a legacy bus label \u2014 the real chip is ICM-20602.",
+      "manufacturer field is null in current data; should be 'mRobotics' (confirmed by hwdef USB_STRING_MANUFACTURER 'mRo' and wiki title 'mRobotics Control Zero F7').",
+      "Physical specs (weight 5.3g, dimensions 20x32x12.07mm) are missing from the manual block but are documented in both the hwdef header comment and wiki.",
+      "hwdef header comment states '2x CAN' but only CAN1 is defined in firmware; wiki and firmware both confirm 1x CAN \u2014 current can_count=1 is correct.",
+      "wiki says '6x UART total' while hwdef SERIAL_ORDER defines 5 hardware UARTs (USART6 is RX-only RC input, not in SERIAL_ORDER); current uart_count=5 matches firmware."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mRoControlZeroF7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoControlZeroF7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-mro-control-zero-F7.rst"
+    ],
+    "dimensions_mm": {
+      "length": 32,
+      "width": 20,
+      "height": 12.07
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F777IIK6 (header comment) / STM32F777xx (MCU line)",
+        "wiki": "STM32F777",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088, ICM20602 (CS pin: ICM_20602_CS), ICM20948",
+        "wiki": "BMI088, ICM-20602, ICM-20948",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310",
+        "wiki": "DPS310 (Infineon)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK09916 probed via ICM20948",
+        "wiki": "embedded in ICM-20948 (implied)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined",
+        "wiki": "implied (DMA priority SDMMC)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": "32mm (header comment)",
+        "wiki": "32mm (1.26\")",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": "20mm (header comment)",
+        "wiki": "20mm (0.79\")",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "height_mm",
+        "hwdef": null,
+        "wiki": "12.07mm (0.475\")",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": "5.3g (header comment)",
+        "wiki": "5.3g (0.19oz)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 in SERIAL_ORDER (USART2/3, UART4/7/8); header comment says 5x",
+        "wiki": "6x total (counts USART6 RC-only)",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 defined (CAN1); header comment says 2x CAN",
+        "wiki": "1x CAN",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "has_baro",
+        "hwdef": "BARO DPS310 SPI:dps310",
+        "wiki": "Infineon DPS310 barometer listed",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD device or define",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "PixC4-Jetson",
   "name": "PixC4-Jetson",
-  "manufacturer": null,
+  "manufacturer": "Horizon31",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -44,7 +44,7 @@
     },
     "ethernet": false,
     "sdcard": true,
-    "sbus_out": true,
+    "sbus_out": false,
     "iomcu": true,
     "adc_inputs": 9
   },
@@ -122,5 +122,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Horizon31",
+    "marketing_name": "Horizon31 PixC4-Jetson",
+    "family": "FMUv5",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM-42688",
+      "ICM-20602",
+      "ICM-20602"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "weight_g": 33,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB 2.0 Type-C (FMU)",
+      "USB 3.0 Type-C (Jetson)",
+      "M.2 Key B slot (LTE/cellular modem)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "8 FMU PWM + 8 IOMCU PWM; 6 UARTs (telem1/2/3, GPS1/2, debug/UART7); 2x CAN; 4x I2C; IOMCU via UART8; Jetson integration with 3-port Ethernet switch and 7-port USB 2.0 hub; 5V power input (redundant supplies for FMU and Jetson)",
+    "discrepancies": [
+      "Our data has manufacturer: null \u2014 hwdef.dat header and wiki both confirm Horizon31",
+      "Our data has weight_g: null \u2014 wiki states 33g (without heatsink)",
+      "Our data has dimensions_mm: null \u2014 wiki states width 59mm, length 83mm",
+      "Wiki states '14x PWM outputs' on board-to-board connector but hwdef defines 8 FMU + 8 IOMCU = 16 total; our data correctly shows total 16 (wiki may count only connector-accessible channels)",
+      "ICM-42688 is listed under 'Invensensev3' driver with legacy alias 'icm42688' \u2014 the real part is confirmed as ICM-42688 by the CS pin name and wiki text",
+      "FRAM (Cypress MF25V02A-DG 256-Kbit) is parameter storage (RAMTRON), not blackbox logging flash; blackbox logging uses SD card"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/PixC4-Jetson.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/PixC4-Jetson/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-horizon31-pixc4-jetson.rst"
+    ],
+    "dimensions_mm": {
+      "length": 83,
+      "width": 59,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "wiki": "STM32H743",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3/icm42688 + Invensense/icm20602 x2 (CS pins ICM42688_CS, ICM20602_CS, ICM20602_CS2)",
+        "wiki": "ICM-42688 + ICM-20602 x2",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "MS5611 SPI:ms5611",
+        "wiki": "MS5611 barometer",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100 I2C:0:0x20",
+        "wiki": "RM3100 Compass",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1/2/3, UART4/6/7; UART8 is IOMCU-only)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2",
+        "wiki": "2x CAN (FMU)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 defined + HAL_OS_FATFS_IO 1",
+        "wiki": "Micro SD Card for FMU",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "Horizon31, LLC (hwdef.dat header comment)",
+        "wiki": "Horizon31",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "33g (without heatsink)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "wiki": "83mm",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "wiki": "59mm",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "pwm_total",
+        "hwdef": "8 FMU (TIM1 x4, TIM4 x2, TIM12 x2) + 8 IOMCU = 16",
+        "wiki": "14x PWM outputs (6 DShot capable)",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      }
+    ]
   }
 }

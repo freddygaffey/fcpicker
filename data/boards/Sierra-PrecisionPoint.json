@@ -1,7 +1,7 @@
 {
   "slug": "Sierra-PrecisionPoint",
   "name": "Sierra-PrecisionPoint",
-  "manufacturer": null,
+  "manufacturer": "Sierra Aerospace",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F412Rx"
@@ -97,5 +97,113 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Sierra Aerospace",
+    "marketing_name": "Sierra PrecisionPoint",
+    "family": "PrecisionPoint",
+    "mcu_part": "STM32F412Rx",
+    "imu_models": [
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "uart_count": 2,
+    "can_count": 1,
+    "notable_connectors": [
+      "CAN1 (with software-controlled silent and termination pins)",
+      "USB OTG (OTG1)",
+      "USART2 GPS port"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "AP_PERIPH CAN peripheral (not a flight controller): USART1=debug, USART2=GPS, CAN1 with silent/term control (PB13/PB14), WS2812 LED on PA15 TIM2_CH1, SD card via SDIO 4-bit. Provides GPS+MAG+BARO over DroneCAN.",
+    "discrepancies": [
+      "manufacturer field is null in current data but hwdef USB_STRING_MANUFACTURER declares 'Sierra Aerospace'",
+      "This board runs env AP_PERIPH 1 \u2014 it is a DroneCAN GPS/MAG/BARO peripheral node, not a standalone flight controller; physical specs (dimensions, weight, mounting) are not available from local sources or the manufacturer website"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/Sierra-PrecisionPoint.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Sierra-PrecisionPoint/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Sierra-PrecisionPoint/hwdef-bl.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/Sierra-PrecisionPoint/defaults.parm",
+      "https://www.sierraaerospace.in/ (WebFetch)",
+      "https://discuss.ardupilot.org/t/navic-enabled-dronecan-uavcan-gnss-module/92170 (WebFetch)",
+      "WebSearch: Sierra Aerospace PrecisionPoint CAN GPS peripheral ArduPilot",
+      "WebSearch: site:sierraaerospace.in PrecisionPoint specifications dimensions"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F412Rx (MCU STM32F4xx STM32F412Rx)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 SPI:icm42688 with CS pin ICM42688_CS confirming real chip is ICM-42688",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO DPS310 SPI:dps310",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "COMPASS RM3100 SPI:rm3100",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "USART1 (debug) + USART2 (GPS) = 2 hardware UARTs; OTG1 USB serial listed in SERIAL_ORDER but not a UART",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 only (PB8/PB9)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDIO 4-bit (PC8-PC12, PD2) confirmed",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": "USB_STRING_MANUFACTURER = 'Sierra Aerospace'",
+        "wiki": null,
+        "manufacturer": "Sierra Aerospace (sierraaerospace.in)",
+        "readme": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

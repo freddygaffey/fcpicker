@@ -1,7 +1,7 @@
 {
   "slug": "F4BY_F427",
   "name": "F4BY_F427",
-  "manufacturer": null,
+  "manufacturer": "Swift-Flyer",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -124,5 +124,121 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Swift-Flyer",
+    "marketing_name": "F4BY FMU (STM32F427 MCU Upgrade)",
+    "family": "F4BY",
+    "mcu_part": "STM32F427VET",
+    "imu_models": [
+      "MPU-6000"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "HMC5843",
+      "QMC5883L",
+      "QMC5883P"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 1,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "SPI1: MPU-6000 IMU; SPI2: RAMTRON FRAM (parameters) + SD card (logs via FATFS); I2C0: MS5611 baro (0x76/0x77) + HMC5843/QMC5883L/QMC5883P compasses; CAN1 on PD0/PD1; 5x UART (USART1-3, UART4-5); 12x PWM outputs",
+    "discrepancies": [
+      "wiki (common-f4by.rst) lists compass as HMC5983 but hwdef.dat for both F4BY and F4BY_F427 define HMC5843 \u2014 wiki has wrong compass model",
+      "wiki describes MCU as STM32F407 (original F4BY board); F4BY_F427 uses STM32F427VET as an MCU upgrade of the same hardware \u2014 wiki does not cover this variant",
+      "dimensions (50x50mm) are sourced from the wiki for the original F4BY platform and assumed correct for the F427 upgrade (same PCB, only MCU changed)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/F4BY_F427.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY_F427/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY_F427/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/F4BY/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-f4by.rst"
+    ],
+    "dimensions_mm": {
+      "length": 50,
+      "width": 50,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "disagree",
+        "hwdef": "STM32F427xx (STM32F427VET per README)",
+        "wiki": "STM32F407 (wiki covers original F4BY, not the F427 upgrade)",
+        "manufacturer": null,
+        "readme": "STM32F427VET rev3 or above"
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "IMU Invensense SPI:mpu6000 (MPU-6000)",
+        "wiki": "InvenSense MPU6000",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "BARO MS5611 I2C:0:0x76 + I2C:0:0x77",
+        "wiki": "MS5611 barometers",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "partial",
+        "hwdef": "HMC5843, QMC5883L, QMC5883P",
+        "wiki": "HMC5983 (incorrect \u2014 wiki has wrong model)",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "SERIAL_ORDER OTG1 USART2 USART1 USART3 UART4 UART5 = 5 UARTs",
+        "wiki": "5x UART serial ports",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 on PD0/PD1",
+        "wiki": "CAN mentioned in interfaces",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SPIDEV sdcard SPI2 DEVID3 FLASH_CS MODE0; HAL_OS_FATFS_IO 1",
+        "wiki": "micro SD card (for logs)",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "length_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "50mm x 50mm",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "width_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "wiki": "50mm x 50mm",
+        "manufacturer": null,
+        "readme": null
+      }
+    ]
   }
 }

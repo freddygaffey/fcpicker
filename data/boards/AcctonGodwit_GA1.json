@@ -1,7 +1,7 @@
 {
   "slug": "AcctonGodwit_GA1",
   "name": "AcctonGodwit_GA1",
-  "manufacturer": null,
+  "manufacturer": "Accton-IoT",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -131,5 +131,154 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Accton-IoT",
+    "marketing_name": "Accton Godwit G-A1",
+    "family": "Pixhawk v6X",
+    "mcu_part": "STM32H753IIK",
+    "imu_models": [
+      "ICM-42688-P",
+      "ICM-42688-P",
+      "BMI088"
+    ],
+    "baro_models": [
+      "ICP-20100",
+      "ICP-20100"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "weight_g": 77.6,
+    "voltage_min_v": 4.6,
+    "voltage_max_v": 5.7,
+    "uart_count": 7,
+    "can_count": 2,
+    "notable_connectors": [
+      "USB Type-C",
+      "JST-GH 1.25mm (USB)",
+      "10/100Base-T Ethernet"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "16 PWM (8 FMU A1-A8 + 8 IO M1-M8), 3 TELEM, 2 GPS, 2 CAN, Ethernet, 4 power inputs (2x I2C-based, 2x CAN PMU), RAMTRON FRAM for parameters, micro SD for logging",
+    "discrepancies": [
+      "Current JSON mcu.part is 'STM32H743xx' (the ChibiOS device class) but the real chip on the board is STM32H753IIK per README and wiki \u2014 H753 adds a crypto engine over H743 and is the correct part",
+      "Current JSON manufacturer is null \u2014 should be Accton-IoT",
+      "Current JSON name field is the slug 'AcctonGodwit_GA1' rather than the marketing name 'Accton Godwit G-A1'"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AcctonGodwit_GA1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AcctonGodwit_GA1/readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AcctonGodwit_GA1/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AcctonGodwit_GA1/hwdef-bl.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-acctongodwit-ga1.rst"
+    ],
+    "dimensions_mm": {
+      "length": 92.2,
+      "width": 51.2,
+      "height": 28.3
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (device class)",
+        "readme": "STM32H753IIK",
+        "wiki": "STM32H753IIK",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "2x Invensensev3 (icm42688 alias) + BMI088",
+        "readme": "ICM-42688-P x2 + BMI088",
+        "wiki": "ICM-42688-P x2 + BMI088",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "2x ICP201XX",
+        "readme": "TDK CP-20100 x2 (same chip as ICP-20100)",
+        "wiki": "TDK CP-20100 x2",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100",
+        "readme": "PNI RM3100",
+        "wiki": "PNI RM3100",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 hardware UARTs (USART6 is internal IOMCU)",
+        "readme": "7 external (TELEM1/2/3, GPS1/2, UART4, FMU Debug)",
+        "wiki": "7",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "CAN1 + CAN2",
+        "readme": "2 CAN Buses",
+        "wiki": "2 CAN Buses",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_min_v / voltage_max_v",
+        "hwdef": null,
+        "readme": "4.6V to 5.7V",
+        "wiki": "4.6V to 5.7V (0.58A max)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm/width_mm/height_mm",
+        "hwdef": null,
+        "readme": "92.2 x 51.2 x 28.3 mm",
+        "wiki": "92.2 x 51.2 x 28.3 mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "77.6g (carrier board with IMU)",
+        "wiki": "77.6g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC2 pins defined",
+        "readme": "Micro SD Socket",
+        "wiki": "Micro SD Socket",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD device defined",
+        "readme": "not mentioned",
+        "wiki": "not mentioned",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "no BEC defined",
+        "readme": "no servo power \u2014 external BEC required",
+        "wiki": "does not provide power to servos \u2014 external BEC required",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "luminousbee5",
   "name": "luminousbee5",
-  "manufacturer": null,
+  "manufacturer": "LuminousBees",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -27,11 +27,8 @@
       "SPI2",
       "SPI4"
     ],
-    "can_count": 2,
-    "can_buses": [
-      "CAN1",
-      "CAN2"
-    ],
+    "can_count": 0,
+    "can_buses": [],
     "canfd": false,
     "usb_count": 1,
     "pwm": {
@@ -112,5 +109,107 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "LuminousBees",
+    "marketing_name": "LuminousBee 5",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "ICM-42605",
+      "ICM-42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "HMC5843"
+    ],
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "7 PWM outputs (PWM1-2 and PWM3-4 are bidirectional-capable via TIM1), UART4=GPS, UART8=Crossfire RX/TX, UART7=Remote ID, USART2=telem1, USART3=telem2; USART1 RX-only (TX repurposed as PWM7/LED strip); SPI FRAM for parameter storage; SD card via SDMMC1; RGB LED; UWB DW1000 footprint present but not active in default firmware",
+    "discrepancies": [
+      "can_count in JSON is 2 but ALL CAN pin definitions in hwdef.dat are commented out \u2014 build.py CAN_PIN_RE matches inside comment lines, falsely reporting CAN1 and CAN2; effective CAN count is 0",
+      "JSON lists two IMU entries (ICM-42605 and ICM-42688) as if both are simultaneously present, but both SPIDEV entries share the identical SPI bus (SPI4), DEVID (4), and CS pin (IMU_CS); only one chip is physically installed per board revision \u2014 the firmware probes both drivers to support alternate revisions",
+      "Baro SPIDEV alias is 'dps310' (strongly indicating a DPS310 chip), but the ArduPilot driver name and JSON chip field say 'DPS280'; chip_display 'DPS310' is likely correct; the real chip cannot be confirmed without manufacturer documentation",
+      "hwdef comment notes board revision R15 replaces the HMC5843 compass with a LIS3MDL (commented-out COMPASS LIS3MDL line); the JSON only reflects the HMC5843 path"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/luminousbee5.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/luminousbee5/hwdef.dat",
+      "/Users/fred/fcpicker/tools/build.py",
+      "https://luminousbe.es/ (manufacturer website, accessed for physical specs \u2014 none found)",
+      "https://github.com/ArduPilot/ardupilot/issues/23924"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER: USART2 USART3 UART4 UART8 USART1 UART7)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (all CAN pin lines are commented out)",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM-42605 and ICM-42688 share SPI4/DEVID4/IMU_CS \u2014 one physical chip per revision",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "driver DPS280 with SPIDEV alias 'dps310' \u2014 physical chip is DPS310",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "HMC5843 active; LIS3MDL commented out for R15+",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins defined, HAL_OS_FATFS_IO 1",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip or AT7456 defined",
+        "wiki": null,
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

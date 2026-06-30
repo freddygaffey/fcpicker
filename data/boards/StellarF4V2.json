@@ -1,7 +1,7 @@
 {
   "slug": "StellarF4V2",
   "name": "StellarF4V2",
-  "manufacturer": null,
+  "manufacturer": "Stingbee",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -113,5 +113,143 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "Stingbee",
+    "marketing_name": "StellarF4 V2",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM-42688P"
+    ],
+    "baro_models": [
+      "DPS310",
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "W25Q128 (16MB)",
+    "has_sdcard": false,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-8S",
+    "bec_outputs": [
+      {
+        "rail": "12V",
+        "volts": 12,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      }
+    ],
+    "uart_count": 4,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB-C"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "11 PWM outputs: M1-M4 DShot/BiDir capable (Group1), M5-M8 (Group2), S5-S7 (Group3); UART2=RC input, UART3=User, UART4=DisplayPort, UART5=ESC Telemetry; 1x I2C; 2x ADC (voltage+current); USB-C; camera switch GPIO81",
+    "discrepancies": [
+      "Our catalog has manufacturer=null; README and wiki both identify the manufacturer as Stingbee (stingbee.com.ua)",
+      "hwdef.dat includes `IMU BMI270 SPI:bmi270 ROTATION_PITCH_180` but no SPIDEV alias 'bmi270' is defined anywhere (no hwdef.inc exists); the BMI270 driver cannot initialize; README and wiki list only ICM-42688P as the physical IMU \u2014 the BMI270 entry in our catalog data (imus[1]) is likely dead code for an unreleased variant",
+      "hwdef.dat probes three barometers (BARO SPL06 I2C:0:0x76, BARO DPS310 I2C:0:0x76, BARO BMP280 I2C:0:0x76) but README and wiki only list DPS310/BMP280 as the physical options; SPL06 probe added for future hardware variants"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/StellarF4V2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/StellarF4V2/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/StellarF4V2/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-stellarf4v2.rst"
+    ],
+    "dimensions_mm": {
+      "length": 41,
+      "width": 41,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3(icm42688) + BMI270(no SPIDEV defined)",
+        "readme": "ICM-42688p only",
+        "wiki": "ICM-42688p only",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "SPL06 + DPS310 + BMP280 (all probed at 0x76)",
+        "readme": "DPS310/BMP280",
+        "wiki": "DPS310/BMP280",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "4 (USART2, USART3, UART4, UART5)",
+        "readme": "4x UARTs",
+        "wiki": "4x UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "MAX7456 driver via MAX7456_CS on SPI2",
+        "readme": "AT7456E",
+        "wiki": "AT7456E (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "dataflash on SPI3 (HAL_LOGGING_DATAFLASH_ENABLED)",
+        "readme": "W25Q128",
+        "wiki": "W25Q128",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2S-8S",
+        "wiki": "2S-8S",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "41x41mm",
+        "wiki": "41x41mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5mm M3",
+        "wiki": "30.5mm M3",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

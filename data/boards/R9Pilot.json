@@ -1,7 +1,7 @@
 {
   "slug": "R9Pilot",
   "name": "R9Pilot",
-  "manufacturer": null,
+  "manufacturer": "FrSky",
   "mcu": {
     "family": "STM32F7xx",
     "part": "STM32F767xx"
@@ -110,5 +110,186 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "FrSky",
+    "marketing_name": "FrSky R9/RXSR Pilot",
+    "family": "STM32F7",
+    "mcu_part": "STM32F767xx",
+    "imu_models": [
+      "ICM20602",
+      "ICM20601"
+    ],
+    "baro_models": [
+      "SPL06-001"
+    ],
+    "osd_chip": "FrSky OSD",
+    "has_sdcard": true,
+    "weight_g": 35,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3-12S",
+    "voltage_min_v": 11.1,
+    "voltage_max_v": 51,
+    "bec_outputs": [
+      {
+        "rail": "3.3V",
+        "volts": 3.3,
+        "amps": 0.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2
+      },
+      {
+        "rail": "VS (servo, selectable 5/6/7.2/8.16V)",
+        "volts": null,
+        "amps": 6
+      },
+      {
+        "rail": "Vv (video, selectable 5/9V)",
+        "volts": null,
+        "amps": 2.2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 0,
+    "notable_connectors": [
+      "7-pin ribbon cable (SPI2 external gyro box)",
+      "7-pin ribbon cable (UART8 R9/RXSR receiver)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "USART2=Telem1, USART3=Telem2, USART1=GPS, UART5=spare, USART6=Pixel OSD, UART7=SBUS input, UART8=R9/RXSR receiver (dedicated ribbon cable); 8 PWM motor/servo outputs; SPI2 external gyro box port; I2C3 for external compass",
+    "discrepancies": [
+      "FrSky product page claims MCU is STM32F765VG (1MB flash, 512KB RAM) but hwdef targets STM32F767xx with FLASH_SIZE_KB 2048 (2MB); these are distinct silicon with different flash capacity \u2014 the hwdef value may be wrong or FrSky marketing copy may be inaccurate (note: other ArduPilot F765 boards such as MatekF765-Wing also use the F767xx HAL target with 2048KB, suggesting the hwdef MCU line is the ChibiOS target not necessarily the exact die)",
+      "FrSky product page claims 6 full UARTs; hwdef defines 7 (USART1/2/3, UART5/6/7/8); data file correctly shows 7 \u2014 FrSky may not count the receiver-dedicated UART8 or SBUS UART7 as 'full' user UARTs",
+      "FrSky product page claims 12 PWM outputs; hwdef defines only 8 PWM outputs (PWM1-8 on TIM3/TIM1/TIM4); data file correctly shows 8 \u2014 source of the discrepancy is unclear, may refer to a different firmware (INAV/BF) that maps additional pads",
+      "Data file shows monitor_inputs:0 but hwdef defines BATT_VOLTAGE_SENS and BATT_CURRENT_SENS ADC pins (HAL_BATT_VOLT_PIN 13, HAL_BATT_CURR_PIN 12) \u2014 should be at least 1 power monitor input",
+      "Data file shows bec:[] (no BEC outputs) but manufacturer specifies 3.3V/0.5A, 5V/2A, selectable servo voltage VS up to 6A, and selectable video voltage Vv up to 2.2A",
+      "Data file does not reflect has_osd=true despite hwdef labelling USART6 as 'Pixel OSD' and manufacturer confirming integrated graphic FrSky OSD"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/R9Pilot.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/R9Pilot/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/R9Pilot/hwdef-bl.dat",
+      "/Users/fred/ardupilot/Tools/AP_Bootloader/board_types.txt",
+      "https://www.frsky-rc.com/product/r9rxsr-pilot/",
+      "https://www.frsky-rc.com/frsky-r9rxsr-pilot-flight-control-system-release/"
+    ],
+    "dimensions_mm": {
+      "length": 60,
+      "width": 45,
+      "height": 14
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F7xx / STM32F767xx, FLASH_SIZE_KB 2048",
+        "manufacturer": "STM32F765VG, 1MB Flash, 512KB RAM",
+        "wiki": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "imu_models (primary)",
+        "hwdef": "Invensense SPI:icm20602 (alias on SPI3)",
+        "manufacturer": "ICM20602 (\u00b12000dps, \u00b116g)",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models (secondary optional)",
+        "hwdef": "Invensense SPI:imu2 on SPI2 \u2014 comment says 'may come with ICM20601 in gyro box'; also Invensensev2 driver registered for same bus",
+        "manufacturer": "not mentioned",
+        "wiki": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BARO SPL06 SPI:spl06",
+        "manufacturer": "SPL06-001",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1/2/3, UART5/6/7/8 in SERIAL_ORDER)",
+        "manufacturer": "6 Full UARTs",
+        "wiki": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "pwm_count",
+        "hwdef": "8 (PWM1-8 on TIM3/TIM1/TIM4)",
+        "manufacturer": "12 PWM outputs",
+        "wiki": null,
+        "readme": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "USART6 labelled 'Pixel OSD' (serial OSD)",
+        "manufacturer": "Integrated graphic FrSky OSD confirmed",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SPI4 SDCARD_CS defined; HAL_OS_FATFS_IO 1",
+        "manufacturer": "Micro SD slot confirmed",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "no CAN pins defined",
+        "manufacturer": "not mentioned",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass",
+        "hwdef": "no onboard compass; ALLOW_ARM_NO_COMPASS; external I2C probing only",
+        "manufacturer": "not mentioned",
+        "wiki": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": "not stated (only ADC scale factor HAL_BATT_VOLT_SCALE 10.1)",
+        "manufacturer": "DC 11.1V~51V (3S~12S)",
+        "wiki": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": "not stated",
+        "manufacturer": "30.5x30.5mm with M3 grommets",
+        "wiki": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": "not stated",
+        "manufacturer": "60x45x14mm, 35g (without connector)",
+        "wiki": null,
+        "readme": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

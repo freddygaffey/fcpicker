@@ -1,7 +1,7 @@
 {
   "slug": "FlyingMoonF427",
   "name": "FlyingMoonF427",
-  "manufacturer": null,
+  "manufacturer": "FlyingMoon",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -124,5 +124,133 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "FlyingMoon",
+    "marketing_name": "FlyingMoon F427",
+    "mcu_part": "STM32F427xx",
+    "imu_models": [
+      "ICM20689",
+      "ICM20649",
+      "ICM42605"
+    ],
+    "baro_models": [
+      "SPL06",
+      "MS5611"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "has_sdcard": true,
+    "uart_count": 5,
+    "can_count": 1,
+    "has_baro": true,
+    "pinout_notes": "5 UARTs (USART1/2/3, UART4/5), 16 PWM outputs, 1 CAN bus, USB OTG, Ramtron FRAM for parameter storage, SD card on SPI2 for logging, safety switch, RGB LED, external buzzer",
+    "discrepancies": [
+      "Original hwdef (April 2022) included a MAX7456 OSD chip on SPI1 (PE10 CS) with OSD_ENABLED=1; this was removed in commit 78dc5a7b5d (July 2024) specific to this board only. Whether the physical board carries a MAX7456 is unresolvable without a README or manufacturer page \u2014 has_osd left null.",
+      "No manufacturer website, README, or ArduPilot wiki page exists for this board; manufacturer identity is confirmed only as 'FlyingMoon' from the hwdef comment and a GitHub issue listing FlyingMoonF407/F427/H743 as a product family. Physical specs (dimensions, weight, mounting, voltage range, BEC) are entirely unknown."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/FlyingMoonF427.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/FlyingMoonF427/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_InertialSensor/AP_InertialSensor_Invensense.h",
+      "/Users/fred/ardupilot/libraries/AP_InertialSensor/AP_InertialSensor_Invensensev2.h",
+      "/Users/fred/ardupilot/libraries/AP_InertialSensor/AP_InertialSensor_Invensensev3.h",
+      "git log: ardupilot repo commit history for FlyingMoonF427 hwdef",
+      "https://github.com/ArduPilot/ardupilot/commits/master/libraries/AP_HAL_ChibiOS/hwdef/FlyingMoonF427 (WebFetch)",
+      "https://github.com/ArduPilot/ardupilot/issues/31288 (WebFetch)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32F427xx (MCU STM32F4xx STM32F427xx)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models[ICM20689]",
+        "agree": "agree",
+        "hwdef": "Invensense driver, SPIDEV icm20689, CS pin ICM20689_CS; Invensense_ICM20689 type enum confirmed",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models[ICM20649]",
+        "agree": "agree",
+        "hwdef": "Invensensev2 driver, SPIDEV icm20649, CS pin ICM20649_CS; Invensensev2_ICM20649 type enum confirmed",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models[ICM42605]",
+        "agree": "agree",
+        "hwdef": "Invensensev3 driver, SPIDEV icm42605, CS pin ICM42605_CS; ICM42605 type enum confirmed in v3 driver",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models[SPL06]",
+        "agree": "agree",
+        "hwdef": "BARO SPL06 I2C:0:0x76",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models[MS5611]",
+        "agree": "agree",
+        "hwdef": "BARO MS5611 I2C:0:0x77",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "compass_models[RM3100]",
+        "agree": "agree",
+        "hwdef": "COMPASS RM3100 SPI:rm3100, CS pin RM3100_CS",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "5 hardware UARTs: USART1, USART2, USART3, UART4, UART5",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "CAN1 (PD0/PD1)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SPIDEV sdcard SPI2 DEVID2 FLASH_CS + HAL_OS_FATFS_IO 1",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "has_osd",
+        "agree": "partial",
+        "hwdef": "MAX7456 CS (PE10) and SPIDEV osd present in original hwdef (2022) but removed in commit 78dc5a7b5d (July 2024); current hwdef has no OSD",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

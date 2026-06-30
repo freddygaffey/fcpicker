@@ -1,7 +1,7 @@
 {
   "slug": "skyviper-f412-rev1",
   "name": "skyviper-f412-rev1",
-  "manufacturer": null,
+  "manufacturer": "SkyRocket",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F412Rx"
@@ -80,7 +80,7 @@
   "vehicles": [
     "copter"
   ],
-  "docs_url": null,
+  "docs_url": "https://ardupilot.org/dev/docs/skyviper.html",
   "repo_url": null,
   "manual": {
     "status": "not_started",
@@ -95,5 +95,129 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "SkyRocket",
+    "marketing_name": "Sky Viper v2450GPS",
+    "mcu_part": "STM32F412Rx",
+    "imu_models": [
+      "ICM20789"
+    ],
+    "baro_models": [
+      "ICM20789"
+    ],
+    "compass_models": [
+      "BMM150"
+    ],
+    "has_sdcard": false,
+    "weight_g": 145,
+    "voltage_cells": "1S",
+    "voltage_max_v": 4.2,
+    "uart_count": 3,
+    "can_count": 0,
+    "has_baro": true,
+    "has_osd": false,
+    "wireless": "2.4GHz WiFi (via Sonix companion board)",
+    "pinout_notes": "4 brushed motor PWM outputs on TIM3 (CH1-4); USART3 to Sonix video companion board; USART6 for GPS; SPI1 for CC2500/CYRF6936 radio transceiver; SPI5 for PixArt optical flow; BMM150 compass on I2C2; ICM20789 IMU+baro on SPI2/I2C1",
+    "correct_wiki_stem": "skyviper",
+    "discrepancies": [
+      "manufacturer is null in our JSON but should be 'SkyRocket' per wiki",
+      "marketing_name is null in our JSON but should be 'Sky Viper v2450GPS' per wiki",
+      "docs_url is null but wiki page exists at dev/skyviper.rst (stem: skyviper)",
+      "voltage_cells and voltage_max_v are missing from our JSON; wiki confirms 1S / 4.2V max",
+      "wiki lists '5x serial ports' for the SkyViper but hwdef shows only 3 active UARTs on the STM32 FC (USART2, USART3, USART6) \u2014 wiki likely counts Sonix-side or total system ports",
+      "weight_g 145g in wiki is the complete RTF drone weight, not the bare flight controller weight"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/skyviper-f412-rev1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/skyviper-f412-rev1/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/skyviper.rst",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket.rst",
+      "/Users/fred/ardupilot_wiki/copter/source/docs/skyrocket-hardware.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F412Rx",
+        "wiki": "STM32 (generic)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20789 (SPI alias 'icm20789' matches real chip per wiki)",
+        "wiki": "ICM20789 (3-axis accel, gyro and barometer)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "ICM20789 integrated baro via I2C:1:0x63",
+        "wiki": "ICM20789 integrated barometer",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "BMM150 I2C:0:0x10",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "3 (USART2, USART3, USART6; SERIAL_ORDER has one EMPTY slot)",
+        "wiki": "5x serial ports (wiki appears to count Sonix-side ports too)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "wiki": "1S (4.2V max)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "145g (complete RTF drone, not bare FC)",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "No SD card on STM32 FC; uses STORAGE_FLASH_PAGE",
+        "wiki": "SD card on Sonix companion board only",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "No WiFi on STM32 FC",
+        "wiki": "2.4GHz WiFi via Sonix companion board",
+        "manufacturer": null,
+        "readme": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

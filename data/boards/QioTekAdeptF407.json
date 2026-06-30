@@ -1,7 +1,7 @@
 {
   "slug": "QioTekAdeptF407",
   "name": "QioTekAdeptF407",
-  "manufacturer": null,
+  "manufacturer": "QioTek",
   "mcu": {
     "family": "CKS32F4xx",
     "part": "CKS32F407xx"
@@ -124,5 +124,155 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "QioTek",
+    "marketing_name": "QioTek Adept F407",
+    "family": "CKS32F4",
+    "mcu_part": "CKS32F407VGT6",
+    "imu_models": [
+      "Invensensev3 (ICM4x series, slot imu1)",
+      "Invensensev3 or Invensense (ICM4x or ICM2x series, slot imu2)"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8310",
+      "QMC5883L"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      },
+      {
+        "rail": "9V/12V",
+        "volts": null,
+        "amps": 3
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "POWER1 6-pin",
+      "POWER2 6-pin",
+      "CAN1 4-pin",
+      "GPS1 6-pin (UART+I2C)",
+      "Telem1 4-pin",
+      "Telem2 6-pin",
+      "VT Port (analog video out + 9V/12V)",
+      "External USB 4-pin",
+      "IIC1 4-pin"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "12 FMU PWM outputs in 3 groups (DShot-compatible per group), 5 UARTs (USART6=Telem1, USART3=Telem2, USART1=GPS, UART4=GPS2, USART2=Debug), 1 CAN, 2 I2C, 2 battery monitor inputs, 4 relay outputs, analog video input/output switching, RAMTRON FRAM for parameter storage on SPI2",
+    "discrepancies": [
+      "data: baro chip recorded as 'DPS280' (hwdef driver alias) but README.md specifies the physical chip as 'DPS310'; the DPS280 ArduPilot driver supports both but the README is authoritative on the physical part",
+      "data: manufacturer is null \u2014 should be 'QioTek' (confirmed from README and USB_STRING_MANUFACTURER in hwdef)",
+      "data: power.monitor_inputs=0 but hwdef defines two battery voltage/current monitor pairs (BATT_VOLTAGE_SENS/BATT_CURRENT_SENS + BATT2_VOLTAGE_SENS/BATT2_CURRENT_SENS) matching README '2 Analog inputs for battery monitoring'",
+      "data: power.bec=[] but README specifies two built-in BEC outputs: 5V/3A and selectable 9V/12V 3A",
+      "README Features section lists 'USART7' among the 5 UARTs but hwdef.dat and the README's own UART Mapping table both show USART6 \u2014 README typo, data is correct",
+      "hwdef.dat comment header says 'QioTekZealotF407' but board is 'QioTekAdeptF407' \u2014 copy-paste artifact in hwdef header comment",
+      "exact IMU part numbers cannot be confirmed from local sources; README describes 'ICM4 series/ICM2 series or ICM4 series/ICM4 series' and hwdef uses driver families Invensensev3/Invensense without naming exact parts (e.g., ICM42688-P vs ICM20689)"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/QioTekAdeptF407.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/QioTekAdeptF407/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/QioTekAdeptF407/README.md",
+      "https://support.qio-tek.com/autopilot/qiotek-adeptf-series/qiotek-adept-f407 (GitBook scaffold only, no spec content returned)",
+      "https://www.qio-tek.com/index.php/qiotek-adept-f407-ardupilot-firmware/ (403 Forbidden)"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "CKS32F407xx (family)",
+        "readme": "CKS32F407VGT6 (full package)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "Invensensev3 (imu1), Invensensev3 + Invensense (imu2)",
+        "readme": "ICM4 series/ICM2 series or ICM4 series/ICM4 series",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS280 (driver name \u2014 supports DPS280 and DPS310)",
+        "readme": "DPS310 (physical chip)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C:0:0x0E, QMC5883L I2C:0:0x0D",
+        "readme": "builtin IST8310 magnetometer + builtin QMC5883 compass",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART6, USART3, USART1, UART4, USART2)",
+        "readme": "5 UARTs (Features section lists wrong USART7 but Mapping table confirms 5)",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1 CAN port",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDIO pins defined (PC8-PC12, PD2)",
+        "readme": "not explicitly stated",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "AT7456E on SPI1, OSD_ENABLED=1, HAL_OSD_TYPE_DEFAULT=1",
+        "readme": "OSD support via MAX7456 driver",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": "not encoded in hwdef (analog supply circuit)",
+        "readme": "5V/3A + 9V/12V/3A built-in BEC",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": "not specified in hwdef",
+        "readme": "Battery Input MAX 30V; built-in monitoring validated to 6S",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "unknown"
+      }
+    ]
   }
 }

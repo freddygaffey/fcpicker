@@ -1,7 +1,7 @@
 {
   "slug": "CubeRedSecondary",
   "name": "CubeRedSecondary",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -94,5 +94,102 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "CubeRed (Secondary Processor)",
+    "family": "CubeRed",
+    "mcu_part": "STM32H757xx",
+    "imu_models": [
+      "ICM-42688-P"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "has_sdcard": false,
+    "uart_count": 6,
+    "can_count": 2,
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "Secondary H757 co-processor within the CubeRed module. Communicates with CubeRedPrimary via PPP networking protocol (UART7 at 8 Mbaud, SerialProtocol_PPP). MAV_SYSTEM_ID=2. 8 PWM outputs (FMU-only, no IOMCU). 2 CAN FD buses. RCIN via UART4. No USB, no SD card on this target.",
+    "discrepancies": [
+      "manufacturer is null in data/boards/CubeRedSecondary.json but should be CubePilot (inferred from CubeRedPrimary hwdef.dat USB_STRING_MANUFACTURER)",
+      "ICM45686 is also accepted as an alternative IMU on the same SPI bus (CHECK_ICM45686 present in hwdef) but not reflected in imus[]"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeRedSecondary.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeRedSecondary/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeRedPrimary/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-network.rst",
+      "/Users/fred/ardupilot_wiki/dev/source/docs/sim-on-hardware.rst"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H757xx (MCU STM32H7xx STM32H757xx)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "ICM42688 (SPIDEV icm42688, CHECK_ICM42688 uses INV3_WHOAMI_ICM42688; ICM45686 also supported as alternative)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "MS5611 (BARO MS5611 SPI:ms5611)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "compass_models",
+        "agree": "agree",
+        "hwdef": "no COMPASS line present",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (SERIAL_ORDER UART8 UART7 USART3 USART6 UART4 USART2)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "2 (CAN1, CAN2; CANFD_SUPPORTED 8)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "false \u2014 no SDMMC/SDCARD defined; only primary has SD",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "manufacturer",
+        "agree": "disagree",
+        "hwdef": "CubePilot (inferred from CubeRedPrimary USB_STRING_MANUFACTURER)",
+        "wiki": null,
+        "manufacturer": null,
+        "readme": null
+      }
+    ]
   }
 }

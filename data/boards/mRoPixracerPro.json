@@ -1,7 +1,7 @@
 {
   "slug": "mRoPixracerPro",
   "name": "mRoPixracerPro",
-  "manufacturer": null,
+  "manufacturer": "mRo",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,125 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "mRo",
+    "marketing_name": "mRo Pixracer Pro",
+    "family": "Pixracer",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "ICM-20602",
+      "ICM-20948",
+      "BMI088"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "has_sdcard": true,
+    "weight_g": 11.3,
+    "mounting_pattern_mm": "31.5x31.5",
+    "mounting_hole_dia_mm": 3,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "JST-GH"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "USART2/3 Telem1/2 with CTS/RTS flow control; UART4 GPS+I2C; UART8 FrSky; USART1+UART7 spare; CAN1+CAN2; 8 PWM outputs (3.3V default or 5V selectable via GPIO74); RC/RSSI/Spektrum input connector; external SPI6 connector; USB-C",
+    "discrepancies": [
+      "Catalog JSON chip_display shows 'ICM20608' for the second IMU, but the hwdef.dat header comment explicitly names 'ICM20602 6DOF', the CS pin label is ICM_20602_CS, and the wiki confirms 'ICM-20602'. The SPIDEV bus alias 'icm20608' is a legacy software label only; the physical part is ICM-20602.",
+      "Wiki page lists weight and size as unknown ('?') despite the hwdef.dat header documenting 36x36mm, 11.3g (with headers), and 31.5x31.5mm mounting holes for M3 fasteners."
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/mRoPixracerPro.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoPixracerPro/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/mRoPixracerPro-bdshot/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-pixracer-pro.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "agree",
+        "hwdef": "STM32H743IIK6 (from comment header)",
+        "wiki": "STM32H743IIK6",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "disagree",
+        "hwdef": "ICM-20602 + ICM-20948 + BMI088 (header comment + CS pin ICM_20602_CS)",
+        "wiki": "ICM-20602, ICM-20948, BMI088",
+        "manufacturer": null,
+        "readme": "hwdef.dat header: ICM20602 6DOF, ICM20948 9DOF, BMI088 6DOF"
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "DPS310",
+        "wiki": "DSP310 (typo in wiki, but same chip)",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "6 (USART1/2/3, UART4/7/8)",
+        "wiki": "6 (SERIAL1-6 table)",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "2 (CAN1, CAN2)",
+        "wiki": "CAN1, CAN2 listed",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "has_sdcard",
+        "agree": "agree",
+        "hwdef": "SDMMC1 defined",
+        "wiki": "MicroSD card reader listed",
+        "manufacturer": null,
+        "readme": null
+      },
+      {
+        "field": "dimensions_mm",
+        "agree": "partial",
+        "hwdef": "36x36mm (header comment)",
+        "wiki": "unknown (?)",
+        "manufacturer": null,
+        "readme": "36mm x 36mm from hwdef header"
+      },
+      {
+        "field": "weight_g",
+        "agree": "partial",
+        "hwdef": "11.3g with headers (header comment)",
+        "wiki": "unknown (?)",
+        "manufacturer": null,
+        "readme": "11.3g from hwdef header"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "agree": "partial",
+        "hwdef": "31.5x31.5mm M3 (header comment)",
+        "wiki": "not listed",
+        "manufacturer": null,
+        "readme": "31.5mm x 31.5mm 4mm grommeted holes for 3mm fasteners"
+      }
+    ]
   }
 }

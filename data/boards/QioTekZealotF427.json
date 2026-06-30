@@ -1,7 +1,7 @@
 {
   "slug": "QioTekZealotF427",
   "name": "QioTekZealotF427",
-  "manufacturer": null,
+  "manufacturer": "QioTek",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F427xx"
@@ -159,5 +159,166 @@
     "discontinued": false,
     "imu_count": 3,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "QioTek",
+    "marketing_name": "QioTek Zealot F427",
+    "family": "Zealot",
+    "mcu_part": "STM32F427VIT6",
+    "imu_models": [
+      "ICM20689",
+      "ICM20602",
+      "BMI088",
+      "ICM20649"
+    ],
+    "baro_models": [
+      "DPS310",
+      "MS5611"
+    ],
+    "compass_models": [
+      "IST8310",
+      "QMC5883L"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 65,
+    "voltage_cells": "1-6S",
+    "voltage_max_v": 30,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1.5
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 1,
+    "notable_connectors": [
+      "JST-GH",
+      "JST-EH (VBAT input)",
+      "USB Type-C",
+      "JST-GH 1.25 (remote USB)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "5 UARTs (USART1=TELEM2, USART2=TELEM1/WiFi, USART3=GPS1, UART4=GPS2, UART5=USER/SBUS-out) + USB; 14 PWM outputs (DShot on 1-12, PWM-only 13-14); 4 relay outputs; 1 CAN; microSD on SPI2; PPM/SBUS input; SBUS output shares UART5 inverter",
+    "discrepancies": [
+      "manufacturer field is null in current data but should be 'QioTek'",
+      "current data lists 6 IMU driver entries (ICM20689, ICM20602, BMI055, BMI088, ICM20649, ICM42605) but README/wiki confirm 3 primary physical IMUs (ICM20689, ICM20602, BMI088); BMI055 and BMI088 share the same CS pin \u2014 only BMI088 is on the board per README; ICM20649 is a reserve 4th slot (ICM42605 appears in the same CS position for newer production runs)",
+      "baro driver named 'DPS280' (ArduPilot family driver) but SPIDEV alias is 'dps310' and README says DPS310 \u2014 wiki reads 'DPS3018' which appears to be a typo for DPS310 (no standard Infineon part called DPS3018)",
+      "OSD CS pin is named MAX7456_CS in hwdef but wiki explicitly states AT7456E; AT7456E is a pin-compatible clone used on this board, not MAX7456",
+      "power.monitor_inputs is 0 in current data but board has 2 power module inputs (BATT + BATT2 with voltage and current monitoring) plus servo rail voltage monitoring"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/QioTekZealotF427.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/QioTekZealotF427/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/QioTekZealotF427/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-qiotek-zealot.rst"
+    ],
+    "dimensions_mm": {
+      "length": 65,
+      "width": 42,
+      "height": 25
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F427xx (family)",
+        "readme": "STM32F427VIT6",
+        "wiki": "STM32F427VIT6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM20689, ICM20602, BMI055+BMI088 (shared CS slot 3), ICM20649+ICM42605 (shared CS slot 4, reserve)",
+        "readme": "ICM20689, ICM20602, BMI088 (3 primary); ICM20649 reserve",
+        "wiki": "ICM20689, ICM20602, BMI088",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS280 driver on SPI (SPIDEV alias dps310), MS5611 on I2C (0x76 and 0x77)",
+        "readme": "DPS310, MS5611",
+        "wiki": "DPS3018, MS5611",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 I2C:0x0E, QMC5883L I2C:0x0D",
+        "readme": "IST8310 or QMC5883L",
+        "wiki": "IST8310 or QMC5883L",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "CS pin named MAX7456_CS; SPIDEV osd on SPI1",
+        "readme": "builtin analog OSD (SPI)",
+        "wiki": "AT7456E",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1, USART2, USART3, UART4, UART5)",
+        "readme": "5 UARTs plus USB",
+        "wiki": "5 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "one CAN port",
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SPIDEV sdcard on SPI2 CS=FLASH_CS)",
+        "readme": "microSD card slot",
+        "wiki": "MicroSD card reader",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions_mm",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "42 x 65 x 25 mm",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": null,
+        "wiki": "65g",
+        "manufacturer": null,
+        "agree": "unknown"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "BEC supports 6S; servo rail up to 36V",
+        "wiki": "up to 6S LiPo for internal BEC; VBAT input max 30V",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "builtin BEC (6S 1.5A)",
+        "wiki": "Internal 5V 1.5A BEC off VBAT",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

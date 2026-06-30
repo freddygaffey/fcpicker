@@ -1,7 +1,7 @@
 {
   "slug": "JHEMCU-GSF405A-RX2",
   "name": "JHEMCU-GSF405A-RX2",
-  "manufacturer": null,
+  "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -87,5 +87,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JHEMCU",
+    "marketing_name": "JHEMCU GSF405A AIO Flight Controller (RX2 variant)",
+    "family": "GSF405A",
+    "mcu_part": "STM32F405OG6",
+    "imu_models": [
+      "MPU6000"
+    ],
+    "baro_models": [
+      "BMP280"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "8MB",
+    "has_sdcard": false,
+    "weight_g": 3.3,
+    "mounting_pattern_mm": "25.5x25.5",
+    "mounting_hole_dia_mm": 2,
+    "voltage_cells": "1-2S",
+    "voltage_min_v": 3,
+    "voltage_max_v": 8.4,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": null
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "USB micro"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ELRS 2.4GHz onboard",
+    "pinout_notes": "5 UARTs: USART1 (onboard ELRS in base target; bypassed in RX2 variant), USART2 (external RC/SBUS in RX2), USART3, UART4, USART6 (telemetry); 4 motor outputs to integrated 4in1 5A ESC + LED_STRIP (PWM5); I2C1 for external compass; built-in voltage and current sensors; buzzer pad",
+    "discrepancies": [
+      "Our data has manufacturer=null; correct value is JHEMCU",
+      "Our data has mcu.part=STM32F405xx (generic family); README explicitly names STM32F405OG6",
+      "Our data has no OSD chip recorded; AT7456E confirmed by both parent and RX2 READMEs",
+      "Our data has no blackbox_flash; 8MB on-board dataflash confirmed by README and hwdef SPIDEV dataflash entry",
+      "manual block dimensions_mm/weight_g are null; README states 25.5x25.5mm M2 and 3.3g",
+      "No voltage/BEC info in data; README states 1-2S input, 5V BEC"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JHEMCU-GSF405A-RX2.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A-RX2/readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A-RX2/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEMCU-GSF405A/readme.md"
+    ],
+    "dimensions_mm": {
+      "length": 25.5,
+      "width": 25.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "agree": "partial",
+        "hwdef": "STM32F405xx (family)",
+        "readme": "STM32F405OG6 (explicit)",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "imu_models",
+        "agree": "agree",
+        "hwdef": "IMU Invensense SPI:mpu6000 / CS=MPU6000_CS",
+        "readme": "MPU6000",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "baro_models",
+        "agree": "agree",
+        "hwdef": "BARO BMP280 I2C:0:0x76",
+        "readme": "BMP280",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "osd_chip",
+        "agree": "agree",
+        "hwdef": "SPIDEV osd SPI3 / HAL_OSD_TYPE_DEFAULT 1 (MAX7456 driver)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "blackbox_flash",
+        "agree": "agree",
+        "hwdef": "SPIDEV dataflash SPI3 DEVID2",
+        "readme": "8MB",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "uart_count",
+        "agree": "agree",
+        "hwdef": "USART1 USART2 USART3 UART4 USART6 = 5",
+        "readme": "UART1 UART2 UART3 UART4 UART6 = 5",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "can_count",
+        "agree": "agree",
+        "hwdef": "no CAN pins defined",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "compass",
+        "agree": "agree",
+        "hwdef": "no compass IMU defined, external probe only",
+        "readme": "No built-in compass",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "wireless",
+        "agree": "agree",
+        "hwdef": "USART1 wired to on-board ELRS receiver",
+        "readme": "on-board ExpressLRS 2.4GHz receiver",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "dimensions_mm",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": "25.5x25.5mm M2",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "weight_g",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": "3.3g",
+        "wiki": null,
+        "manufacturer": null
+      },
+      {
+        "field": "voltage_cells",
+        "agree": "unknown",
+        "hwdef": null,
+        "readme": "1S-2S Lipo",
+        "wiki": null,
+        "manufacturer": null
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "CubeRedPrimary-PPPGW",
   "name": "CubeRedPrimary-PPPGW",
-  "manufacturer": null,
+  "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H757xx"
@@ -80,31 +80,8 @@
       "chip_display": "ICM45686"
     }
   ],
-  "baros": [
-    {
-      "chip": "MS5611",
-      "bus": "SPI:ms5611_0",
-      "variant": null,
-      "slot": "SPI1/CS:BARO_0_CS",
-      "chip_display": "MS5611_0"
-    },
-    {
-      "chip": "MS5611",
-      "bus": "SPI:ms5611_1",
-      "variant": null,
-      "slot": "SPI4/CS:BARO_1_CS",
-      "chip_display": "MS5611_1"
-    }
-  ],
-  "compasses": [
-    {
-      "chip": "RM3100",
-      "bus": "SPI:rm3100",
-      "variant": null,
-      "slot": "SPI2/CS:RM3100_CS",
-      "chip_display": "RM3100"
-    }
-  ],
+  "baros": [],
+  "compasses": [],
   "firmware_support": [
     {
       "firmware": "ardupilot",
@@ -134,5 +111,127 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CubePilot",
+    "marketing_name": "Cube Red",
+    "family": "Cube",
+    "mcu_part": "STM32H757xx",
+    "imu_models": [
+      "ICM-42688",
+      "ICM-45686",
+      "ICM-20649"
+    ],
+    "baro_models": [
+      "MS5611"
+    ],
+    "compass_models": [
+      "RM3100"
+    ],
+    "blackbox_flash": "32MB (QUADSPI)",
+    "has_sdcard": true,
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "DF17 80-pin (x2)",
+      "JST-GH 1.25mm",
+      "Molex CLIK-Mate 2mm (power)",
+      "TE Multi-purpose 8P (Ethernet)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "Dual-FMU design: primary STM32H757 + secondary controller. 5 user-accessible external UARTs (USART2/6/3, UART4/8); UART7 is internal IOMCU link. 2 CAN FD buses (CAN1/CAN2) on primary. 14 PWM total (6 FMU + 8 IO). Onboard Ethernet (LAN8720, RMII). 32MB QUADSPI external flash. 2 battery monitor inputs. IMU slot 3 (SPI4) accepts either ICM-20649 or ICM-45686 as hardware alternatives.",
+    "discrepancies": [
+      "CubePilot carrier board documentation lists 3 CAN FD ports (CAN1/CAN2/CAN3) on the standard carrier board, but the CubeRedPrimary hwdef defines only 2 CAN controllers (CAN1 + CAN2). The third CAN port likely originates from the secondary controller or a shared bus on the carrier board, not the primary FMU.",
+      "hwdef uart_count=6 buses (includes UART7 which is the internal IOMCU link). Effective user-accessible external UART count is 5, matching CubePilot carrier board pinout documentation (SERIAL1-4 + SERIAL8).",
+      "IMU slot 3 (SPI4/ICM_2_CS) can physically be either ICM-20649 or ICM-45686: the hwdef BOARD_VALIDATE checks for both via separate WHOAMI values on the same CS pin. The currently-shipped part is not determinable from hwdef alone.",
+      "Manufacturer claims 4 IMUs total and 3 barometers total across both FMUs, but hwdef for CubeRedPrimary only shows 3 IMU positions and 2 barometers (the 4th IMU and 3rd barometer reside on the secondary controller).",
+      "No dedicated ArduPilot wiki page exists for the Cube Red; docs_url is correctly null."
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CubeRedPrimary.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeRedPrimary/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CubeRedPrimary-PPPGW/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-network.rst",
+      "https://docs.cubepilot.org/user-guides/autopilot/cube-red/specifications",
+      "https://docs.cubepilot.org/user-guides/autopilot/cube-red/system-architecture",
+      "https://docs.cubepilot.org/user-guides/autopilot/cube-red/ports-standard-and-definition",
+      "https://docs.cubepilot.org/user-guides/carrier-boards/cube-red-standard-carrier-board-pinout",
+      "https://docs.cubepilot.org/user-guides/carrier-boards/standard-carrier-board-footprint-and-dimensions"
+    ],
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H757xx",
+        "manufacturer": "STM32H7 series dual-core (Cortex-M7 + Cortex-M4)",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688 (x2 slots) + ICM20649 or ICM45686 (1 slot, alternatives on same CS pin)",
+        "manufacturer": "4 IMUs total \u2014 3 on primary FMU, 1 on secondary",
+        "wiki": null,
+        "agree": "partial"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "2x MS5611 (ms5611_0 on SPI1, ms5611_1 on SPI4)",
+        "manufacturer": "3 barometers \u2014 2 on primary, 1 on secondary",
+        "wiki": null,
+        "agree": "partial"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "RM3100 (SPI2)",
+        "manufacturer": "Single compass, 13nT sensitivity, SPI/I2C interface",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 UART buses (USART2/6/3, UART4/8, UART7-IOMCU)",
+        "manufacturer": "5 user-accessible UARTs on carrier board pinout",
+        "wiki": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1 + CAN2)",
+        "manufacturer": "3 CAN FD ports (CAN1/CAN2/CAN3) on carrier board",
+        "wiki": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "true (SDMMC1 pins defined)",
+        "manufacturer": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "32MB QUADSPI (EXT_FLASH_SIZE_MB 32)",
+        "manufacturer": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "ethernet",
+        "hwdef": "true (LAN8720, RMII interface)",
+        "manufacturer": "10/100BaseT Ethernet interface",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "false (no OSD chip in hwdef)",
+        "manufacturer": null,
+        "wiki": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

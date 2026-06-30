@@ -1,7 +1,7 @@
 {
   "slug": "3DRControlZeroG",
   "name": "3DRControlZeroG",
-  "manufacturer": null,
+  "manufacturer": "3DR (mRo)",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -125,5 +125,153 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "3DR (mRo)",
+    "marketing_name": "3DR Control Zero H7 OEM G",
+    "family": "Control Zero H7 OEM",
+    "mcu_part": "STM32H743IIK6",
+    "imu_models": [
+      "BMI088",
+      "ICM20602",
+      "ICM20948"
+    ],
+    "baro_models": [
+      "DPS368"
+    ],
+    "compass_models": [
+      "AK09916"
+    ],
+    "blackbox_flash": "256KB FRAM",
+    "has_sdcard": true,
+    "weight_g": 3.66,
+    "voltage_min_v": 5,
+    "voltage_max_v": 5,
+    "bec_outputs": [
+      {
+        "rail": "3.3V sensors",
+        "volts": 3.3,
+        "amps": null
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 2,
+    "notable_connectors": [
+      "36-pin Samtec FTM-118-02-x (bottom front)",
+      "40-pin Samtec FTM-120-02-x (bottom back)",
+      "TC2030 SWD header"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "OEM bottom-connector board: 36-pin + 40-pin Samtec on underside; 8x PWM (DShot/BiDirDShot); 6x HW UARTs (USART2/3/6 have CTS/RTS); 2x CAN; SDMMC; FRAM; USB dual-port (OTG1+OTG2)",
+    "discrepancies": [
+      "JSON baro chip is 'DPS310' but README and wiki both state 'DPS368'; the SPIDEV alias 'dps310' is the ArduPilot driver label, not the physical chip \u2014 actual part is DPS368",
+      "JSON IMU #2 chip_display is 'ICM20608' but the hwdef CS pin is named ICM_20602_CS and README/wiki both say ICM20602; 'icm20608' is the SPIDEV bus alias, actual chip is ICM20602",
+      "JSON manufacturer is null; README and wiki identify the manufacturer as '3DR (mRo)'",
+      "README and wiki list '5x UARTs' but hwdef SERIAL_ORDER includes 6 hardware UART buses (USART2, USART3, UART4, UART8, UART7, USART6); the discrepancy likely comes from README excluding UART7/DEBUG from the user count; JSON uart_count=6 matches hwdef"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/3DRControlZeroG.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/3DRControlZeroG/hwdef.dat",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/3DRControlZeroG/README.md",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-3DR_Control_Zero_OEM_G.rst"
+    ],
+    "dimensions_mm": {
+      "length": 34,
+      "width": 20,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx (family class)",
+        "readme": "STM32H743IIK6",
+        "wiki": "STM32H743IIK6",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088, icm20608 alias (CS=ICM_20602_CS), ICM20948",
+        "readme": "BMI088, ICM20602, ICM20948",
+        "wiki": "BMI088, ICM20602, ICM20948",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "dps310 (driver alias)",
+        "readme": "DPS368",
+        "wiki": "DPS368",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "AK09916 (probed via ICM20948)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "34mm",
+        "wiki": "34mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "readme": "20mm",
+        "wiki": "20mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "3.66g",
+        "wiki": "3.66g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (SERIAL_ORDER)",
+        "readme": "5x UARTs",
+        "wiki": "5x UARTs",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "2 (CAN1+CAN2)",
+        "readme": "2x CAN",
+        "wiki": "2x CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 pins present",
+        "readme": "SDCARD Socket",
+        "wiki": "MicroSD card socket",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "manufacturer",
+        "hwdef": null,
+        "readme": "3DR (mRo)",
+        "wiki": "3DR (mRo)",
+        "manufacturer": null,
+        "agree": "disagree"
+      }
+    ]
   }
 }

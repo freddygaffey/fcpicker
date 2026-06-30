@@ -1,7 +1,7 @@
 {
   "slug": "MicoAir405Mini",
   "name": "MicoAir405Mini",
-  "manufacturer": null,
+  "manufacturer": "MicoAir Tech.",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -94,5 +94,166 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "MicoAir Tech.",
+    "marketing_name": "MicoAir F405 Mini",
+    "family": "MicoAir F405",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 6,
+    "mounting_pattern_mm": "20x20",
+    "mounting_hole_dia_mm": 3.5,
+    "voltage_cells": "2-6S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2.5
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 2.5
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 0,
+    "notable_connectors": [
+      "SH1.0-6P (DJI O3 / HD VTX, 9V on pin 1)",
+      "Micro-C USB",
+      "MicroSD slot"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "6 UARTs: UART1 MAVLink, UART2 DisplayPort/DJI O3, UART3 GPS, UART4 MAVLink, UART5 ESC telemetry, UART6 SBUS (hardware inverter on SBUS pin); 9 PWM outputs (ch1-8 DShot, ch1-4 bi-dir DShot); no CAN; 1x I2C for external compass; 9V BEC on DJI O3 connector pin 1",
+    "discrepancies": [
+      "manufacturer is null in data JSON but README.md and wiki clearly identify board as MicoAir Tech.",
+      "bec_outputs is empty array [] in data JSON, but README specifies 9V/2.5A BEC (VTX) and 5V/2.5A BEC (peripherals), confirmed by wiki",
+      "Physical specs not populated in manual block: README gives dimensions 30x30x8mm, weight 6g, mounting 20x20mm / 3.5mm holes"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/MicoAir405Mini.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir405Mini/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/MicoAir405Mini/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-MicoAir405v2.rst"
+    ],
+    "dimensions_mm": {
+      "length": 30,
+      "width": 30,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 microcontroller",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (SPI:bmi270)",
+        "readme": "BMI270 IMU",
+        "wiki": "Mini: BMI270 IMU",
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 (SPI:dps310)",
+        "readme": "DPS310 barometer",
+        "wiki": "Mini: DPS310",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 (USART1-3, UART4-5, USART6)",
+        "readme": "6 UARTs",
+        "wiki": "6x UARTs/serial",
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "2S - 6S Lipo input voltage",
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V 2.5A BEC; 5V 2.5A BEC",
+        "wiki": "9V (Mini: 2.5A) + 5V (Mini: 2.5A) BECs",
+        "manufacturer": "data JSON shows empty []",
+        "agree": "disagree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (CS pin: AT7456E_CS, SPI1)",
+        "readme": "AT7456E OSD",
+        "wiki": "OSD_TYPE 1 (MAX7456 driver, compatible with AT7456E)",
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDCARD_CS + HAL_OS_FATFS_IO=1",
+        "readme": "SDCard",
+        "wiki": "MicroSD Card Slot",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "no compass driver, AP_COMPASS_PROBING_ENABLED for external only",
+        "readme": "does not have a built-in compass",
+        "wiki": "do not have a built-in compass",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "20 x 20mm",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_hole_dia_mm",
+        "hwdef": null,
+        "readme": "3.5mm",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "30 x 30 x 8 mm",
+        "wiki": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "6g",
+        "wiki": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

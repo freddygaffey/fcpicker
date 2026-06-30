@@ -1,7 +1,7 @@
 {
   "slug": "RADIX2HD",
   "name": "RADIX2HD",
-  "manufacturer": null,
+  "manufacturer": "BrainFPV",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H750xx"
@@ -95,5 +95,162 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "BrainFPV",
+    "marketing_name": "BrainFPV RADIX 2 HD",
+    "family": "RADIX",
+    "mcu_part": "STM32H750",
+    "imu_models": [
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "blackbox_flash": "16MB",
+    "has_sdcard": true,
+    "weight_g": 7,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "3S-8S",
+    "voltage_max_v": 35,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 1.5
+      },
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 2
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "DJI HD connector (UART1 MSP DisplayPort)",
+      "dual 4-in-1 ESC connectors (8x BDSHOT)"
+    ],
+    "has_baro": true,
+    "has_osd": false,
+    "pinout_notes": "UART1 MSP DisplayPort OSD on DJI connector; UART2 GPS; UART3 RC input; UART4 ESC telemetry; UART5 spare; UART6 spare/PWM9-10 shared (ALT_CONFIG=1 for full UART); UART7 RX-only on DJI connector; 8x BDSHOT on two 4-in-1 ESC connectors; I2C and CAN ports; 9V VTX supply switchable via RELAY2",
+    "discrepancies": [
+      "manufacturer is null in current data; should be BrainFPV (confirmed in README and wiki)",
+      "voltage minimum: README/hwdef says 3S-8S but wiki lists 2S-8S \u2014 README is likely authoritative",
+      "README says '6 UARTs plus USB' in standard config and '7 UARTs with alternate board config', but hwdef.dat SERIAL_ORDER has 7 UART peripherals and wiki says 7; current data uart_count=7 is consistent with hwdef but README creates ambiguity about standard vs alt config count"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/RADIX2HD.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/RADIX2HD/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/RADIX2HD/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-radix2hd.rst"
+    ],
+    "dimensions_mm": {
+      "length": 37,
+      "width": 37,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H750xx",
+        "readme": "STM32H750",
+        "wiki": "STM32H750 ARM (480MHz)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI270 (SPI:bmi270)",
+        "readme": "Bosch Sensortec BMI270",
+        "wiki": "BMI270 IMU",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "Infineon DPS310",
+        "wiki": "DPS310 barometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7 (USART1,2,3 UART4,5,6,7 in SERIAL_ORDER)",
+        "readme": "6 standard + optional 7th with alt config",
+        "wiki": "7x UARTs/serial",
+        "manufacturer": null,
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "3S-8S (35V)",
+        "wiki": "2S-8S",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "voltage_max_v",
+        "hwdef": null,
+        "readme": "35V max",
+        "wiki": "not explicit",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "dimensions",
+        "hwdef": null,
+        "readme": "37x37mm, 30.5mm hole spacing",
+        "wiki": "37mm x 37mm, 30.5mm hole spacing",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "7g",
+        "wiki": "7g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "yes (SDMMC1 pins)",
+        "readme": "microSD slot",
+        "wiki": "microSDCard",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1, CANFD up to 2Mbit/s)",
+        "readme": "I2C and CAN port",
+        "wiki": "CAN Bus port",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "EXT_FLASH_SIZE_MB 16 (QSPI, primary program flash)",
+        "readme": "Onboard flash: 16 MB via QUADSPI",
+        "wiki": "16MB external program flash loaded from SD card on boot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_osd",
+        "hwdef": "no OSD chip; UART1 configured for MSP DisplayPort",
+        "readme": "no onboard OSD chip mentioned",
+        "wiki": "no onboard OSD chip",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

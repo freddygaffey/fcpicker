@@ -1,7 +1,7 @@
 {
   "slug": "CORVON743V1",
   "name": "CORVON743V1",
-  "manufacturer": null,
+  "manufacturer": "CORVON",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
@@ -119,5 +119,196 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "CORVON",
+    "marketing_name": "CORVON743V1",
+    "family": "STM32H7xx",
+    "mcu_part": "STM32H743xx",
+    "imu_models": [
+      "BMI088",
+      "BMI270"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "compass_models": [
+      "IST8310"
+    ],
+    "osd_chip": "AT7456E",
+    "has_sdcard": true,
+    "weight_g": 9,
+    "mounting_pattern_mm": "30.5x30.5",
+    "mounting_hole_dia_mm": 4,
+    "voltage_cells": "2-6S",
+    "voltage_max_v": 25.2,
+    "bec_outputs": [
+      {
+        "rail": "9V",
+        "volts": 9,
+        "amps": 3
+      },
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 7,
+    "can_count": 1,
+    "notable_connectors": [
+      "SH1.0-6P (DJI Air Unit / HD VTX)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "UART1=MAVLink, UART2=DisplayPort, UART3=GPS, UART4=MAVLink2, UART6=RCIN (SBUS inverted), UART7=ESC telemetry RX-only, UART8=User; 10 PWM all DShot/BiDir; DJI VTX on SH1.0-6P with 9V on pin 1; 1 CAN; internal+external IST8310 compass",
+    "discrepancies": [
+      "README/wiki list '1 I2C' under features, but hwdef defines 2 I2C buses (I2C2 for internal baro+compass, I2C1 for external connector) \u2014 README is counting only the external user-facing connector, not a hardware error but potentially misleading",
+      "JSON power.monitor_inputs=0 but hwdef configures BATT_VOLT_PIN=10 (PC0) and BATT_CURR_PIN=11 (PC1) \u2014 build.py likely fails to count ADC-based battery monitors for this board",
+      "JSON power.bec=[] but board has 9V/3A and 5V/3A BEC rails per README and wiki \u2014 BEC data must be populated in the manual block, not hwdef-derived"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/CORVON743V1.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CORVON743V1/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/CORVON743V1/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-corvon743v1.rst"
+    ],
+    "dimensions_mm": {
+      "length": 36,
+      "width": 36,
+      "height": 8
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "readme": "STM32H743",
+        "wiki": "STM32H743",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "BMI088 + BMI270",
+        "readme": "BMI088/BMI270 dual IMUs",
+        "wiki": "BMI088/BMI270 dual IMUs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x76",
+        "readme": "DPS310 barometer",
+        "wiki": "DPS310 barometer",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "compass_models",
+        "hwdef": "IST8310 x2 (external + internal)",
+        "readme": "IST8310 magnetometer",
+        "wiki": "IST8310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "AT7456E (SPI1)",
+        "readme": "AT7456E OSD",
+        "wiki": "AT7456E OSD (MAX7456 driver)",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "7",
+        "readme": "7 UARTs",
+        "wiki": "7 UARTs",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "readme": "1 CAN",
+        "wiki": "1 CAN",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "SDMMC1 configured",
+        "readme": "MicroSD Card Slot",
+        "wiki": "MicroSD Card Slot",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "readme": "36mm",
+        "wiki": "36mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "readme": "36mm",
+        "wiki": "36mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "height_mm",
+        "hwdef": null,
+        "readme": "8mm",
+        "wiki": "8mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "readme": "9g",
+        "wiki": "9g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "30.5x30.5mm",
+        "wiki": "30.5x30.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_hole_dia_mm",
+        "hwdef": null,
+        "readme": "\u03a64mm",
+        "wiki": "\u03a64mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "9V 3A BEC; 5V 3A BEC",
+        "wiki": "9V 3A BEC; 5V 3A BEC",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "up to 6S LiPo",
+        "wiki": "up to 6S LiPo",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

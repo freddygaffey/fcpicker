@@ -1,22 +1,21 @@
 {
   "slug": "AnyleafH7",
   "name": "AnyleafH7",
-  "manufacturer": null,
+  "manufacturer": "AnyLeaf",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"
   },
   "flash_kb": 2048,
   "io": {
-    "uart_count": 7,
+    "uart_count": 6,
     "uart_buses": [
       "USART1",
       "USART2",
       "USART3",
       "UART4",
       "UART7",
-      "UART8",
-      "#OTG2"
+      "UART8"
     ],
     "i2c_count": 2,
     "i2c_buses": [
@@ -97,5 +96,161 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "AnyLeaf",
+    "marketing_name": "AnyLeaf Mercury H7",
+    "family": "Mercury H7",
+    "mcu_part": "STM32H743",
+    "imu_models": [
+      "ICM42688"
+    ],
+    "baro_models": [
+      "DPS310"
+    ],
+    "blackbox_flash": "W25Q64 (8MB)",
+    "has_sdcard": false,
+    "weight_g": 8,
+    "voltage_cells": "2-6S",
+    "bec_outputs": [
+      {
+        "volts": 9,
+        "amps": 3,
+        "rail": "VTX"
+      },
+      {
+        "volts": 5,
+        "amps": 2,
+        "rail": "Peripherals"
+      },
+      {
+        "volts": 3.3,
+        "amps": 0.5,
+        "rail": "Electronics"
+      }
+    ],
+    "uart_count": 6,
+    "can_count": 1,
+    "notable_connectors": [
+      "USB-C",
+      "DJI 6-pin JST-SH VTX/DisplayPort",
+      "4-pin CAN-FD (DroneCAN)",
+      "JST-SH ESC connector (M1-4 + telemetry)"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "wireless": "ELRS 2.4GHz (onboard)",
+    "pinout_notes": "8x BiDirDShot/PWM (M1-4 on JST-SH ESC connector, M5-8 on pads); UART1=MAVLink/DJI-RX1, UART2=DisplayPort/DJI-TX, UART3=ESC telemetry, UART4=GPS, UART7=ELRS internal, UART8=user; CAN-FD 4-pin; I2C pads bottom; USB-C",
+    "discrepancies": [
+      "stored uart_count=7 is wrong: hwdef SERIAL_ORDER has 6 active HW UART buses (USART1, USART2, USART3, UART4, UART7, UART8); #OTG2 is commented out and inactive",
+      "stored canfd=false is wrong: README and wiki both explicitly state a CAN-FD port capable of 64-byte frames and up to 5Mbps; STM32H743 uses FDCAN peripheral",
+      "stored manufacturer=null: README and wiki identify manufacturer as AnyLeaf (http://www.anyleaf.org)",
+      "onboard ELRS 2.4GHz transceiver not captured in stored data",
+      "physical specs missing from stored data: dimensions 37.5x37.5mm and weight 8g are confirmed in both README and wiki"
+    ],
+    "confidence": "high",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/AnyleafH7.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AnyleafH7/README.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AnyleafH7/common.inc",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/AnyleafH7/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-anyleafh7.rst"
+    ],
+    "dimensions_mm": {
+      "length": 37.5,
+      "width": 37.5,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32H743xx",
+        "wiki": "STM32H743",
+        "readme": "STM32H743 32-bit processor",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688 (Invensensev3 SPI:icm42688)",
+        "wiki": "ICM42688",
+        "readme": "ICM42688",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "DPS310 I2C:0:0x77",
+        "wiki": "DPS310",
+        "readme": "DPS310",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "6 active HW UARTs (USART1-3, UART4, UART7, UART8; #OTG2 commented)",
+        "wiki": "4 external UARTs mentioned",
+        "readme": "4x UARTs for external peripherals",
+        "manufacturer": null,
+        "agree": "disagree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "1 (CAN1)",
+        "wiki": "1x CAN_FD port",
+        "readme": "1x CAN-FD port",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "wiki": "2S-6S",
+        "readme": "2S-6S Lipo input voltage",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "length_mm",
+        "hwdef": null,
+        "wiki": "37.5mm",
+        "readme": "37.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "width_mm",
+        "hwdef": null,
+        "wiki": "37.5mm",
+        "readme": "37.5mm",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "weight_g",
+        "hwdef": null,
+        "wiki": "8g",
+        "readme": "8g",
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "W25Q64JVZPIQ 64Mbit on SPI2 (HAL_LOGGING_DATAFLASH_ENABLED)",
+        "wiki": "8 MByte flash for logging",
+        "readme": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "wireless",
+        "hwdef": "UART7 internal to ELRS transceiver",
+        "wiki": "Integrated ELRS receiver",
+        "readme": "2.4GHz ExpressLRS transceiver onboard",
+        "manufacturer": null,
+        "agree": "agree"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "JHEM_JHEF405",
   "name": "JHEM_JHEF405",
-  "manufacturer": null,
+  "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",
     "part": "STM32F405xx"
@@ -106,5 +106,160 @@
     "discontinued": false,
     "imu_count": null,
     "notes": null
+  },
+  "ai": {
+    "source": "fc-verify-enrich workflow: hwdef+README+local-wiki+manufacturer cross-correlation",
+    "manufacturer": "JHEMCU",
+    "marketing_name": "JHEMCU GF16-BMI stack F405",
+    "mcu_part": "STM32F405",
+    "imu_models": [
+      "ICM42688",
+      "MPU6000"
+    ],
+    "baro_models": [
+      "BMP280",
+      "DPS310"
+    ],
+    "osd_chip": "AT7456E",
+    "blackbox_flash": "16MB",
+    "has_sdcard": false,
+    "weight_g": 5.8,
+    "mounting_pattern_mm": "16x16",
+    "mounting_hole_dia_mm": 3,
+    "voltage_cells": "2-4S",
+    "voltage_min_v": 7.4,
+    "voltage_max_v": 17.4,
+    "bec_outputs": [
+      {
+        "rail": "5V",
+        "volts": 5,
+        "amps": 3
+      }
+    ],
+    "uart_count": 5,
+    "can_count": 0,
+    "notable_connectors": [
+      "micro USB",
+      "SBUS pad",
+      "WS2812 LED pad",
+      "buzzer pad",
+      "camera interface pad"
+    ],
+    "has_baro": true,
+    "has_osd": true,
+    "pinout_notes": "16x16mm FC+ESC stack; UART1=RC input (SBUS/CRSF/ELRS), UART2=MAVLink2, UART3=GPS1, UART4=VTX (SmartAudio), UART6=User; 8 motor outputs (DShot600/300/150/PWM); built-in voltage and current sensor; PWM9=WS2812 LED strip",
+    "discrepancies": [
+      "docs_url points to common-jhemcuf405pro (JHEMCUF405PRO / GHF405AIO-HD), which is a completely different JHEMCU board with ICM42605, DPS310, 2-6S input, 8MB flash, and 5V+10V BEC; no dedicated wiki page exists for JHEM_JHEF405 (GF16-BMI)",
+      "README explicitly states 'Gyroscope/Accelerometer: BMI270' and the product name 'GF16-BMI' implies BMI270, but hwdef.dat implements only Invensensev3 on SPI alias 'icm42688' (newer revision) and Invensense on SPI alias 'mpu6000' (older revision) \u2014 no BMI270 driver is present in the firmware; web sources for the non-BMI GF16 confirm MPU6000, suggesting the BMI270 variant may have a separate hardware configuration not captured in this hwdef",
+      "manufacturer field is null in current JSON but should be JHEMCU",
+      "hwdef.dat lists both BMP280 and DPS310 at I2C:0:0x76 as alternatives (hardware revision variants); README and third-party product pages only mention BMP280; current JSON correctly reflects hwdef but README/web sources are inconsistent",
+      "weight of 5.8g is for the combined FC+ESC stack, not the FC alone"
+    ],
+    "confidence": "medium",
+    "sources_used": [
+      "/Users/fred/fcpicker/data/boards/JHEM_JHEF405.json",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEM_JHEF405/readme.md",
+      "/Users/fred/ardupilot/libraries/AP_HAL_ChibiOS/hwdef/JHEM_JHEF405/hwdef.dat",
+      "/Users/fred/ardupilot_wiki/common/source/docs/common-jhemcuf405pro.rst",
+      "https://speedyfpv.com/products/jhemcu-gf16-f405-flight-controller-stack-with-2-4s-13a-4in1-esc",
+      "https://fpvelite.com/product/jhemcu-gf16-2-4s-1616-f405-flight-controller-13a-4in1-esc-stack/",
+      "https://www.alibaba.com/product-detail/New-JHEMCU-GF16-BMI-16X16mm-2_1600891462093.html",
+      "https://www.amazon.com/Accessories-Gf16-bmi-F405-bmi-Controller-Blheli_s/dp/B0BJL979F4"
+    ],
+    "dimensions_mm": {
+      "length": 16,
+      "width": 16,
+      "height": null
+    },
+    "field_checks": [
+      {
+        "field": "mcu_part",
+        "hwdef": "STM32F405xx",
+        "readme": "STM32F405",
+        "wiki": "STM32F405 (wrong wiki page)",
+        "manufacturer": "STM32F405",
+        "agree": "agree"
+      },
+      {
+        "field": "imu_models",
+        "hwdef": "ICM42688 (newer), MPU6000 (older)",
+        "readme": "BMI270",
+        "wiki": "ICM42605 (wrong wiki page)",
+        "manufacturer": "BMI270",
+        "agree": "disagree"
+      },
+      {
+        "field": "baro_models",
+        "hwdef": "BMP280, DPS310 (alternatives at 0x76)",
+        "readme": "BMP280 only",
+        "wiki": "DPS310 (wrong wiki page)",
+        "manufacturer": "BMP280",
+        "agree": "partial"
+      },
+      {
+        "field": "osd_chip",
+        "hwdef": "HAL_OSD_TYPE_DEFAULT 1 (MAX7456-type)",
+        "readme": "AT7456E",
+        "wiki": null,
+        "manufacturer": "AT7456E",
+        "agree": "agree"
+      },
+      {
+        "field": "uart_count",
+        "hwdef": "5 (USART1,USART2,USART3,UART4,USART6)",
+        "readme": "5",
+        "wiki": "5 (wrong wiki page)",
+        "manufacturer": "5",
+        "agree": "agree"
+      },
+      {
+        "field": "blackbox_flash",
+        "hwdef": "SPIDEV dataflash on SPI3",
+        "readme": "16MB",
+        "wiki": "8MB (wrong wiki page)",
+        "manufacturer": "16MB",
+        "agree": "partial"
+      },
+      {
+        "field": "voltage_cells",
+        "hwdef": null,
+        "readme": "2-4S LiPo / 2-4S HV LiPo",
+        "wiki": "2-6S (wrong wiki page)",
+        "manufacturer": "2-4S",
+        "agree": "agree"
+      },
+      {
+        "field": "mounting_pattern_mm",
+        "hwdef": null,
+        "readme": "16x16mm M3",
+        "wiki": null,
+        "manufacturer": "16x16mm M3",
+        "agree": "agree"
+      },
+      {
+        "field": "can_count",
+        "hwdef": "0 (no CAN pins defined)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "has_sdcard",
+        "hwdef": "false (no SD SPI device)",
+        "readme": null,
+        "wiki": null,
+        "manufacturer": null,
+        "agree": "agree"
+      },
+      {
+        "field": "bec_outputs",
+        "hwdef": null,
+        "readme": "5V/3A (FC); ESC BEC: None",
+        "wiki": "5V/2.5A + 10V/2A (wrong wiki page)",
+        "manufacturer": "5V/3A",
+        "agree": "agree"
+      }
+    ]
   }
 }
