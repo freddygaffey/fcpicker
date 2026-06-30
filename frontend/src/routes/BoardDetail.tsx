@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mcuFamilyLabel, useBoardImages, useBoards } from "../data";
-import type { Board, SensorEntry } from "../types";
+import type { Board, BoardAi, SensorEntry } from "../types";
 import { SiblingNav } from "../SiblingNav";
 import { ReportIssue } from "../ReportIssue";
 
@@ -57,6 +57,11 @@ export default function BoardDetail() {
       <header className="bd-head">
         <p className="bd-eyebrow">ArduPilot-supported autopilot</p>
         <h1 className="bd-title">{b.slug}</h1>
+        {b.manufacturer && (
+          <p className="bd-maker" title="Manufacturer — suggested for discovery; verify in docs">
+            by {b.manufacturer}
+          </p>
+        )}
         <p className="bd-subtitle">
           {mcuFamilyLabel(b.mcu.family)}
           {b.mcu.part && <> &nbsp;·&nbsp; <code className="bd-code">{b.mcu.part}</code></>}
@@ -164,6 +169,9 @@ export default function BoardDetail() {
           <p className="bd-aside">Hand-curated from vendor docs.</p>
         </section>
       )}
+
+      {/* Suggested specs — AI-gathered, NON-authoritative discovery aid */}
+      <SuggestedSpecs ai={b.ai} />
 
       {/* Vehicles — inline row of pills, NOT stacked */}
       <section className="bd-section">
@@ -282,6 +290,67 @@ function Stat({ label, value, hint, flag }: { label: string; value: number | str
 
 function chipLabel(s: SensorEntry): string {
   return s.chip_display ?? s.chip;
+}
+
+// AI-gathered enrichment — a discovery aid, clearly marked unverified. Chip
+// names are deliberately NOT shown (unreliable across hardware revisions);
+// the authoritative sensor list lives in the "On-board sensors" section.
+function SuggestedSpecs({ ai }: { ai?: BoardAi }) {
+  if (!ai) return null;
+  const rows: { label: string; value: string }[] = [];
+  const push = (label: string, value: string | null | undefined) => {
+    if (value) rows.push({ label, value });
+  };
+  push("Product name", ai.marketing_name);
+  push("Series", ai.family);
+  const d = ai.dimensions_mm;
+  if (d) {
+    const parts = [d.length, d.width, d.height].filter((x): x is number => x != null);
+    if (parts.length) push("Dimensions", parts.join(" × ") + " mm");
+  }
+  push("Weight", ai.weight_g != null ? `${ai.weight_g} g` : null);
+  if (ai.mounting_pattern_mm) {
+    push(
+      "Mounting",
+      ai.mounting_pattern_mm + " mm" +
+        (ai.mounting_hole_dia_mm ? `, Ø${ai.mounting_hole_dia_mm} mm holes` : ""),
+    );
+  }
+  push("Input", ai.voltage_cells ?? (ai.voltage_max_v ? `≤ ${ai.voltage_max_v} V` : null));
+  if (ai.bec_outputs && ai.bec_outputs.length) {
+    const becs = ai.bec_outputs
+      .map((r) => (r.volts != null ? `${r.volts}V${r.amps != null ? `/${r.amps}A` : ""}` : null))
+      .filter(Boolean)
+      .join(", ");
+    push("BEC", becs || null);
+  }
+  push("Blackbox", ai.blackbox_flash);
+  push("OSD", ai.osd_chip ?? (ai.has_osd ? "yes" : null));
+  push("Wireless", ai.wireless);
+  if (ai.notable_connectors && ai.notable_connectors.length) {
+    push("Connectors", ai.notable_connectors.join(" · "));
+  }
+  if (rows.length === 0 && !ai.pinout_notes) return null;
+  return (
+    <section className="bd-section bd-ai">
+      <h2 className="bd-h2">
+        Suggested specs <span className="bd-ai-tag">unverified · for discovery</span>
+      </h2>
+      <dl className="bd-ai-grid">
+        {rows.map((r) => (
+          <div className="bd-ai-row" key={r.label}>
+            <dt>{r.label}</dt>
+            <dd>{r.value}</dd>
+          </div>
+        ))}
+      </dl>
+      {ai.pinout_notes && <p className="bd-ai-notes">{ai.pinout_notes}</p>}
+      <p className="bd-aside">
+        Gathered automatically from vendor pages &amp; docs — <strong>not verified</strong>. A board
+        may ship in several hardware revisions; confirm exact specs in the official docs above.
+      </p>
+    </section>
+  );
 }
 
 // Group sensors that share a physical SPI slot. Items with no slot become

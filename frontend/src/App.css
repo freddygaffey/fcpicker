@@ -866,6 +866,45 @@
   color: var(--ink-mute);
 }
 
+/* Manufacturer line under the detail title — secondary. */
+.bd-maker {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+}
+
+/* Suggested-specs (AI) section — visually softer than authoritative sections. */
+.bd-ai { border-left: 3px solid var(--ap-blue-soft, #e3eefc); padding-left: 14px; }
+.bd-ai-tag {
+  margin-left: 8px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a6d1a;
+  background: #fbf2d6;
+  border-radius: 3px;
+  vertical-align: middle;
+  font-family: var(--mono);
+}
+.bd-ai-grid {
+  margin: 10px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px 24px;
+}
+.bd-ai-row { display: flex; gap: 10px; padding: 5px 0; border-bottom: 1px dotted var(--rule, #e6e6e6); }
+.bd-ai-row dt { min-width: 96px; color: var(--ink-dim); font-size: 13px; }
+.bd-ai-row dd { margin: 0; font-size: 13px; font-family: var(--mono); }
+.bd-ai-notes {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
 /* Image gallery (sourced from hwdef directory) */
 .bd-gallery {
   display: grid;

@@ -94,6 +94,37 @@ export interface BoardManual {
   notes: string | null;
 }
 
+export interface BecOutput {
+  rail: string | null;
+  volts: number | null;
+  amps: number | null;
+}
+
+// AI-gathered enrichment (vendor pages + docs + local wiki). NON-authoritative:
+// a discovery aid only. Chip-level fields are intentionally not surfaced in the
+// UI — they're unreliable for multi-revision boards. Verify against docs.
+export interface BoardAi {
+  manufacturer?: string | null;
+  marketing_name?: string | null;
+  family?: string | null;
+  dimensions_mm?: { length: number | null; width: number | null; height: number | null };
+  weight_g?: number | null;
+  mounting_pattern_mm?: string | null;
+  mounting_hole_dia_mm?: number | null;
+  voltage_cells?: string | null;
+  voltage_min_v?: number | null;
+  voltage_max_v?: number | null;
+  bec_outputs?: BecOutput[];
+  notable_connectors?: string[];
+  blackbox_flash?: string | null;
+  osd_chip?: string | null;
+  has_osd?: boolean | null;
+  wireless?: string | null;
+  pinout_notes?: string | null;
+  confidence?: "high" | "medium" | "low";
+  sources_used?: string[];
+}
+
 export interface Board {
   slug: string;
   name: string;
@@ -110,6 +141,7 @@ export interface Board {
   docs_url: string | null;
   repo_url: string | null;
   manual?: BoardManual;
+  ai?: BoardAi;
 }
 
 export interface BoardsPayload {
