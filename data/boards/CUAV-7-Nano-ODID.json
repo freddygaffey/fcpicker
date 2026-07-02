@@ -49,7 +49,7 @@
     "adc_inputs": 9
   },
   "power": {
-    "monitor_inputs": 0,
+    "monitor_inputs": 1,
     "bec": []
   },
   "imus": [

@@ -201,6 +201,10 @@ IOMCU_RE = re.compile(r"^\s*IOMCU_UART\b|^\s*define\s+HAL_WITH_IO_MCU\w*\s+1\b",
 # nVALID brick pins. Boards typically declare one per power input as
 # VDD_BRICK_nVALID, VDD_BRICK2_nVALID, VDD_BRICK3_nVALID, etc.
 BRICK_RE = re.compile(r"\bVDD_BRICK\d*_n?VALID\b")
+# Onboard analog battery sensing — a single (non-redundant) power-monitor input
+# on FPV/AIO boards that have no Pixhawk-style power bricks. Either an ADC pin
+# labelled *_VOLTAGE_SENS or a HAL_BATT_VOLT_PIN define.
+BATT_SENSE_RE = re.compile(r"\bBATT\w*_VOLTAGE_SENS\b|\bHAL_BATT_VOLT_PIN\b")
 SBUS_OUT_RE = re.compile(
     r"^\s*define\s+HAL_GPIO_PIN_SBUS_OUT\b|^\s*PINIO_PIN\s+\S+\s+SBUS_OUT\b|\bSBUS_OUT\b",
     re.MULTILINE,
@@ -479,7 +483,12 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
     sbus_out = bool(SBUS_OUT_RE.search(text))
     adc_inputs = len(set(ADC_PIN_RE.findall(text)))
     # Distinct brick indices: VDD_BRICK_nVALID, VDD_BRICK2_nVALID → 2 inputs.
+    # Boards with no bricks but onboard analog battery sensing have one
+    # (non-redundant) power-monitor input — otherwise every FPV/AIO board
+    # reports 0 despite measuring pack voltage/current.
     power_inputs = len({m for m in BRICK_RE.findall(text)})
+    if power_inputs == 0 and BATT_SENSE_RE.search(text):
+        power_inputs = 1
 
     # Vehicle support — defaults to all six unless hwdef overrides via AUTOBUILD_TARGETS.
     am = AUTOBUILD_RE.search(text)
