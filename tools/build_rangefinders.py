@@ -399,15 +399,20 @@ def export_per_driver(drivers: list[Driver], out_dir: Path) -> int:
         # — namespace the file so both survive.
         path = out_dir / f"{d.kind}-{d.slug}.json"
         manual = dict(MANUAL_TEMPLATE)
+        ai_block: dict | None = None
         if path.exists():
             try:
                 existing = json.loads(path.read_text())
                 if isinstance(existing.get("manual"), dict):
                     manual = {**MANUAL_TEMPLATE, **existing["manual"]}
+                if isinstance(existing.get("ai"), dict):
+                    ai_block = existing["ai"]
             except json.JSONDecodeError:
                 pass
         payload = driver_payload(d)
         payload["manual"] = manual
+        if ai_block is not None:
+            payload["ai"] = ai_block
         path.write_text(json.dumps(payload, indent=2) + "\n")
         written += 1
     return written

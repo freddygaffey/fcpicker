@@ -19,9 +19,15 @@ data/*.sqlite
 # without re-running the Python build pipeline.
 !data/fcpicker.sqlite
 
+# Labeler queue (local-only work items)
+data/_queue/*.jsonl
+
 # OS
 .DS_Store
 
 # Editors
 .vscode/
 .idea/
+
+# Wrangler local cache (account id)
+.wrangler/

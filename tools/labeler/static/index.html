@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>fcPicker labeler</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>fcPicker labeler</h1>
+    <nav id="categories"></nav>
+    <div class="spacer"></div>
+    <button id="queue-btn" type="button">Queue (0)</button>
+  </header>
+  <main>
+    <aside id="sidebar">
+      <input id="filter" type="search" placeholder="filter…" />
+      <ul id="slug-list"></ul>
+    </aside>
+    <section id="detail">
+      <p class="empty">Pick a category, then a slug.</p>
+    </section>
+  </main>
+  <dialog id="queue-dialog">
+    <h2>Pending queue</h2>
+    <p>In the Claude Code terminal, say <code>drain the queue</code>.</p>
+    <pre id="queue-list"></pre>
+    <form method="dialog"><button>Close</button></form>
+  </dialog>
+  <script src="/app.js"></script>
+</body>
+</html>

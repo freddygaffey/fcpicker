@@ -57,6 +57,10 @@ npm run build
 
 # Cloudflare Pages deploy (uses wrangler.jsonc)
 npm run deploy
+
+# Local labeler UI (http://localhost:8765) — review/edit catalog entries,
+# manage source URLs, queue AI extraction work
+.venv/bin/python tools/labeler/server.py
 ```
 
 There is no test suite. A pre-commit hook in `.githooks/pre-commit` runs `npm run lint` + `npm run build` when any `frontend/` file is staged; it's wired up via `npm run prepare` (`git config core.hooksPath .githooks`).
@@ -65,6 +69,27 @@ There is no test suite. A pre-commit hook in `.githooks/pre-commit` runs `npm ru
 
 - Prereq for the build script: a clone of ArduPilot at `~/ardupilot` (only the `libraries/AP_HAL_ChibiOS/hwdef/` tree is needed) and optionally `~/ardupilot_wiki` for docs links.
 - `data/fcpicker.sqlite` is gitignored and recreated from scratch on every build (`db_path.unlink()` at the top of `main()`).
+
+## Labeler + AI extraction workflow
+
+`data/<category>/<slug>.json` has up to three independent namespaces:
+
+- top-level keys + `firmware_support`, `imus`, etc. — **build-derived**, owned by `tools/build*.py`, regenerated from hwdef/driver source on every build.
+- **`ai`** block — populated by Claude subagents from vendor pages / docs / forum posts. Preserved across `build.py` re-runs (see `export_per_board`). Never authoritative; always promoted into `manual` before being trusted.
+- **`manual`** block — human-curated, source of truth for physical/commercial fields. Preserved across re-runs.
+
+Sibling files:
+
+- `sources/<category>/<slug>.txt` — URL list, one per line, committed. Inputs for extraction.
+- `data/_queue/queue.jsonl` — local-only (gitignored) work items written by the labeler UI; each line is `{"action":"find_sources"|"extract","category":...,"slug":...}`.
+
+The loop:
+
+1. Open the labeler (`.venv/bin/python tools/labeler/server.py`, http://localhost:8765).
+2. Pick a slug, paste candidate source URLs into the Sources textarea (or click *Queue source discovery* to have Claude search for them).
+3. Click *Queue extraction*. The UI appends to `data/_queue/queue.jsonl`.
+4. In the Claude Code terminal, say **"drain the queue"** — Claude reads `queue.jsonl`, spawns one subagent per entry (parallel where possible), each subagent reads its sources and writes back to the `ai` block of the slug's JSON, then clears the queue file.
+5. Refresh the labeler, review the `ai` block, click *→ manual* to promote individual fields, or edit them by hand. Commit.
 
 ## Roadmap
 
