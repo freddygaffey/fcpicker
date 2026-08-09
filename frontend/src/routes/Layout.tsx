@@ -63,7 +63,10 @@ export default function Layout() {
             >
               ArduPilot&rsquo;s hardware-definition files
             </a>{" "}
-            — always verify specifications against the{" "}
+            — which list every part the firmware <em>probes for</em>, often several
+            candidate chips spanning multiple board revisions, not a physical
+            inventory. Where the files are ambiguous, a best-guess interpretation is
+            shown, so always verify specifications against the{" "}
             <a href="https://ardupilot.org" target="_blank" rel="noreferrer">
               official ArduPilot documentation
             </a>{" "}
