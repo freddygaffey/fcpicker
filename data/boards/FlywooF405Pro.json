@@ -1,6 +1,7 @@
 {
   "slug": "FlywooF405Pro",
   "name": "FlywooF405Pro",
+  "platform": "chibios",
   "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F4xx",

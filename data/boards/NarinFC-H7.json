@@ -1,6 +1,7 @@
 {
   "slug": "NarinFC-H7",
   "name": "NarinFC-H7",
+  "platform": "chibios",
   "manufacturer": "VOLOLAND CO., LTD",
   "mcu": {
     "family": "STM32H7xx",

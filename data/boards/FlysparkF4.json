@@ -1,6 +1,7 @@
 {
   "slug": "FlysparkF4",
   "name": "FlysparkF4",
+  "platform": "chibios",
   "manufacturer": "FlySpark",
   "mcu": {
     "family": "STM32F4xx",

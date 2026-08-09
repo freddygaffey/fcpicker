@@ -1,6 +1,7 @@
 {
   "slug": "CSKY405",
   "name": "CSKY405",
+  "platform": "chibios",
   "manufacturer": "ClearSky",
   "mcu": {
     "family": "STM32F4xx",

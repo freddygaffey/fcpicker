@@ -1,6 +1,7 @@
 {
   "slug": "StellarH7V2",
   "name": "StellarH7V2",
+  "platform": "chibios",
   "manufacturer": "StingBee",
   "mcu": {
     "family": "STM32H7xx",

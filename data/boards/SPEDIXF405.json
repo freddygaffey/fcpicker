@@ -1,6 +1,7 @@
 {
   "slug": "SPEDIXF405",
   "name": "SPEDIXF405",
+  "platform": "chibios",
   "manufacturer": "SPEDIX",
   "mcu": {
     "family": "STM32F4xx",

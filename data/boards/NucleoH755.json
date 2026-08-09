@@ -1,6 +1,7 @@
 {
   "slug": "NucleoH755",
   "name": "NucleoH755",
+  "platform": "chibios",
   "manufacturer": "STMicroelectronics",
   "mcu": {
     "family": "STM32H7xx",

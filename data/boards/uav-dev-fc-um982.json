@@ -1,6 +1,7 @@
 {
   "slug": "uav-dev-fc-um982",
   "name": "uav-dev-fc-um982",
+  "platform": "chibios",
   "manufacturer": "UAV-DEV GmbH",
   "mcu": {
     "family": "STM32H7xx",

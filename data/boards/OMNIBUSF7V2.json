@@ -1,6 +1,7 @@
 {
   "slug": "OMNIBUSF7V2",
   "name": "OMNIBUSF7V2",
+  "platform": "chibios",
   "manufacturer": "Airbot",
   "mcu": {
     "family": "STM32F7xx",

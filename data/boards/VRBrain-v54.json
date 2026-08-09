@@ -1,6 +1,7 @@
 {
   "slug": "VRBrain-v54",
   "name": "VRBrain-v54",
+  "platform": "chibios",
   "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",

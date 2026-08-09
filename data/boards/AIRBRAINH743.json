@@ -1,6 +1,7 @@
 {
   "slug": "AIRBRAINH743",
   "name": "AIRBRAINH743",
+  "platform": "chibios",
   "manufacturer": "Gear Up",
   "mcu": {
     "family": "STM32H7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "mindpx-v2",
   "name": "mindpx-v2",
+  "platform": "chibios",
   "manufacturer": "AirMind",
   "mcu": {
     "family": "STM32F4xx",

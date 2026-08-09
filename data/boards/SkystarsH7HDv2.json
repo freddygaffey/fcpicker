@@ -1,6 +1,7 @@
 {
   "slug": "SkystarsH7HDv2",
   "name": "SkystarsH7HDv2",
+  "platform": "chibios",
   "manufacturer": "Skystars",
   "mcu": {
     "family": "STM32H7xx",
@@ -83,6 +84,13 @@
   "baros": [
     {
       "chip": "BMP280",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "SPL06",
       "bus": "I2C:0:0x76",
       "variant": null,
       "slot": null,

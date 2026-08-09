@@ -1,6 +1,7 @@
 {
   "slug": "PixSurveyA2-IND",
   "name": "PixSurveyA2-IND",
+  "platform": "chibios",
   "manufacturer": "MakeFlyEasy",
   "mcu": {
     "family": "STM32H7xx",

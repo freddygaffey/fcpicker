@@ -1,6 +1,7 @@
 {
   "slug": "PixFlamingo",
   "name": "PixFlamingo",
+  "platform": "chibios",
   "manufacturer": "Dheeran Labs",
   "mcu": {
     "family": "STM32L4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "ARK_FPV",
   "name": "ARK_FPV",
+  "platform": "chibios",
   "manufacturer": "ARK Electronics",
   "mcu": {
     "family": "STM32H7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "Nucleo-G491",
   "name": "Nucleo-G491",
+  "platform": "chibios",
   "manufacturer": "STMicroelectronics",
   "mcu": {
     "family": "STM32G491",

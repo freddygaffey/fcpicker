@@ -1,6 +1,7 @@
 {
   "slug": "NarinFC-X3",
   "name": "NarinFC-X3",
+  "platform": "chibios",
   "manufacturer": "VOLOLAND",
   "mcu": {
     "family": "STM32H7xx",

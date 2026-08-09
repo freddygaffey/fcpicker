@@ -1,6 +1,7 @@
 {
   "slug": "Airvolute-DCS2",
   "name": "Airvolute-DCS2",
+  "platform": "chibios",
   "manufacturer": "Airvolute",
   "mcu": {
     "family": "STM32H7xx",

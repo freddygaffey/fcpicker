@@ -1,0 +1,131 @@
+{
+  "slug": "GPILOT_P1",
+  "name": "GPILOT_P1",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H753xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 6,
+      "io": 8,
+      "total": 14
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 8
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602_ext",
+      "variant": null,
+      "slot": "SPI4/CS:GYRO_EXT_CS",
+      "chip_display": "ICM20602"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649_ext",
+      "variant": null,
+      "slot": "SPI4/CS:MPU_EXT_CS",
+      "chip_display": "ICM20649"
+    },
+    {
+      "chip": "Invensensev2",
+      "bus": "SPI:icm20649",
+      "variant": null,
+      "slot": "SPI1/CS:MPU_CS",
+      "chip_display": "ICM20649"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611_ext",
+      "variant": null,
+      "slot": "SPI4/CS:BARO_EXT_CS",
+      "chip_display": "MS5611"
+    },
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null,
+      "slot": "SPI1/CS:BARO_CS",
+      "chip_display": "MS5611"
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100",
+      "variant": null,
+      "slot": "SPI4/CS:RM3100_CS",
+      "chip_display": "RM3100"
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/GPILOT_P1/README.md",
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

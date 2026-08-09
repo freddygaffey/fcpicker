@@ -1,6 +1,7 @@
 {
   "slug": "CubeBlack+",
   "name": "CubeBlack+",
+  "platform": "chibios",
   "manufacturer": "Hex/ProfiCNC",
   "mcu": {
     "family": "STM32F4xx",

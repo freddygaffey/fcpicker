@@ -1,6 +1,7 @@
 {
   "slug": "CubeRedSecondary",
   "name": "CubeRedSecondary",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",

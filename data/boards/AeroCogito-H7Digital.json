@@ -1,6 +1,7 @@
 {
   "slug": "AeroCogito-H7Digital",
   "name": "AeroCogito-H7Digital",
+  "platform": "chibios",
   "manufacturer": "AeroCogito",
   "mcu": {
     "family": "STM32H7xx",

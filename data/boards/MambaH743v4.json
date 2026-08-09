@@ -1,6 +1,7 @@
 {
   "slug": "MambaH743v4",
   "name": "MambaH743v4",
+  "platform": "chibios",
   "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32H7xx",

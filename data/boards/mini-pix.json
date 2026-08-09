@@ -1,6 +1,7 @@
 {
   "slug": "mini-pix",
   "name": "mini-pix",
+  "platform": "chibios",
   "manufacturer": "RadioLink",
   "mcu": {
     "family": "STM32F4xx",

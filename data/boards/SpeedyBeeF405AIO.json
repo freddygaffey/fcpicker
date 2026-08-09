@@ -1,6 +1,7 @@
 {
   "slug": "SpeedyBeeF405AIO",
   "name": "SpeedyBeeF405AIO",
+  "platform": "chibios",
   "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",

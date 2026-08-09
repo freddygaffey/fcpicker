@@ -1,6 +1,7 @@
 {
   "slug": "sparknavi-blue",
   "name": "sparknavi-blue",
+  "platform": "chibios",
   "manufacturer": "SparkNavi",
   "mcu": {
     "family": "STM32H7xx",

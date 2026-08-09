@@ -1,6 +1,7 @@
 {
   "slug": "Pixhawk1",
   "name": "Pixhawk1",
+  "platform": "chibios",
   "manufacturer": "3DR",
   "mcu": {
     "family": "STM32F4xx",

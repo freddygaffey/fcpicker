@@ -1,6 +1,7 @@
 {
   "slug": "Aeromind6X",
   "name": "Aeromind6X",
+  "platform": "chibios",
   "manufacturer": "Arkin Labs Private Limited",
   "mcu": {
     "family": "STM32H7xx",

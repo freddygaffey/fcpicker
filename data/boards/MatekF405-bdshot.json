@@ -1,6 +1,7 @@
 {
   "slug": "MatekF405-bdshot",
   "name": "MatekF405-bdshot",
+  "platform": "chibios",
   "manufacturer": "Matek Systems",
   "mcu": {
     "family": "STM32F4xx",

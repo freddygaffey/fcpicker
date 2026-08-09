@@ -1,6 +1,7 @@
 {
   "slug": "CubeYellow-bdshot",
   "name": "CubeYellow-bdshot",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32F7xx",

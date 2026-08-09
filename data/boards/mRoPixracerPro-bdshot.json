@@ -1,6 +1,7 @@
 {
   "slug": "mRoPixracerPro-bdshot",
   "name": "mRoPixracerPro-bdshot",
+  "platform": "chibios",
   "manufacturer": "mRo",
   "mcu": {
     "family": "STM32H7xx",

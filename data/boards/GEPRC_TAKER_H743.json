@@ -1,6 +1,7 @@
 {
   "slug": "GEPRC_TAKER_H743",
   "name": "GEPRC_TAKER_H743",
+  "platform": "chibios",
   "manufacturer": "GEPRC",
   "mcu": {
     "family": "STM32H7xx",

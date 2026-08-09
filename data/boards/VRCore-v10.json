@@ -1,6 +1,7 @@
 {
   "slug": "VRCore-v10",
   "name": "VRCore-v10",
+  "platform": "chibios",
   "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",

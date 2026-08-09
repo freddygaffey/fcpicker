@@ -1,6 +1,7 @@
 {
   "slug": "FlyingMoonH743",
   "name": "FlyingMoonH743",
+  "platform": "chibios",
   "manufacturer": null,
   "mcu": {
     "family": "STM32H7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "MicoAir743",
   "name": "MicoAir743",
+  "platform": "chibios",
   "manufacturer": "MicoAir Tech.",
   "mcu": {
     "family": "STM32H7xx",

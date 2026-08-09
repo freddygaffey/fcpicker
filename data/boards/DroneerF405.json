@@ -1,6 +1,7 @@
 {
   "slug": "DroneerF405",
   "name": "DroneerF405",
+  "platform": "chibios",
   "manufacturer": "Droneer",
   "mcu": {
     "family": "STM32F4xx",

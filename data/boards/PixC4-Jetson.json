@@ -1,6 +1,7 @@
 {
   "slug": "PixC4-Jetson",
   "name": "PixC4-Jetson",
+  "platform": "chibios",
   "manufacturer": "Horizon31",
   "mcu": {
     "family": "STM32H7xx",

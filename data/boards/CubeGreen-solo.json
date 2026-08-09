@@ -1,6 +1,7 @@
 {
   "slug": "CubeGreen-solo",
   "name": "CubeGreen-solo",
+  "platform": "chibios",
   "manufacturer": "CubePilot (Hex/ProfiCNC)",
   "mcu": {
     "family": "STM32F4xx",

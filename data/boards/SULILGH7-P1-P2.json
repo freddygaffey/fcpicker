@@ -1,6 +1,7 @@
 {
   "slug": "SULILGH7-P1-P2",
   "name": "SULILGH7-P1-P2",
+  "platform": "chibios",
   "manufacturer": null,
   "mcu": {
     "family": "STM32H7xx",

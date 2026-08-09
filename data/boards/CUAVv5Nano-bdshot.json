@@ -1,6 +1,7 @@
 {
   "slug": "CUAVv5Nano-bdshot",
   "name": "CUAVv5Nano-bdshot",
+  "platform": "chibios",
   "manufacturer": "CUAV",
   "mcu": {
     "family": "STM32F7xx",

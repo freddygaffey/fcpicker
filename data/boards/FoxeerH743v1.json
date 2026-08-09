@@ -1,6 +1,7 @@
 {
   "slug": "FoxeerH743v1",
   "name": "FoxeerH743v1",
+  "platform": "chibios",
   "manufacturer": "Foxeer",
   "mcu": {
     "family": "STM32H7xx",

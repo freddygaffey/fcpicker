@@ -1,6 +1,7 @@
 {
   "slug": "DAKEFPVF405",
   "name": "DAKEFPVF405",
+  "platform": "chibios",
   "manufacturer": "DAKEFPV",
   "mcu": {
     "family": "STM32F4xx",

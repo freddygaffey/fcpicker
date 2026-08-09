@@ -1,0 +1,135 @@
+{
+  "slug": "CUAV-X25-MEGA-ODID",
+  "name": "CUAV-X25-MEGA-ODID",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "UART7",
+      "UART5",
+      "USART1",
+      "USART2",
+      "UART4",
+      "USART3"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C4",
+      "I2C1",
+      "I2C2",
+      "I2C3"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4",
+      "SPI5"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 16,
+      "io": 0,
+      "total": 16
+    },
+    "ethernet": true,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 7
+  },
+  "power": {
+    "monitor_inputs": 2,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "ADIS16607",
+      "bus": "SPI:adis16607",
+      "variant": null,
+      "slot": "SPI1/CS:ADIS16607_CS",
+      "chip_display": "ADIS16607"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:iim42652",
+      "variant": null,
+      "slot": "SPI2/CS:IIM42652_CS",
+      "chip_display": "IIM42652"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:iim42653",
+      "variant": null,
+      "slot": "SPI5/CS:IIM42653_CS",
+      "chip_display": "IIM42653"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP581",
+      "bus": "SPI:bmp581",
+      "variant": null,
+      "slot": "SPI4/CS:BMP581_CS",
+      "chip_display": "BMP581"
+    },
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:0:0x63",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "SPI:rm3100",
+      "variant": null,
+      "slot": "SPI4/CS:RM3100_CS",
+      "chip_display": "RM3100"
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-MEGA-ODID/README.md",
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

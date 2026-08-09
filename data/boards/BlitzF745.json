@@ -1,6 +1,7 @@
 {
   "slug": "BlitzF745",
   "name": "BlitzF745",
+  "platform": "chibios",
   "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "SkystarsH7HD-bdshot",
   "name": "SkystarsH7HD-bdshot",
+  "platform": "chibios",
   "manufacturer": "Skystars",
   "mcu": {
     "family": "STM32H7xx",

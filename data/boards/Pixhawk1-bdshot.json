@@ -1,6 +1,7 @@
 {
   "slug": "Pixhawk1-bdshot",
   "name": "Pixhawk1-bdshot",
+  "platform": "chibios",
   "manufacturer": "3DR",
   "mcu": {
     "family": "STM32F4xx",
@@ -21,10 +22,11 @@
       "I2C2",
       "I2C1"
     ],
-    "spi_count": 2,
+    "spi_count": 3,
     "spi_buses": [
       "SPI1",
-      "SPI2"
+      "SPI2",
+      "SPI4"
     ],
     "can_count": 2,
     "can_buses": [
@@ -34,9 +36,9 @@
     "canfd": false,
     "usb_count": 1,
     "pwm": {
-      "fmu": 6,
+      "fmu": 10,
       "io": 8,
-      "total": 14
+      "total": 18
     },
     "ethernet": false,
     "sdcard": true,

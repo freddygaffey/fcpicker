@@ -1,6 +1,7 @@
 {
   "slug": "CUAV-X7",
   "name": "CUAV-X7",
+  "platform": "chibios",
   "manufacturer": "CUAV",
   "mcu": {
     "family": "STM32H7xx",

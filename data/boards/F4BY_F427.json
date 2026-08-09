@@ -1,6 +1,7 @@
 {
   "slug": "F4BY_F427",
   "name": "F4BY_F427",
+  "platform": "chibios",
   "manufacturer": "Swift-Flyer",
   "mcu": {
     "family": "STM32F4xx",

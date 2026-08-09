@@ -1,6 +1,7 @@
 {
   "slug": "MatekH743",
   "name": "MatekH743",
+  "platform": "chibios",
   "manufacturer": "Matek",
   "mcu": {
     "family": "STM32H7xx",

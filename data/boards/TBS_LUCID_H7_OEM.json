@@ -1,0 +1,131 @@
+{
+  "slug": "TBS_LUCID_H7_OEM",
+  "name": "TBS_LUCID_H7_OEM",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "USART6",
+      "UART7",
+      "UART8"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 23,
+      "io": 0,
+      "total": 23
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:imu1",
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "IMU1"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:imu2",
+      "variant": null,
+      "slot": "SPI4/CS:IMU2_CS",
+      "chip_display": "IMU2"
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000_1",
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "MPU6000_1"
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu6000_2",
+      "variant": null,
+      "slot": "SPI4/CS:IMU2_CS",
+      "chip_display": "MPU6000_2"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "DPS310",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidh7.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_OEM/README.md",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

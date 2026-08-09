@@ -1,6 +1,7 @@
 {
   "slug": "AET-H743-Basic",
   "name": "AET-H743-Basic",
+  "platform": "chibios",
   "manufacturer": "AeroEggTech",
   "mcu": {
     "family": "STM32H7xx",

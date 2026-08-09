@@ -1,6 +1,7 @@
 {
   "slug": "JHEMCU-GSF405A-RX2",
   "name": "JHEMCU-GSF405A-RX2",
+  "platform": "chibios",
   "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",

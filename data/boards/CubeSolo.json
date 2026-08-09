@@ -1,6 +1,7 @@
 {
   "slug": "CubeSolo",
   "name": "CubeSolo",
+  "platform": "chibios",
   "manufacturer": "3DR",
   "mcu": {
     "family": "STM32F4xx",

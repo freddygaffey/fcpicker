@@ -1,6 +1,7 @@
 {
   "slug": "ACNS-CM4Pilot",
   "name": "ACNS-CM4Pilot",
+  "platform": "chibios",
   "manufacturer": "ACNS",
   "mcu": {
     "family": "STM32F4xx",

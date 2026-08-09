@@ -1,6 +1,7 @@
 {
   "slug": "airbotf4",
   "name": "airbotf4",
+  "platform": "chibios",
   "manufacturer": "Airbot",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "AnyleafH7",
   "name": "AnyleafH7",
+  "platform": "chibios",
   "manufacturer": "AnyLeaf",
   "mcu": {
     "family": "STM32H7xx",

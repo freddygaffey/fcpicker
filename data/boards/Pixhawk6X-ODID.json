@@ -1,6 +1,7 @@
 {
   "slug": "Pixhawk6X-ODID",
   "name": "Pixhawk6X-ODID",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",

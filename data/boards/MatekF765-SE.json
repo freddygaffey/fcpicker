@@ -1,6 +1,7 @@
 {
   "slug": "MatekF765-SE",
   "name": "MatekF765-SE",
+  "platform": "chibios",
   "manufacturer": "Mateksys",
   "mcu": {
     "family": "STM32F7xx",

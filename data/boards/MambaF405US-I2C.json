@@ -1,6 +1,7 @@
 {
   "slug": "MambaF405US-I2C",
   "name": "MambaF405US-I2C",
+  "platform": "chibios",
   "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32F4xx",

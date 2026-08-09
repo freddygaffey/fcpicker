@@ -1,6 +1,7 @@
 {
   "slug": "CUAV-X7-bdshot",
   "name": "CUAV-X7-bdshot",
+  "platform": "chibios",
   "manufacturer": "CUAV",
   "mcu": {
     "family": "STM32H7xx",

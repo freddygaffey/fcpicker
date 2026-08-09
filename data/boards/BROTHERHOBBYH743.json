@@ -1,6 +1,7 @@
 {
   "slug": "BROTHERHOBBYH743",
   "name": "BROTHERHOBBYH743",
+  "platform": "chibios",
   "manufacturer": "BROTHERHOBBY",
   "mcu": {
     "family": "STM32H7xx",

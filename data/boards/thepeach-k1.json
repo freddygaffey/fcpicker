@@ -1,6 +1,7 @@
 {
   "slug": "thepeach-k1",
   "name": "thepeach-k1",
+  "platform": "chibios",
   "manufacturer": "ThePeach",
   "mcu": {
     "family": "STM32F4xx",

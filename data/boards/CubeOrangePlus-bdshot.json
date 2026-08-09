@@ -1,6 +1,7 @@
 {
   "slug": "CubeOrangePlus-bdshot",
   "name": "CubeOrangePlus-bdshot",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",

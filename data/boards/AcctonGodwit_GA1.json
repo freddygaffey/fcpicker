@@ -1,6 +1,7 @@
 {
   "slug": "AcctonGodwit_GA1",
   "name": "AcctonGodwit_GA1",
+  "platform": "chibios",
   "manufacturer": "Accton-IoT",
   "mcu": {
     "family": "STM32H7xx",
@@ -86,8 +87,22 @@
       "chip_display": null
     },
     {
+      "chip": "DPS310",
+      "bus": "I2C:0:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
       "chip": "ICP201XX",
       "bus": "I2C:2:0x63",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "DPS310",
+      "bus": "I2C:2:0x77",
       "variant": null,
       "slot": null,
       "chip_display": null

@@ -1,6 +1,7 @@
 {
   "slug": "MicoAir405v2",
   "name": "MicoAir405v2",
+  "platform": "chibios",
   "manufacturer": "MicoAir",
   "mcu": {
     "family": "STM32F4xx",

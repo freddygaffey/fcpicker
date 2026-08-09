@@ -1,6 +1,7 @@
 {
   "slug": "SDMODELH7V2",
   "name": "SDMODELH7V2",
+  "platform": "chibios",
   "manufacturer": "SDMODEL",
   "mcu": {
     "family": "STM32H7xx",

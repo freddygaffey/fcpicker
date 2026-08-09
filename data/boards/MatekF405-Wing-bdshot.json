@@ -1,6 +1,7 @@
 {
   "slug": "MatekF405-Wing-bdshot",
   "name": "MatekF405-Wing-bdshot",
+  "platform": "chibios",
   "manufacturer": "Mateksys",
   "mcu": {
     "family": "STM32F4xx",

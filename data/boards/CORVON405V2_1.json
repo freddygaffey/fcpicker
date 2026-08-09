@@ -1,6 +1,7 @@
 {
   "slug": "CORVON405V2_1",
   "name": "CORVON405V2_1",
+  "platform": "chibios",
   "manufacturer": "CORVON",
   "mcu": {
     "family": "STM32F4xx",

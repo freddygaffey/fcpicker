@@ -1,6 +1,7 @@
 {
   "slug": "SuccexF4",
   "name": "SuccexF4",
+  "platform": "chibios",
   "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F4xx",

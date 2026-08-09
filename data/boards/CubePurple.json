@@ -1,6 +1,7 @@
 {
   "slug": "CubePurple",
   "name": "CubePurple",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32F4xx",

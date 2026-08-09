@@ -1,6 +1,7 @@
 {
   "slug": "AEROFOX-H7",
   "name": "AEROFOX-H7",
+  "platform": "chibios",
   "manufacturer": "AEROFOX",
   "mcu": {
     "family": "STM32H7xx",

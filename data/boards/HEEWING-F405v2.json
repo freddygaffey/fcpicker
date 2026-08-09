@@ -1,6 +1,7 @@
 {
   "slug": "HEEWING-F405v2",
   "name": "HEEWING-F405v2",
+  "platform": "chibios",
   "manufacturer": "HEEWING",
   "mcu": {
     "family": "STM32F4xx",

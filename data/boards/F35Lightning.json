@@ -1,6 +1,7 @@
 {
   "slug": "F35Lightning",
   "name": "F35Lightning",
+  "platform": "chibios",
   "manufacturer": "Furious FPV",
   "mcu": {
     "family": "STM32F4xx",

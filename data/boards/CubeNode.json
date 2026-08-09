@@ -1,6 +1,7 @@
 {
   "slug": "CubeNode",
   "name": "CubeNode",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",

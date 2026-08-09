@@ -1,6 +1,7 @@
 {
   "slug": "luminousbee4",
   "name": "luminousbee4",
+  "platform": "chibios",
   "manufacturer": "LuminousBees",
   "mcu": {
     "family": "STM32F4xx",

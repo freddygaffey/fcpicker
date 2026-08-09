@@ -3,6 +3,7 @@
     {
       "slug": "3DRControlZeroG",
       "name": "3DRControlZeroG",
+      "platform": "chibios",
       "manufacturer": "3DR (mRo)",
       "mcu": {
         "family": "STM32H7xx",
@@ -280,6 +281,7 @@
     {
       "slug": "AcctonGodwit_GA1",
       "name": "AcctonGodwit_GA1",
+      "platform": "chibios",
       "manufacturer": "Accton-IoT",
       "mcu": {
         "family": "STM32H7xx",
@@ -365,8 +367,22 @@
           "chip_display": null
         },
         {
+          "chip": "DPS310",
+          "bus": "I2C:0:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
           "chip": "ICP201XX",
           "bus": "I2C:2:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "DPS310",
+          "bus": "I2C:2:0x77",
           "variant": null,
           "slot": null,
           "chip_display": null
@@ -564,6 +580,7 @@
     {
       "slug": "ACNS-CM4Pilot",
       "name": "ACNS-CM4Pilot",
+      "platform": "chibios",
       "manufacturer": "ACNS",
       "mcu": {
         "family": "STM32F4xx",
@@ -802,6 +819,7 @@
     {
       "slug": "ACNS-F405AIO",
       "name": "ACNS-F405AIO",
+      "platform": "chibios",
       "manufacturer": "ACNS",
       "mcu": {
         "family": "STM32F4xx",
@@ -1069,6 +1087,7 @@
     {
       "slug": "AEDROXH7",
       "name": "AEDROXH7",
+      "platform": "chibios",
       "manufacturer": "Aedrox",
       "mcu": {
         "family": "STM32H7xx",
@@ -1331,8 +1350,117 @@
       }
     },
     {
+      "slug": "aero",
+      "name": "aero",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "BMI160",
+          "bus": "SPI:bmi160",
+          "variant": null,
+          "slot": null,
+          "chip_display": "BMI160"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "I2C:2:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "BMM150",
+          "bus": "I2C:2:0x12",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "HMC5843",
+          "bus": "I2C:4:0x1e",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IST8310",
+          "bus": "I2C:4:0x0e",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-intel-aero-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/aero",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "AeroCogito-H7Digital",
       "name": "AeroCogito-H7Digital",
+      "platform": "chibios",
       "manufacturer": "AeroCogito",
       "mcu": {
         "family": "STM32H7xx",
@@ -1568,6 +1696,7 @@
     {
       "slug": "AEROFOX-H7",
       "name": "AEROFOX-H7",
+      "platform": "chibios",
       "manufacturer": "AEROFOX",
       "mcu": {
         "family": "STM32H7xx",
@@ -1827,6 +1956,7 @@
     {
       "slug": "Aeromind6X",
       "name": "Aeromind6X",
+      "platform": "chibios",
       "manufacturer": "Arkin Labs Private Limited",
       "mcu": {
         "family": "STM32H7xx",
@@ -2127,6 +2257,7 @@
     {
       "slug": "AET-H743-Basic",
       "name": "AET-H743-Basic",
+      "platform": "chibios",
       "manufacturer": "AeroEggTech",
       "mcu": {
         "family": "STM32H7xx",
@@ -2412,8 +2543,125 @@
       }
     },
     {
+      "slug": "AET_H743_Air",
+      "name": "AET_H743_Air",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 5,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART5"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C2",
+          "I2C1"
+        ],
+        "spi_count": 4,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI3",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 11,
+          "io": 0,
+          "total": 11
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 5
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "BMI270",
+          "bus": "SPI:bmi270_0",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "BMI270_0"
+        },
+        {
+          "chip": "BMI270",
+          "bus": "SPI:bmi270_1",
+          "variant": null,
+          "slot": "SPI4/CS:IMU2_CS",
+          "chip_display": "BMI270_1"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "SPL06",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "DPS310",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-AET-H743-Basic.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AET_H743_Air/README.md",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "airbotf4",
       "name": "airbotf4",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -2632,6 +2880,7 @@
     {
       "slug": "AIRBRAINH743",
       "name": "AIRBRAINH743",
+      "platform": "chibios",
       "manufacturer": "Gear Up",
       "mcu": {
         "family": "STM32H7xx",
@@ -2891,6 +3140,7 @@
     {
       "slug": "AIRLink",
       "name": "AIRLink",
+      "platform": "chibios",
       "manufacturer": "Sky-Drones",
       "mcu": {
         "family": "STM32F7xx",
@@ -3173,6 +3423,7 @@
     {
       "slug": "Airvolute-DCS2",
       "name": "Airvolute-DCS2",
+      "platform": "chibios",
       "manufacturer": "Airvolute",
       "mcu": {
         "family": "STM32H7xx",
@@ -3395,6 +3646,7 @@
     {
       "slug": "AnyleafH7",
       "name": "AnyleafH7",
+      "platform": "chibios",
       "manufacturer": "AnyLeaf",
       "mcu": {
         "family": "STM32H7xx",
@@ -3651,6 +3903,7 @@
     {
       "slug": "Aocoda-RC-H743Dual",
       "name": "Aocoda-RC-H743Dual",
+      "platform": "chibios",
       "manufacturer": "Aocoda-RC",
       "mcu": {
         "family": "STM32H7xx",
@@ -3942,6 +4195,7 @@
     {
       "slug": "ARK_FPV",
       "name": "ARK_FPV",
+      "platform": "chibios",
       "manufacturer": "ARK Electronics",
       "mcu": {
         "family": "STM32H7xx",
@@ -4208,6 +4462,7 @@
     {
       "slug": "ARK_PI6X",
       "name": "ARK_PI6X",
+      "platform": "chibios",
       "manufacturer": "ARK Electronics",
       "mcu": {
         "family": "STM32H7xx",
@@ -4460,8 +4715,123 @@
       }
     },
     {
+      "slug": "ARKV6S",
+      "name": "ARKV6S",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 8,
+        "uart_buses": [
+          "UART7",
+          "UART5",
+          "USART1",
+          "UART8",
+          "USART2",
+          "UART4",
+          "USART3",
+          "USART6"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C4",
+          "I2C1",
+          "I2C2",
+          "I2C3"
+        ],
+        "spi_count": 2,
+        "spi_buses": [
+          "SPI1",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 8,
+          "io": 0,
+          "total": 8
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 4
+      },
+      "power": {
+        "monitor_inputs": 3,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:iim42653",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "IIM42653"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP388",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IIS2MDC",
+          "bus": "I2C:0:0x1E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ARKV6S/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "ARKV6X",
       "name": "ARKV6X",
+      "platform": "chibios",
       "manufacturer": "ARK Electronics",
       "mcu": {
         "family": "STM32H7xx",
@@ -4742,6 +5112,7 @@
     {
       "slug": "ARKV6X-bdshot",
       "name": "ARKV6X-bdshot",
+      "platform": "chibios",
       "manufacturer": "ARK Electronics",
       "mcu": {
         "family": "STM32H7xx",
@@ -4782,9 +5153,9 @@
         "canfd": false,
         "usb_count": 2,
         "pwm": {
-          "fmu": 12,
+          "fmu": 14,
           "io": 0,
-          "total": 12
+          "total": 14
         },
         "ethernet": true,
         "sdcard": true,
@@ -5022,6 +5393,7 @@
     {
       "slug": "Atlas-Control",
       "name": "Atlas-Control",
+      "platform": "chibios",
       "manufacturer": "AtlasFlight",
       "mcu": {
         "family": "STM32H7xx",
@@ -5278,6 +5650,7 @@
     {
       "slug": "AtomRCF405NAVI",
       "name": "AtomRCF405NAVI",
+      "platform": "chibios",
       "manufacturer": "AtomRC",
       "mcu": {
         "family": "STM32F4xx",
@@ -5532,6 +5905,7 @@
     {
       "slug": "ATOMRCF405NAVI-Deluxe",
       "name": "ATOMRCF405NAVI-Deluxe",
+      "platform": "chibios",
       "manufacturer": "ATOMRC",
       "mcu": {
         "family": "STM32F4xx",
@@ -5787,8 +6161,216 @@
       }
     },
     {
+      "slug": "bbbmini",
+      "name": "bbbmini",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250ext",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250EXT"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "1",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/bbbmini",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "BCubeF745v2",
+      "name": "BCubeF745v2",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32F7xx",
+        "part": "STM32F745xx"
+      },
+      "flash_kb": 1024,
+      "io": {
+        "uart_count": 6,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "USART6",
+          "UART7"
+        ],
+        "i2c_count": 1,
+        "i2c_buses": [
+          "I2C1"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 7,
+          "io": 0,
+          "total": 7
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 2
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm42688",
+          "variant": null,
+          "slot": "SPI4/CS:ICM42688_CS",
+          "chip_display": "ICM42688"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "DPS310",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/BCubeF745v2/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "BeastF7",
       "name": "BeastF7",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32F7xx",
@@ -6045,6 +6627,7 @@
     {
       "slug": "BeastF7v2",
       "name": "BeastF7v2",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32F7xx",
@@ -6280,6 +6863,7 @@
     {
       "slug": "BeastH7",
       "name": "BeastH7",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32H7xx",
@@ -6558,6 +7142,7 @@
     {
       "slug": "BeastH7v2",
       "name": "BeastH7v2",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32H7xx",
@@ -6813,8 +7398,98 @@
       }
     },
     {
+      "slug": "bebop",
+      "name": "bebop",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "I2C:2:0x68",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5607",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963",
+          "bus": "I2C:1:0x0d",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/parrot-bebop-autopilot.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/bebop",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "BETAFPV-F405",
       "name": "BETAFPV-F405",
+      "platform": "chibios",
       "manufacturer": "BETAFPV",
       "mcu": {
         "family": "STM32F4xx",
@@ -7046,6 +7721,7 @@
     {
       "slug": "BETAFPV-F405-I2C",
       "name": "BETAFPV-F405-I2C",
+      "platform": "chibios",
       "manufacturer": "BETAFPV",
       "mcu": {
         "family": "STM32F4xx",
@@ -7293,8 +7969,110 @@
       }
     },
     {
+      "slug": "bhat",
+      "name": "bhat",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "I2C:1:0x69",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/bhat",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "BlitzF745",
       "name": "BlitzF745",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32F7xx",
@@ -7561,6 +8339,7 @@
     {
       "slug": "BlitzF745AIO",
       "name": "BlitzF745AIO",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32F7xx",
@@ -7821,6 +8600,7 @@
     {
       "slug": "BlitzH743Pro",
       "name": "BlitzH743Pro",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32H7xx",
@@ -8078,6 +8858,7 @@
     {
       "slug": "BlitzMiniF745",
       "name": "BlitzMiniF745",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32F7xx",
@@ -8361,6 +9142,7 @@
     {
       "slug": "BlitzWingH743",
       "name": "BlitzWingH743",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32H7xx",
@@ -8631,8 +9413,103 @@
       }
     },
     {
+      "slug": "blue",
+      "name": "blue",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "I2C:2:0x68",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP280",
+          "bus": "I2C:2:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "I2C:2:0x0c",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-beagle-bone-blue.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/blue",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "BOTWINGF405",
       "name": "BOTWINGF405",
+      "platform": "chibios",
       "manufacturer": "BOTLAB DYNAMICS",
       "mcu": {
         "family": "STM32F4xx",
@@ -8877,6 +9754,7 @@
     {
       "slug": "BrahmaF4",
       "name": "BrahmaF4",
+      "platform": "chibios",
       "manufacturer": "Darkmatter\u00ae",
       "mcu": {
         "family": "STM32F4xx",
@@ -9116,6 +9994,7 @@
     {
       "slug": "BROTHERHOBBYF405v3",
       "name": "BROTHERHOBBYF405v3",
+      "platform": "chibios",
       "manufacturer": "BrotherHobby",
       "mcu": {
         "family": "STM32F4xx",
@@ -9346,6 +10225,7 @@
     {
       "slug": "BROTHERHOBBYH743",
       "name": "BROTHERHOBBYH743",
+      "platform": "chibios",
       "manufacturer": "BROTHERHOBBY",
       "mcu": {
         "family": "STM32H7xx",
@@ -9612,8 +10492,103 @@
       }
     },
     {
+      "slug": "canzero",
+      "name": "canzero",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/canzero",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "CBU-H7-LC-Stamp",
       "name": "CBU-H7-LC-Stamp",
+      "platform": "chibios",
       "manufacturer": "CBUnmanned",
       "mcu": {
         "family": "STM32H7xx",
@@ -9860,6 +10835,7 @@
     {
       "slug": "CBU-H7-Stamp",
       "name": "CBU-H7-Stamp",
+      "platform": "chibios",
       "manufacturer": "CBUnmanned",
       "mcu": {
         "family": "STM32H7xx",
@@ -10125,6 +11101,7 @@
     {
       "slug": "CORVON405V2_1",
       "name": "CORVON405V2_1",
+      "platform": "chibios",
       "manufacturer": "CORVON",
       "mcu": {
         "family": "STM32F4xx",
@@ -10351,6 +11328,7 @@
     {
       "slug": "CORVON743V1",
       "name": "CORVON743V1",
+      "platform": "chibios",
       "manufacturer": "CORVON",
       "mcu": {
         "family": "STM32H7xx",
@@ -10663,8 +11641,260 @@
       }
     },
     {
+      "slug": "CORVON743V2",
+      "name": "CORVON743V2",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 8,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART5",
+          "USART6",
+          "UART7",
+          "UART8"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C2",
+          "I2C1"
+        ],
+        "spi_count": 1,
+        "spi_buses": [
+          "SPI3"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 13,
+          "io": 0,
+          "total": 13
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 6
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm42688p",
+          "variant": null,
+          "slot": "SPI3/CS:ICM42688_CS",
+          "chip_display": "ICM42688P"
+        },
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI3/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP581",
+          "bus": "I2C:0:0x46",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IST8310",
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-corvon743v2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CORVON743V2/README.md",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "CORVON_V5",
+      "name": "CORVON_V5",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32F7xx",
+        "part": "STM32F767xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 6,
+        "uart_buses": [
+          "USART2",
+          "USART3",
+          "USART1",
+          "UART4",
+          "USART6",
+          "UART7"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C3",
+          "I2C1",
+          "I2C2",
+          "I2C4"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 11,
+          "io": 0,
+          "total": 11
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 9
+      },
+      "power": {
+        "monitor_inputs": 2,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20689",
+          "variant": null,
+          "slot": "SPI1/CS:ICM20689_CS",
+          "chip_display": "ICM20689"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20602",
+          "variant": null,
+          "slot": "SPI1/CS:ICM20602_CS",
+          "chip_display": "ICM20602"
+        },
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": "SPI4/CS:MS5611_CS",
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CORVON_V5/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "CrazyF405",
       "name": "CrazyF405",
+      "platform": "chibios",
       "manufacturer": "Happymodel",
       "mcu": {
         "family": "STM32F4xx",
@@ -10888,6 +12118,7 @@
     {
       "slug": "crazyflie2",
       "name": "crazyflie2",
+      "platform": "chibios",
       "manufacturer": "Bitcraze",
       "mcu": {
         "family": "STM32F4xx",
@@ -11111,6 +12342,7 @@
     {
       "slug": "CSKY405",
       "name": "CSKY405",
+      "platform": "chibios",
       "manufacturer": "ClearSky",
       "mcu": {
         "family": "STM32F4xx",
@@ -11331,6 +12563,7 @@
     {
       "slug": "CUAV-7-Nano",
       "name": "CUAV-7-Nano",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -11601,6 +12834,7 @@
     {
       "slug": "CUAV-7-Nano-ODID",
       "name": "CUAV-7-Nano-ODID",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -11871,6 +13105,7 @@
     {
       "slug": "CUAV-Nora",
       "name": "CUAV-Nora",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -12207,6 +13442,7 @@
     {
       "slug": "CUAV-Nora-bdshot",
       "name": "CUAV-Nora-bdshot",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -12543,6 +13779,7 @@
     {
       "slug": "CUAV-Nora-ODID",
       "name": "CUAV-Nora-ODID",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -12879,6 +14116,7 @@
     {
       "slug": "CUAV-V6X-v2",
       "name": "CUAV-V6X-v2",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -13149,6 +14387,7 @@
     {
       "slug": "CUAV-V6X-v2-ODID",
       "name": "CUAV-V6X-v2-ODID",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -13419,6 +14658,7 @@
     {
       "slug": "CUAV-X25-EVO",
       "name": "CUAV-X25-EVO",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -13711,6 +14951,7 @@
     {
       "slug": "CUAV-X25-EVO-ODID",
       "name": "CUAV-X25-EVO-ODID",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -14001,8 +15242,279 @@
       }
     },
     {
+      "slug": "CUAV-X25-MEGA",
+      "name": "CUAV-X25-MEGA",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 6,
+        "uart_buses": [
+          "UART7",
+          "UART5",
+          "USART1",
+          "USART2",
+          "UART4",
+          "USART3"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C4",
+          "I2C1",
+          "I2C2",
+          "I2C3"
+        ],
+        "spi_count": 4,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 16,
+          "io": 0,
+          "total": 16
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 7
+      },
+      "power": {
+        "monitor_inputs": 2,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "ADIS16607",
+          "bus": "SPI:adis16607",
+          "variant": null,
+          "slot": "SPI1/CS:ADIS16607_CS",
+          "chip_display": "ADIS16607"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:iim42652",
+          "variant": null,
+          "slot": "SPI2/CS:IIM42652_CS",
+          "chip_display": "IIM42652"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:iim42653",
+          "variant": null,
+          "slot": "SPI5/CS:IIM42653_CS",
+          "chip_display": "IIM42653"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP581",
+          "bus": "SPI:bmp581",
+          "variant": null,
+          "slot": "SPI4/CS:BMP581_CS",
+          "chip_display": "BMP581"
+        },
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:0:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "RM3100",
+          "bus": "SPI:rm3100",
+          "variant": null,
+          "slot": "SPI4/CS:RM3100_CS",
+          "chip_display": "RM3100"
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-MEGA/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "CUAV-X25-MEGA-ODID",
+      "name": "CUAV-X25-MEGA-ODID",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 6,
+        "uart_buses": [
+          "UART7",
+          "UART5",
+          "USART1",
+          "USART2",
+          "UART4",
+          "USART3"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C4",
+          "I2C1",
+          "I2C2",
+          "I2C3"
+        ],
+        "spi_count": 4,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 16,
+          "io": 0,
+          "total": 16
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 7
+      },
+      "power": {
+        "monitor_inputs": 2,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "ADIS16607",
+          "bus": "SPI:adis16607",
+          "variant": null,
+          "slot": "SPI1/CS:ADIS16607_CS",
+          "chip_display": "ADIS16607"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:iim42652",
+          "variant": null,
+          "slot": "SPI2/CS:IIM42652_CS",
+          "chip_display": "IIM42652"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:iim42653",
+          "variant": null,
+          "slot": "SPI5/CS:IIM42653_CS",
+          "chip_display": "IIM42653"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP581",
+          "bus": "SPI:bmp581",
+          "variant": null,
+          "slot": "SPI4/CS:BMP581_CS",
+          "chip_display": "BMP581"
+        },
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:0:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "RM3100",
+          "bus": "SPI:rm3100",
+          "variant": null,
+          "slot": "SPI4/CS:RM3100_CS",
+          "chip_display": "RM3100"
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CUAV-X25-MEGA-ODID/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "CUAV-X7",
       "name": "CUAV-X7",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -14311,6 +15823,7 @@
     {
       "slug": "CUAV-X7-bdshot",
       "name": "CUAV-X7-bdshot",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -14619,6 +16132,7 @@
     {
       "slug": "CUAV-X7-ODID",
       "name": "CUAV-X7-ODID",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -14927,6 +16441,7 @@
     {
       "slug": "CUAVv5",
       "name": "CUAVv5",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32F7xx",
@@ -15212,6 +16727,7 @@
     {
       "slug": "CUAVv5-bdshot",
       "name": "CUAVv5-bdshot",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32F7xx",
@@ -15497,6 +17013,7 @@
     {
       "slug": "CUAVv5Nano",
       "name": "CUAVv5Nano",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32F7xx",
@@ -15774,6 +17291,7 @@
     {
       "slug": "CUAVv5Nano-bdshot",
       "name": "CUAVv5Nano-bdshot",
+      "platform": "chibios",
       "manufacturer": "CUAV",
       "mcu": {
         "family": "STM32F7xx",
@@ -16051,6 +17569,7 @@
     {
       "slug": "CubeBlack",
       "name": "CubeBlack",
+      "platform": "chibios",
       "manufacturer": "CubePilot (Hex/ProfiCNC)",
       "mcu": {
         "family": "STM32F4xx",
@@ -16323,6 +17842,7 @@
     {
       "slug": "CubeBlack+",
       "name": "CubeBlack+",
+      "platform": "chibios",
       "manufacturer": "Hex/ProfiCNC",
       "mcu": {
         "family": "STM32F4xx",
@@ -16597,6 +18117,7 @@
     {
       "slug": "CubeGreen-solo",
       "name": "CubeGreen-solo",
+      "platform": "chibios",
       "manufacturer": "CubePilot (Hex/ProfiCNC)",
       "mcu": {
         "family": "STM32F4xx",
@@ -16871,6 +18392,7 @@
     {
       "slug": "CubeNode",
       "name": "CubeNode",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -17070,6 +18592,7 @@
     {
       "slug": "CubeNode-ETH",
       "name": "CubeNode-ETH",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -17261,6 +18784,7 @@
     {
       "slug": "CubeOrange",
       "name": "CubeOrange",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -17525,6 +19049,7 @@
     {
       "slug": "CubeOrange-bdshot",
       "name": "CubeOrange-bdshot",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -17789,6 +19314,7 @@
     {
       "slug": "CubeOrange-joey",
       "name": "CubeOrange-joey",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -18031,6 +19557,7 @@
     {
       "slug": "CubeOrange-ODID",
       "name": "CubeOrange-ODID",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -18295,6 +19822,7 @@
     {
       "slug": "CubeOrange-SimOnHardWare",
       "name": "CubeOrange-SimOnHardWare",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -18554,6 +20082,7 @@
     {
       "slug": "CubeOrangePlus",
       "name": "CubeOrangePlus",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -18823,6 +20352,7 @@
     {
       "slug": "CubeOrangePlus-bdshot",
       "name": "CubeOrangePlus-bdshot",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -19092,6 +20622,7 @@
     {
       "slug": "CubeOrangePlus-ODID",
       "name": "CubeOrangePlus-ODID",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -19361,6 +20892,7 @@
     {
       "slug": "CubeOrangePlus-SimOnHardWare",
       "name": "CubeOrangePlus-SimOnHardWare",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -19625,6 +21157,7 @@
     {
       "slug": "CubePurple",
       "name": "CubePurple",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32F4xx",
@@ -19837,6 +21370,7 @@
     {
       "slug": "CubeRedPrimary",
       "name": "CubeRedPrimary",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -20097,6 +21631,7 @@
     {
       "slug": "CubeRedPrimary-PPPGW",
       "name": "CubeRedPrimary-PPPGW",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -20334,6 +21869,7 @@
     {
       "slug": "CubeRedSecondary",
       "name": "CubeRedSecondary",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -20529,6 +22065,7 @@
     {
       "slug": "CubeSolo",
       "name": "CubeSolo",
+      "platform": "chibios",
       "manufacturer": "3DR",
       "mcu": {
         "family": "STM32F4xx",
@@ -20805,6 +22342,7 @@
     {
       "slug": "CubeYellow",
       "name": "CubeYellow",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32F7xx",
@@ -21054,6 +22592,7 @@
     {
       "slug": "CubeYellow-bdshot",
       "name": "CubeYellow-bdshot",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32F7xx",
@@ -21301,8 +22840,146 @@
       }
     },
     {
+      "slug": "CyberX-v10",
+      "name": "CyberX-v10",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "USART2",
+          "USART3",
+          "USART1",
+          "UART4",
+          "UART5",
+          "UART8",
+          "UART7"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C3",
+          "I2C4",
+          "I2C1",
+          "I2C2"
+        ],
+        "spi_count": 5,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI3",
+          "SPI4",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 8,
+          "io": 8,
+          "total": 16
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": true,
+        "adc_inputs": 7
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI3/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm42688",
+          "variant": null,
+          "slot": "SPI4/CS:ICM42688_CS",
+          "chip_display": "ICM42688"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20689",
+          "variant": null,
+          "slot": "SPI1/CS:ICM20689_CS",
+          "chip_display": "ICM20689"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP581",
+          "bus": "SPI:bmp581",
+          "variant": null,
+          "slot": "SPI2/CS:BMP581_CS",
+          "chip_display": "BMP581"
+        },
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:1:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:0:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CyberX-v10/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "DAKEFPVF405",
       "name": "DAKEFPVF405",
+      "platform": "chibios",
       "manufacturer": "DAKEFPV",
       "mcu": {
         "family": "STM32F4xx",
@@ -21567,6 +23244,7 @@
     {
       "slug": "DAKEFPVH743",
       "name": "DAKEFPVH743",
+      "platform": "chibios",
       "manufacturer": "DAKEFPV",
       "mcu": {
         "family": "STM32H7xx",
@@ -21821,6 +23499,7 @@
     {
       "slug": "DAKEFPVH743_SLIM",
       "name": "DAKEFPVH743_SLIM",
+      "platform": "chibios",
       "manufacturer": "DAKEFPV",
       "mcu": {
         "family": "STM32H7xx",
@@ -22086,6 +23765,7 @@
     {
       "slug": "DAKEFPVH743Pro",
       "name": "DAKEFPVH743Pro",
+      "platform": "chibios",
       "manufacturer": "DAKEFPV",
       "mcu": {
         "family": "STM32H7xx",
@@ -22345,8 +24025,192 @@
       }
     },
     {
+      "slug": "dark",
+      "name": "dark",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/dark",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "disco",
+      "name": "disco",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "I2C:2:0x68",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5607",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963",
+          "bus": "I2C:1:0x0d",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "plane"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/disco",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "DroneerF405",
       "name": "DroneerF405",
+      "platform": "chibios",
       "manufacturer": "Droneer",
       "mcu": {
         "family": "STM32F4xx",
@@ -22606,6 +24470,7 @@
     {
       "slug": "DrotekP3Pro",
       "name": "DrotekP3Pro",
+      "platform": "chibios",
       "manufacturer": "Drotek",
       "mcu": {
         "family": "STM32F4xx",
@@ -22881,6 +24746,7 @@
     {
       "slug": "Durandal",
       "name": "Durandal",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -23151,6 +25017,7 @@
     {
       "slug": "Durandal-bdshot",
       "name": "Durandal-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -23419,8 +25286,290 @@
       }
     },
     {
+      "slug": "edge",
+      "name": "edge",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu60x0",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU60X0"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu60x0ext",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU60X0EXT"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-emlid-edge.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/edge",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "erleboard",
+      "name": "erleboard",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/erleboard",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "erlebrain2",
+      "name": "erlebrain2",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-erle-brain2-wiring-quick-start.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/erlebrain2",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "F35Lightning",
       "name": "F35Lightning",
+      "platform": "chibios",
       "manufacturer": "Furious FPV",
       "mcu": {
         "family": "STM32F4xx",
@@ -23661,6 +25810,7 @@
     {
       "slug": "F4BY",
       "name": "F4BY",
+      "platform": "chibios",
       "manufacturer": "Swift-Flyer",
       "mcu": {
         "family": "STM32F4xx",
@@ -23884,6 +26034,7 @@
     {
       "slug": "F4BY_F427",
       "name": "F4BY_F427",
+      "platform": "chibios",
       "manufacturer": "Swift-Flyer",
       "mcu": {
         "family": "STM32F4xx",
@@ -24128,6 +26279,7 @@
     {
       "slug": "F4BY_H743",
       "name": "F4BY_H743",
+      "platform": "chibios",
       "manufacturer": "F4BY Team",
       "mcu": {
         "family": "STM32H7xx",
@@ -24391,8 +26543,120 @@
       }
     },
     {
+      "slug": "flycore",
+      "name": "flycore",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART5",
+          "USART6",
+          "UART7",
+          "UART8"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C1",
+          "I2C4"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 8,
+          "io": 0,
+          "total": 8
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 1
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm42688P",
+          "variant": null,
+          "slot": "SPI2/CS:ICM42688P_CS",
+          "chip_display": "ICM42688P"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": "SPI1/CS:MS5611_CS",
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/flycore/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "FlyingMoonF407",
       "name": "FlyingMoonF407",
+      "platform": "chibios",
       "manufacturer": null,
       "mcu": {
         "family": "STM32F4xx",
@@ -24606,6 +26870,7 @@
     {
       "slug": "FlyingMoonF427",
       "name": "FlyingMoonF427",
+      "platform": "chibios",
       "manufacturer": "FlyingMoon",
       "mcu": {
         "family": "STM32F4xx",
@@ -24862,6 +27127,7 @@
     {
       "slug": "FlyingMoonH743",
       "name": "FlyingMoonH743",
+      "platform": "chibios",
       "manufacturer": null,
       "mcu": {
         "family": "STM32H7xx",
@@ -25098,6 +27364,7 @@
     {
       "slug": "FlysparkF4",
       "name": "FlysparkF4",
+      "platform": "chibios",
       "manufacturer": "FlySpark",
       "mcu": {
         "family": "STM32F4xx",
@@ -25354,6 +27621,7 @@
     {
       "slug": "FlywooF405HD-AIOv2",
       "name": "FlywooF405HD-AIOv2",
+      "platform": "chibios",
       "manufacturer": "Flywoo",
       "mcu": {
         "family": "STM32F4xx",
@@ -25424,6 +27692,13 @@
         },
         {
           "chip": "DPS310",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "SPL06",
           "bus": "I2C:0:0x76",
           "variant": null,
           "slot": null,
@@ -25640,6 +27915,7 @@
     {
       "slug": "FlywooF405Pro",
       "name": "FlywooF405Pro",
+      "platform": "chibios",
       "manufacturer": "Flywoo",
       "mcu": {
         "family": "STM32F4xx",
@@ -25874,6 +28150,7 @@
     {
       "slug": "FlywooF405S-AIO",
       "name": "FlywooF405S-AIO",
+      "platform": "chibios",
       "manufacturer": "Flywoo",
       "mcu": {
         "family": "STM32F4xx",
@@ -25944,6 +28221,13 @@
         },
         {
           "chip": "DPS310",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "SPL06",
           "bus": "I2C:0:0x76",
           "variant": null,
           "slot": null,
@@ -26148,6 +28432,7 @@
     {
       "slug": "FlywooF745",
       "name": "FlywooF745",
+      "platform": "chibios",
       "manufacturer": "Flywoo",
       "mcu": {
         "family": "STM32F7xx",
@@ -26457,6 +28742,7 @@
     {
       "slug": "FlywooF745Nano",
       "name": "FlywooF745Nano",
+      "platform": "chibios",
       "manufacturer": "Flywoo",
       "mcu": {
         "family": "STM32F7xx",
@@ -26734,6 +29020,7 @@
     {
       "slug": "FlywooH743Pro",
       "name": "FlywooH743Pro",
+      "platform": "chibios",
       "manufacturer": "Flywoo",
       "mcu": {
         "family": "STM32H7xx",
@@ -27002,6 +29289,7 @@
     {
       "slug": "fmuv5",
       "name": "fmuv5",
+      "platform": "chibios",
       "manufacturer": null,
       "mcu": {
         "family": "STM32F7xx",
@@ -27252,6 +29540,7 @@
     {
       "slug": "FoxeerF405v2",
       "name": "FoxeerF405v2",
+      "platform": "chibios",
       "manufacturer": "Foxeer",
       "mcu": {
         "family": "STM32F4xx",
@@ -27506,6 +29795,7 @@
     {
       "slug": "FoxeerH743v1",
       "name": "FoxeerH743v1",
+      "platform": "chibios",
       "manufacturer": "Foxeer",
       "mcu": {
         "family": "STM32H7xx",
@@ -27769,6 +30059,7 @@
     {
       "slug": "GEPRC_TAKER_H743",
       "name": "GEPRC_TAKER_H743",
+      "platform": "chibios",
       "manufacturer": "GEPRC",
       "mcu": {
         "family": "STM32H7xx",
@@ -28026,6 +30317,7 @@
     {
       "slug": "GEPRCF745BTHD",
       "name": "GEPRCF745BTHD",
+      "platform": "chibios",
       "manufacturer": "GEPRC",
       "mcu": {
         "family": "STM32F7xx",
@@ -28294,8 +30586,140 @@
       }
     },
     {
+      "slug": "GPILOT_P1",
+      "name": "GPILOT_P1",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H753xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 5,
+        "uart_buses": [
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART8",
+          "UART7"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C2",
+          "I2C1"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": true,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 6,
+          "io": 8,
+          "total": 14
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": true,
+        "adc_inputs": 8
+      },
+      "power": {
+        "monitor_inputs": 2,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20602_ext",
+          "variant": null,
+          "slot": "SPI4/CS:GYRO_EXT_CS",
+          "chip_display": "ICM20602"
+        },
+        {
+          "chip": "Invensensev2",
+          "bus": "SPI:icm20649_ext",
+          "variant": null,
+          "slot": "SPI4/CS:MPU_EXT_CS",
+          "chip_display": "ICM20649"
+        },
+        {
+          "chip": "Invensensev2",
+          "bus": "SPI:icm20649",
+          "variant": null,
+          "slot": "SPI1/CS:MPU_CS",
+          "chip_display": "ICM20649"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611_ext",
+          "variant": null,
+          "slot": "SPI4/CS:BARO_EXT_CS",
+          "chip_display": "MS5611"
+        },
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": "SPI1/CS:BARO_CS",
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "RM3100",
+          "bus": "SPI:rm3100",
+          "variant": null,
+          "slot": "SPI4/CS:RM3100_CS",
+          "chip_display": "RM3100"
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/GPILOT_P1/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "GreenSightUltraBlue",
       "name": "GreenSightUltraBlue",
+      "platform": "chibios",
       "manufacturer": "GreenSight",
       "mcu": {
         "family": "STM32H7xx",
@@ -28529,6 +30953,7 @@
     {
       "slug": "HEEWING-F405",
       "name": "HEEWING-F405",
+      "platform": "chibios",
       "manufacturer": "HEEWING",
       "mcu": {
         "family": "STM32F4xx",
@@ -28748,6 +31173,7 @@
     {
       "slug": "HEEWING-F405v2",
       "name": "HEEWING-F405v2",
+      "platform": "chibios",
       "manufacturer": "HEEWING",
       "mcu": {
         "family": "STM32F4xx",
@@ -28980,6 +31406,7 @@
     {
       "slug": "Here4FC",
       "name": "Here4FC",
+      "platform": "chibios",
       "manufacturer": "CubePilot",
       "mcu": {
         "family": "STM32H7xx",
@@ -29206,6 +31633,7 @@
     {
       "slug": "HWH7",
       "name": "HWH7",
+      "platform": "chibios",
       "manufacturer": "HW",
       "mcu": {
         "family": "STM32H7xx",
@@ -29485,6 +31913,7 @@
     {
       "slug": "IFLIGHT_2RAW_H7",
       "name": "IFLIGHT_2RAW_H7",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32H7xx",
@@ -29748,6 +32177,7 @@
     {
       "slug": "JFB100",
       "name": "JFB100",
+      "platform": "chibios",
       "manufacturer": "Japan Aviation Electronics Industry (JAE)",
       "mcu": {
         "family": "STM32F7xx",
@@ -30001,6 +32431,7 @@
     {
       "slug": "JFB110",
       "name": "JFB110",
+      "platform": "chibios",
       "manufacturer": "JAE (Japan Aviation Electronics Industry)",
       "mcu": {
         "family": "STM32H7xx",
@@ -30275,8 +32706,159 @@
       }
     },
     {
+      "slug": "JFB200",
+      "name": "JFB200",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H755xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "UART7",
+          "UART5",
+          "USART3",
+          "USART1",
+          "USART2",
+          "UART8",
+          "USART6"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C3",
+          "I2C1",
+          "I2C2",
+          "I2C4"
+        ],
+        "spi_count": 4,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI3",
+          "SPI4"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 16,
+          "io": 0,
+          "total": 16
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 10
+      },
+      "power": {
+        "monitor_inputs": 2,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm45686",
+          "variant": null,
+          "slot": "SPI2/CS:IMU1_SPI2_CS",
+          "chip_display": "ICM45686"
+        },
+        {
+          "chip": "ASM330",
+          "bus": "SPI:asm330lhh",
+          "variant": null,
+          "slot": "SPI3/CS:IMU2_SPI3_CS",
+          "chip_display": "ASM330LHH"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:iim42653",
+          "variant": null,
+          "slot": "SPI1/CS:IMU3_SPI1_CS",
+          "chip_display": "IIM42653"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP388",
+          "bus": "SPI:bmp390_1",
+          "variant": null,
+          "slot": "SPI2/CS:BARO1_SPI2_CS",
+          "chip_display": "BMP390_1"
+        },
+        {
+          "chip": "BMP388",
+          "bus": "SPI:bmp390_2",
+          "variant": null,
+          "slot": "SPI4/CS:BARO3_SPI4_CS",
+          "chip_display": "BMP390_2"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "BMM350",
+          "bus": "I2C:ALL_INTERNAL:0x14",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IST8310",
+          "bus": "I2C:ALL_INTERNAL:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IST8310",
+          "bus": "I2C:ALL_EXTERNAL:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/JFB200/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "JHEM_JHEF405",
       "name": "JHEM_JHEF405",
+      "platform": "chibios",
       "manufacturer": "JHEMCU",
       "mcu": {
         "family": "STM32F4xx",
@@ -30542,6 +33124,7 @@
     {
       "slug": "JHEMCU-GSF405A",
       "name": "JHEMCU-GSF405A",
+      "platform": "chibios",
       "manufacturer": "JHEMCU",
       "mcu": {
         "family": "STM32F4xx",
@@ -30769,6 +33352,7 @@
     {
       "slug": "JHEMCU-GSF405A-RX2",
       "name": "JHEMCU-GSF405A-RX2",
+      "platform": "chibios",
       "manufacturer": "JHEMCU",
       "mcu": {
         "family": "STM32F4xx",
@@ -31017,6 +33601,7 @@
     {
       "slug": "JHEMCU-H743HD",
       "name": "JHEMCU-H743HD",
+      "platform": "chibios",
       "manufacturer": "JHEMCU",
       "mcu": {
         "family": "STM32H7xx",
@@ -31270,6 +33855,7 @@
     {
       "slug": "JHEMCUF405PRO",
       "name": "JHEMCUF405PRO",
+      "platform": "chibios",
       "manufacturer": "JHEMCU",
       "mcu": {
         "family": "STM32F4xx",
@@ -31521,6 +34107,7 @@
     {
       "slug": "JHEMCUF405WING",
       "name": "JHEMCUF405WING",
+      "platform": "chibios",
       "manufacturer": "JHEMCU",
       "mcu": {
         "family": "STM32F4xx",
@@ -31752,6 +34339,7 @@
     {
       "slug": "JPilot-C",
       "name": "JPilot-C",
+      "platform": "chibios",
       "manufacturer": "Flyfocus",
       "mcu": {
         "family": "STM32H7xx",
@@ -32016,6 +34604,7 @@
     {
       "slug": "KakuteF4",
       "name": "KakuteF4",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F4xx",
@@ -32279,6 +34868,7 @@
     {
       "slug": "KakuteF4-Wing",
       "name": "KakuteF4-Wing",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F4xx",
@@ -32517,6 +35107,7 @@
     {
       "slug": "KakuteF4Mini",
       "name": "KakuteF4Mini",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F4xx",
@@ -32770,6 +35361,7 @@
     {
       "slug": "KakuteF7",
       "name": "KakuteF7",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -33008,6 +35600,7 @@
     {
       "slug": "KakuteF7-bdshot",
       "name": "KakuteF7-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -33246,6 +35839,7 @@
     {
       "slug": "KakuteF7Mini",
       "name": "KakuteF7Mini",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -33505,6 +36099,7 @@
     {
       "slug": "KakuteH7",
       "name": "KakuteH7",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -33806,6 +36401,7 @@
     {
       "slug": "KakuteH7-bdshot",
       "name": "KakuteH7-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -34107,6 +36703,7 @@
     {
       "slug": "KakuteH7-Wing",
       "name": "KakuteH7-Wing",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -34171,6 +36768,13 @@
           "variant": null,
           "slot": "SPI3/CS:ICM42688_CS",
           "chip_display": "ICM42688"
+        },
+        {
+          "chip": "LSM6DSV",
+          "bus": "SPI:lsm6dsv",
+          "variant": null,
+          "slot": "SPI3/CS:ICM42688_CS",
+          "chip_display": "LSM6DSV"
         }
       ],
       "baros": [
@@ -34387,6 +36991,7 @@
     {
       "slug": "KakuteH7Mini",
       "name": "KakuteH7Mini",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -34619,6 +37224,7 @@
     {
       "slug": "KakuteH7Mini-Nand",
       "name": "KakuteH7Mini-Nand",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -34862,6 +37468,7 @@
     {
       "slug": "KakuteH7v2",
       "name": "KakuteH7v2",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -35139,8 +37746,110 @@
       }
     },
     {
+      "slug": "KARSHAKH743VTOL",
+      "name": "KARSHAKH743VTOL",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART5",
+          "UART7",
+          "UART8"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C1",
+          "I2C4"
+        ],
+        "spi_count": 1,
+        "spi_buses": [
+          "SPI1"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 10,
+          "io": 0,
+          "total": 10
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 3
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "BMI088",
+          "bus": "SPI:imu0_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_1_A_CS",
+          "chip_display": "IMU0"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "SPL06",
+          "bus": "I2C:0:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/KARSHAKH743VTOL/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "KT-FMU-F1",
       "name": "KT-FMU-F1",
+      "platform": "chibios",
       "manufacturer": "Coolfly",
       "mcu": {
         "family": "STM32H7xx",
@@ -35404,6 +38113,7 @@
     {
       "slug": "LongBowF405WING",
       "name": "LongBowF405WING",
+      "platform": "chibios",
       "manufacturer": "lefei rc",
       "mcu": {
         "family": "STM32F4xx",
@@ -35639,6 +38349,7 @@
     {
       "slug": "LumenierLUXF765-NDAA",
       "name": "LumenierLUXF765-NDAA",
+      "platform": "chibios",
       "manufacturer": "Lumenier",
       "mcu": {
         "family": "STM32F7xx",
@@ -35876,6 +38587,7 @@
     {
       "slug": "luminousbee4",
       "name": "luminousbee4",
+      "platform": "chibios",
       "manufacturer": "LuminousBees",
       "mcu": {
         "family": "STM32F4xx",
@@ -36107,6 +38819,7 @@
     {
       "slug": "luminousbee5",
       "name": "luminousbee5",
+      "platform": "chibios",
       "manufacturer": "LuminousBees",
       "mcu": {
         "family": "STM32H7xx",
@@ -36322,6 +39035,7 @@
     {
       "slug": "MambaF405-2022",
       "name": "MambaF405-2022",
+      "platform": "chibios",
       "manufacturer": "Diatone",
       "mcu": {
         "family": "STM32F4xx",
@@ -36585,6 +39299,7 @@
     {
       "slug": "MambaF405US-I2C",
       "name": "MambaF405US-I2C",
+      "platform": "chibios",
       "manufacturer": "Diatone",
       "mcu": {
         "family": "STM32F4xx",
@@ -36807,6 +39522,7 @@
     {
       "slug": "MambaF405v2",
       "name": "MambaF405v2",
+      "platform": "chibios",
       "manufacturer": "Diatone",
       "mcu": {
         "family": "STM32F4xx",
@@ -37050,6 +39766,7 @@
     {
       "slug": "MambaH743v4",
       "name": "MambaH743v4",
+      "platform": "chibios",
       "manufacturer": "Diatone",
       "mcu": {
         "family": "STM32H7xx",
@@ -37364,6 +40081,7 @@
     {
       "slug": "MatekF405",
       "name": "MatekF405",
+      "platform": "chibios",
       "manufacturer": "Matek Systems",
       "mcu": {
         "family": "STM32F4xx",
@@ -37600,6 +40318,7 @@
     {
       "slug": "MatekF405-bdshot",
       "name": "MatekF405-bdshot",
+      "platform": "chibios",
       "manufacturer": "Matek Systems",
       "mcu": {
         "family": "STM32F4xx",
@@ -37836,6 +40555,7 @@
     {
       "slug": "MatekF405-CAN",
       "name": "MatekF405-CAN",
+      "platform": "chibios",
       "manufacturer": "Matek Systems",
       "mcu": {
         "family": "STM32F4xx",
@@ -38065,6 +40785,7 @@
     {
       "slug": "MatekF405-STD",
       "name": "MatekF405-STD",
+      "platform": "chibios",
       "manufacturer": "Mateksys",
       "mcu": {
         "family": "STM32F4xx",
@@ -38295,6 +41016,7 @@
     {
       "slug": "MatekF405-TE",
       "name": "MatekF405-TE",
+      "platform": "chibios",
       "manufacturer": "Matek",
       "mcu": {
         "family": "STM32F4xx",
@@ -38516,6 +41238,7 @@
     {
       "slug": "MatekF405-TE-bdshot",
       "name": "MatekF405-TE-bdshot",
+      "platform": "chibios",
       "manufacturer": "Matek",
       "mcu": {
         "family": "STM32F4xx",
@@ -38737,6 +41460,7 @@
     {
       "slug": "MatekF405-Wing",
       "name": "MatekF405-Wing",
+      "platform": "chibios",
       "manufacturer": "Mateksys",
       "mcu": {
         "family": "STM32F4xx",
@@ -38994,6 +41718,7 @@
     {
       "slug": "MatekF405-Wing-bdshot",
       "name": "MatekF405-Wing-bdshot",
+      "platform": "chibios",
       "manufacturer": "Mateksys",
       "mcu": {
         "family": "STM32F4xx",
@@ -39251,6 +41976,7 @@
     {
       "slug": "MatekF765-SE",
       "name": "MatekF765-SE",
+      "platform": "chibios",
       "manufacturer": "Mateksys",
       "mcu": {
         "family": "STM32F7xx",
@@ -39513,6 +42239,7 @@
     {
       "slug": "MatekF765-Wing",
       "name": "MatekF765-Wing",
+      "platform": "chibios",
       "manufacturer": "Matek",
       "mcu": {
         "family": "STM32F7xx",
@@ -39775,6 +42502,7 @@
     {
       "slug": "MatekF765-Wing-bdshot",
       "name": "MatekF765-Wing-bdshot",
+      "platform": "chibios",
       "manufacturer": "Matek",
       "mcu": {
         "family": "STM32F7xx",
@@ -40037,6 +42765,7 @@
     {
       "slug": "MatekH743",
       "name": "MatekH743",
+      "platform": "chibios",
       "manufacturer": "Matek",
       "mcu": {
         "family": "STM32H7xx",
@@ -40329,6 +43058,7 @@
     {
       "slug": "MatekH743-bdshot",
       "name": "MatekH743-bdshot",
+      "platform": "chibios",
       "manufacturer": "Matek",
       "mcu": {
         "family": "STM32H7xx",
@@ -40621,6 +43351,7 @@
     {
       "slug": "MatekH7A3",
       "name": "MatekH7A3",
+      "platform": "chibios",
       "manufacturer": "Matek Systems",
       "mcu": {
         "family": "STM32H7xx",
@@ -40880,6 +43611,7 @@
     {
       "slug": "MatekH7A3-Wing",
       "name": "MatekH7A3-Wing",
+      "platform": "chibios",
       "manufacturer": "Matek Systems",
       "mcu": {
         "family": "STM32H7xx",
@@ -41138,6 +43870,7 @@
     {
       "slug": "MazzyStarDrone",
       "name": "MazzyStarDrone",
+      "platform": "chibios",
       "manufacturer": "VimDrones",
       "mcu": {
         "family": "STM32F7xx",
@@ -41376,6 +44109,7 @@
     {
       "slug": "MFT-SEMA100",
       "name": "MFT-SEMA100",
+      "platform": "chibios",
       "manufacturer": "MFT Savunma ve Havac\u0131l\u0131k LTD. \u015eT\u0130.",
       "mcu": {
         "family": "STM32H7xx",
@@ -41617,6 +44351,7 @@
     {
       "slug": "MicoAir405Mini",
       "name": "MicoAir405Mini",
+      "platform": "chibios",
       "manufacturer": "MicoAir Tech.",
       "mcu": {
         "family": "STM32F4xx",
@@ -41876,6 +44611,7 @@
     {
       "slug": "MicoAir405v2",
       "name": "MicoAir405v2",
+      "platform": "chibios",
       "manufacturer": "MicoAir",
       "mcu": {
         "family": "STM32F4xx",
@@ -42113,6 +44849,7 @@
     {
       "slug": "MicoAir743",
       "name": "MicoAir743",
+      "platform": "chibios",
       "manufacturer": "MicoAir Tech.",
       "mcu": {
         "family": "STM32H7xx",
@@ -42402,6 +45139,7 @@
     {
       "slug": "MicoAir743-AIO",
       "name": "MicoAir743-AIO",
+      "platform": "chibios",
       "manufacturer": "MicoAir Tech",
       "mcu": {
         "family": "STM32H7xx",
@@ -42680,6 +45418,7 @@
     {
       "slug": "MicoAir743-Lite",
       "name": "MicoAir743-Lite",
+      "platform": "chibios",
       "manufacturer": "MicoAir Tech",
       "mcu": {
         "family": "STM32H7xx",
@@ -42930,6 +45669,7 @@
     {
       "slug": "MicoAir743v2",
       "name": "MicoAir743v2",
+      "platform": "chibios",
       "manufacturer": "MicoAir",
       "mcu": {
         "family": "STM32H7xx",
@@ -43231,6 +45971,7 @@
     {
       "slug": "mindpx-v2",
       "name": "mindpx-v2",
+      "platform": "chibios",
       "manufacturer": "AirMind",
       "mcu": {
         "family": "STM32F4xx",
@@ -43472,6 +46213,7 @@
     {
       "slug": "mini-pix",
       "name": "mini-pix",
+      "platform": "chibios",
       "manufacturer": "RadioLink",
       "mcu": {
         "family": "STM32F4xx",
@@ -43719,6 +46461,7 @@
     {
       "slug": "modalai_fc-v1",
       "name": "modalai_fc-v1",
+      "platform": "chibios",
       "manufacturer": "ModalAI",
       "mcu": {
         "family": "STM32F7xx",
@@ -43937,6 +46680,7 @@
     {
       "slug": "Morakot",
       "name": "Morakot",
+      "platform": "chibios",
       "manufacturer": "Taiphoon",
       "mcu": {
         "family": "STM32H7xx",
@@ -44219,6 +46963,7 @@
     {
       "slug": "mRoControlZeroClassic",
       "name": "mRoControlZeroClassic",
+      "platform": "chibios",
       "manufacturer": "mRobotics",
       "mcu": {
         "family": "STM32H7xx",
@@ -44500,6 +47245,7 @@
     {
       "slug": "mRoControlZeroF7",
       "name": "mRoControlZeroF7",
+      "platform": "chibios",
       "manufacturer": "mRobotics",
       "mcu": {
         "family": "STM32F7xx",
@@ -44762,6 +47508,7 @@
     {
       "slug": "mRoControlZeroH7",
       "name": "mRoControlZeroH7",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -45024,6 +47771,7 @@
     {
       "slug": "mRoControlZeroH7-bdshot",
       "name": "mRoControlZeroH7-bdshot",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -45286,6 +48034,7 @@
     {
       "slug": "mRoControlZeroOEMH7",
       "name": "mRoControlZeroOEMH7",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -45550,6 +48299,7 @@
     {
       "slug": "mRoCZeroOEMH7-bdshot",
       "name": "mRoCZeroOEMH7-bdshot",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -45807,6 +48557,7 @@
     {
       "slug": "mRoNexus",
       "name": "mRoNexus",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -46042,6 +48793,7 @@
     {
       "slug": "mRoPixracerPro",
       "name": "mRoPixracerPro",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -46285,6 +49037,7 @@
     {
       "slug": "mRoPixracerPro-bdshot",
       "name": "mRoPixracerPro-bdshot",
+      "platform": "chibios",
       "manufacturer": "mRo",
       "mcu": {
         "family": "STM32H7xx",
@@ -46528,6 +49281,7 @@
     {
       "slug": "MUPilot",
       "name": "MUPilot",
+      "platform": "chibios",
       "manufacturer": "MUGIN UAV",
       "mcu": {
         "family": "STM32F7xx",
@@ -46809,6 +49563,7 @@
     {
       "slug": "NarinFC-H5",
       "name": "NarinFC-H5",
+      "platform": "chibios",
       "manufacturer": "VOLOLAND CO., LTD",
       "mcu": {
         "family": "STM32H7xx",
@@ -47095,6 +49850,7 @@
     {
       "slug": "NarinFC-H7",
       "name": "NarinFC-H7",
+      "platform": "chibios",
       "manufacturer": "VOLOLAND CO., LTD",
       "mcu": {
         "family": "STM32H7xx",
@@ -47442,6 +50198,7 @@
     {
       "slug": "NarinFC-X3",
       "name": "NarinFC-X3",
+      "platform": "chibios",
       "manufacturer": "VOLOLAND",
       "mcu": {
         "family": "STM32H7xx",
@@ -47707,8 +50464,448 @@
       }
     },
     {
+      "slug": "navigator",
+      "name": "navigator",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20602",
+          "variant": null,
+          "slot": null,
+          "chip_display": "ICM20602"
+        },
+        {
+          "chip": "LSM6DSV",
+          "bus": "SPI:lsm6dsv",
+          "variant": null,
+          "slot": null,
+          "chip_display": "LSM6DSV"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP280",
+          "bus": "I2C:1:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP388",
+          "bus": "I2C:1:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "MMC5XX3",
+          "bus": "SPI:mmc5983",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MMC5983"
+        },
+        {
+          "chip": "AK09916",
+          "bus": "I2C:1:0x0c",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IIS2MDC",
+          "bus": "I2C:1:0x1E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/navigator",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "navigator64",
+      "name": "navigator64",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20602",
+          "variant": null,
+          "slot": null,
+          "chip_display": "ICM20602"
+        },
+        {
+          "chip": "LSM6DSV",
+          "bus": "SPI:lsm6dsv",
+          "variant": null,
+          "slot": null,
+          "chip_display": "LSM6DSV"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP280",
+          "bus": "I2C:1:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP388",
+          "bus": "I2C:1:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "MMC5XX3",
+          "bus": "SPI:mmc5983",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MMC5983"
+        },
+        {
+          "chip": "AK09916",
+          "bus": "I2C:1:0x0c",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IIS2MDC",
+          "bus": "I2C:1:0x1E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/navigator64",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "navio",
+      "name": "navio",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-navio-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/navio",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "navio2",
+      "name": "navio2",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "LSM9DS1",
+          "bus": "SPI:lsm9ds1_m",
+          "variant": null,
+          "slot": null,
+          "chip_display": "LSM9DS1_M"
+        },
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-navio2-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/navio2",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "Nucleo-G491",
       "name": "Nucleo-G491",
+      "platform": "chibios",
       "manufacturer": "STMicroelectronics",
       "mcu": {
         "family": "STM32G491",
@@ -47908,6 +51105,7 @@
     {
       "slug": "NucleoH755",
       "name": "NucleoH755",
+      "platform": "chibios",
       "manufacturer": "STMicroelectronics",
       "mcu": {
         "family": "STM32H7xx",
@@ -48108,6 +51306,7 @@
     {
       "slug": "NxtPX4v2",
       "name": "NxtPX4v2",
+      "platform": "chibios",
       "manufacturer": "MicoAir Tech",
       "mcu": {
         "family": "STM32H7xx",
@@ -48370,8 +51569,197 @@
       }
     },
     {
+      "slug": "obal",
+      "name": "obal",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP085",
+          "bus": "I2C:1:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-obal-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/obal",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "ocpoc_zynq",
+      "name": "ocpoc_zynq",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/ocpoc_zynq",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "omnibusf4",
       "name": "omnibusf4",
+      "platform": "chibios",
       "manufacturer": "Airbot Systems",
       "mcu": {
         "family": "STM32F4xx",
@@ -48581,6 +51969,7 @@
     {
       "slug": "omnibusf4pro",
       "name": "omnibusf4pro",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -48823,6 +52212,7 @@
     {
       "slug": "omnibusf4pro-bdshot",
       "name": "omnibusf4pro-bdshot",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -49065,6 +52455,7 @@
     {
       "slug": "omnibusf4pro-one",
       "name": "omnibusf4pro-one",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -49314,6 +52705,7 @@
     {
       "slug": "omnibusf4v6",
       "name": "omnibusf4v6",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -49560,6 +52952,7 @@
     {
       "slug": "OMNIBUSF7V2",
       "name": "OMNIBUSF7V2",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F7xx",
@@ -49829,6 +53222,7 @@
     {
       "slug": "OmnibusNanoV6",
       "name": "OmnibusNanoV6",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -50067,6 +53461,7 @@
     {
       "slug": "OmnibusNanoV6-bdshot",
       "name": "OmnibusNanoV6-bdshot",
+      "platform": "chibios",
       "manufacturer": "Airbot",
       "mcu": {
         "family": "STM32F4xx",
@@ -50305,6 +53700,7 @@
     {
       "slug": "ORBITH743",
       "name": "ORBITH743",
+      "platform": "chibios",
       "manufacturer": "Orbit Technology",
       "mcu": {
         "family": "STM32H7xx",
@@ -50568,8 +53964,121 @@
       }
     },
     {
+      "slug": "ORBITH743v2",
+      "name": "ORBITH743v2",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 8,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART5",
+          "USART6",
+          "UART7",
+          "UART8"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C1",
+          "I2C2"
+        ],
+        "spi_count": 4,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI3",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 13,
+          "io": 0,
+          "total": 13
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 3
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm42688p",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "ICM42688P"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm40609d",
+          "variant": null,
+          "slot": "SPI3/CS:IMU2_CS",
+          "chip_display": "ICM40609D"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "SPL06",
+          "bus": "I2C:1:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-orbith743.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ORBITH743v2/README.md",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "OrqaF405Pro",
       "name": "OrqaF405Pro",
+      "platform": "chibios",
       "manufacturer": "Orqa",
       "mcu": {
         "family": "STM32F4xx",
@@ -50805,6 +54314,7 @@
     {
       "slug": "OrqaH7QuadCore",
       "name": "OrqaH7QuadCore",
+      "platform": "chibios",
       "manufacturer": "Orqa",
       "mcu": {
         "family": "STM32H7xx",
@@ -51058,6 +54568,7 @@
     {
       "slug": "PH4-mini",
       "name": "PH4-mini",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -51308,6 +54819,7 @@
     {
       "slug": "PH4-mini-bdshot",
       "name": "PH4-mini-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -51558,6 +55070,7 @@
     {
       "slug": "PilotGaeaSH7V1-bdshot",
       "name": "PilotGaeaSH7V1-bdshot",
+      "platform": "chibios",
       "manufacturer": "PilotGaea",
       "mcu": {
         "family": "STM32H7xx",
@@ -51824,8 +55337,103 @@
       }
     },
     {
+      "slug": "pilotpi",
+      "name": "pilotpi",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm42688",
+          "variant": null,
+          "slot": null,
+          "chip_display": "ICM42688"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "I2C:1:0b1110110",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:1:0x0f",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/pilotpi",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "Pix32v5",
       "name": "Pix32v5",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -52098,6 +55706,7 @@
     {
       "slug": "PixC4-Jetson",
       "name": "PixC4-Jetson",
+      "platform": "chibios",
       "manufacturer": "Horizon31",
       "mcu": {
         "family": "STM32H7xx",
@@ -52373,6 +55982,7 @@
     {
       "slug": "PixFlamingo",
       "name": "PixFlamingo",
+      "platform": "chibios",
       "manufacturer": "Dheeran Labs",
       "mcu": {
         "family": "STM32L4xx",
@@ -52588,6 +56198,7 @@
     {
       "slug": "PixFlamingo-F767",
       "name": "PixFlamingo-F767",
+      "platform": "chibios",
       "manufacturer": "Dheeran Labs",
       "mcu": {
         "family": "STM32F7xx",
@@ -52838,6 +56449,7 @@
     {
       "slug": "Pixhawk1",
       "name": "Pixhawk1",
+      "platform": "chibios",
       "manufacturer": "3DR",
       "mcu": {
         "family": "STM32F4xx",
@@ -53082,6 +56694,7 @@
     {
       "slug": "Pixhawk1-1M",
       "name": "Pixhawk1-1M",
+      "platform": "chibios",
       "manufacturer": "3DR",
       "mcu": {
         "family": "STM32F4xx",
@@ -53313,6 +56926,7 @@
     {
       "slug": "Pixhawk1-1M-bdshot",
       "name": "Pixhawk1-1M-bdshot",
+      "platform": "chibios",
       "manufacturer": "3DR",
       "mcu": {
         "family": "STM32F4xx",
@@ -53333,10 +56947,11 @@
           "I2C2",
           "I2C1"
         ],
-        "spi_count": 2,
+        "spi_count": 3,
         "spi_buses": [
           "SPI1",
-          "SPI2"
+          "SPI2",
+          "SPI4"
         ],
         "can_count": 2,
         "can_buses": [
@@ -53346,9 +56961,9 @@
         "canfd": false,
         "usb_count": 1,
         "pwm": {
-          "fmu": 6,
+          "fmu": 10,
           "io": 8,
-          "total": 14
+          "total": 18
         },
         "ethernet": false,
         "sdcard": true,
@@ -53543,6 +57158,7 @@
     {
       "slug": "Pixhawk1-bdshot",
       "name": "Pixhawk1-bdshot",
+      "platform": "chibios",
       "manufacturer": "3DR",
       "mcu": {
         "family": "STM32F4xx",
@@ -53563,10 +57179,11 @@
           "I2C2",
           "I2C1"
         ],
-        "spi_count": 2,
+        "spi_count": 3,
         "spi_buses": [
           "SPI1",
-          "SPI2"
+          "SPI2",
+          "SPI4"
         ],
         "can_count": 2,
         "can_buses": [
@@ -53576,9 +57193,9 @@
         "canfd": false,
         "usb_count": 1,
         "pwm": {
-          "fmu": 6,
+          "fmu": 10,
           "io": 8,
-          "total": 14
+          "total": 18
         },
         "ethernet": false,
         "sdcard": true,
@@ -53786,6 +57403,7 @@
     {
       "slug": "Pixhawk4",
       "name": "Pixhawk4",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -54060,6 +57678,7 @@
     {
       "slug": "Pixhawk4-bdshot",
       "name": "Pixhawk4-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -54334,6 +57953,7 @@
     {
       "slug": "Pixhawk5X",
       "name": "Pixhawk5X",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -54598,6 +58218,7 @@
     {
       "slug": "Pixhawk6C",
       "name": "Pixhawk6C",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -54704,6 +58325,13 @@
         {
           "chip": "IST8310",
           "bus": "I2C:0:0x0C",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "RM3100",
+          "bus": "I2C:0:0x20",
           "variant": null,
           "slot": null,
           "chip_display": null
@@ -54881,6 +58509,7 @@
     {
       "slug": "Pixhawk6C-bdshot",
       "name": "Pixhawk6C-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -54987,6 +58616,13 @@
         {
           "chip": "IST8310",
           "bus": "I2C:0:0x0C",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "RM3100",
+          "bus": "I2C:0:0x20",
           "variant": null,
           "slot": null,
           "chip_display": null
@@ -55164,6 +58800,7 @@
     {
       "slug": "Pixhawk6X",
       "name": "Pixhawk6X",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -55572,6 +59209,7 @@
     {
       "slug": "Pixhawk6X-bdshot",
       "name": "Pixhawk6X-bdshot",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -55967,6 +59605,7 @@
     {
       "slug": "Pixhawk6X-ODID",
       "name": "Pixhawk6X-ODID",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -56362,6 +60001,7 @@
     {
       "slug": "Pixhawk6X-PPPGW",
       "name": "Pixhawk6X-PPPGW",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32H7xx",
@@ -56699,6 +60339,7 @@
     {
       "slug": "PixPilot-C3",
       "name": "PixPilot-C3",
+      "platform": "chibios",
       "manufacturer": "makeflyeasy",
       "mcu": {
         "family": "STM32F4xx",
@@ -56972,6 +60613,7 @@
     {
       "slug": "PixPilot-V3",
       "name": "PixPilot-V3",
+      "platform": "chibios",
       "manufacturer": "makeflyeasy",
       "mcu": {
         "family": "STM32F4xx",
@@ -57239,6 +60881,7 @@
     {
       "slug": "PixPilot-V6",
       "name": "PixPilot-V6",
+      "platform": "chibios",
       "manufacturer": "MakeFlyEasy",
       "mcu": {
         "family": "STM32H7xx",
@@ -57496,6 +61139,7 @@
     {
       "slug": "PixPilot-V6PRO",
       "name": "PixPilot-V6PRO",
+      "platform": "chibios",
       "manufacturer": "MakeFlyEasy",
       "mcu": {
         "family": "STM32H7xx",
@@ -57764,6 +61408,7 @@
     {
       "slug": "Pixracer",
       "name": "Pixracer",
+      "platform": "chibios",
       "manufacturer": "mRobotics",
       "mcu": {
         "family": "STM32F4xx",
@@ -58030,6 +61675,7 @@
     {
       "slug": "Pixracer-bdshot",
       "name": "Pixracer-bdshot",
+      "platform": "chibios",
       "manufacturer": "mRobotics",
       "mcu": {
         "family": "STM32F4xx",
@@ -58296,6 +61942,7 @@
     {
       "slug": "PixSurveyA1-IND",
       "name": "PixSurveyA1-IND",
+      "platform": "chibios",
       "manufacturer": "MakeFlyEasy",
       "mcu": {
         "family": "STM32F4xx",
@@ -58560,6 +62207,7 @@
     {
       "slug": "PixSurveyA2-IND",
       "name": "PixSurveyA2-IND",
+      "platform": "chibios",
       "manufacturer": "MakeFlyEasy",
       "mcu": {
         "family": "STM32H7xx",
@@ -58780,8 +62428,197 @@
       }
     },
     {
+      "slug": "pocket",
+      "name": "pocket",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP280",
+          "bus": "SPI:bmp280",
+          "variant": null,
+          "slot": null,
+          "chip_display": "BMP280"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-pocketbeagle2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/pocket",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "pocket2",
+      "name": "pocket2",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev2",
+          "bus": "SPI:ICM20948",
+          "variant": null,
+          "slot": null,
+          "chip_display": "ICM20948"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP388",
+          "bus": "SPI:BMP388",
+          "variant": null,
+          "slot": null,
+          "chip_display": "BMP388"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK09916:probe_ICM20948_SPI",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-pocketbeagle2.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/pocket2",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "PrincipIoTH7Pi",
       "name": "PrincipIoTH7Pi",
+      "platform": "chibios",
       "manufacturer": "PrincipIoT",
       "mcu": {
         "family": "STM32H7xx",
@@ -59064,8 +62901,197 @@
       }
     },
     {
+      "slug": "pxf",
+      "name": "pxf",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/pxf",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "pxfmini",
+      "name": "pxfmini",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": null,
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-pxfmini.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/pxfmini",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "QioTekAdeptF407",
       "name": "QioTekAdeptF407",
+      "platform": "chibios",
       "manufacturer": "QioTek",
       "mcu": {
         "family": "CKS32F4xx",
@@ -59344,6 +63370,7 @@
     {
       "slug": "QioTekZealotF427",
       "name": "QioTekZealotF427",
+      "platform": "chibios",
       "manufacturer": "QioTek",
       "mcu": {
         "family": "STM32F4xx",
@@ -59668,6 +63695,7 @@
     {
       "slug": "QioTekZealotH743",
       "name": "QioTekZealotH743",
+      "platform": "chibios",
       "manufacturer": "QioTek",
       "mcu": {
         "family": "STM32H7xx",
@@ -59994,6 +64022,7 @@
     {
       "slug": "QioTekZealotH743-bdshot",
       "name": "QioTekZealotH743-bdshot",
+      "platform": "chibios",
       "manufacturer": "QioTek",
       "mcu": {
         "family": "STM32H7xx",
@@ -60320,6 +64349,7 @@
     {
       "slug": "R9Pilot",
       "name": "R9Pilot",
+      "platform": "chibios",
       "manufacturer": "FrSky",
       "mcu": {
         "family": "STM32F7xx",
@@ -60615,6 +64645,7 @@
     {
       "slug": "RadiolinkF405",
       "name": "RadiolinkF405",
+      "platform": "chibios",
       "manufacturer": "RadioLink",
       "mcu": {
         "family": "STM32F4xx",
@@ -60901,6 +64932,7 @@
     {
       "slug": "RadiolinkPIX6",
       "name": "RadiolinkPIX6",
+      "platform": "chibios",
       "manufacturer": "Radiolink",
       "mcu": {
         "family": "STM32F7xx",
@@ -61150,6 +65182,7 @@
     {
       "slug": "RADIX2HD",
       "name": "RADIX2HD",
+      "platform": "chibios",
       "manufacturer": "BrainFPV",
       "mcu": {
         "family": "STM32H7xx",
@@ -61406,6 +65439,7 @@
     {
       "slug": "ReaperF745",
       "name": "ReaperF745",
+      "platform": "chibios",
       "manufacturer": "Foxeer",
       "mcu": {
         "family": "STM32F7xx",
@@ -61659,6 +65693,7 @@
     {
       "slug": "ResoluteH7",
       "name": "ResoluteH7",
+      "platform": "chibios",
       "manufacturer": "Standard Systems",
       "mcu": {
         "family": "STM32H7xx",
@@ -61900,6 +65935,7 @@
     {
       "slug": "revo-mini",
       "name": "revo-mini",
+      "platform": "chibios",
       "manufacturer": "OpenPilot",
       "mcu": {
         "family": "STM32F4xx",
@@ -62129,6 +66165,7 @@
     {
       "slug": "revo-mini-bdshot",
       "name": "revo-mini-bdshot",
+      "platform": "chibios",
       "manufacturer": "OpenPilot",
       "mcu": {
         "family": "STM32F4xx",
@@ -62358,6 +66395,7 @@
     {
       "slug": "revo-mini-i2c",
       "name": "revo-mini-i2c",
+      "platform": "chibios",
       "manufacturer": "OpenPilot",
       "mcu": {
         "family": "STM32F4xx",
@@ -62610,6 +66648,7 @@
     {
       "slug": "revo-mini-i2c-bdshot",
       "name": "revo-mini-i2c-bdshot",
+      "platform": "chibios",
       "manufacturer": "OpenPilot",
       "mcu": {
         "family": "STM32F4xx",
@@ -62862,6 +66901,7 @@
     {
       "slug": "revo-mini-sd",
       "name": "revo-mini-sd",
+      "platform": "chibios",
       "manufacturer": "OpenPilot (open-source hardware; sold by HobbyKing and others)",
       "mcu": {
         "family": "STM32F4xx",
@@ -63070,6 +67110,7 @@
     {
       "slug": "rFCU",
       "name": "rFCU",
+      "platform": "chibios",
       "manufacturer": "mPhibr",
       "mcu": {
         "family": "STM32H7xx",
@@ -63311,8 +67352,132 @@
       }
     },
     {
+      "slug": "SaamPixV1_1",
+      "name": "SaamPixV1_1",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32F4xx",
+        "part": "STM32F427xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 6,
+        "uart_buses": [
+          "USART2",
+          "USART3",
+          "UART4",
+          "UART8",
+          "USART1",
+          "UART7"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C1",
+          "I2C2"
+        ],
+        "spi_count": 2,
+        "spi_buses": [
+          "SPI1",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 16,
+          "io": 0,
+          "total": 16
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 6
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20602",
+          "variant": null,
+          "slot": "SPI4/CS:ICM_20602_GY_AM_CS",
+          "chip_display": "ICM20602"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu9250",
+          "variant": null,
+          "slot": "SPI4/CS:MPU9250_GY_AM_MAG_CS",
+          "chip_display": "MPU9250"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": "SPI4/CS:BARO_CS",
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "LIS3MDL",
+          "bus": "SPI:lis3mdl",
+          "variant": null,
+          "slot": "SPI4/CS:LIS3MDL_MAG_CS",
+          "chip_display": "LIS3MDL"
+        },
+        {
+          "chip": "AK8963:probe_mpu9250",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SaamPixV1_1/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "SDMODELH7V1",
       "name": "SDMODELH7V1",
+      "platform": "chibios",
       "manufacturer": "SDMODEL",
       "mcu": {
         "family": "STM32H7xx",
@@ -63569,6 +67734,7 @@
     {
       "slug": "SDMODELH7V2",
       "name": "SDMODELH7V2",
+      "platform": "chibios",
       "manufacturer": "SDMODEL",
       "mcu": {
         "family": "STM32H7xx",
@@ -63850,6 +68016,7 @@
     {
       "slug": "SequreH743",
       "name": "SequreH743",
+      "platform": "chibios",
       "manufacturer": "Sequre",
       "mcu": {
         "family": "STM32H7xx",
@@ -64124,6 +68291,7 @@
     {
       "slug": "Sierra-PrecisionPoint",
       "name": "Sierra-PrecisionPoint",
+      "platform": "chibios",
       "manufacturer": "Sierra Aerospace",
       "mcu": {
         "family": "STM32F4xx",
@@ -64331,8 +68499,359 @@
       }
     },
     {
+      "slug": "SIMPLIFLYH7",
+      "name": "SIMPLIFLYH7",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 5,
+        "uart_buses": [
+          "USART1",
+          "USART3",
+          "UART4",
+          "UART5",
+          "UART7"
+        ],
+        "i2c_count": 1,
+        "i2c_buses": [
+          "I2C1"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI3"
+        ],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 1,
+        "pwm": {
+          "fmu": 9,
+          "io": 0,
+          "total": 9
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 3
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:imu1",
+          "variant": null,
+          "slot": "SPI1/CS:GYRO1_CS",
+          "chip_display": "IMU1"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP280",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SIMPLIFLYH7/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "SIYI-UniFC-6-PICO",
+      "name": "SIYI-UniFC-6-PICO",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 5,
+        "uart_buses": [
+          "USART2",
+          "USART6",
+          "USART1",
+          "UART4",
+          "USART3"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C3",
+          "I2C1",
+          "I2C4",
+          "I2C2"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI4",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 14,
+          "io": 0,
+          "total": 14
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 8
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm45686_1",
+          "variant": null,
+          "slot": "SPI4/CS:ICM45686_1_CS",
+          "chip_display": "ICM45686_1"
+        },
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:0:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:3:0x64",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:0:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SIYI-UniFC-6-PICO/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "SIYI-UniFC-6-PICO-ODID",
+      "name": "SIYI-UniFC-6-PICO-ODID",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 5,
+        "uart_buses": [
+          "USART2",
+          "USART6",
+          "USART1",
+          "UART4",
+          "USART3"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C3",
+          "I2C1",
+          "I2C4",
+          "I2C2"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI4",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 14,
+          "io": 0,
+          "total": 14
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 8
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm45686_1",
+          "variant": null,
+          "slot": "SPI4/CS:ICM45686_1_CS",
+          "chip_display": "ICM45686_1"
+        },
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:0:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:3:0x64",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:0:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": null,
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "SIYI_N7",
       "name": "SIYI_N7",
+      "platform": "chibios",
       "manufacturer": "SIYI",
       "mcu": {
         "family": "STM32H7xx",
@@ -64596,8 +69115,233 @@
       }
     },
     {
+      "slug": "SIYI_N7-ODID",
+      "name": "SIYI_N7-ODID",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 4,
+        "uart_buses": [
+          "USART2",
+          "USART1",
+          "UART4",
+          "UART7"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C3",
+          "I2C1",
+          "I2C2",
+          "I2C4"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 5,
+          "io": 8,
+          "total": 13
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": true,
+        "adc_inputs": 4
+      },
+      "power": {
+        "monitor_inputs": 2,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensense",
+          "bus": "SPI:icm20689",
+          "variant": null,
+          "slot": "SPI1/CS:ICM20689_CS",
+          "chip_display": "ICM20689"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm45686",
+          "variant": null,
+          "slot": "SPI1/CS:ICM20689_CS",
+          "chip_display": "ICM45686"
+        },
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": "SPI4/CS:MS5611_CS",
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "IST8310",
+          "bus": "I2C:0:0x0e",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": null,
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
+      "slug": "SkyDroid-S3",
+      "name": "SkyDroid-S3",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 5,
+        "uart_buses": [
+          "USART2",
+          "UART5",
+          "USART1",
+          "UART7",
+          "UART4"
+        ],
+        "i2c_count": 1,
+        "i2c_buses": [
+          "I2C2"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 12,
+          "io": 0,
+          "total": 12
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 2
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI1/CS:BMI088_A_CS",
+          "chip_display": "BMI088"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "MS5611",
+          "bus": "SPI:ms5611",
+          "variant": null,
+          "slot": "SPI4/CS:MS5611_BOARD_CS",
+          "chip_display": "MS5611"
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkyDroid-S3/README.md",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "SkyRukh_Surge_H7",
       "name": "SkyRukh_Surge_H7",
+      "platform": "chibios",
       "manufacturer": "SkyRukh",
       "mcu": {
         "family": "STM32H7",
@@ -64850,6 +69594,7 @@
     {
       "slug": "SkySakuraH743",
       "name": "SkySakuraH743",
+      "platform": "chibios",
       "manufacturer": "SkySakuraRC",
       "mcu": {
         "family": "STM32H7xx",
@@ -65138,6 +69883,7 @@
     {
       "slug": "SkystarsF405v2",
       "name": "SkystarsF405v2",
+      "platform": "chibios",
       "manufacturer": "Skystars",
       "mcu": {
         "family": "STM32F4xx",
@@ -65393,6 +70139,7 @@
     {
       "slug": "SkystarsH7HD",
       "name": "SkystarsH7HD",
+      "platform": "chibios",
       "manufacturer": "Skystars",
       "mcu": {
         "family": "STM32H7xx",
@@ -65630,6 +70377,7 @@
     {
       "slug": "SkystarsH7HD-bdshot",
       "name": "SkystarsH7HD-bdshot",
+      "platform": "chibios",
       "manufacturer": "Skystars",
       "mcu": {
         "family": "STM32H7xx",
@@ -65867,6 +70615,7 @@
     {
       "slug": "SkystarsH7HDv2",
       "name": "SkystarsH7HDv2",
+      "platform": "chibios",
       "manufacturer": "Skystars",
       "mcu": {
         "family": "STM32H7xx",
@@ -65949,6 +70698,13 @@
       "baros": [
         {
           "chip": "BMP280",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "SPL06",
           "bus": "I2C:0:0x76",
           "variant": null,
           "slot": null,
@@ -66127,6 +70883,7 @@
     {
       "slug": "skyviper-f412-rev1",
       "name": "skyviper-f412-rev1",
+      "platform": "chibios",
       "manufacturer": "SkyRocket",
       "mcu": {
         "family": "STM32F4xx",
@@ -66350,6 +71107,7 @@
     {
       "slug": "skyviper-journey",
       "name": "skyviper-journey",
+      "platform": "chibios",
       "manufacturer": "SkyRocket",
       "mcu": {
         "family": "STM32F4xx",
@@ -66570,6 +71328,7 @@
     {
       "slug": "skyviper-v2450",
       "name": "skyviper-v2450",
+      "platform": "chibios",
       "manufacturer": "SkyRocket",
       "mcu": {
         "family": "STM32F4xx",
@@ -66783,6 +71542,7 @@
     {
       "slug": "sparknavi-blue",
       "name": "sparknavi-blue",
+      "platform": "chibios",
       "manufacturer": "SparkNavi",
       "mcu": {
         "family": "STM32H7xx",
@@ -67056,6 +71816,7 @@
     {
       "slug": "sparky2",
       "name": "sparky2",
+      "platform": "chibios",
       "manufacturer": "TauLabs",
       "mcu": {
         "family": "STM32F4xx",
@@ -67298,6 +72059,7 @@
     {
       "slug": "SPEDIXF405",
       "name": "SPEDIXF405",
+      "platform": "chibios",
       "manufacturer": "SPEDIX",
       "mcu": {
         "family": "STM32F4xx",
@@ -67532,6 +72294,7 @@
     {
       "slug": "SPEDIXH743",
       "name": "SPEDIXH743",
+      "platform": "chibios",
       "manufacturer": "SPEDIX",
       "mcu": {
         "family": "STM32H7xx",
@@ -67790,6 +72553,7 @@
     {
       "slug": "speedybeef4",
       "name": "speedybeef4",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -68038,6 +72802,7 @@
     {
       "slug": "SpeedyBeeF405AIO",
       "name": "SpeedyBeeF405AIO",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -68307,6 +73072,7 @@
     {
       "slug": "SpeedyBeeF405Mini",
       "name": "SpeedyBeeF405Mini",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -68581,6 +73347,7 @@
     {
       "slug": "SpeedyBeeF405WING",
       "name": "SpeedyBeeF405WING",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -68817,6 +73584,7 @@
     {
       "slug": "speedybeef4v3",
       "name": "speedybeef4v3",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -69031,6 +73799,7 @@
     {
       "slug": "speedybeef4v4",
       "name": "speedybeef4v4",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -69284,6 +74053,7 @@
     {
       "slug": "speedybeef4v5",
       "name": "speedybeef4v5",
+      "platform": "chibios",
       "manufacturer": "SpeedyBee",
       "mcu": {
         "family": "STM32F4xx",
@@ -69531,6 +74301,7 @@
     {
       "slug": "SPRacingH7",
       "name": "SPRacingH7",
+      "platform": "chibios",
       "manufacturer": "Seriously Pro Racing",
       "mcu": {
         "family": "STM32H7xx",
@@ -69769,6 +74540,7 @@
     {
       "slug": "SPRacingH7RF",
       "name": "SPRacingH7RF",
+      "platform": "chibios",
       "manufacturer": "Seriously Pro Racing",
       "mcu": {
         "family": "STM32H7xx",
@@ -70014,6 +74786,7 @@
     {
       "slug": "StellarF4",
       "name": "StellarF4",
+      "platform": "chibios",
       "manufacturer": "Stingbee",
       "mcu": {
         "family": "STM32F4xx",
@@ -70292,6 +75065,7 @@
     {
       "slug": "StellarF4V2",
       "name": "StellarF4V2",
+      "platform": "chibios",
       "manufacturer": "Stingbee",
       "mcu": {
         "family": "STM32F4xx",
@@ -70547,6 +75321,7 @@
     {
       "slug": "StellarH7V2",
       "name": "StellarH7V2",
+      "platform": "chibios",
       "manufacturer": "StingBee",
       "mcu": {
         "family": "STM32H7xx",
@@ -70814,6 +75589,7 @@
     {
       "slug": "SuccexF4",
       "name": "SuccexF4",
+      "platform": "chibios",
       "manufacturer": "iFlight",
       "mcu": {
         "family": "STM32F4xx",
@@ -71053,6 +75829,7 @@
     {
       "slug": "SULILGH7-P1-P2",
       "name": "SULILGH7-P1-P2",
+      "platform": "chibios",
       "manufacturer": null,
       "mcu": {
         "family": "STM32H7xx",
@@ -71290,6 +76067,7 @@
     {
       "slug": "SVehicle-E2",
       "name": "SVehicle-E2",
+      "platform": "chibios",
       "manufacturer": "S-Vehicle",
       "mcu": {
         "family": "STM32H7xx",
@@ -71541,6 +76319,7 @@
     {
       "slug": "Swan-K1",
       "name": "Swan-K1",
+      "platform": "chibios",
       "manufacturer": "Holybro",
       "mcu": {
         "family": "STM32F7xx",
@@ -71801,8 +76580,103 @@
       }
     },
     {
+      "slug": "t3-gem-o1",
+      "name": "t3-gem-o1",
+      "platform": "linux",
+      "manufacturer": null,
+      "mcu": {
+        "family": null,
+        "part": null
+      },
+      "flash_kb": null,
+      "io": {
+        "uart_count": 0,
+        "uart_buses": [],
+        "i2c_count": 0,
+        "i2c_buses": [],
+        "spi_count": 0,
+        "spi_buses": [],
+        "can_count": 0,
+        "can_buses": [],
+        "canfd": false,
+        "usb_count": 0,
+        "pwm": {
+          "fmu": 0,
+          "io": 0,
+          "total": 0
+        },
+        "ethernet": false,
+        "sdcard": false,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 0
+      },
+      "power": {
+        "monitor_inputs": 0,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev2",
+          "bus": "SPI:icm20948",
+          "variant": null,
+          "slot": null,
+          "chip_display": "ICM20948"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "BMP388",
+          "bus": "SPI:bmp390",
+          "variant": null,
+          "slot": null,
+          "chip_display": "BMP390"
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "AK09916:probe_ICM20948",
+          "bus": "0",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-t3-gem-o1-overview.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/t3-gem-o1",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "TBS_LUCID_H7",
       "name": "TBS_LUCID_H7",
+      "platform": "chibios",
       "manufacturer": "Team BlackSheep",
       "mcu": {
         "family": "STM32H7xx",
@@ -72075,8 +76949,140 @@
       }
     },
     {
+      "slug": "TBS_LUCID_H7_OEM",
+      "name": "TBS_LUCID_H7_OEM",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "USART6",
+          "UART7",
+          "UART8"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C2",
+          "I2C1"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 23,
+          "io": 0,
+          "total": 23
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 6
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:imu1",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "IMU1"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:imu2",
+          "variant": null,
+          "slot": "SPI4/CS:IMU2_CS",
+          "chip_display": "IMU2"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu6000_1",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "MPU6000_1"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu6000_2",
+          "variant": null,
+          "slot": "SPI4/CS:IMU2_CS",
+          "chip_display": "MPU6000_2"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "DPS310",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP388",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidh7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7_OEM/README.md",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "TBS_LUCID_H7_WING",
       "name": "TBS_LUCID_H7_WING",
+      "platform": "chibios",
       "manufacturer": "Team BlackSheep (TBS)",
       "mcu": {
         "family": "STM32H7xx",
@@ -72337,6 +77343,7 @@
     {
       "slug": "TBS_LUCID_H7_WING_AIO",
       "name": "TBS_LUCID_H7_WING_AIO",
+      "platform": "chibios",
       "manufacturer": "TBS (Team BlackSheep)",
       "mcu": {
         "family": "STM32H7xx",
@@ -72602,8 +77609,140 @@
       }
     },
     {
+      "slug": "TBS_LUCID_H7V3",
+      "name": "TBS_LUCID_H7V3",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "USART1",
+          "USART2",
+          "USART3",
+          "UART4",
+          "USART6",
+          "UART7",
+          "UART8"
+        ],
+        "i2c_count": 2,
+        "i2c_buses": [
+          "I2C2",
+          "I2C1"
+        ],
+        "spi_count": 3,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI4"
+        ],
+        "can_count": 1,
+        "can_buses": [
+          "CAN1"
+        ],
+        "canfd": false,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 23,
+          "io": 0,
+          "total": 23
+        },
+        "ethernet": false,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": false,
+        "adc_inputs": 6
+      },
+      "power": {
+        "monitor_inputs": 1,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:imu1",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "IMU1"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:imu2",
+          "variant": null,
+          "slot": "SPI4/CS:IMU2_CS",
+          "chip_display": "IMU2"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu6000_1",
+          "variant": null,
+          "slot": "SPI1/CS:IMU1_CS",
+          "chip_display": "MPU6000_1"
+        },
+        {
+          "chip": "Invensense",
+          "bus": "SPI:mpu6000_2",
+          "variant": null,
+          "slot": "SPI4/CS:IMU2_CS",
+          "chip_display": "MPU6000_2"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "DPS310",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP388",
+          "bus": "I2C:0:0x76",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-tbs-lucidh7.html",
+      "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/TBS_LUCID_H7V3/README.md",
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "TBS_LUCID_PRO",
       "name": "TBS_LUCID_PRO",
+      "platform": "chibios",
       "manufacturer": "Team Black Sheep",
       "mcu": {
         "family": "STM32F4xx",
@@ -72862,6 +78001,7 @@
     {
       "slug": "thepeach-k1",
       "name": "thepeach-k1",
+      "platform": "chibios",
       "manufacturer": "ThePeach",
       "mcu": {
         "family": "STM32F4xx",
@@ -73109,6 +78249,7 @@
     {
       "slug": "thepeach-r1",
       "name": "thepeach-r1",
+      "platform": "chibios",
       "manufacturer": "ThePeach",
       "mcu": {
         "family": "STM32F4xx",
@@ -73362,6 +78503,7 @@
     {
       "slug": "TMotorH743",
       "name": "TMotorH743",
+      "platform": "chibios",
       "manufacturer": "T-Motor",
       "mcu": {
         "family": "STM32H7xx",
@@ -73624,6 +78766,7 @@
     {
       "slug": "uav-dev-fc-um982",
       "name": "uav-dev-fc-um982",
+      "platform": "chibios",
       "manufacturer": "UAV-DEV GmbH",
       "mcu": {
         "family": "STM32H7xx",
@@ -73853,6 +78996,7 @@
     {
       "slug": "VRBrain-v51",
       "name": "VRBrain-v51",
+      "platform": "chibios",
       "manufacturer": "Laser Navigation",
       "mcu": {
         "family": "STM32F4xx",
@@ -74075,6 +79219,7 @@
     {
       "slug": "VRBrain-v52",
       "name": "VRBrain-v52",
+      "platform": "chibios",
       "manufacturer": "Laser Navigation",
       "mcu": {
         "family": "STM32F4xx",
@@ -74287,6 +79432,7 @@
     {
       "slug": "VRBrain-v54",
       "name": "VRBrain-v54",
+      "platform": "chibios",
       "manufacturer": "Laser Navigation",
       "mcu": {
         "family": "STM32F4xx",
@@ -74510,6 +79656,7 @@
     {
       "slug": "VRCore-v10",
       "name": "VRCore-v10",
+      "platform": "chibios",
       "manufacturer": "Laser Navigation",
       "mcu": {
         "family": "STM32F4xx",
@@ -74720,6 +79867,7 @@
     {
       "slug": "VRUBrain-v51",
       "name": "VRUBrain-v51",
+      "platform": "chibios",
       "manufacturer": "Laser Navigation",
       "mcu": {
         "family": "STM32F4xx",
@@ -74940,6 +80088,7 @@
     {
       "slug": "VUAV-TinyV7",
       "name": "VUAV-TinyV7",
+      "platform": "chibios",
       "manufacturer": "V-UAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -75196,6 +80345,7 @@
     {
       "slug": "VUAV-V7pro",
       "name": "VUAV-V7pro",
+      "platform": "chibios",
       "manufacturer": "V-UAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -75461,6 +80611,7 @@
     {
       "slug": "X-MAV-AP-H743r1",
       "name": "X-MAV-AP-H743r1",
+      "platform": "chibios",
       "manufacturer": "X-MAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -75746,6 +80897,7 @@
     {
       "slug": "X-MAV-AP-H743v2",
       "name": "X-MAV-AP-H743v2",
+      "platform": "chibios",
       "manufacturer": "X-MAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -76029,6 +81181,7 @@
     {
       "slug": "YARIV6X",
       "name": "YARIV6X",
+      "platform": "chibios",
       "manufacturer": "YARI Robotics",
       "mcu": {
         "family": "STM32H7xx",
@@ -76291,6 +81444,7 @@
     {
       "slug": "YJUAV_A6",
       "name": "YJUAV_A6",
+      "platform": "chibios",
       "manufacturer": "YJUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -76585,6 +81739,7 @@
     {
       "slug": "YJUAV_A6SE",
       "name": "YJUAV_A6SE",
+      "platform": "chibios",
       "manufacturer": "YJUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -76882,6 +82037,7 @@
     {
       "slug": "YJUAV_A6SE_H743",
       "name": "YJUAV_A6SE_H743",
+      "platform": "chibios",
       "manufacturer": "YJUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -77185,6 +82341,7 @@
     {
       "slug": "YJUAV_A6Ultra",
       "name": "YJUAV_A6Ultra",
+      "platform": "chibios",
       "manufacturer": "YJUAV",
       "mcu": {
         "family": "STM32H7xx",
@@ -77485,6 +82642,7 @@
     {
       "slug": "ZeroOneX6",
       "name": "ZeroOneX6",
+      "platform": "chibios",
       "manufacturer": "ZeroOne",
       "mcu": {
         "family": "STM32H7xx",
@@ -77572,6 +82730,20 @@
         {
           "chip": "ICP201XX",
           "bus": "I2C:2:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "SPL06",
+          "bus": "I2C:2:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP581",
+          "bus": "I2C:0:0x47",
           "variant": null,
           "slot": null,
           "chip_display": null
@@ -77748,8 +82920,173 @@
       }
     },
     {
+      "slug": "ZeroOneX6-ODID",
+      "name": "ZeroOneX6-ODID",
+      "platform": "chibios",
+      "manufacturer": null,
+      "mcu": {
+        "family": "STM32H7xx",
+        "part": "STM32H743xx"
+      },
+      "flash_kb": 2048,
+      "io": {
+        "uart_count": 7,
+        "uart_buses": [
+          "UART7",
+          "UART5",
+          "USART1",
+          "UART8",
+          "USART2",
+          "UART4",
+          "USART3"
+        ],
+        "i2c_count": 4,
+        "i2c_buses": [
+          "I2C4",
+          "I2C1",
+          "I2C2",
+          "I2C3"
+        ],
+        "spi_count": 4,
+        "spi_buses": [
+          "SPI1",
+          "SPI2",
+          "SPI3",
+          "SPI5"
+        ],
+        "can_count": 2,
+        "can_buses": [
+          "CAN1",
+          "CAN2"
+        ],
+        "canfd": true,
+        "usb_count": 2,
+        "pwm": {
+          "fmu": 8,
+          "io": 8,
+          "total": 16
+        },
+        "ethernet": true,
+        "sdcard": true,
+        "sbus_out": false,
+        "iomcu": true,
+        "adc_inputs": 7
+      },
+      "power": {
+        "monitor_inputs": 3,
+        "bec": []
+      },
+      "imus": [
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm45686_1",
+          "variant": null,
+          "slot": "SPI2/CS:SP2_CS1",
+          "chip_display": "ICM45686_1"
+        },
+        {
+          "chip": "BMI088",
+          "bus": "SPI:bmi088_a",
+          "variant": null,
+          "slot": "SPI3/CS:SP3_CS1",
+          "chip_display": "BMI088"
+        },
+        {
+          "chip": "Invensensev3",
+          "bus": "SPI:icm45686_2",
+          "variant": null,
+          "slot": "SPI1/CS:SP1_CS1",
+          "chip_display": "ICM45686_2"
+        }
+      ],
+      "baros": [
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:0:0x64",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "ICP201XX",
+          "bus": "I2C:2:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "SPL06",
+          "bus": "I2C:2:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP581",
+          "bus": "I2C:0:0x47",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "compasses": [
+        {
+          "chip": "RM3100",
+          "bus": "I2C:0:0x20",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "IST8310",
+          "bus": "I2C:0:0x0E",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMM350",
+          "bus": "I2C:0:0x15",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        }
+      ],
+      "firmware_support": [
+        {
+          "firmware": "ardupilot",
+          "maturity": "official"
+        }
+      ],
+      "vehicles": [
+        "copter",
+        "plane",
+        "rover",
+        "sub",
+        "tracker",
+        "blimp"
+      ],
+      "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6.html",
+      "repo_url": null,
+      "manual": {
+        "status": "not_started",
+        "form_factor": null,
+        "mounting": null,
+        "assembly": null,
+        "dimensions_mm": null,
+        "weight_g": null,
+        "connectors": [],
+        "images": [],
+        "ardupilot_repo_url": null,
+        "discontinued": false,
+        "imu_count": null,
+        "notes": null
+      }
+    },
+    {
       "slug": "ZeroOneX6_Air",
       "name": "ZeroOneX6_Air",
+      "platform": "chibios",
       "manufacturer": "ZeroOne",
       "mcu": {
         "family": "STM32H7xx",
@@ -77829,6 +83166,20 @@
         {
           "chip": "ICP201XX",
           "bus": "I2C:2:0x63",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "SPL06",
+          "bus": "I2C:2:0x77",
+          "variant": null,
+          "slot": null,
+          "chip_display": null
+        },
+        {
+          "chip": "BMP581",
+          "bus": "I2C:0:0x47",
           "variant": null,
           "slot": null,
           "chip_display": null

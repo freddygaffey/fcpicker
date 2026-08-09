@@ -1,6 +1,7 @@
 {
   "slug": "FlyingMoonF427",
   "name": "FlyingMoonF427",
+  "platform": "chibios",
   "manufacturer": "FlyingMoon",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "X-MAV-AP-H743v2",
   "name": "X-MAV-AP-H743v2",
+  "platform": "chibios",
   "manufacturer": "X-MAV",
   "mcu": {
     "family": "STM32H7xx",

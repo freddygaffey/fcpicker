@@ -1,6 +1,7 @@
 {
   "slug": "mRoControlZeroClassic",
   "name": "mRoControlZeroClassic",
+  "platform": "chibios",
   "manufacturer": "mRobotics",
   "mcu": {
     "family": "STM32H7xx",

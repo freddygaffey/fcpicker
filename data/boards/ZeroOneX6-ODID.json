@@ -1,0 +1,164 @@
+{
+  "slug": "ZeroOneX6-ODID",
+  "name": "ZeroOneX6-ODID",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 7,
+    "uart_buses": [
+      "UART7",
+      "UART5",
+      "USART1",
+      "UART8",
+      "USART2",
+      "UART4",
+      "USART3"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C4",
+      "I2C1",
+      "I2C2",
+      "I2C3"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3",
+      "SPI5"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": true,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 8,
+      "io": 8,
+      "total": 16
+    },
+    "ethernet": true,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": true,
+    "adc_inputs": 7
+  },
+  "power": {
+    "monitor_inputs": 3,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686_1",
+      "variant": null,
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "ICM45686_1"
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null,
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "BMI088"
+    },
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686_2",
+      "variant": null,
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "ICM45686_2"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:0:0x64",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:2:0x63",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "SPL06",
+      "bus": "I2C:2:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP581",
+      "bus": "I2C:0:0x47",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "RM3100",
+      "bus": "I2C:0:0x20",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "IST8310",
+      "bus": "I2C:0:0x0E",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMM350",
+      "bus": "I2C:0:0x15",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-zeroonex6.html",
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

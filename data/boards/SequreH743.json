@@ -1,6 +1,7 @@
 {
   "slug": "SequreH743",
   "name": "SequreH743",
+  "platform": "chibios",
   "manufacturer": "Sequre",
   "mcu": {
     "family": "STM32H7xx",

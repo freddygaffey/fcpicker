@@ -1,6 +1,7 @@
 {
   "slug": "BOTWINGF405",
   "name": "BOTWINGF405",
+  "platform": "chibios",
   "manufacturer": "BOTLAB DYNAMICS",
   "mcu": {
     "family": "STM32F4xx",

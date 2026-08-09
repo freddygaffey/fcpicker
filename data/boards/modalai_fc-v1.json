@@ -1,6 +1,7 @@
 {
   "slug": "modalai_fc-v1",
   "name": "modalai_fc-v1",
+  "platform": "chibios",
   "manufacturer": "ModalAI",
   "mcu": {
     "family": "STM32F7xx",

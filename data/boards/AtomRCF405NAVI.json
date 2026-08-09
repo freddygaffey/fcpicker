@@ -1,6 +1,7 @@
 {
   "slug": "AtomRCF405NAVI",
   "name": "AtomRCF405NAVI",
+  "platform": "chibios",
   "manufacturer": "AtomRC",
   "mcu": {
     "family": "STM32F4xx",

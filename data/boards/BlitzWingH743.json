@@ -1,6 +1,7 @@
 {
   "slug": "BlitzWingH743",
   "name": "BlitzWingH743",
+  "platform": "chibios",
   "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32H7xx",

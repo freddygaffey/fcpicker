@@ -1,6 +1,7 @@
 {
   "slug": "F4BY_H743",
   "name": "F4BY_H743",
+  "platform": "chibios",
   "manufacturer": "F4BY Team",
   "mcu": {
     "family": "STM32H7xx",

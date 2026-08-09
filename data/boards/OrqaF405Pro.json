@@ -1,6 +1,7 @@
 {
   "slug": "OrqaF405Pro",
   "name": "OrqaF405Pro",
+  "platform": "chibios",
   "manufacturer": "Orqa",
   "mcu": {
     "family": "STM32F4xx",

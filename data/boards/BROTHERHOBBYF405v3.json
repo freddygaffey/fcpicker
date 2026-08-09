@@ -1,6 +1,7 @@
 {
   "slug": "BROTHERHOBBYF405v3",
   "name": "BROTHERHOBBYF405v3",
+  "platform": "chibios",
   "manufacturer": "BrotherHobby",
   "mcu": {
     "family": "STM32F4xx",

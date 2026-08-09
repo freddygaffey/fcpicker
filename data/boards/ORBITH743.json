@@ -1,6 +1,7 @@
 {
   "slug": "ORBITH743",
   "name": "ORBITH743",
+  "platform": "chibios",
   "manufacturer": "Orbit Technology",
   "mcu": {
     "family": "STM32H7xx",

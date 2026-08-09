@@ -1,6 +1,7 @@
 {
   "slug": "MatekF405",
   "name": "MatekF405",
+  "platform": "chibios",
   "manufacturer": "Matek Systems",
   "mcu": {
     "family": "STM32F4xx",

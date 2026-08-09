@@ -1,6 +1,7 @@
 {
   "slug": "YARIV6X",
   "name": "YARIV6X",
+  "platform": "chibios",
   "manufacturer": "YARI Robotics",
   "mcu": {
     "family": "STM32H7xx",

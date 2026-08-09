@@ -1,6 +1,7 @@
 {
   "slug": "RadiolinkF405",
   "name": "RadiolinkF405",
+  "platform": "chibios",
   "manufacturer": "RadioLink",
   "mcu": {
     "family": "STM32F4xx",

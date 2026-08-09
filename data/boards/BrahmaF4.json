@@ -1,6 +1,7 @@
 {
   "slug": "BrahmaF4",
   "name": "BrahmaF4",
+  "platform": "chibios",
   "manufacturer": "Darkmatter\u00ae",
   "mcu": {
     "family": "STM32F4xx",

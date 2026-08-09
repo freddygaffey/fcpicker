@@ -1,6 +1,7 @@
 {
   "slug": "VRUBrain-v51",
   "name": "VRUBrain-v51",
+  "platform": "chibios",
   "manufacturer": "Laser Navigation",
   "mcu": {
     "family": "STM32F4xx",

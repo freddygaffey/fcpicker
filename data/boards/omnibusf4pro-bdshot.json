@@ -1,6 +1,7 @@
 {
   "slug": "omnibusf4pro-bdshot",
   "name": "omnibusf4pro-bdshot",
+  "platform": "chibios",
   "manufacturer": "Airbot",
   "mcu": {
     "family": "STM32F4xx",

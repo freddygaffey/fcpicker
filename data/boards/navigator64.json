@@ -1,0 +1,122 @@
+{
+  "slug": "navigator64",
+  "name": "navigator64",
+  "platform": "linux",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 0,
+    "uart_buses": [],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 0,
+    "spi_buses": [],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 0,
+    "pwm": {
+      "fmu": 0,
+      "io": 0,
+      "total": 0
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null,
+      "slot": null,
+      "chip_display": "ICM20602"
+    },
+    {
+      "chip": "LSM6DSV",
+      "bus": "SPI:lsm6dsv",
+      "variant": null,
+      "slot": null,
+      "chip_display": "LSM6DSV"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "BMP280",
+      "bus": "I2C:1:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "I2C:1:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "MMC5XX3",
+      "bus": "SPI:mmc5983",
+      "variant": null,
+      "slot": null,
+      "chip_display": "MMC5983"
+    },
+    {
+      "chip": "AK09916",
+      "bus": "I2C:1:0x0c",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "IIS2MDC",
+      "bus": "I2C:1:0x1E",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/navigator64",
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

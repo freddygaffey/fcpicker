@@ -1,6 +1,7 @@
 {
   "slug": "FoxeerF405v2",
   "name": "FoxeerF405v2",
+  "platform": "chibios",
   "manufacturer": "Foxeer",
   "mcu": {
     "family": "STM32F4xx",

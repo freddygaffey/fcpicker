@@ -1,6 +1,7 @@
 {
   "slug": "CrazyF405",
   "name": "CrazyF405",
+  "platform": "chibios",
   "manufacturer": "Happymodel",
   "mcu": {
     "family": "STM32F4xx",

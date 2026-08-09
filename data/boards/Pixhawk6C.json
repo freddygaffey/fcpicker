@@ -1,6 +1,7 @@
 {
   "slug": "Pixhawk6C",
   "name": "Pixhawk6C",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",
@@ -107,6 +108,13 @@
     {
       "chip": "IST8310",
       "bus": "I2C:0:0x0C",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "RM3100",
+      "bus": "I2C:0:0x20",
       "variant": null,
       "slot": null,
       "chip_display": null

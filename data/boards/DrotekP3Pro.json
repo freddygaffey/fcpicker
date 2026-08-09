@@ -1,6 +1,7 @@
 {
   "slug": "DrotekP3Pro",
   "name": "DrotekP3Pro",
+  "platform": "chibios",
   "manufacturer": "Drotek",
   "mcu": {
     "family": "STM32F4xx",

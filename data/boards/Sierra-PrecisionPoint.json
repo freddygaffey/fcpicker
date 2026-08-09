@@ -1,6 +1,7 @@
 {
   "slug": "Sierra-PrecisionPoint",
   "name": "Sierra-PrecisionPoint",
+  "platform": "chibios",
   "manufacturer": "Sierra Aerospace",
   "mcu": {
     "family": "STM32F4xx",

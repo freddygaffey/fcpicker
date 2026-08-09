@@ -1,6 +1,7 @@
 {
   "slug": "crazyflie2",
   "name": "crazyflie2",
+  "platform": "chibios",
   "manufacturer": "Bitcraze",
   "mcu": {
     "family": "STM32F4xx",

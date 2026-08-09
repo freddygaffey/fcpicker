@@ -1,6 +1,7 @@
 {
   "slug": "MambaF405v2",
   "name": "MambaF405v2",
+  "platform": "chibios",
   "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32F4xx",

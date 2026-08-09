@@ -1,6 +1,7 @@
 {
   "slug": "BETAFPV-F405-I2C",
   "name": "BETAFPV-F405-I2C",
+  "platform": "chibios",
   "manufacturer": "BETAFPV",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "skyviper-v2450",
   "name": "skyviper-v2450",
+  "platform": "chibios",
   "manufacturer": "SkyRocket",
   "mcu": {
     "family": "STM32F4xx",

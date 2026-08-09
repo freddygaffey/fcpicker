@@ -1,6 +1,7 @@
 {
   "slug": "CubeNode-ETH",
   "name": "CubeNode-ETH",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",

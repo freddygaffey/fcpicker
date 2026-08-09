@@ -1,6 +1,7 @@
 {
   "slug": "BeastF7",
   "name": "BeastF7",
+  "platform": "chibios",
   "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32F7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "MazzyStarDrone",
   "name": "MazzyStarDrone",
+  "platform": "chibios",
   "manufacturer": "VimDrones",
   "mcu": {
     "family": "STM32F7xx",

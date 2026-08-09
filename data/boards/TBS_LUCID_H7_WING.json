@@ -1,6 +1,7 @@
 {
   "slug": "TBS_LUCID_H7_WING",
   "name": "TBS_LUCID_H7_WING",
+  "platform": "chibios",
   "manufacturer": "Team BlackSheep (TBS)",
   "mcu": {
     "family": "STM32H7xx",

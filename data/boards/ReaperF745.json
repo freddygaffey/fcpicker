@@ -1,6 +1,7 @@
 {
   "slug": "ReaperF745",
   "name": "ReaperF745",
+  "platform": "chibios",
   "manufacturer": "Foxeer",
   "mcu": {
     "family": "STM32F7xx",

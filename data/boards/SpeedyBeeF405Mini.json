@@ -1,6 +1,7 @@
 {
   "slug": "SpeedyBeeF405Mini",
   "name": "SpeedyBeeF405Mini",
+  "platform": "chibios",
   "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "speedybeef4v3",
   "name": "speedybeef4v3",
+  "platform": "chibios",
   "manufacturer": "SpeedyBee",
   "mcu": {
     "family": "STM32F4xx",

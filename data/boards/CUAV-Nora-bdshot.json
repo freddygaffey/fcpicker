@@ -1,6 +1,7 @@
 {
   "slug": "CUAV-Nora-bdshot",
   "name": "CUAV-Nora-bdshot",
+  "platform": "chibios",
   "manufacturer": "CUAV",
   "mcu": {
     "family": "STM32H7xx",

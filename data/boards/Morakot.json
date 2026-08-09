@@ -1,6 +1,7 @@
 {
   "slug": "Morakot",
   "name": "Morakot",
+  "platform": "chibios",
   "manufacturer": "Taiphoon",
   "mcu": {
     "family": "STM32H7xx",

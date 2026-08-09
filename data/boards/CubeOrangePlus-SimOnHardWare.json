@@ -1,6 +1,7 @@
 {
   "slug": "CubeOrangePlus-SimOnHardWare",
   "name": "CubeOrangePlus-SimOnHardWare",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "JHEM_JHEF405",
   "name": "JHEM_JHEF405",
+  "platform": "chibios",
   "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32F4xx",

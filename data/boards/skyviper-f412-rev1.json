@@ -1,6 +1,7 @@
 {
   "slug": "skyviper-f412-rev1",
   "name": "skyviper-f412-rev1",
+  "platform": "chibios",
   "manufacturer": "SkyRocket",
   "mcu": {
     "family": "STM32F4xx",

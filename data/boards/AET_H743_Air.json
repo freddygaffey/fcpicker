@@ -1,0 +1,116 @@
+{
+  "slug": "AET_H743_Air",
+  "name": "AET_H743_Air",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART1",
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART5"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C2",
+      "I2C1"
+    ],
+    "spi_count": 4,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI3",
+      "SPI4"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 11,
+      "io": 0,
+      "total": 11
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 5
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270_0",
+      "variant": null,
+      "slot": "SPI1/CS:IMU1_CS",
+      "chip_display": "BMI270_0"
+    },
+    {
+      "chip": "BMI270",
+      "bus": "SPI:bmi270_1",
+      "variant": null,
+      "slot": "SPI4/CS:IMU2_CS",
+      "chip_display": "BMI270_1"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "SPL06",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "DPS310",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-AET-H743-Basic.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/AET_H743_Air/README.md",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

@@ -1,6 +1,7 @@
 {
   "slug": "PrincipIoTH7Pi",
   "name": "PrincipIoTH7Pi",
+  "platform": "chibios",
   "manufacturer": "PrincipIoT",
   "mcu": {
     "family": "STM32H7xx",

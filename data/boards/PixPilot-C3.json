@@ -1,6 +1,7 @@
 {
   "slug": "PixPilot-C3",
   "name": "PixPilot-C3",
+  "platform": "chibios",
   "manufacturer": "makeflyeasy",
   "mcu": {
     "family": "STM32F4xx",

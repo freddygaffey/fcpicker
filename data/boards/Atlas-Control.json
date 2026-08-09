@@ -1,6 +1,7 @@
 {
   "slug": "Atlas-Control",
   "name": "Atlas-Control",
+  "platform": "chibios",
   "manufacturer": "AtlasFlight",
   "mcu": {
     "family": "STM32H7xx",

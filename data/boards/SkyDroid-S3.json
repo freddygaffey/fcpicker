@@ -1,0 +1,100 @@
+{
+  "slug": "SkyDroid-S3",
+  "name": "SkyDroid-S3",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "UART5",
+      "USART1",
+      "UART7",
+      "UART4"
+    ],
+    "i2c_count": 1,
+    "i2c_buses": [
+      "I2C2"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI2",
+      "SPI4"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 12,
+      "io": 0,
+      "total": 12
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 2
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null,
+      "slot": "SPI1/CS:BMI088_A_CS",
+      "chip_display": "BMI088"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null,
+      "slot": "SPI4/CS:MS5611_BOARD_CS",
+      "chip_display": "MS5611"
+    }
+  ],
+  "compasses": [],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SkyDroid-S3/README.md",
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

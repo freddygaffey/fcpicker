@@ -1,6 +1,7 @@
 {
   "slug": "StellarF4V2",
   "name": "StellarF4V2",
+  "platform": "chibios",
   "manufacturer": "Stingbee",
   "mcu": {
     "family": "STM32F4xx",

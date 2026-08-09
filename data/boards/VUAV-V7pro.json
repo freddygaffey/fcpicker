@@ -1,6 +1,7 @@
 {
   "slug": "VUAV-V7pro",
   "name": "VUAV-V7pro",
+  "platform": "chibios",
   "manufacturer": "V-UAV",
   "mcu": {
     "family": "STM32H7xx",

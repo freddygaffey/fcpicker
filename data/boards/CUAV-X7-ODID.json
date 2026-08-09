@@ -1,6 +1,7 @@
 {
   "slug": "CUAV-X7-ODID",
   "name": "CUAV-X7-ODID",
+  "platform": "chibios",
   "manufacturer": "CUAV",
   "mcu": {
     "family": "STM32H7xx",

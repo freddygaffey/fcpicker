@@ -1,0 +1,123 @@
+{
+  "slug": "SaamPixV1_1",
+  "name": "SaamPixV1_1",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32F4xx",
+    "part": "STM32F427xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 6,
+    "uart_buses": [
+      "USART2",
+      "USART3",
+      "UART4",
+      "UART8",
+      "USART1",
+      "UART7"
+    ],
+    "i2c_count": 2,
+    "i2c_buses": [
+      "I2C1",
+      "I2C2"
+    ],
+    "spi_count": 2,
+    "spi_buses": [
+      "SPI1",
+      "SPI4"
+    ],
+    "can_count": 1,
+    "can_buses": [
+      "CAN1"
+    ],
+    "canfd": false,
+    "usb_count": 1,
+    "pwm": {
+      "fmu": 16,
+      "io": 0,
+      "total": 16
+    },
+    "ethernet": false,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 6
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:icm20602",
+      "variant": null,
+      "slot": "SPI4/CS:ICM_20602_GY_AM_CS",
+      "chip_display": "ICM20602"
+    },
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu9250",
+      "variant": null,
+      "slot": "SPI4/CS:MPU9250_GY_AM_MAG_CS",
+      "chip_display": "MPU9250"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "SPI:ms5611",
+      "variant": null,
+      "slot": "SPI4/CS:BARO_CS",
+      "chip_display": "MS5611"
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "LIS3MDL",
+      "bus": "SPI:lis3mdl",
+      "variant": null,
+      "slot": "SPI4/CS:LIS3MDL_MAG_CS",
+      "chip_display": "LIS3MDL"
+    },
+    {
+      "chip": "AK8963:probe_mpu9250",
+      "bus": "0",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/SaamPixV1_1/README.md",
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

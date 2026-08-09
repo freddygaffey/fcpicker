@@ -1,6 +1,7 @@
 {
   "slug": "TBS_LUCID_H7",
   "name": "TBS_LUCID_H7",
+  "platform": "chibios",
   "manufacturer": "Team BlackSheep",
   "mcu": {
     "family": "STM32H7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "Aocoda-RC-H743Dual",
   "name": "Aocoda-RC-H743Dual",
+  "platform": "chibios",
   "manufacturer": "Aocoda-RC",
   "mcu": {
     "family": "STM32H7xx",

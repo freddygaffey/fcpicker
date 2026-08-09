@@ -1,0 +1,94 @@
+{
+  "slug": "navio",
+  "name": "navio",
+  "platform": "linux",
+  "manufacturer": null,
+  "mcu": {
+    "family": null,
+    "part": null
+  },
+  "flash_kb": null,
+  "io": {
+    "uart_count": 0,
+    "uart_buses": [],
+    "i2c_count": 0,
+    "i2c_buses": [],
+    "spi_count": 0,
+    "spi_buses": [],
+    "can_count": 0,
+    "can_buses": [],
+    "canfd": false,
+    "usb_count": 0,
+    "pwm": {
+      "fmu": 0,
+      "io": 0,
+      "total": 0
+    },
+    "ethernet": false,
+    "sdcard": false,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 0
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensense",
+      "bus": "SPI:mpu9250",
+      "variant": null,
+      "slot": null,
+      "chip_display": "MPU9250"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "MS5611",
+      "bus": "I2C:1:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "AK8963:probe_mpu9250",
+      "bus": "0",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": "https://ardupilot.org/copter/docs/common-navio-overview.html",
+  "repo_url": "https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_Linux/hwdef/navio",
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

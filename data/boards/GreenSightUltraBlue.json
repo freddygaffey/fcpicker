@@ -1,6 +1,7 @@
 {
   "slug": "GreenSightUltraBlue",
   "name": "GreenSightUltraBlue",
+  "platform": "chibios",
   "manufacturer": "GreenSight",
   "mcu": {
     "family": "STM32H7xx",

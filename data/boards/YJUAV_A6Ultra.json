@@ -1,6 +1,7 @@
 {
   "slug": "YJUAV_A6Ultra",
   "name": "YJUAV_A6Ultra",
+  "platform": "chibios",
   "manufacturer": "YJUAV",
   "mcu": {
     "family": "STM32H7xx",

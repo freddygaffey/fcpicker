@@ -1,6 +1,7 @@
 {
   "slug": "MambaF405-2022",
   "name": "MambaF405-2022",
+  "platform": "chibios",
   "manufacturer": "Diatone",
   "mcu": {
     "family": "STM32F4xx",

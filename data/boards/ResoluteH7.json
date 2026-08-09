@@ -1,6 +1,7 @@
 {
   "slug": "ResoluteH7",
   "name": "ResoluteH7",
+  "platform": "chibios",
   "manufacturer": "Standard Systems",
   "mcu": {
     "family": "STM32H7xx",

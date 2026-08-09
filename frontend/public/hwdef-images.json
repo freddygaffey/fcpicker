@@ -44,11 +44,28 @@
       ]
     },
     {
+      "slug": "AET_H743_Air",
+      "is_autopilot": true,
+      "images": [
+        "AET-H743-Air-overview.png",
+        "AET-H743-Air_core_board.png",
+        "AET-H743-Air_power_board.png"
+      ]
+    },
+    {
       "slug": "AIRBRAINH743",
       "is_autopilot": true,
       "images": [
         "pinoutBottom.png",
         "pinoutTop.png"
+      ]
+    },
+    {
+      "slug": "ARKV6S",
+      "is_autopilot": true,
+      "images": [
+        "bottom.png",
+        "pinout.png"
       ]
     },
     {
@@ -135,6 +152,13 @@
       "is_autopilot": true,
       "images": [
         "img.png"
+      ]
+    },
+    {
+      "slug": "BCubeF745v2",
+      "is_autopilot": true,
+      "images": [
+        "bcubef745v2.jpg"
       ]
     },
     {
@@ -265,6 +289,27 @@
       ]
     },
     {
+      "slug": "CORVON743V2",
+      "is_autopilot": true,
+      "images": [
+        "CORVON743V2_BackView.jpg",
+        "CORVON743V2_FrontView.jpg",
+        "CORVON743V2_Pads.png",
+        "CORVON743V2_PortsConnection.png"
+      ]
+    },
+    {
+      "slug": "CORVON_V5",
+      "is_autopilot": true,
+      "images": [
+        "CORVON_V5_FrontView.png",
+        "CORVON_V5_Physical.jpg",
+        "CORVON_V5_Pinout1.jpg",
+        "CORVON_V5_Pinout2.jpg",
+        "CORVON_V5_SideView1.png"
+      ]
+    },
+    {
       "slug": "CSKY405",
       "is_autopilot": true,
       "images": [
@@ -300,6 +345,15 @@
       "images": [
         "CUAV-X25-EVO-pinout.png",
         "CUAV-X25-EVO.png"
+      ]
+    },
+    {
+      "slug": "CUAV-X25-MEGA",
+      "is_autopilot": true,
+      "images": [
+        "CUAV-X25-MEGA-pinout_01.png",
+        "CUAV-X25-MEGA-pinout_02.png",
+        "CUAV-X25-MEGA.png"
       ]
     },
     {
@@ -350,6 +404,15 @@
       "is_autopilot": true,
       "images": [
         "CubeOrangePlus-pinout.svg"
+      ]
+    },
+    {
+      "slug": "CyberX-v10",
+      "is_autopilot": true,
+      "images": [
+        "CyberX-v10_left.png",
+        "CyberX-v10_pinout.jpg",
+        "CyberX-v10_right.png"
       ]
     },
     {
@@ -507,6 +570,15 @@
       ]
     },
     {
+      "slug": "GPILOT_P1",
+      "is_autopilot": true,
+      "images": [
+        "gpilot_p1.jpg",
+        "pinout1.png",
+        "pinout2.png"
+      ]
+    },
+    {
       "slug": "GreenSightUltraBlue",
       "is_autopilot": true,
       "images": [
@@ -550,6 +622,14 @@
       "images": [
         "Thunder-H7-1.png",
         "Thunder-H7-2.png"
+      ]
+    },
+    {
+      "slug": "JFB200",
+      "is_autopilot": true,
+      "images": [
+        "JFB-200_overview.png",
+        "JFB-200_pinout.png"
       ]
     },
     {
@@ -599,6 +679,14 @@
         "JPilot-C_board_v1.0.jpg",
         "JPilot-C_pinout.png",
         "JPilot-C_pinout.svg"
+      ]
+    },
+    {
+      "slug": "KARSHAKH743VTOL",
+      "is_autopilot": true,
+      "images": [
+        "Bot_KARSHAKH743VTOL.png",
+        "Top_KARSHAKH743VTOL.png"
       ]
     },
     {
@@ -888,6 +976,14 @@
       ]
     },
     {
+      "slug": "ORBITH743v2",
+      "is_autopilot": true,
+      "images": [
+        "orbith743v2-wiring.png",
+        "orbith743v2.jpg"
+      ]
+    },
+    {
       "slug": "OrqaF405Pro",
       "is_autopilot": true,
       "images": [
@@ -1065,6 +1161,22 @@
       ]
     },
     {
+      "slug": "SIMPLIFLYH7",
+      "is_autopilot": true,
+      "images": [
+        "BottomView_SIMPLIFLYH7.png",
+        "TopView_SIMPLIFLYH7.png"
+      ]
+    },
+    {
+      "slug": "SIYI-UniFC-6-PICO",
+      "is_autopilot": true,
+      "images": [
+        "SIYI-UniFC-6-PICO.png",
+        "SIYI-UniFC-6-PICO_TOP.png"
+      ]
+    },
+    {
       "slug": "SPEDIXF405",
       "is_autopilot": true,
       "images": [
@@ -1116,11 +1228,29 @@
       ]
     },
     {
+      "slug": "SaamPixV1_1",
+      "is_autopilot": true,
+      "images": [
+        "SaamPixV1_1-board.jpg",
+        "SaamPixV1_1-pinout.png",
+        "SaamPixV1_1-top.png"
+      ]
+    },
+    {
       "slug": "SequreH743",
       "is_autopilot": true,
       "images": [
         "SequreH743Bottom.png",
         "SequreH743Top.png"
+      ]
+    },
+    {
+      "slug": "SkyDroid-S3",
+      "is_autopilot": true,
+      "images": [
+        "SkyDroid-S3_PCB_Bottom.png",
+        "SkyDroid-S3_PCB_Top.png",
+        "SkyDroid-s3.png"
       ]
     },
     {
@@ -1224,6 +1354,22 @@
       ]
     },
     {
+      "slug": "TBS_LUCID_H7V3",
+      "is_autopilot": true,
+      "images": [
+        "LucidH7Bottom.jpeg",
+        "LucidH7Top.jpeg"
+      ]
+    },
+    {
+      "slug": "TBS_LUCID_H7_OEM",
+      "is_autopilot": true,
+      "images": [
+        "LucidH7Bottom.jpeg",
+        "LucidH7Top.jpeg"
+      ]
+    },
+    {
       "slug": "TBS_LUCID_H7_WING",
       "is_autopilot": true,
       "images": [
@@ -1313,6 +1459,15 @@
       ]
     },
     {
+      "slug": "YARI_GNSS",
+      "is_autopilot": false,
+      "images": [
+        "images/dimension.png",
+        "images/interface.png",
+        "images/product.png"
+      ]
+    },
+    {
       "slug": "YJUAV_A6",
       "is_autopilot": true,
       "images": [
@@ -1354,6 +1509,15 @@
         "ZeroOneX6_Air.jpg",
         "ZeroOneX6_Air.png",
         "ZeroOneX6_AirSeriesPinout.jpg"
+      ]
+    },
+    {
+      "slug": "flycore",
+      "is_autopilot": true,
+      "images": [
+        "amovlab_flycore_pin1_orientation.png",
+        "amovlab_flycore_pinout.jpg",
+        "amovlab_flycore_product.jpg"
       ]
     },
     {

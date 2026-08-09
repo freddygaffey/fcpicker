@@ -1,6 +1,7 @@
 {
   "slug": "ARKV6X-bdshot",
   "name": "ARKV6X-bdshot",
+  "platform": "chibios",
   "manufacturer": "ARK Electronics",
   "mcu": {
     "family": "STM32H7xx",
@@ -41,9 +42,9 @@
     "canfd": false,
     "usb_count": 2,
     "pwm": {
-      "fmu": 12,
+      "fmu": 14,
       "io": 0,
-      "total": 12
+      "total": 14
     },
     "ethernet": true,
     "sdcard": true,

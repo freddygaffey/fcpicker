@@ -1,6 +1,7 @@
 {
   "slug": "QioTekZealotH743",
   "name": "QioTekZealotH743",
+  "platform": "chibios",
   "manufacturer": "QioTek",
   "mcu": {
     "family": "STM32H7xx",

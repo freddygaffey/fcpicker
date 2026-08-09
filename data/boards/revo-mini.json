@@ -1,6 +1,7 @@
 {
   "slug": "revo-mini",
   "name": "revo-mini",
+  "platform": "chibios",
   "manufacturer": "OpenPilot",
   "mcu": {
     "family": "STM32F4xx",

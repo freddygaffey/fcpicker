@@ -1,6 +1,7 @@
 {
   "slug": "ZeroOneX6_Air",
   "name": "ZeroOneX6_Air",
+  "platform": "chibios",
   "manufacturer": "ZeroOne",
   "mcu": {
     "family": "STM32H7xx",
@@ -80,6 +81,20 @@
     {
       "chip": "ICP201XX",
       "bus": "I2C:2:0x63",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "SPL06",
+      "bus": "I2C:2:0x77",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "BMP581",
+      "bus": "I2C:0:0x47",
       "variant": null,
       "slot": null,
       "chip_display": null

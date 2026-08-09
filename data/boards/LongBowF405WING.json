@@ -1,6 +1,7 @@
 {
   "slug": "LongBowF405WING",
   "name": "LongBowF405WING",
+  "platform": "chibios",
   "manufacturer": "lefei rc",
   "mcu": {
     "family": "STM32F4xx",

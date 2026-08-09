@@ -1,6 +1,7 @@
 {
   "slug": "AEDROXH7",
   "name": "AEDROXH7",
+  "platform": "chibios",
   "manufacturer": "Aedrox",
   "mcu": {
     "family": "STM32H7xx",

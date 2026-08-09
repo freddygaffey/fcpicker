@@ -1,6 +1,7 @@
 {
   "slug": "OmnibusNanoV6",
   "name": "OmnibusNanoV6",
+  "platform": "chibios",
   "manufacturer": "Airbot",
   "mcu": {
     "family": "STM32F4xx",

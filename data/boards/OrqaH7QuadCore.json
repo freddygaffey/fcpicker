@@ -1,6 +1,7 @@
 {
   "slug": "OrqaH7QuadCore",
   "name": "OrqaH7QuadCore",
+  "platform": "chibios",
   "manufacturer": "Orqa",
   "mcu": {
     "family": "STM32H7xx",

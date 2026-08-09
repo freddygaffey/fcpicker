@@ -1,6 +1,7 @@
 {
   "slug": "mRoControlZeroOEMH7",
   "name": "mRoControlZeroOEMH7",
+  "platform": "chibios",
   "manufacturer": "mRo",
   "mcu": {
     "family": "STM32H7xx",

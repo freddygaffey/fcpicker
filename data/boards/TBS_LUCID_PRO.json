@@ -1,6 +1,7 @@
 {
   "slug": "TBS_LUCID_PRO",
   "name": "TBS_LUCID_PRO",
+  "platform": "chibios",
   "manufacturer": "Team Black Sheep",
   "mcu": {
     "family": "STM32F4xx",

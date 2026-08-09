@@ -1,0 +1,126 @@
+{
+  "slug": "SIYI-UniFC-6-PICO-ODID",
+  "name": "SIYI-UniFC-6-PICO-ODID",
+  "platform": "chibios",
+  "manufacturer": null,
+  "mcu": {
+    "family": "STM32H7xx",
+    "part": "STM32H743xx"
+  },
+  "flash_kb": 2048,
+  "io": {
+    "uart_count": 5,
+    "uart_buses": [
+      "USART2",
+      "USART6",
+      "USART1",
+      "UART4",
+      "USART3"
+    ],
+    "i2c_count": 4,
+    "i2c_buses": [
+      "I2C3",
+      "I2C1",
+      "I2C4",
+      "I2C2"
+    ],
+    "spi_count": 3,
+    "spi_buses": [
+      "SPI1",
+      "SPI4",
+      "SPI5"
+    ],
+    "can_count": 2,
+    "can_buses": [
+      "CAN1",
+      "CAN2"
+    ],
+    "canfd": false,
+    "usb_count": 2,
+    "pwm": {
+      "fmu": 14,
+      "io": 0,
+      "total": 14
+    },
+    "ethernet": true,
+    "sdcard": true,
+    "sbus_out": false,
+    "iomcu": false,
+    "adc_inputs": 8
+  },
+  "power": {
+    "monitor_inputs": 1,
+    "bec": []
+  },
+  "imus": [
+    {
+      "chip": "Invensensev3",
+      "bus": "SPI:icm45686_1",
+      "variant": null,
+      "slot": "SPI4/CS:ICM45686_1_CS",
+      "chip_display": "ICM45686_1"
+    },
+    {
+      "chip": "BMI088",
+      "bus": "SPI:bmi088_a",
+      "variant": null,
+      "slot": "SPI1/CS:BMI088_A_CS",
+      "chip_display": "BMI088"
+    }
+  ],
+  "baros": [
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:0:0x63",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "ICP201XX",
+      "bus": "I2C:3:0x64",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "compasses": [
+    {
+      "chip": "IST8310",
+      "bus": "I2C:0:0x0E",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    }
+  ],
+  "firmware_support": [
+    {
+      "firmware": "ardupilot",
+      "maturity": "official"
+    }
+  ],
+  "vehicles": [
+    "copter",
+    "plane",
+    "rover",
+    "sub",
+    "tracker",
+    "blimp"
+  ],
+  "docs_url": null,
+  "repo_url": null,
+  "manual": {
+    "status": "not_started",
+    "form_factor": null,
+    "mounting": null,
+    "assembly": null,
+    "dimensions_mm": null,
+    "weight_g": null,
+    "connectors": [],
+    "images": [],
+    "ardupilot_repo_url": null,
+    "discontinued": false,
+    "imu_count": null,
+    "notes": null
+  }
+}

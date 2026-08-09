@@ -1,6 +1,7 @@
 {
   "slug": "IFLIGHT_2RAW_H7",
   "name": "IFLIGHT_2RAW_H7",
+  "platform": "chibios",
   "manufacturer": "iFlight",
   "mcu": {
     "family": "STM32H7xx",

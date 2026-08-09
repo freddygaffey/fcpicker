@@ -1,6 +1,7 @@
 {
   "slug": "Durandal-bdshot",
   "name": "Durandal-bdshot",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",

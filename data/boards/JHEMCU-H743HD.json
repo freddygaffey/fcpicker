@@ -1,6 +1,7 @@
 {
   "slug": "JHEMCU-H743HD",
   "name": "JHEMCU-H743HD",
+  "platform": "chibios",
   "manufacturer": "JHEMCU",
   "mcu": {
     "family": "STM32H7xx",

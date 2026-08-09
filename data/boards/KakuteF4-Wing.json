@@ -1,6 +1,7 @@
 {
   "slug": "KakuteF4-Wing",
   "name": "KakuteF4-Wing",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F4xx",

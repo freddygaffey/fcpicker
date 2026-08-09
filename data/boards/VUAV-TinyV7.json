@@ -1,6 +1,7 @@
 {
   "slug": "VUAV-TinyV7",
   "name": "VUAV-TinyV7",
+  "platform": "chibios",
   "manufacturer": "V-UAV",
   "mcu": {
     "family": "STM32H7xx",

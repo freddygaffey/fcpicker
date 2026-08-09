@@ -1,6 +1,7 @@
 {
   "slug": "MFT-SEMA100",
   "name": "MFT-SEMA100",
+  "platform": "chibios",
   "manufacturer": "MFT Savunma ve Havac\u0131l\u0131k LTD. \u015eT\u0130.",
   "mcu": {
     "family": "STM32H7xx",

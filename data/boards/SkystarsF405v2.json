@@ -1,6 +1,7 @@
 {
   "slug": "SkystarsF405v2",
   "name": "SkystarsF405v2",
+  "platform": "chibios",
   "manufacturer": "Skystars",
   "mcu": {
     "family": "STM32F4xx",

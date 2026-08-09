@@ -1,6 +1,7 @@
 {
   "slug": "PilotGaeaSH7V1-bdshot",
   "name": "PilotGaeaSH7V1-bdshot",
+  "platform": "chibios",
   "manufacturer": "PilotGaea",
   "mcu": {
     "family": "STM32H7xx",

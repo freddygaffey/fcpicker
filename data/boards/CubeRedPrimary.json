@@ -1,6 +1,7 @@
 {
   "slug": "CubeRedPrimary",
   "name": "CubeRedPrimary",
+  "platform": "chibios",
   "manufacturer": "CubePilot",
   "mcu": {
     "family": "STM32H7xx",

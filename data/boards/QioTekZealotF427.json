@@ -1,6 +1,7 @@
 {
   "slug": "QioTekZealotF427",
   "name": "QioTekZealotF427",
+  "platform": "chibios",
   "manufacturer": "QioTek",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "HWH7",
   "name": "HWH7",
+  "platform": "chibios",
   "manufacturer": "HW",
   "mcu": {
     "family": "STM32H7xx",

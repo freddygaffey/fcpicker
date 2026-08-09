@@ -1,6 +1,7 @@
 {
   "slug": "Pixracer-bdshot",
   "name": "Pixracer-bdshot",
+  "platform": "chibios",
   "manufacturer": "mRobotics",
   "mcu": {
     "family": "STM32F4xx",

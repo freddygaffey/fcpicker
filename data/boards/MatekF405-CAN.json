@@ -1,6 +1,7 @@
 {
   "slug": "MatekF405-CAN",
   "name": "MatekF405-CAN",
+  "platform": "chibios",
   "manufacturer": "Matek Systems",
   "mcu": {
     "family": "STM32F4xx",

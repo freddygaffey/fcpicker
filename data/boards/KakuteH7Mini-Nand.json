@@ -1,6 +1,7 @@
 {
   "slug": "KakuteH7Mini-Nand",
   "name": "KakuteH7Mini-Nand",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",

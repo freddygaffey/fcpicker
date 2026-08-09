@@ -1,6 +1,7 @@
 {
   "slug": "revo-mini-sd",
   "name": "revo-mini-sd",
+  "platform": "chibios",
   "manufacturer": "OpenPilot (open-source hardware; sold by HobbyKing and others)",
   "mcu": {
     "family": "STM32F4xx",

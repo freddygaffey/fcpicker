@@ -1,6 +1,7 @@
 {
   "slug": "KakuteH7-bdshot",
   "name": "KakuteH7-bdshot",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32H7xx",

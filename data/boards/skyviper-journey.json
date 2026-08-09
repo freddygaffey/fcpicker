@@ -1,6 +1,7 @@
 {
   "slug": "skyviper-journey",
   "name": "skyviper-journey",
+  "platform": "chibios",
   "manufacturer": "SkyRocket",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "mRoControlZeroF7",
   "name": "mRoControlZeroF7",
+  "platform": "chibios",
   "manufacturer": "mRobotics",
   "mcu": {
     "family": "STM32F7xx",

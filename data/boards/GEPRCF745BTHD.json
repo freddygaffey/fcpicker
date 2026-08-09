@@ -1,6 +1,7 @@
 {
   "slug": "GEPRCF745BTHD",
   "name": "GEPRCF745BTHD",
+  "platform": "chibios",
   "manufacturer": "GEPRC",
   "mcu": {
     "family": "STM32F7xx",

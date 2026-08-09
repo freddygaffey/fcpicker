@@ -1,6 +1,7 @@
 {
   "slug": "sparky2",
   "name": "sparky2",
+  "platform": "chibios",
   "manufacturer": "TauLabs",
   "mcu": {
     "family": "STM32F4xx",

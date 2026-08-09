@@ -1,6 +1,7 @@
 {
   "slug": "KT-FMU-F1",
   "name": "KT-FMU-F1",
+  "platform": "chibios",
   "manufacturer": "Coolfly",
   "mcu": {
     "family": "STM32H7xx",

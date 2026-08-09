@@ -1,6 +1,7 @@
 {
   "slug": "JPilot-C",
   "name": "JPilot-C",
+  "platform": "chibios",
   "manufacturer": "Flyfocus",
   "mcu": {
     "family": "STM32H7xx",

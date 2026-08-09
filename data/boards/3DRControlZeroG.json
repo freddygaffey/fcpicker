@@ -1,6 +1,7 @@
 {
   "slug": "3DRControlZeroG",
   "name": "3DRControlZeroG",
+  "platform": "chibios",
   "manufacturer": "3DR (mRo)",
   "mcu": {
     "family": "STM32H7xx",

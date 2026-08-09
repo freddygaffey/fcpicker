@@ -1,6 +1,7 @@
 {
   "slug": "KakuteF4",
   "name": "KakuteF4",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F4xx",

@@ -1,6 +1,7 @@
 {
   "slug": "JFB110",
   "name": "JFB110",
+  "platform": "chibios",
   "manufacturer": "JAE (Japan Aviation Electronics Industry)",
   "mcu": {
     "family": "STM32H7xx",

@@ -1,6 +1,7 @@
 {
   "slug": "PixPilot-V6",
   "name": "PixPilot-V6",
+  "platform": "chibios",
   "manufacturer": "MakeFlyEasy",
   "mcu": {
     "family": "STM32H7xx",

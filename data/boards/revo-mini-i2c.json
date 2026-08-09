@@ -1,6 +1,7 @@
 {
   "slug": "revo-mini-i2c",
   "name": "revo-mini-i2c",
+  "platform": "chibios",
   "manufacturer": "OpenPilot",
   "mcu": {
     "family": "STM32F4xx",

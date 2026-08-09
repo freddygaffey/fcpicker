@@ -1,6 +1,7 @@
 {
   "slug": "ACNS-F405AIO",
   "name": "ACNS-F405AIO",
+  "platform": "chibios",
   "manufacturer": "ACNS",
   "mcu": {
     "family": "STM32F4xx",

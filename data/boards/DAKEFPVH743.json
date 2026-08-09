@@ -1,6 +1,7 @@
 {
   "slug": "DAKEFPVH743",
   "name": "DAKEFPVH743",
+  "platform": "chibios",
   "manufacturer": "DAKEFPV",
   "mcu": {
     "family": "STM32H7xx",

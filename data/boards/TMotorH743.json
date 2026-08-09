@@ -1,6 +1,7 @@
 {
   "slug": "TMotorH743",
   "name": "TMotorH743",
+  "platform": "chibios",
   "manufacturer": "T-Motor",
   "mcu": {
     "family": "STM32H7xx",

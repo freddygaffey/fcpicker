@@ -1,6 +1,7 @@
 {
   "slug": "Swan-K1",
   "name": "Swan-K1",
+  "platform": "chibios",
   "manufacturer": "Holybro",
   "mcu": {
     "family": "STM32F7xx",

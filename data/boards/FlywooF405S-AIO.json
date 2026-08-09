@@ -1,6 +1,7 @@
 {
   "slug": "FlywooF405S-AIO",
   "name": "FlywooF405S-AIO",
+  "platform": "chibios",
   "manufacturer": "Flywoo",
   "mcu": {
     "family": "STM32F4xx",
@@ -71,6 +72,13 @@
     },
     {
       "chip": "DPS310",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
+    },
+    {
+      "chip": "SPL06",
       "bus": "I2C:0:0x76",
       "variant": null,
       "slot": null,
