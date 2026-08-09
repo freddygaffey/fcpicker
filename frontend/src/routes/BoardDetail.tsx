@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
-import { mcuFamilyLabel, sensorSlotKey, useBoardImages, useBoards } from "../data";
+import { isOnboardSensor, mcuFamilyLabel, sensorSlotKey, useBoardImages, useBoards } from "../data";
 import type { Board, BoardAi, SensorEntry } from "../types";
 import { SiblingNav } from "../SiblingNav";
 import { ReportIssue } from "../ReportIssue";
@@ -151,6 +151,13 @@ export default function BoardDetail() {
         <SensorRow label="IMUs"        items={b.imus} flagOverCount={MAX_IMU_SLOTS} />
         <SensorRow label="Barometers"  items={b.baros} />
         <SensorRow label="Compasses"   items={b.compasses} />
+        <p className="bd-aside">
+          Counts are inferred from ArduPilot&rsquo;s hwdef files, which list the
+          parts the firmware <em>probes for</em> — including alternates and
+          multiple board revisions — not a guaranteed physical inventory. We
+          collapse probe-alternates and drop external (plug-in) sensors, but
+          treat these as a guide and confirm exact sensors in the docs above.
+        </p>
       </section>
 
       {/* Power output (BEC rails) — only when curated data exists */}
@@ -377,7 +384,7 @@ function groupBySlot(items: SensorEntry[]): Slot[] {
 }
 
 function SensorRow({
-  label, items, flagOverCount,
+  label, items: allItems, flagOverCount,
 }: {
   label: string;
   items: SensorEntry[];
@@ -386,6 +393,8 @@ function SensorRow({
   // means the hwdef parsing picked up alternates we couldn't collapse.
   flagOverCount?: number;
 }) {
+  // Onboard sensors only — external plug-in probes aren't chips on the PCB.
+  const items = allItems.filter(isOnboardSensor);
   if (items.length === 0) {
     return (
       <div className="bd-sensor-row">

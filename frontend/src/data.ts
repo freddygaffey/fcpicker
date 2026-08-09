@@ -12,9 +12,17 @@ export function sensorSlotKey(s: SensorEntry): string {
   return p[0] === "I2C" && p.length >= 3 ? `I2C:${p[1]}` : s.bus ?? "?";
 }
 
-// Count of distinct physical sensor positions (not raw probe lines).
+// True for sensors soldered to the board. hwdef "COMPASS ... I2C:ALL_EXTERNAL:.."
+// entries are probes for a plug-in compass (e.g. on a GPS module), not a chip on
+// the PCB — the user knows when they've attached one, so they don't count here.
+export function isOnboardSensor(s: SensorEntry): boolean {
+  return !/EXTERNAL/i.test(s.bus ?? "");
+}
+
+// Count of distinct physical onboard sensor positions (not raw probe lines,
+// and excluding external plug-in probes).
 export function physicalSensorCount(items: SensorEntry[]): number {
-  return new Set(items.map(sensorSlotKey)).size;
+  return new Set(items.filter(isOnboardSensor).map(sensorSlotKey)).size;
 }
 
 let cache: Board[] | null = null;
