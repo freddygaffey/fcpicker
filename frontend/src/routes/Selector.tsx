@@ -26,6 +26,7 @@ function imuSlotCount(b: Board): number {
 
 interface Filters {
   query: string;
+  platform: string;
   mcu: string;
   vehicles: VehicleType[];
   uart: number;
@@ -47,6 +48,7 @@ interface Filters {
 
 const DEFAULTS: Filters = {
   query: "",
+  platform: "ANY",
   mcu: "ANY",
   vehicles: [],
   uart: 0,
@@ -92,7 +94,7 @@ interface TableColumn {
 // open-arrow column is fixed rightmost (both rendered outside this list).
 const TABLE_COLUMNS: TableColumn[] = [
   { id: "mcu",      label: "MCU",   sortKey: "mcu",
-    cell: (b) => <td className="td-mcu">{mcuFamilyLabel(b.mcu.family)}</td> },
+    cell: (b) => <td className="td-mcu">{b.platform === "linux" ? "Linux" : mcuFamilyLabel(b.mcu.family)}</td> },
   { id: "flash",    label: "FLASH", sortKey: "flash", align: "right",
     cell: (b) => <td className="td-num">{b.flash_kb ? `${b.flash_kb}K` : "—"}</td> },
   { id: "uart",     label: "UART",  sortKey: "uart",  align: "right",
@@ -164,6 +166,7 @@ interface CsvColumn {
 const CSV_COLUMNS: CsvColumn[] = [
   { id: "slug",       label: "Board name",         get: (b) => b.slug },
   { id: "manufacturer", label: "Manufacturer",     get: (b) => b.manufacturer ?? "" },
+  { id: "platform",   label: "Platform",           get: (b) => b.platform },
   { id: "mcu_family", label: "MCU family",         get: (b) => b.mcu.family ?? "" },
   { id: "mcu_part",   label: "MCU part",           get: (b) => b.mcu.part ?? "" },
   { id: "flash_kb",   label: "Flash (KB)",         get: (b) => b.flash_kb ?? "" },
@@ -220,6 +223,7 @@ function passes(b: Board, f: Filters): boolean {
     )
       return false;
   }
+  if (f.platform !== "ANY" && b.platform !== f.platform) return false;
   if (f.mcu !== "ANY" && mcuFamilyLabel(b.mcu.family) !== f.mcu) return false;
   if (f.vehicles.length > 0) {
     for (const v of f.vehicles) {
@@ -282,7 +286,9 @@ export default function Selector() {
   const mcuOptions = useMemo(() => {
     if (!boards) return [];
     const set = new Set<string>();
-    for (const b of boards) set.add(mcuFamilyLabel(b.mcu.family));
+    // Only real MCUs become chips — Linux boards (null family) are filtered via
+    // the Platform control, not surfaced here as a bare "Unknown".
+    for (const b of boards) if (b.mcu.family) set.add(mcuFamilyLabel(b.mcu.family));
     return Array.from(set).sort();
   }, [boards]);
 
@@ -366,6 +372,23 @@ export default function Selector() {
               Showing boards that build for {f.vehicles.length === 1 ? "this vehicle" : "all selected vehicles"}.
             </p>
           )}
+        </div>
+
+        <div className="sidebar-block">
+          <h3 className="block-title">Platform</h3>
+          <div className="chip-row">
+            {([["ANY", "Any"], ["chibios", "Flight controller"], ["linux", "Linux"]] as const).map(
+              ([val, label]) => (
+                <button
+                  key={val}
+                  className={"chip " + (f.platform === val ? "chip-on" : "")}
+                  onClick={() => set("platform", val)}
+                >
+                  {label}
+                </button>
+              ),
+            )}
+          </div>
         </div>
 
         <div className="sidebar-block">

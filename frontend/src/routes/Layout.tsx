@@ -80,10 +80,6 @@ export default function Layout() {
             </a>{" "}
             &middot;{" "}
             <a href="mailto:fredgaffey08@gmail.com">fredgaffey08@gmail.com</a>
-            {" "}&middot;{" "}
-            <Link to="/admin" style={{ color: "var(--ink-dim)", fontSize: "11px", letterSpacing: "0.04em" }}>
-              workbench
-            </Link>
           </p>
         </div>
       </footer>

@@ -63,7 +63,7 @@ export default function BoardDetail() {
           </p>
         )}
         <p className="bd-subtitle">
-          {mcuFamilyLabel(b.mcu.family)}
+          {b.platform === "linux" ? "Linux board" : mcuFamilyLabel(b.mcu.family)}
           {b.mcu.part && <> &nbsp;·&nbsp; <code className="bd-code">{b.mcu.part}</code></>}
           {b.flash_kb && <> &nbsp;·&nbsp; {b.flash_kb} KB flash</>}
         </p>
@@ -171,7 +171,7 @@ export default function BoardDetail() {
       )}
 
       {/* Suggested specs — AI-gathered, NON-authoritative discovery aid */}
-      <SuggestedSpecs ai={b.ai} />
+      <SuggestedSpecs ai={b.ai} docsUrl={b.docs_url} />
 
       {/* Vehicles — inline row of pills, NOT stacked */}
       <section className="bd-section">
@@ -288,14 +288,10 @@ function Stat({ label, value, hint, flag }: { label: string; value: number | str
   );
 }
 
-function chipLabel(s: SensorEntry): string {
-  return s.chip_display ?? s.chip;
-}
-
 // AI-gathered enrichment — a discovery aid, clearly marked unverified. Chip
 // names are deliberately NOT shown (unreliable across hardware revisions);
 // the authoritative sensor list lives in the "On-board sensors" section.
-function SuggestedSpecs({ ai }: { ai?: BoardAi }) {
+function SuggestedSpecs({ ai, docsUrl }: { ai?: BoardAi; docsUrl?: string | null }) {
   if (!ai) return null;
   const rows: { label: string; value: string }[] = [];
   const push = (label: string, value: string | null | undefined) => {
@@ -347,7 +343,15 @@ function SuggestedSpecs({ ai }: { ai?: BoardAi }) {
       {ai.pinout_notes && <p className="bd-ai-notes">{ai.pinout_notes}</p>}
       <p className="bd-aside">
         Gathered automatically from vendor pages &amp; docs — <strong>not verified</strong>. A board
-        may ship in several hardware revisions; confirm exact specs in the official docs above.
+        may ship in several hardware revisions, so these figures can be wrong.{" "}
+        {docsUrl ? (
+          <>
+            Always validate against the{" "}
+            <a href={docsUrl} target="_blank" rel="noreferrer">ArduPilot wiki</a> before relying on them.
+          </>
+        ) : (
+          <>Always validate against the official ArduPilot wiki before relying on them.</>
+        )}
       </p>
     </section>
   );
@@ -367,27 +371,6 @@ function groupBySlot(items: SensorEntry[]): Slot[] {
     g.entries.push(s);
   }
   return out;
-}
-
-function SlotItem({ slot }: { slot: Slot }) {
-  if (slot.entries.length === 1) {
-    const s = slot.entries[0];
-    return (
-      <li>
-        <span className="bd-sensor-chip">{chipLabel(s)}</span>
-        <span className="bd-sensor-bus"> @ {s.bus}</span>
-      </li>
-    );
-  }
-  // Mutually-exclusive alternates on the same physical socket.
-  return (
-    <li>
-      <span className="bd-sensor-chip">
-        {slot.entries.map(chipLabel).join(" or ")}
-      </span>
-      <span className="bd-sensor-bus"> @ {slot.slot} (alternates per SKU)</span>
-    </li>
-  );
 }
 
 function SensorRow({
@@ -418,18 +401,13 @@ function SensorRow({
         <span className="bd-sensor-label">
           {label} <span className="bd-sensor-count">×{over ? flagOverCount : slots.length}</span>
         </span>
-        <div>
-          {over && (
-            <p className="bd-warn">
-              ⚠ Parsing found {slots.length} {label.toLowerCase()} on this board, but the hardware
-              maximum is {flagOverCount}. Some entries below are likely alternates the parser
-              couldn&rsquo;t collapse — treat the list as a candidate set, not a count.
-            </p>
-          )}
-          <ul className="bd-sensor-list">
-            {slots.map((g, i) => <SlotItem key={i} slot={g} />)}
-          </ul>
-        </div>
+        {over && (
+          <p className="bd-warn">
+            ⚠ Parsing found {slots.length} {label.toLowerCase()} slots but the hardware maximum is{" "}
+            {flagOverCount}; some are alternates the parser couldn&rsquo;t collapse. Treat as
+            approximate and confirm exact parts in the docs.
+          </p>
+        )}
       </div>
     );
   }
@@ -453,7 +431,7 @@ function SensorRow({
       <span className="bd-sensor-label">{label}</span>
       <div className="bd-sensor-variants">
         <p className="bd-aside">
-          This board ships in multiple hardware variants; sensors differ per revision.
+          This board ships in multiple hardware variants; the count can differ per revision.
         </p>
         {groups.map((g, gi) => {
           const slots = groupBySlot(g.entries);
@@ -463,9 +441,6 @@ function SensorRow({
                 {g.variant ? prettyVariant(g.variant) : "Common to all variants"}
                 <span className="bd-sensor-count"> ×{slots.length}</span>
               </div>
-              <ul className="bd-sensor-list">
-                {slots.map((s, i) => <SlotItem key={i} slot={s} />)}
-              </ul>
             </div>
           );
         })}

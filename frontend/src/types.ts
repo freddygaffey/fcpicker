@@ -125,9 +125,14 @@ export interface BoardAi {
   sources_used?: string[];
 }
 
+export type Platform = "chibios" | "linux";
+
 export interface Board {
   slug: string;
   name: string;
+  // HAL family: "chibios" (STM32 flight controllers) or "linux" (SoC/Pi-HAT
+  // boards). Linux boards have no MCU line, so `mcu` fields are null.
+  platform: Platform;
   manufacturer: string | null;
   mcu: { family: string | null; part: string | null };
   flash_kb: number | null;

@@ -14,6 +14,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass
@@ -29,10 +30,17 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 FRONTEND_PUBLIC = ROOT / "frontend" / "public"
 ARDUPILOT_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
+# ArduPilot also runs on Linux SoC boards (Raspberry Pi HATs, Navigator, etc.),
+# defined by a parallel hwdef tree with the same .dat syntax but no MCU line.
+ARDUPILOT_LINUX_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_Linux" / "hwdef"
+# platform -> the AP_HAL_* subdirectory its hwdefs live under (for GitHub links).
+HAL_DIR = {"chibios": "AP_HAL_ChibiOS", "linux": "AP_HAL_Linux"}
 BEC_OVERRIDES = ROOT / "data" / "bec_overrides.json"
 DOCS_OVERRIDES = ROOT / "data" / "docs_overrides.json"
 SITE_BASE_URL = "https://fcpicker.pebnum.com"
-ARDUPILOT_WIKI_ROOT = Path.home() / "ardupilot_wiki"
+# Overridable so the build can target a clean upstream-master wiki checkout
+# (or CI) without depending on whatever branch the local clone is on.
+ARDUPILOT_WIKI_ROOT = Path(os.environ.get("ARDUPILOT_WIKI_ROOT", Path.home() / "ardupilot_wiki"))
 ARDUPILOT_WIKI_DOCS = ARDUPILOT_WIKI_ROOT / "common" / "source" / "docs"
 DOCS_BASE = "https://ardupilot.org"
 # Platform dirs (besides common/) whose docs/ contain board landing pages.
@@ -43,7 +51,12 @@ COMMON_PLATFORM = "copter"
 # the hwdef README on GitHub, if the board ships one.
 HWDEF_README_URL = (
     "https://github.com/ArduPilot/ardupilot/blob/master/"
-    "libraries/AP_HAL_ChibiOS/hwdef/{slug}/README.md"
+    "libraries/{hal_dir}/hwdef/{slug}/README.md"
+)
+# Fallback link for boards with no README: the hwdef directory itself.
+HWDEF_DIR_URL = (
+    "https://github.com/ArduPilot/ardupilot/tree/master/"
+    "libraries/{hal_dir}/hwdef/{slug}"
 )
 
 # Directory names that are peripherals / nodes / bootloaders, not autopilots.
@@ -62,6 +75,9 @@ class Board(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     slug: Mapped[str] = mapped_column(String, unique=True, index=True)
     name: Mapped[str] = mapped_column(String)
+    # HAL family this board runs: "chibios" (STM32 flight controllers) or
+    # "linux" (SoC/Pi-HAT boards). Drives the platform filter + badge.
+    platform: Mapped[str] = mapped_column(String, default="chibios")
     manufacturer: Mapped[str | None] = mapped_column(String, nullable=True)
     mcu_family: Mapped[str | None] = mapped_column(String, nullable=True)
     mcu_part: Mapped[str | None] = mapped_column(String, nullable=True)
@@ -138,6 +154,7 @@ class BecRail(Base):
 @dataclass
 class ParsedBoard:
     slug: str
+    platform: str = "chibios"   # "chibios" | "linux"
     mcu_family: str | None = None
     mcu_part: str | None = None
     flash_kb: int | None = None
@@ -332,7 +349,7 @@ def is_autopilot(slug: str) -> bool:
     return True
 
 
-def parse_board(board_dir: Path) -> ParsedBoard | None:
+def parse_board(board_dir: Path, platform: str = "chibios") -> ParsedBoard | None:
     slug = board_dir.name
     if not is_autopilot(slug):
         return None
@@ -503,6 +520,7 @@ def parse_board(board_dir: Path) -> ParsedBoard | None:
 
     return ParsedBoard(
         slug=slug,
+        platform=platform,
         mcu_family=mcu_m.group(1) if mcu_m else None,
         mcu_part=mcu_m.group(2) if mcu_m else None,
         flash_kb=int(flash_m.group(1)) if flash_m else None,
@@ -609,10 +627,22 @@ def build_docs_map() -> dict[str, tuple[str, list[str], str]]:
                 entries.add((stem, platform))
 
     out: dict[str, tuple[str, list[str], str]] = {}
-    # Sorted, not raw set iteration: set order is randomized per process
-    # (string hash seeding), which made first-wins key registration — and thus
-    # the matched docs_url — non-deterministic across builds.
-    for doc, platform in sorted(entries):
+    # A page can exist under several platforms (the wiki ships copies of each
+    # common-* page under blimp/, rover/, … as well as copter/). First-wins
+    # registration must therefore prefer the *canonical* platform, not whatever
+    # sorts first alphabetically — otherwise `blimp` beats `copter` and every
+    # common page links to the blimp render. Rank by WIKI_PLATFORMS order
+    # (copter == COMMON_PLATFORM first); tie-break by name for determinism
+    # (set iteration is hash-randomized per process).
+    def _rank(entry: tuple[str, str]) -> tuple[str, int, str]:
+        doc, platform = entry
+        try:
+            pr = WIKI_PLATFORMS.index(platform)
+        except ValueError:
+            pr = len(WIKI_PLATFORMS)
+        return (doc, pr, platform)
+
+    for doc, platform in sorted(entries, key=_rank):
         core = doc[len("common-"):] if doc.startswith("common-") else doc
         for suffix in ("-overview", "-autopilot"):
             if core.endswith(suffix):
@@ -785,19 +815,24 @@ def populate_db(session: Session, parsed: list[ParsedBoard], docs_map: dict[str,
     docs_overrides = load_docs_overrides()
     index_map = build_index_url_map()
     for p in parsed:
+        hal_dir = HAL_DIR.get(p.platform, "AP_HAL_ChibiOS")
         # The hwdef README on GitHub, if this board ships one.
-        readme_url = HWDEF_README_URL.format(slug=p.slug) if p.readme is not None else None
+        readme_url = HWDEF_README_URL.format(hal_dir=hal_dir, slug=p.slug) if p.readme is not None else None
+        # Linux boards rarely have a wiki page; the hwdef dir is a guaranteed
+        # source link. Kept Linux-only so ChibiOS output is byte-identical.
+        dir_url = HWDEF_DIR_URL.format(hal_dir=hal_dir, slug=p.slug) if p.platform == "linux" else None
         # Primary link: an explicit override wins; then a real wiki page;
         # otherwise fall back to the maintainer-chosen index URL, then README.
         wiki = match_docs_url(p.slug, docs_map, p.readme)
-        p.docs_url = docs_overrides.get(p.slug) or wiki or match_index_url(p.slug, index_map) or readme_url
+        p.docs_url = docs_overrides.get(p.slug) or wiki or match_index_url(p.slug, index_map) or readme_url or dir_url
         # Secondary "source" link (the hwdef README, or an external index URL),
         # shown alongside docs_url when it's a distinct destination.
-        second = readme_url or match_index_url(p.slug, index_map)
+        second = readme_url or match_index_url(p.slug, index_map) or dir_url
         p.repo_url = second if second != p.docs_url else None
         b = Board(
             slug=p.slug,
             name=p.slug,                 # TODO: pretty-name from wiki / README
+            platform=p.platform,
             manufacturer=None,           # TODO: infer from slug / wiki
             mcu_family=p.mcu_family,
             mcu_part=p.mcu_part,
@@ -912,6 +947,7 @@ def _board_payload(b: "Board") -> dict:
     return {
         "slug": b.slug,
         "name": b.name,
+        "platform": b.platform,
         "manufacturer": b.manufacturer,
         "mcu": {"family": b.mcu_family, "part": b.mcu_part},
         "flash_kb": b.flash_kb,
@@ -1034,12 +1070,16 @@ def main() -> int:
     Base.metadata.create_all(engine)
 
     parsed: list[ParsedBoard] = []
-    for board_dir in sorted(ARDUPILOT_HWDEF.iterdir()):
-        if not board_dir.is_dir():
-            continue
-        p = parse_board(board_dir)
-        if p:
-            parsed.append(p)
+    sources = [(ARDUPILOT_HWDEF, "chibios")]
+    if ARDUPILOT_LINUX_HWDEF.exists():
+        sources.append((ARDUPILOT_LINUX_HWDEF, "linux"))
+    for root, platform in sources:
+        for board_dir in sorted(root.iterdir()):
+            if not board_dir.is_dir():
+                continue
+            p = parse_board(board_dir, platform=platform)
+            if p:
+                parsed.append(p)
 
     docs_map = build_docs_map()
 

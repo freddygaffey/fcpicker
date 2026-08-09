@@ -1,0 +1,118 @@
+name: Detect new ArduPilot boards
+
+# Checks ArduPilot's hwdef tree on a schedule and opens a GitHub issue when an
+# autopilot board exists upstream that fcPicker does not yet carry. Detection
+# reuses tools/build.py's parser, so peripherals / bootloaders are ignored.
+#
+# Issues are the dedup state: a board already having an open-or-closed issue is
+# not re-filed. Run it by hand any time from the Actions tab (workflow_dispatch).
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# Above this many new boards, file one rollup issue instead of N individual
+# ones — both to handle a large backlog and to fail safe if detection breaks
+# (e.g. an empty "known" set) and would otherwise open hundreds of issues.
+env:
+  MAX_INDIVIDUAL_ISSUES: 25
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fcPicker
+        uses: actions/checkout@v4
+
+      - name: Checkout ArduPilot hwdef trees (shallow, sparse)
+        uses: actions/checkout@v4
+        with:
+          repository: ArduPilot/ardupilot
+          path: ardupilot
+          fetch-depth: 1
+          sparse-checkout: |
+            libraries/AP_HAL_ChibiOS/hwdef
+            libraries/AP_HAL_Linux/hwdef
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install parser deps
+        run: pip install sqlalchemy
+
+      - name: Detect new boards
+        run: |
+          python tools/check_new_boards.py \
+            ardupilot/libraries/AP_HAL_ChibiOS/hwdef \
+            ardupilot/libraries/AP_HAL_Linux/hwdef \
+            --out new_boards.json
+          echo "count=$(jq length new_boards.json)" >> "$GITHUB_OUTPUT"
+        id: detect
+
+      - name: Open issues
+        if: steps.detect.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COUNT: ${{ steps.detect.outputs.count }}
+        run: |
+          set -euo pipefail
+          gh label create new-board \
+            --color 0e8a16 --description "Board present upstream, not yet in fcPicker" \
+            2>/dev/null || true
+
+          tree="https://github.com/ArduPilot/ardupilot/tree/master/libraries"
+
+          if [ "$COUNT" -gt "$MAX_INDIVIDUAL_ISSUES" ]; then
+            title="$COUNT new ArduPilot boards detected upstream"
+            # Only one open rollup at a time.
+            if [ -n "$(gh issue list --state open --label new-board \
+                        --search "$title in:title" --json number -q '.[].number')" ]; then
+              echo "Rollup issue already open; nothing to do."
+              exit 0
+            fi
+            {
+              echo "$COUNT ArduPilot hwdef board directories are not yet in fcPicker."
+              echo "This is above the per-board issue cap ($MAX_INDIVIDUAL_ISSUES), so here they are as one list."
+              echo
+              jq -r --arg t "$tree" \
+                '.[] | "- [\(.slug)](\($t)/\(if .platform=="linux" then "AP_HAL_Linux" else "AP_HAL_ChibiOS" end)/hwdef/\(.slug)) — \(.platform), \(.mcu), \(.flash_kb) KB"' \
+                new_boards.json
+              echo
+              echo "To import: run \`.venv/bin/python tools/build.py\` against an ArduPilot checkout, then commit the new \`data/boards/<slug>.json\` files."
+            } | gh issue create --title "$title" --label new-board --body-file -
+            echo "Opened rollup issue."
+            exit 0
+          fi
+
+          created=0
+          while read -r slug platform mcu flash; do
+            [ -z "$slug" ] && continue
+            case "$platform" in linux) hal=AP_HAL_Linux;; *) hal=AP_HAL_ChibiOS;; esac
+            title="New board: $slug"
+            if [ -n "$(gh issue list --state all --label new-board \
+                        --search "$title in:title" --json number -q '.[].number')" ]; then
+              echo "skip (already filed): $slug"
+              continue
+            fi
+            {
+              echo "ArduPilot has a hwdef for **$slug** ($platform) that fcPicker does not yet carry."
+              echo
+              echo "- **Platform:** $platform"
+              echo "- **MCU:** $mcu"
+              echo "- **Flash:** $flash KB"
+              echo "- **hwdef:** $tree/$hal/hwdef/$slug"
+              echo
+              echo "To import: run \`.venv/bin/python tools/build.py\` against an ArduPilot checkout containing this board, then commit the generated \`data/boards/$slug.json\`."
+            } | gh issue create --title "$title" --label new-board --body-file -
+            echo "opened: $slug"
+            created=$((created + 1))
+          done < <(jq -r '.[] | "\(.slug) \(.platform) \(.mcu) \(.flash_kb)"' new_boards.json)
+          echo "Done. Opened $created issue(s)."
