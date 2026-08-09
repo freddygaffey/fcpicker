@@ -78,8 +78,8 @@ export default function Layout() {
               Source on GitHub
             </a>{" "}
             &middot;{" "}
-            <a href="https://github.com/fredgaffey" target="_blank" rel="noreferrer">
-              @fredgaffey
+            <a href="https://github.com/freddygaffey" target="_blank" rel="noreferrer">
+              @freddygaffey
             </a>{" "}
             &middot;{" "}
             <a href="mailto:fredgaffey08@gmail.com">fredgaffey08@gmail.com</a>
