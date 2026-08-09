@@ -133,7 +133,7 @@ export default function BoardDetail() {
             value={b.io.pwm.total}
             hint={b.io.iomcu ? `${b.io.pwm.fmu} FMU + ${b.io.pwm.io} IO` : "FMU only"}
           />
-          <Stat label="IMUs" value={imuStatValue(b)} hint={imuStatHint(b)} flag={imuOverCounted(b)} />
+          <Stat label="IMUs" value={imuStatValue(b)} hint={imuStatHint(b)} />
         </div>
         <div className="bd-feature-row">
           <FeatureChip on={b.io.ethernet} label="Ethernet" />
@@ -413,13 +413,6 @@ function SensorRow({
         <span className="bd-sensor-label">
           {label} <span className="bd-sensor-count">×{over ? flagOverCount : slots.length}</span>
         </span>
-        {over && (
-          <p className="bd-warn">
-            ⚠ Parsing found {slots.length} {label.toLowerCase()} slots but the hardware maximum is{" "}
-            {flagOverCount}; some are alternates the parser couldn&rsquo;t collapse. Treat as
-            approximate and confirm exact parts in the docs.
-          </p>
-        )}
       </div>
     );
   }
@@ -474,15 +467,6 @@ function imuStatHint(b: Board): string | undefined {
   if (b.manual?.imu_count != null) return "manual override";
   const counts = perVariantCounts(b.imus);
   return counts.length > 1 ? "per hardware variant" : undefined;
-}
-
-// True when the raw slot count exceeds the physical maximum — flagged in
-// the UI so the user knows the data needs review.
-function imuOverCounted(b: Board): string | undefined {
-  if (b.manual?.imu_count != null) return undefined;
-  const raw = Math.max(...perVariantCounts(b.imus), 0);
-  if (raw <= MAX_IMU_SLOTS) return undefined;
-  return `Parsing found ${raw}; capped at ${MAX_IMU_SLOTS}`;
 }
 
 // Count physical IMU slots, not raw declarations. Sensors sharing a SPI

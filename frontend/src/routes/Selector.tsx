@@ -115,14 +115,9 @@ const TABLE_COLUMNS: TableColumn[] = [
     cell: (b) => <td className="td-num">{b.io.usb_count}</td> },
   { id: "imus",     label: "IMU",   sortKey: "imus",  align: "right",
     cell: (b) => {
-      const raw = imuSlotCountRaw(b);
-      const over = raw > MAX_IMU_SLOTS;
       return (
-        <td
-          className="td-num"
-          title={over ? `Parsing found ${raw} IMUs; hardware max is ${MAX_IMU_SLOTS}` : undefined}
-        >
-          {imuSlotCount(b)}{over && <span className="canfd-tag" style={{ background: "#a05", color: "#fff" }}>!</span>}
+        <td className="td-num">
+          {imuSlotCount(b)}
         </td>
       );
     } },
