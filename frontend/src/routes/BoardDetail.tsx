@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
-import { mcuFamilyLabel, useBoardImages, useBoards } from "../data";
+import { mcuFamilyLabel, sensorSlotKey, useBoardImages, useBoards } from "../data";
 import type { Board, BoardAi, SensorEntry } from "../types";
 import { SiblingNav } from "../SiblingNav";
 import { ReportIssue } from "../ReportIssue";
@@ -363,9 +363,12 @@ type Slot = { slot: string | null; entries: SensorEntry[] };
 function groupBySlot(items: SensorEntry[]): Slot[] {
   const out: Slot[] = [];
   for (const s of items) {
-    let g = s.slot ? out.find((x) => x.slot === s.slot) : null;
+    // Group by physical position: SPI chip-select slot, or I2C bus channel so
+    // probe-alternate parts (same channel, different address) collapse to one.
+    const key = sensorSlotKey(s);
+    let g = out.find((x) => x.slot === key);
     if (!g) {
-      g = { slot: s.slot, entries: [] };
+      g = { slot: key, entries: [] };
       out.push(g);
     }
     g.entries.push(s);

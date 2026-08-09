@@ -1,5 +1,21 @@
 import { useEffect, useState } from "react";
-import type { Board, BoardsPayload, Rangefinder, RangefindersPayload } from "./types";
+import type { Board, BoardsPayload, Rangefinder, RangefindersPayload, SensorEntry } from "./types";
+
+// Physical-position key for a sensor: its SPI chip-select slot, or — for I2C
+// sensors, which have no slot — the I2C bus channel. hwdef probes several
+// candidate parts per physical position (e.g. "BMP280 or SPL06", "ICP20100 or
+// DPS310"); those alternates sit on the same channel, so keying on the channel
+// collapses them to the one physical sensor that's actually populated.
+export function sensorSlotKey(s: SensorEntry): string {
+  if (s.slot) return s.slot;
+  const p = (s.bus ?? "").split(":");
+  return p[0] === "I2C" && p.length >= 3 ? `I2C:${p[1]}` : s.bus ?? "?";
+}
+
+// Count of distinct physical sensor positions (not raw probe lines).
+export function physicalSensorCount(items: SensorEntry[]): number {
+  return new Set(items.map(sensorSlotKey)).size;
+}
 
 let cache: Board[] | null = null;
 let inflight: Promise<Board[]> | null = null;

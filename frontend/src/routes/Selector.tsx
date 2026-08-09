@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { mcuFamilyLabel, useBoards } from "../data";
+import { mcuFamilyLabel, physicalSensorCount, useBoards } from "../data";
 import type { Board, VehicleType } from "../types";
 
 // Physical maximum number of IMU slots any ArduPilot autopilot ships with.
@@ -184,8 +184,8 @@ const CSV_COLUMNS: CsvColumn[] = [
   { id: "usb",        label: "USB ports",          get: (b) => b.io.usb_count },
   { id: "power",      label: "Power inputs",       get: (b) => b.power.monitor_inputs },
   { id: "imus",       label: "IMU count",          get: (b) => imuSlotCount(b) },
-  { id: "baros",      label: "Baro count",         get: (b) => b.baros.length },
-  { id: "compasses",  label: "Compass count",      get: (b) => b.compasses.length },
+  { id: "baros",      label: "Baro count",         get: (b) => physicalSensorCount(b.baros) },
+  { id: "compasses",  label: "Compass count",      get: (b) => physicalSensorCount(b.compasses) },
   { id: "vehicles",   label: "Supported vehicles", get: (b) => b.vehicles.join("|") },
   { id: "docs_url",   label: "ArduPilot docs URL", get: (b) => b.docs_url ?? "" },
 ];
