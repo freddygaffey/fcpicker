@@ -97,6 +97,12 @@
   flex-direction: column;
   gap: 10px;
 }
+/* AI filters: set the section apart from the feature tickboxes above it with a
+   rule, so its heading reads as a heading rather than another checkbox. */
+.ai-block {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
 .block-title {
   margin: 0 0 4px;
   font-size: 13px;
@@ -289,32 +295,20 @@
 }
 .range-readout span:first-child { color: var(--ap-blue-dark); font-weight: 600; }
 
-/* ---------- DUAL-THUMB RANGE ---------- */
-.dual-range { position: relative; height: 22px; width: 100%; }
-.dual-range-track {
-  position: absolute; top: 9px; left: 0; right: 0; height: 4px;
-  background: var(--border); border-radius: 2px;
-}
-.dual-range-fill {
-  position: absolute; top: 9px; height: 4px;
-  background: var(--ap-blue); border-radius: 2px;
-}
-.dual-range-input {
-  position: absolute; top: 0; left: 0; width: 100%; height: 22px; margin: 0;
-  background: transparent; appearance: none; -webkit-appearance: none;
-  pointer-events: none;   /* only the thumbs are interactive, so both stack */
-}
-.dual-range-input::-webkit-slider-runnable-track { height: 4px; background: transparent; }
-.dual-range-input::-webkit-slider-thumb {
-  pointer-events: auto; appearance: none; -webkit-appearance: none;
-  width: 16px; height: 16px; margin-top: -6px; border-radius: 50%;
-  background: var(--ap-blue); border: 2px solid #fff; cursor: pointer;
+/* ---------- RANGE SLIDER (rc-slider, themed) ---------- */
+.range-slider { padding: 3px 7px 0; }
+.range-slider .rc-slider-rail { background: var(--border); height: 4px; }
+.range-slider .rc-slider-track { background: var(--ap-blue); height: 4px; cursor: grab; }
+.range-slider .rc-slider-handle {
+  width: 16px; height: 16px; margin-top: -6px; opacity: 1;
+  background: var(--ap-blue); border: 2px solid #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-.dual-range-input::-moz-range-track { height: 4px; background: transparent; }
-.dual-range-input::-moz-range-thumb {
-  pointer-events: auto; width: 16px; height: 16px; border-radius: 50%;
-  background: var(--ap-blue); border: 2px solid #fff; cursor: pointer;
+.range-slider .rc-slider-handle:hover,
+.range-slider .rc-slider-handle:focus-visible,
+.range-slider .rc-slider-handle-dragging {
+  border-color: #fff !important;
+  box-shadow: 0 0 0 4px rgba(56, 132, 255, 0.25) !important;
 }
 
 .reset {
@@ -591,8 +585,9 @@
 }
 
 .ttable {
-  width: 100%;
-  min-width: 1100px;
+  /* Size to content, not 100%, so the board column isn't handed all the slack
+     (which left a big gap after short board names). */
+  width: auto;
   border-collapse: collapse;
   font-size: 14px;
 }
@@ -675,6 +670,12 @@
   vertical-align: middle;
   font-family: var(--mono);
   text-transform: uppercase;
+  /* Cap long manufacturer names so one ("ARKIN LABS PRIVATE LIMITED") doesn't
+     stretch the whole board column. */
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .row-link {
   color: var(--ap-blue-dark);

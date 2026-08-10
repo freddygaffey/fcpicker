@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 import { mcuFamilyLabel, physicalSensorCount, useBoards } from "../data";
 import type { Board, VehicleType } from "../types";
 
@@ -54,13 +56,15 @@ interface Filters {
   // Experimental — filters over the unverified, AI-gathered `ai` spec block.
   // Off by default; the controls are disabled until aiEnabled is turned on.
   aiEnabled: boolean;
-  aiMaxWeight: number;
+  aiWeightMin: number;
+  aiWeightMax: number;
+  aiSizeMin: number;
+  aiSizeMax: number;
+  aiVoltMin: number;
+  aiVoltMax: number;
   aiHasOsd: boolean;
   aiHasWireless: boolean;
   aiHasBlackbox: boolean;
-  aiMaxSize: number;
-  aiVoltMin: number;
-  aiVoltMax: number;
 }
 
 const DEFAULTS: Filters = {
@@ -83,14 +87,16 @@ const DEFAULTS: Filters = {
   iomcu: false,
   minFlash: 0,
   includeDiscontinued: false,
-  aiEnabled: false,
-  aiMaxWeight: 0,
+  aiEnabled: true,
+  aiWeightMin: 0,
+  aiWeightMax: 200,
+  aiSizeMin: 0,
+  aiSizeMax: 120,
+  aiVoltMin: 0,
+  aiVoltMax: 60,
   aiHasOsd: false,
   aiHasWireless: false,
   aiHasBlackbox: false,
-  aiMaxSize: 0,
-  aiVoltMin: 0,
-  aiVoltMax: 60,
 };
 
 const VEHICLES: { id: VehicleType; label: string }[] = [
@@ -286,10 +292,14 @@ function passes(b: Board, f: Filters): boolean {
   // (we can't confirm it matches).
   if (f.aiEnabled) {
     const ai = b.ai;
-    if (f.aiMaxWeight > 0 && !(ai?.weight_g != null && ai.weight_g <= f.aiMaxWeight)) return false;
-    if (f.aiMaxSize > 0) {
+    if (f.aiWeightMin > 0 || f.aiWeightMax < 200) {
+      const w = ai?.weight_g;
+      if (w == null || w < f.aiWeightMin || w > f.aiWeightMax) return false;
+    }
+    if (f.aiSizeMin > 0 || f.aiSizeMax < 120) {
       const dims = [ai?.dimensions_mm?.length, ai?.dimensions_mm?.width].filter((x): x is number => x != null);
-      if (!(dims.length > 0 && Math.max(...dims) <= f.aiMaxSize)) return false;
+      const size = dims.length ? Math.max(...dims) : null;
+      if (size == null || size < f.aiSizeMin || size > f.aiSizeMax) return false;
     }
     if (f.aiVoltMin > 0 || f.aiVoltMax < 60) {
       // Board's accepted input-voltage span must overlap the selected range.
@@ -513,7 +523,16 @@ export default function Selector() {
               onChange={(e) => set("aiEnabled", e.target.checked)}
             />
             <span className="toggle-mark" aria-hidden />
-            <span className="toggle-label" style={{ fontWeight: 700 }}>
+            <span
+              className="toggle-label"
+              style={{
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.04em",
+                color: "var(--ap-navy)",
+                fontSize: "13px",
+              }}
+            >
               Experimental · AI filters
             </span>
           </label>
@@ -522,35 +541,46 @@ export default function Selector() {
               <p className="filter-note" style={{ marginTop: 0 }}>
                 Potentially inaccurate — verify in docs.
               </p>
-              <div className="stepper-label">Max weight</div>
-              <input type="range" min={0} max={200} step={5} value={f.aiMaxWeight}
-                onChange={(e) => set("aiMaxWeight", Number(e.target.value))} className="range" />
+              <div className="stepper-label">Weight</div>
+              <RangeSlider
+                min={0} max={200} step={5}
+                value={[f.aiWeightMin, f.aiWeightMax]}
+                onChange={([lo, hi]) => setF((p) => ({ ...p, aiWeightMin: lo, aiWeightMax: hi }))}
+              />
               <div className="range-readout">
-                <span>{f.aiMaxWeight === 0 ? "Any weight" : `≤ ${f.aiMaxWeight} g`}</span>
-                <span className="range-max">up to 200</span>
+                <span>
+                  {f.aiWeightMin === 0 && f.aiWeightMax === 200
+                    ? "Any weight" : `${f.aiWeightMin}–${f.aiWeightMax} g`}
+                </span>
+                <span className="range-max">0–200 g</span>
               </div>
 
               <hr style={AI_DIVIDER} />
-              <div className="stepper-label">Max size (longest side)</div>
-              <input type="range" min={0} max={120} step={5} value={f.aiMaxSize}
-                onChange={(e) => set("aiMaxSize", Number(e.target.value))} className="range" />
+              <div className="stepper-label">Size (longest side)</div>
+              <RangeSlider
+                min={0} max={120} step={5}
+                value={[f.aiSizeMin, f.aiSizeMax]}
+                onChange={([lo, hi]) => setF((p) => ({ ...p, aiSizeMin: lo, aiSizeMax: hi }))}
+              />
               <div className="range-readout">
-                <span>{f.aiMaxSize === 0 ? "Any size" : `≤ ${f.aiMaxSize} mm`}</span>
-                <span className="range-max">up to 120</span>
+                <span>
+                  {f.aiSizeMin === 0 && f.aiSizeMax === 120
+                    ? "Any size" : `${f.aiSizeMin}–${f.aiSizeMax} mm`}
+                </span>
+                <span className="range-max">0–120 mm</span>
               </div>
 
               <hr style={AI_DIVIDER} />
-              <div className="stepper-label">Input voltage range</div>
-              <DualRange
+              <div className="stepper-label">Input voltage</div>
+              <RangeSlider
                 min={0} max={60} step={1}
-                low={f.aiVoltMin} high={f.aiVoltMax}
-                onChange={(lo, hi) => setF((p) => ({ ...p, aiVoltMin: lo, aiVoltMax: hi }))}
+                value={[f.aiVoltMin, f.aiVoltMax]}
+                onChange={([lo, hi]) => setF((p) => ({ ...p, aiVoltMin: lo, aiVoltMax: hi }))}
               />
               <div className="range-readout">
                 <span>
                   {f.aiVoltMin === 0 && f.aiVoltMax === 60
-                    ? "Any voltage"
-                    : `${f.aiVoltMin}–${f.aiVoltMax} V`}
+                    ? "Any voltage" : `${f.aiVoltMin}–${f.aiVoltMax} V`}
                 </span>
                 <span className="range-max">0–60 V</span>
               </div>
@@ -672,7 +702,6 @@ export default function Selector() {
                       }}
                     />
                   ))}
-                  <th aria-label="open" />
                 </tr>
               </thead>
               <tbody>
@@ -701,18 +730,11 @@ export default function Selector() {
                     {orderedColumns.map((c) => (
                       <Cell key={c.id} col={c} board={b} />
                     ))}
-                    <td className="td-open">
-                      <Link
-                        to={`/board/${b.slug}`}
-                        state={{ siblings: siblingIds }}
-                        aria-label={`Open ${b.slug}`}
-                      >→</Link>
-                    </td>
                   </tr>
                 ))}
                 {filtered.length === 0 && (
                   <tr>
-                    <td colSpan={orderedColumns.length + 2} className="empty">
+                    <td colSpan={orderedColumns.length + 1} className="empty">
                       — NO BOARDS MATCH CURRENT PARAMETERS —
                     </td>
                   </tr>
@@ -936,33 +958,24 @@ function BoolCell({ on }: { on: boolean }) {
   );
 }
 
-// Two-thumb range slider (native inputs overlaid). Low/high clamp against each
-// other so the handles can't cross.
-function DualRange({
-  min, max, step, low, high, onChange,
+// Two-thumb range with a draggable middle track (drag to slide the whole
+// window), via rc-slider.
+function RangeSlider({
+  min, max, step, value, onChange,
 }: {
-  min: number; max: number; step: number; low: number; high: number;
-  onChange: (low: number, high: number) => void;
+  min: number; max: number; step: number; value: [number, number];
+  onChange: (v: [number, number]) => void;
 }) {
-  const pct = (v: number) => ((v - min) / (max - min)) * 100;
   return (
-    <div className="dual-range">
-      <div className="dual-range-track" />
-      <div
-        className="dual-range-fill"
-        style={{ left: `${pct(low)}%`, right: `${100 - pct(high)}%` }}
-      />
-      <input
-        type="range" min={min} max={max} step={step} value={low}
-        onChange={(e) => onChange(Math.min(Number(e.target.value), high), high)}
-        className="dual-range-input"
-        aria-label="Minimum"
-      />
-      <input
-        type="range" min={min} max={max} step={step} value={high}
-        onChange={(e) => onChange(low, Math.max(Number(e.target.value), low))}
-        className="dual-range-input"
-        aria-label="Maximum"
+    <div className="range-slider">
+      <Slider
+        range={{ draggableTrack: true }}
+        allowCross={false}
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(v) => onChange(v as [number, number])}
       />
     </div>
   );
