@@ -63,10 +63,14 @@
 .stage-selector {
   display: grid;
   grid-template-columns: 300px 1fr;
-  flex: 1;
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  /* Fixed to the viewport (minus the 60px header + 3px accent border) so the
+     sidebar and results scroll independently. Filtering the results then can't
+     change the document height, so the sidebar never "scrolls up" under you. */
+  height: calc(100vh - 63px);
+  overflow: hidden;
 }
 .stage-detail {
   flex: 1;
@@ -84,11 +88,9 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  align-self: start;
-  position: sticky;
-  top: 0;
-  max-height: 100vh;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 .sidebar-block {
   display: flex;
@@ -287,6 +289,34 @@
 }
 .range-readout span:first-child { color: var(--ap-blue-dark); font-weight: 600; }
 
+/* ---------- DUAL-THUMB RANGE ---------- */
+.dual-range { position: relative; height: 22px; width: 100%; }
+.dual-range-track {
+  position: absolute; top: 9px; left: 0; right: 0; height: 4px;
+  background: var(--border); border-radius: 2px;
+}
+.dual-range-fill {
+  position: absolute; top: 9px; height: 4px;
+  background: var(--ap-blue); border-radius: 2px;
+}
+.dual-range-input {
+  position: absolute; top: 0; left: 0; width: 100%; height: 22px; margin: 0;
+  background: transparent; appearance: none; -webkit-appearance: none;
+  pointer-events: none;   /* only the thumbs are interactive, so both stack */
+}
+.dual-range-input::-webkit-slider-runnable-track { height: 4px; background: transparent; }
+.dual-range-input::-webkit-slider-thumb {
+  pointer-events: auto; appearance: none; -webkit-appearance: none;
+  width: 16px; height: 16px; margin-top: -6px; border-radius: 50%;
+  background: var(--ap-blue); border: 2px solid #fff; cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.dual-range-input::-moz-range-track { height: 4px; background: transparent; }
+.dual-range-input::-moz-range-thumb {
+  pointer-events: auto; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ap-blue); border: 2px solid #fff; cursor: pointer;
+}
+
 .reset {
   margin-top: 4px;
   background: #fff;
@@ -307,6 +337,8 @@
 .results {
   padding: 28px 28px 40px;
   min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .results-head {
   display: flex;
@@ -1168,13 +1200,14 @@
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 980px) {
-  .stage-selector { grid-template-columns: 1fr; }
+  /* Single-column, normal document scroll on narrow screens. */
+  .stage-selector { grid-template-columns: 1fr; height: auto; overflow: visible; }
   .sidebar {
-    position: static;
-    max-height: none;
+    overflow-y: visible;
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }
+  .results { overflow-y: visible; }
   .site-nav { gap: 14px; font-size: 13px; }
   .results-head { flex-direction: column; align-items: flex-start; }
 }

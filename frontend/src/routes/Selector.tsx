@@ -12,6 +12,8 @@ const MAX_IMU_SLOTS = 3;
 // sidebar filter section and the CSV column picker, with a key so it reads as
 // "handle with care".
 const AI_AMBER = "#b58900";
+// Subtle separator between AI filter groups; theme-neutral.
+const AI_DIVIDER = { border: "none", borderTop: "1px solid rgba(128,128,128,0.22)", margin: "0.75rem 0" };
 
 function imuSlotCountRaw(b: Board): number {
   if (b.manual?.imu_count != null) return b.manual.imu_count;
@@ -57,7 +59,8 @@ interface Filters {
   aiHasWireless: boolean;
   aiHasBlackbox: boolean;
   aiMaxSize: number;
-  aiMinVolt: number;
+  aiVoltMin: number;
+  aiVoltMax: number;
 }
 
 const DEFAULTS: Filters = {
@@ -86,7 +89,8 @@ const DEFAULTS: Filters = {
   aiHasWireless: false,
   aiHasBlackbox: false,
   aiMaxSize: 0,
-  aiMinVolt: 0,
+  aiVoltMin: 0,
+  aiVoltMax: 60,
 };
 
 const VEHICLES: { id: VehicleType; label: string }[] = [
@@ -287,7 +291,12 @@ function passes(b: Board, f: Filters): boolean {
       const dims = [ai?.dimensions_mm?.length, ai?.dimensions_mm?.width].filter((x): x is number => x != null);
       if (!(dims.length > 0 && Math.max(...dims) <= f.aiMaxSize)) return false;
     }
-    if (f.aiMinVolt > 0 && !(ai?.voltage_max_v != null && ai.voltage_max_v >= f.aiMinVolt)) return false;
+    if (f.aiVoltMin > 0 || f.aiVoltMax < 60) {
+      // Board's accepted input-voltage span must overlap the selected range.
+      const bMax = ai?.voltage_max_v;
+      const bMin = ai?.voltage_min_v ?? 0;
+      if (bMax == null || !(bMax >= f.aiVoltMin && bMin <= f.aiVoltMax)) return false;
+    }
     if (f.aiHasOsd && !(ai?.has_osd || ai?.osd_chip)) return false;
     if (f.aiHasWireless && !ai?.wireless) return false;
     if (f.aiHasBlackbox && !ai?.blackbox_flash) return false;
@@ -496,66 +505,75 @@ export default function Selector() {
           </label>
         </div>
 
-        <details className="sidebar-block ai-details">
-          <summary style={{ cursor: "pointer", fontWeight: 700, color: AI_AMBER }}>
-            ■ Experimental · AI filters
-          </summary>
-          <label className="toggle" style={{ marginTop: "0.6rem" }}>
+        <div className="sidebar-block ai-block">
+          <label className="toggle">
             <input
               type="checkbox"
               checked={f.aiEnabled}
               onChange={(e) => set("aiEnabled", e.target.checked)}
             />
             <span className="toggle-mark" aria-hidden />
-            <span className="toggle-label">Enable AI-based filters</span>
+            <span className="toggle-label" style={{ fontWeight: 700 }}>
+              Experimental · AI filters
+            </span>
           </label>
-          <p className="filter-note" style={{ color: AI_AMBER }}>Potentially inaccurate — verify in docs.</p>
-          <fieldset
-            className="ai-filter-set"
-            disabled={!f.aiEnabled}
-            style={{ border: "none", margin: 0, padding: 0, opacity: f.aiEnabled ? 1 : 0.4 }}
-          >
-            <div className="stepper-label" style={{ marginBottom: "0.35rem" }}>Max weight</div>
-            <input type="range" min={0} max={200} step={5} value={f.aiMaxWeight}
-              onChange={(e) => set("aiMaxWeight", Number(e.target.value))} className="range" />
-            <div className="range-readout">
-              <span>{f.aiMaxWeight === 0 ? "Any weight" : `≤ ${f.aiMaxWeight} g`}</span>
-              <span className="range-max">up to 200</span>
-            </div>
+          {f.aiEnabled && (
+            <div style={{ marginTop: "0.5rem" }}>
+              <p className="filter-note" style={{ marginTop: 0 }}>
+                Potentially inaccurate — verify in docs.
+              </p>
+              <div className="stepper-label">Max weight</div>
+              <input type="range" min={0} max={200} step={5} value={f.aiMaxWeight}
+                onChange={(e) => set("aiMaxWeight", Number(e.target.value))} className="range" />
+              <div className="range-readout">
+                <span>{f.aiMaxWeight === 0 ? "Any weight" : `≤ ${f.aiMaxWeight} g`}</span>
+                <span className="range-max">up to 200</span>
+              </div>
 
-            <div className="stepper-label" style={{ margin: "0.6rem 0 0.35rem" }}>Max size (longest side)</div>
-            <input type="range" min={0} max={120} step={5} value={f.aiMaxSize}
-              onChange={(e) => set("aiMaxSize", Number(e.target.value))} className="range" />
-            <div className="range-readout">
-              <span>{f.aiMaxSize === 0 ? "Any size" : `≤ ${f.aiMaxSize} mm`}</span>
-              <span className="range-max">up to 120</span>
-            </div>
+              <hr style={AI_DIVIDER} />
+              <div className="stepper-label">Max size (longest side)</div>
+              <input type="range" min={0} max={120} step={5} value={f.aiMaxSize}
+                onChange={(e) => set("aiMaxSize", Number(e.target.value))} className="range" />
+              <div className="range-readout">
+                <span>{f.aiMaxSize === 0 ? "Any size" : `≤ ${f.aiMaxSize} mm`}</span>
+                <span className="range-max">up to 120</span>
+              </div>
 
-            <div className="stepper-label" style={{ margin: "0.6rem 0 0.35rem" }}>Min input voltage</div>
-            <input type="range" min={0} max={60} step={2} value={f.aiMinVolt}
-              onChange={(e) => set("aiMinVolt", Number(e.target.value))} className="range" />
-            <div className="range-readout">
-              <span>{f.aiMinVolt === 0 ? "Any voltage" : `≥ ${f.aiMinVolt} V`}</span>
-              <span className="range-max">up to 60</span>
-            </div>
+              <hr style={AI_DIVIDER} />
+              <div className="stepper-label">Input voltage range</div>
+              <DualRange
+                min={0} max={60} step={1}
+                low={f.aiVoltMin} high={f.aiVoltMax}
+                onChange={(lo, hi) => setF((p) => ({ ...p, aiVoltMin: lo, aiVoltMax: hi }))}
+              />
+              <div className="range-readout">
+                <span>
+                  {f.aiVoltMin === 0 && f.aiVoltMax === 60
+                    ? "Any voltage"
+                    : `${f.aiVoltMin}–${f.aiVoltMax} V`}
+                </span>
+                <span className="range-max">0–60 V</span>
+              </div>
 
-            <label className="toggle">
-              <input type="checkbox" checked={f.aiHasOsd} onChange={(e) => set("aiHasOsd", e.target.checked)} />
-              <span className="toggle-mark" aria-hidden />
-              <span className="toggle-label">Has OSD</span>
-            </label>
-            <label className="toggle">
-              <input type="checkbox" checked={f.aiHasWireless} onChange={(e) => set("aiHasWireless", e.target.checked)} />
-              <span className="toggle-mark" aria-hidden />
-              <span className="toggle-label">Has wireless</span>
-            </label>
-            <label className="toggle">
-              <input type="checkbox" checked={f.aiHasBlackbox} onChange={(e) => set("aiHasBlackbox", e.target.checked)} />
-              <span className="toggle-mark" aria-hidden />
-              <span className="toggle-label">Has blackbox flash</span>
-            </label>
-          </fieldset>
-        </details>
+              <hr style={AI_DIVIDER} />
+              <label className="toggle">
+                <input type="checkbox" checked={f.aiHasOsd} onChange={(e) => set("aiHasOsd", e.target.checked)} />
+                <span className="toggle-mark" aria-hidden />
+                <span className="toggle-label">Has OSD</span>
+              </label>
+              <label className="toggle">
+                <input type="checkbox" checked={f.aiHasWireless} onChange={(e) => set("aiHasWireless", e.target.checked)} />
+                <span className="toggle-mark" aria-hidden />
+                <span className="toggle-label">Has wireless</span>
+              </label>
+              <label className="toggle">
+                <input type="checkbox" checked={f.aiHasBlackbox} onChange={(e) => set("aiHasBlackbox", e.target.checked)} />
+                <span className="toggle-mark" aria-hidden />
+                <span className="toggle-label">Has blackbox flash</span>
+              </label>
+            </div>
+          )}
+        </div>
 
         <div className="sidebar-block">
           <h3 className="block-title">Minimum flash</h3>
@@ -915,6 +933,38 @@ function BoolCell({ on }: { on: boolean }) {
     <td className={"td-bool " + (on ? "td-bool-yes" : "td-bool-no")}>
       {on ? "✓" : "—"}
     </td>
+  );
+}
+
+// Two-thumb range slider (native inputs overlaid). Low/high clamp against each
+// other so the handles can't cross.
+function DualRange({
+  min, max, step, low, high, onChange,
+}: {
+  min: number; max: number; step: number; low: number; high: number;
+  onChange: (low: number, high: number) => void;
+}) {
+  const pct = (v: number) => ((v - min) / (max - min)) * 100;
+  return (
+    <div className="dual-range">
+      <div className="dual-range-track" />
+      <div
+        className="dual-range-fill"
+        style={{ left: `${pct(low)}%`, right: `${100 - pct(high)}%` }}
+      />
+      <input
+        type="range" min={min} max={max} step={step} value={low}
+        onChange={(e) => onChange(Math.min(Number(e.target.value), high), high)}
+        className="dual-range-input"
+        aria-label="Minimum"
+      />
+      <input
+        type="range" min={min} max={max} step={step} value={high}
+        onChange={(e) => onChange(low, Math.max(Number(e.target.value), low))}
+        className="dual-range-input"
+        aria-label="Maximum"
+      />
+    </div>
   );
 }
 

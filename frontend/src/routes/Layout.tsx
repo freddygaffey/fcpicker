@@ -54,23 +54,20 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="site-footer-inner">
           <p className="footer-line">
-            fcPicker is an independent project and is not affiliated with ArduPilot.
-            Board data is parsed from{" "}
+            Independent project, not affiliated with ArduPilot. Data is a best-guess
+            parse of{" "}
             <a
               href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef"
               target="_blank"
               rel="noreferrer"
             >
-              ArduPilot&rsquo;s hardware-definition files
+              hwdef files
             </a>{" "}
-            — which list every part the firmware <em>probes for</em>, often several
-            candidate chips spanning multiple board revisions, not a physical
-            inventory. Where the files are ambiguous, a best-guess interpretation is
-            shown, so always verify specifications against the{" "}
+            — verify against the{" "}
             <a href="https://ardupilot.org" target="_blank" rel="noreferrer">
-              official ArduPilot documentation
+              official docs
             </a>{" "}
-            before purchasing hardware.
+            before buying.
           </p>
           <p className="footer-line footer-contact">
             Spotted an issue?{" "}
