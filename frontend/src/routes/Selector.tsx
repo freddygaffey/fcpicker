@@ -87,7 +87,7 @@ const DEFAULTS: Filters = {
   iomcu: false,
   minFlash: 0,
   includeDiscontinued: false,
-  aiEnabled: true,
+  aiEnabled: false,
   aiWeightMin: 0,
   aiWeightMax: 200,
   aiSizeMin: 0,
@@ -515,31 +515,21 @@ export default function Selector() {
           </label>
         </div>
 
-        <div className="sidebar-block ai-block">
-          <label className="toggle">
+        <div className="ai-card">
+          <label className="toggle ai-card-head">
             <input
               type="checkbox"
               checked={f.aiEnabled}
               onChange={(e) => set("aiEnabled", e.target.checked)}
             />
             <span className="toggle-mark" aria-hidden />
-            <span
-              className="toggle-label"
-              style={{
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.04em",
-                color: "var(--ap-navy)",
-                fontSize: "13px",
-              }}
-            >
-              Experimental · AI filters
-            </span>
+            <span className="toggle-label" style={{ fontWeight: 600 }}>AI-based filters</span>
+            <span className="ai-pill">experimental</span>
           </label>
-          {f.aiEnabled && (
-            <div style={{ marginTop: "0.5rem" }}>
+          {f.aiEnabled ? (
+            <div className="ai-card-body">
               <p className="filter-note" style={{ marginTop: 0 }}>
-                Potentially inaccurate — verify in docs.
+                Unverified AI-gathered specs — confirm in the docs.
               </p>
               <div className="stepper-label">Weight</div>
               <RangeSlider
@@ -602,6 +592,10 @@ export default function Selector() {
                 <span className="toggle-label">Has blackbox flash</span>
               </label>
             </div>
+          ) : (
+            <p className="ai-card-hint">
+              Filter by AI-guessed specs — weight, size, voltage &amp; features.
+            </p>
           )}
         </div>
 

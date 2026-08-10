@@ -97,12 +97,38 @@
   flex-direction: column;
   gap: 10px;
 }
-/* AI filters: set the section apart from the feature tickboxes above it with a
-   rule, so its heading reads as a heading rather than another checkbox. */
-.ai-block {
-  border-top: 1px solid var(--border);
-  padding-top: 16px;
+/* AI filters live in their own dashed "experimental" card so they read as a
+   separate, provisional zone rather than another sidebar block. */
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: var(--bg-soft);
 }
+.ai-card-head { cursor: pointer; }
+.ai-pill {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--ink-dim);
+  color: #fff;
+  white-space: nowrap;
+}
+.ai-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+.ai-card-hint { margin: 0; font-size: 12px; color: var(--ink-mute); }
 .block-title {
   margin: 0 0 4px;
   font-size: 13px;
