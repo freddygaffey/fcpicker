@@ -56,6 +56,8 @@ interface Filters {
   aiHasOsd: boolean;
   aiHasWireless: boolean;
   aiHasBlackbox: boolean;
+  aiMaxSize: number;
+  aiMinVolt: number;
 }
 
 const DEFAULTS: Filters = {
@@ -83,6 +85,8 @@ const DEFAULTS: Filters = {
   aiHasOsd: false,
   aiHasWireless: false,
   aiHasBlackbox: false,
+  aiMaxSize: 0,
+  aiMinVolt: 0,
 };
 
 const VEHICLES: { id: VehicleType; label: string }[] = [
@@ -279,6 +283,11 @@ function passes(b: Board, f: Filters): boolean {
   if (f.aiEnabled) {
     const ai = b.ai;
     if (f.aiMaxWeight > 0 && !(ai?.weight_g != null && ai.weight_g <= f.aiMaxWeight)) return false;
+    if (f.aiMaxSize > 0) {
+      const dims = [ai?.dimensions_mm?.length, ai?.dimensions_mm?.width].filter((x): x is number => x != null);
+      if (!(dims.length > 0 && Math.max(...dims) <= f.aiMaxSize)) return false;
+    }
+    if (f.aiMinVolt > 0 && !(ai?.voltage_max_v != null && ai.voltage_max_v >= f.aiMinVolt)) return false;
     if (f.aiHasOsd && !(ai?.has_osd || ai?.osd_chip)) return false;
     if (f.aiHasWireless && !ai?.wireless) return false;
     if (f.aiHasBlackbox && !ai?.blackbox_flash) return false;
@@ -367,12 +376,13 @@ export default function Selector() {
   return (
     <>
       <aside className="sidebar">
-        <div className="sidebar-block">
-          <div className="experimental-banner">
-            <strong>Experimental.</strong> Catalog is in testing — board data is
-            parsed from ArduPilot hwdef files and may be incomplete or wrong.
-          </div>
-        </div>
+        <details className="sidebar-block exp-disclosure">
+          <summary style={{ cursor: "pointer", fontWeight: 600 }}>⚠ Experimental</summary>
+          <p className="filter-note" style={{ marginTop: "0.4rem" }}>
+            Catalog is in testing — board data is parsed from ArduPilot hwdef files
+            and may be incomplete or wrong. Verify against the docs.
+          </p>
+        </details>
 
         <div className="sidebar-block">
           <h3 className="block-title">Search</h3>
@@ -383,55 +393,6 @@ export default function Selector() {
             value={f.query}
             onChange={(e) => set("query", e.target.value)}
           />
-        </div>
-
-        <div className="sidebar-block">
-          <h3 className="block-title" style={{ color: AI_AMBER }}>■ Experimental · AI filters</h3>
-          <label className="toggle">
-            <input
-              type="checkbox"
-              checked={f.aiEnabled}
-              onChange={(e) => set("aiEnabled", e.target.checked)}
-            />
-            <span className="toggle-mark" aria-hidden />
-            <span className="toggle-label">Enable AI-based filters</span>
-          </label>
-          <p className="filter-note" style={{ color: AI_AMBER }}>Experimental — potentially inaccurate.</p>
-          <fieldset
-            className="ai-filter-set"
-            disabled={!f.aiEnabled}
-            style={{ border: "none", margin: 0, padding: 0, opacity: f.aiEnabled ? 1 : 0.4 }}
-          >
-            <div className="stepper-label" style={{ marginBottom: "0.35rem" }}>Max weight</div>
-            <input
-              type="range"
-              min={0}
-              max={200}
-              step={5}
-              value={f.aiMaxWeight}
-              onChange={(e) => set("aiMaxWeight", Number(e.target.value))}
-              className="range"
-            />
-            <div className="range-readout">
-              <span>{f.aiMaxWeight === 0 ? "Any weight" : `≤ ${f.aiMaxWeight} g`}</span>
-              <span className="range-max">up to 200</span>
-            </div>
-            <label className="toggle">
-              <input type="checkbox" checked={f.aiHasOsd} onChange={(e) => set("aiHasOsd", e.target.checked)} />
-              <span className="toggle-mark" aria-hidden />
-              <span className="toggle-label">Has OSD</span>
-            </label>
-            <label className="toggle">
-              <input type="checkbox" checked={f.aiHasWireless} onChange={(e) => set("aiHasWireless", e.target.checked)} />
-              <span className="toggle-mark" aria-hidden />
-              <span className="toggle-label">Has wireless</span>
-            </label>
-            <label className="toggle">
-              <input type="checkbox" checked={f.aiHasBlackbox} onChange={(e) => set("aiHasBlackbox", e.target.checked)} />
-              <span className="toggle-mark" aria-hidden />
-              <span className="toggle-label">Has blackbox flash</span>
-            </label>
-          </fieldset>
         </div>
 
         <div className="sidebar-block">
@@ -534,6 +495,67 @@ export default function Selector() {
             <span className="toggle-label">IOMCU (16 PWM)</span>
           </label>
         </div>
+
+        <details className="sidebar-block ai-details">
+          <summary style={{ cursor: "pointer", fontWeight: 700, color: AI_AMBER }}>
+            ■ Experimental · AI filters
+          </summary>
+          <label className="toggle" style={{ marginTop: "0.6rem" }}>
+            <input
+              type="checkbox"
+              checked={f.aiEnabled}
+              onChange={(e) => set("aiEnabled", e.target.checked)}
+            />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">Enable AI-based filters</span>
+          </label>
+          <p className="filter-note" style={{ color: AI_AMBER }}>Potentially inaccurate — verify in docs.</p>
+          <fieldset
+            className="ai-filter-set"
+            disabled={!f.aiEnabled}
+            style={{ border: "none", margin: 0, padding: 0, opacity: f.aiEnabled ? 1 : 0.4 }}
+          >
+            <div className="stepper-label" style={{ marginBottom: "0.35rem" }}>Max weight</div>
+            <input type="range" min={0} max={200} step={5} value={f.aiMaxWeight}
+              onChange={(e) => set("aiMaxWeight", Number(e.target.value))} className="range" />
+            <div className="range-readout">
+              <span>{f.aiMaxWeight === 0 ? "Any weight" : `≤ ${f.aiMaxWeight} g`}</span>
+              <span className="range-max">up to 200</span>
+            </div>
+
+            <div className="stepper-label" style={{ margin: "0.6rem 0 0.35rem" }}>Max size (longest side)</div>
+            <input type="range" min={0} max={120} step={5} value={f.aiMaxSize}
+              onChange={(e) => set("aiMaxSize", Number(e.target.value))} className="range" />
+            <div className="range-readout">
+              <span>{f.aiMaxSize === 0 ? "Any size" : `≤ ${f.aiMaxSize} mm`}</span>
+              <span className="range-max">up to 120</span>
+            </div>
+
+            <div className="stepper-label" style={{ margin: "0.6rem 0 0.35rem" }}>Min input voltage</div>
+            <input type="range" min={0} max={60} step={2} value={f.aiMinVolt}
+              onChange={(e) => set("aiMinVolt", Number(e.target.value))} className="range" />
+            <div className="range-readout">
+              <span>{f.aiMinVolt === 0 ? "Any voltage" : `≥ ${f.aiMinVolt} V`}</span>
+              <span className="range-max">up to 60</span>
+            </div>
+
+            <label className="toggle">
+              <input type="checkbox" checked={f.aiHasOsd} onChange={(e) => set("aiHasOsd", e.target.checked)} />
+              <span className="toggle-mark" aria-hidden />
+              <span className="toggle-label">Has OSD</span>
+            </label>
+            <label className="toggle">
+              <input type="checkbox" checked={f.aiHasWireless} onChange={(e) => set("aiHasWireless", e.target.checked)} />
+              <span className="toggle-mark" aria-hidden />
+              <span className="toggle-label">Has wireless</span>
+            </label>
+            <label className="toggle">
+              <input type="checkbox" checked={f.aiHasBlackbox} onChange={(e) => set("aiHasBlackbox", e.target.checked)} />
+              <span className="toggle-mark" aria-hidden />
+              <span className="toggle-label">Has blackbox flash</span>
+            </label>
+          </fieldset>
+        </details>
 
         <div className="sidebar-block">
           <h3 className="block-title">Minimum flash</h3>
