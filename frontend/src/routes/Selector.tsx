@@ -200,21 +200,22 @@ const CSV_COLUMNS: CsvColumn[] = [
   { id: "compasses",  label: "Compass count",      get: (b) => physicalSensorCount(b.compasses) },
   { id: "vehicles",   label: "Supported vehicles", get: (b) => b.vehicles.join("|") },
   { id: "docs_url",   label: "ArduPilot docs URL", get: (b) => b.docs_url ?? "" },
-  // Experimental — from the unverified AI-gathered `ai` block. Suffixed "(AI)"
-  // so a spreadsheet reader knows these are best-guess, not confirmed.
-  { id: "ai_product",     label: "Product name (AI)",  get: (b) => b.ai?.marketing_name ?? "" },
-  { id: "ai_weight_g",    label: "Weight g (AI)",      get: (b) => b.ai?.weight_g ?? "" },
-  { id: "ai_dimensions",  label: "Dimensions mm (AI)", get: (b) => {
+  // Experimental — from the unverified AI-gathered `ai` block. Flagged amber
+  // with a key in the column picker instead of suffixing every label. The CSV
+  // file headers keep the `ai_` id prefix as the signal (no colour in a file).
+  { id: "ai_product",     label: "Product name",  get: (b) => b.ai?.marketing_name ?? "" },
+  { id: "ai_weight_g",    label: "Weight g",      get: (b) => b.ai?.weight_g ?? "" },
+  { id: "ai_dimensions",  label: "Dimensions mm", get: (b) => {
       const d = b.ai?.dimensions_mm;
       return d && (d.length || d.width || d.height)
         ? `${d.length ?? "?"}x${d.width ?? "?"}x${d.height ?? "?"}` : "";
     } },
-  { id: "ai_mounting_mm", label: "Mounting mm (AI)",   get: (b) => b.ai?.mounting_pattern_mm ?? "" },
-  { id: "ai_input",       label: "Input (AI)",         get: (b) => b.ai?.voltage_cells ?? (b.ai?.voltage_max_v ? `<=${b.ai.voltage_max_v}V` : "") },
-  { id: "ai_osd",         label: "OSD (AI)",           get: (b) => b.ai?.osd_chip ?? (b.ai?.has_osd ? "yes" : "") },
-  { id: "ai_wireless",    label: "Wireless (AI)",      get: (b) => b.ai?.wireless ?? "" },
-  { id: "ai_blackbox",    label: "Blackbox (AI)",      get: (b) => b.ai?.blackbox_flash ?? "" },
-  { id: "ai_connectors",  label: "Connectors (AI)",    get: (b) => (b.ai?.notable_connectors ?? []).join("|") },
+  { id: "ai_mounting_mm", label: "Mounting mm",   get: (b) => b.ai?.mounting_pattern_mm ?? "" },
+  { id: "ai_input",       label: "Input",         get: (b) => b.ai?.voltage_cells ?? (b.ai?.voltage_max_v ? `<=${b.ai.voltage_max_v}V` : "") },
+  { id: "ai_osd",         label: "OSD",           get: (b) => b.ai?.osd_chip ?? (b.ai?.has_osd ? "yes" : "") },
+  { id: "ai_wireless",    label: "Wireless",      get: (b) => b.ai?.wireless ?? "" },
+  { id: "ai_blackbox",    label: "Blackbox",      get: (b) => b.ai?.blackbox_flash ?? "" },
+  { id: "ai_connectors",  label: "Connectors",    get: (b) => (b.ai?.notable_connectors ?? []).join("|") },
 ];
 
 function csvCell(v: string | number): string {
