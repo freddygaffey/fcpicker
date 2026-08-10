@@ -8,6 +8,11 @@ import type { Board, VehicleType } from "../types";
 // flag so the user knows the data needs review.
 const MAX_IMU_SLOTS = 3;
 
+// Amber accent for experimental, AI-derived (unverified) data — used in the
+// sidebar filter section and the CSV column picker, with a key so it reads as
+// "handle with care".
+const AI_AMBER = "#b58900";
+
 function imuSlotCountRaw(b: Board): number {
   if (b.manual?.imu_count != null) return b.manual.imu_count;
   const slots = new Set<string>();
@@ -195,6 +200,21 @@ const CSV_COLUMNS: CsvColumn[] = [
   { id: "compasses",  label: "Compass count",      get: (b) => physicalSensorCount(b.compasses) },
   { id: "vehicles",   label: "Supported vehicles", get: (b) => b.vehicles.join("|") },
   { id: "docs_url",   label: "ArduPilot docs URL", get: (b) => b.docs_url ?? "" },
+  // Experimental — from the unverified AI-gathered `ai` block. Suffixed "(AI)"
+  // so a spreadsheet reader knows these are best-guess, not confirmed.
+  { id: "ai_product",     label: "Product name (AI)",  get: (b) => b.ai?.marketing_name ?? "" },
+  { id: "ai_weight_g",    label: "Weight g (AI)",      get: (b) => b.ai?.weight_g ?? "" },
+  { id: "ai_dimensions",  label: "Dimensions mm (AI)", get: (b) => {
+      const d = b.ai?.dimensions_mm;
+      return d && (d.length || d.width || d.height)
+        ? `${d.length ?? "?"}x${d.width ?? "?"}x${d.height ?? "?"}` : "";
+    } },
+  { id: "ai_mounting_mm", label: "Mounting mm (AI)",   get: (b) => b.ai?.mounting_pattern_mm ?? "" },
+  { id: "ai_input",       label: "Input (AI)",         get: (b) => b.ai?.voltage_cells ?? (b.ai?.voltage_max_v ? `<=${b.ai.voltage_max_v}V` : "") },
+  { id: "ai_osd",         label: "OSD (AI)",           get: (b) => b.ai?.osd_chip ?? (b.ai?.has_osd ? "yes" : "") },
+  { id: "ai_wireless",    label: "Wireless (AI)",      get: (b) => b.ai?.wireless ?? "" },
+  { id: "ai_blackbox",    label: "Blackbox (AI)",      get: (b) => b.ai?.blackbox_flash ?? "" },
+  { id: "ai_connectors",  label: "Connectors (AI)",    get: (b) => (b.ai?.notable_connectors ?? []).join("|") },
 ];
 
 function csvCell(v: string | number): string {
@@ -365,7 +385,7 @@ export default function Selector() {
         </div>
 
         <div className="sidebar-block">
-          <h3 className="block-title">Experimental · AI filters</h3>
+          <h3 className="block-title" style={{ color: AI_AMBER }}>■ Experimental · AI filters</h3>
           <label className="toggle">
             <input
               type="checkbox"
@@ -375,10 +395,7 @@ export default function Selector() {
             <span className="toggle-mark" aria-hidden />
             <span className="toggle-label">Enable AI-based filters</span>
           </label>
-          <p className="filter-note">
-            Filter on the unverified, AI-gathered specs — a rough discovery aid, not
-            confirmed data. Boards missing a value are hidden while active.
-          </p>
+          <p className="filter-note" style={{ color: AI_AMBER }}>Experimental — potentially inaccurate.</p>
           <fieldset
             className="ai-filter-set"
             disabled={!f.aiEnabled}
@@ -753,17 +770,24 @@ function CsvDialog({
                 <button type="button" className="link-btn" onClick={selectNone}>None</button>
               </span>
             </legend>
+            <p className="filter-note">
+              <span style={{ color: AI_AMBER, fontWeight: 700 }}>■ Amber</span> = experimental,
+              AI-derived &amp; unverified.
+            </p>
             <div className="col-grid">
-              {CSV_COLUMNS.map((c) => (
-                <label key={c.id} className="check">
-                  <input
-                    type="checkbox"
-                    checked={selected.has(c.id)}
-                    onChange={() => toggleCol(c.id)}
-                  />
-                  <span>{c.label}</span>
-                </label>
-              ))}
+              {CSV_COLUMNS.map((c) => {
+                const ai = c.id.startsWith("ai_");
+                return (
+                  <label key={c.id} className="check">
+                    <input
+                      type="checkbox"
+                      checked={selected.has(c.id)}
+                      onChange={() => toggleCol(c.id)}
+                    />
+                    <span style={ai ? { color: AI_AMBER } : undefined}>{c.label}</span>
+                  </label>
+                );
+              })}
             </div>
           </fieldset>
         </div>
