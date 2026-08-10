@@ -44,6 +44,13 @@ interface Filters {
   iomcu: boolean;
   minFlash: number;
   includeDiscontinued: boolean;
+  // Experimental — filters over the unverified, AI-gathered `ai` spec block.
+  // Off by default; the controls are disabled until aiEnabled is turned on.
+  aiEnabled: boolean;
+  aiMaxWeight: number;
+  aiHasOsd: boolean;
+  aiHasWireless: boolean;
+  aiHasBlackbox: boolean;
 }
 
 const DEFAULTS: Filters = {
@@ -66,6 +73,11 @@ const DEFAULTS: Filters = {
   iomcu: false,
   minFlash: 0,
   includeDiscontinued: false,
+  aiEnabled: false,
+  aiMaxWeight: 0,
+  aiHasOsd: false,
+  aiHasWireless: false,
+  aiHasBlackbox: false,
 };
 
 const VEHICLES: { id: VehicleType; label: string }[] = [
@@ -239,6 +251,17 @@ function passes(b: Board, f: Filters): boolean {
   if (imuSlotCount(b) < f.imus) return false;
   if (f.canfd && !b.io.canfd) return false;
   if (f.minFlash && (b.flash_kb ?? 0) < f.minFlash) return false;
+
+  // Experimental AI-based filters — only applied when explicitly enabled.
+  // These read the unverified `ai` block; a board missing the field is excluded
+  // (we can't confirm it matches).
+  if (f.aiEnabled) {
+    const ai = b.ai;
+    if (f.aiMaxWeight > 0 && !(ai?.weight_g != null && ai.weight_g <= f.aiMaxWeight)) return false;
+    if (f.aiHasOsd && !(ai?.has_osd || ai?.osd_chip)) return false;
+    if (f.aiHasWireless && !ai?.wireless) return false;
+    if (f.aiHasBlackbox && !ai?.blackbox_flash) return false;
+  }
   return true;
 }
 
@@ -339,6 +362,58 @@ export default function Selector() {
             value={f.query}
             onChange={(e) => set("query", e.target.value)}
           />
+        </div>
+
+        <div className="sidebar-block">
+          <h3 className="block-title">Experimental · AI filters</h3>
+          <label className="toggle">
+            <input
+              type="checkbox"
+              checked={f.aiEnabled}
+              onChange={(e) => set("aiEnabled", e.target.checked)}
+            />
+            <span className="toggle-mark" aria-hidden />
+            <span className="toggle-label">Enable AI-based filters</span>
+          </label>
+          <p className="filter-note">
+            Filter on the unverified, AI-gathered specs — a rough discovery aid, not
+            confirmed data. Boards missing a value are hidden while active.
+          </p>
+          <fieldset
+            className="ai-filter-set"
+            disabled={!f.aiEnabled}
+            style={{ border: "none", margin: 0, padding: 0, opacity: f.aiEnabled ? 1 : 0.4 }}
+          >
+            <div className="stepper-label" style={{ marginBottom: "0.35rem" }}>Max weight</div>
+            <input
+              type="range"
+              min={0}
+              max={200}
+              step={5}
+              value={f.aiMaxWeight}
+              onChange={(e) => set("aiMaxWeight", Number(e.target.value))}
+              className="range"
+            />
+            <div className="range-readout">
+              <span>{f.aiMaxWeight === 0 ? "Any weight" : `≤ ${f.aiMaxWeight} g`}</span>
+              <span className="range-max">up to 200</span>
+            </div>
+            <label className="toggle">
+              <input type="checkbox" checked={f.aiHasOsd} onChange={(e) => set("aiHasOsd", e.target.checked)} />
+              <span className="toggle-mark" aria-hidden />
+              <span className="toggle-label">Has OSD</span>
+            </label>
+            <label className="toggle">
+              <input type="checkbox" checked={f.aiHasWireless} onChange={(e) => set("aiHasWireless", e.target.checked)} />
+              <span className="toggle-mark" aria-hidden />
+              <span className="toggle-label">Has wireless</span>
+            </label>
+            <label className="toggle">
+              <input type="checkbox" checked={f.aiHasBlackbox} onChange={(e) => set("aiHasBlackbox", e.target.checked)} />
+              <span className="toggle-mark" aria-hidden />
+              <span className="toggle-label">Has blackbox flash</span>
+            </label>
+          </fieldset>
         </div>
 
         <div className="sidebar-block">
