@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
 import { mcuFamilyLabel, physicalSensorCount, useBoards } from "../data";
 import type { Board, VehicleType } from "../types";
 
@@ -14,8 +12,6 @@ const MAX_IMU_SLOTS = 3;
 // sidebar filter section and the CSV column picker, with a key so it reads as
 // "handle with care".
 const AI_AMBER = "#b58900";
-// Subtle separator between AI filter groups; theme-neutral.
-const AI_DIVIDER = { border: "none", borderTop: "1px solid rgba(128,128,128,0.22)", margin: "0.75rem 0" };
 
 function imuSlotCountRaw(b: Board): number {
   if (b.manual?.imu_count != null) return b.manual.imu_count;
@@ -56,6 +52,7 @@ interface Filters {
   // Experimental — filters over the unverified, AI-gathered `ai` spec block.
   // Off by default; the controls are disabled until aiEnabled is turned on.
   aiEnabled: boolean;
+  aiQuery: string;
   aiWeightMin: number;
   aiWeightMax: number;
   aiSizeMin: number;
@@ -88,6 +85,7 @@ const DEFAULTS: Filters = {
   minFlash: 0,
   includeDiscontinued: false,
   aiEnabled: false,
+  aiQuery: "",
   aiWeightMin: 0,
   aiWeightMax: 200,
   aiSizeMin: 0,
@@ -98,6 +96,71 @@ const DEFAULTS: Filters = {
   aiHasWireless: false,
   aiHasBlackbox: false,
 };
+
+// Reset value for just the AI-spec fields — re-applied before each parse so
+// removing a word from the query clears its filter.
+const AI_RESET = {
+  aiWeightMin: 0, aiWeightMax: 200, aiSizeMin: 0, aiSizeMax: 120,
+  aiVoltMin: 0, aiVoltMax: 60, aiHasOsd: false, aiHasWireless: false, aiHasBlackbox: false,
+} as const;
+
+// Heuristic natural-language → AI-spec filters. Deliberately conservative:
+// only sets a field when the phrasing is clear. No network, no model.
+function parseAiQuery(q: string): Partial<Filters> {
+  const s = " " + q.toLowerCase() + " ";
+  const out: Partial<Filters> = {};
+  const n = (re: RegExp): number | null => { const m = s.match(re); return m ? Number(m[1]) : null; };
+
+  // Weight (g)
+  const wr = s.match(/(\d+)\s*(?:-|to|–|—)\s*(\d+)\s*g\b/);
+  if (wr) { out.aiWeightMin = +wr[1]; out.aiWeightMax = +wr[2]; }
+  else {
+    const wmax = n(/(?:under|below|less than|lighter than|up to|max|≤|<)\s*(\d+)\s*g\b/);
+    const wmin = n(/(?:over|above|more than|heavier than|at least|min|≥|>)\s*(\d+)\s*g\b/);
+    if (wmax != null) out.aiWeightMax = wmax;
+    if (wmin != null) out.aiWeightMin = wmin;
+  }
+  if (/\b(light(weight)?|tiny|nano|micro|whoop)\b/.test(s))
+    out.aiWeightMax = Math.min(out.aiWeightMax ?? 200, 20);
+
+  // Size (mm, longest side)
+  const sr = s.match(/(\d+)\s*(?:-|to|–)\s*(\d+)\s*mm\b/);
+  if (sr) { out.aiSizeMin = +sr[1]; out.aiSizeMax = +sr[2]; }
+  else {
+    const smax = n(/(?:under|below|less than|smaller than|up to|max|≤|<)\s*(\d+)\s*mm\b/);
+    const smin = n(/(?:over|above|more than|larger than|at least|≥|>)\s*(\d+)\s*mm\b/);
+    if (smax != null) out.aiSizeMax = smax;
+    if (smin != null) out.aiSizeMin = smin;
+  }
+  if (/\b(small|compact|mini)\b/.test(s)) out.aiSizeMax = Math.min(out.aiSizeMax ?? 120, 40);
+
+  // Voltage: "6s" (cells) → supports ≥ ~that voltage; explicit volts too.
+  const cells = s.match(/(\d+)\s*s\b/);
+  if (cells) out.aiVoltMin = Math.min(60, Math.round(+cells[1] * 4.2));
+  const vmin = n(/(?:over|above|at least|≥|min)\s*(\d+)\s*v\b/);
+  const vmax = n(/(?:under|below|up to|max|≤|<)\s*(\d+)\s*v\b/);
+  if (vmin != null) out.aiVoltMin = vmin;
+  if (vmax != null) out.aiVoltMax = vmax;
+
+  // Features
+  if (/\bosd\b/.test(s)) out.aiHasOsd = true;
+  if (/\b(wireless|elrs|expresslrs|wi-?fi|bluetooth|crossfire)\b/.test(s)) out.aiHasWireless = true;
+  if (/\b(black ?box|flash ?log|logging|dataflash)\b/.test(s)) out.aiHasBlackbox = true;
+
+  return out;
+}
+
+// Human-readable chips of the currently-active AI-spec filters.
+function aiFilterChips(f: Filters): string[] {
+  const c: string[] = [];
+  if (f.aiWeightMin > 0 || f.aiWeightMax < 200) c.push(`${f.aiWeightMin}–${f.aiWeightMax} g`);
+  if (f.aiSizeMin > 0 || f.aiSizeMax < 120) c.push(`${f.aiSizeMin}–${f.aiSizeMax} mm`);
+  if (f.aiVoltMin > 0 || f.aiVoltMax < 60) c.push(`${f.aiVoltMin}–${f.aiVoltMax} V`);
+  if (f.aiHasOsd) c.push("OSD");
+  if (f.aiHasWireless) c.push("wireless");
+  if (f.aiHasBlackbox) c.push("blackbox");
+  return c;
+}
 
 const VEHICLES: { id: VehicleType; label: string }[] = [
   { id: "copter",  label: "Copter" },
@@ -529,68 +592,29 @@ export default function Selector() {
           {f.aiEnabled ? (
             <div className="ai-card-body">
               <p className="filter-note" style={{ marginTop: 0 }}>
-                Unverified AI-gathered specs — confirm in the docs.
+                Describe the board in plain English — unverified AI specs, confirm in docs.
               </p>
-              <div className="stepper-label">Weight</div>
-              <RangeSlider
-                min={0} max={200} step={5}
-                value={[f.aiWeightMin, f.aiWeightMax]}
-                onChange={([lo, hi]) => setF((p) => ({ ...p, aiWeightMin: lo, aiWeightMax: hi }))}
+              <textarea
+                className="ai-query"
+                rows={2}
+                placeholder={'e.g. "light board under 20g with OSD, up to 6S"'}
+                value={f.aiQuery}
+                onChange={(e) => {
+                  const text = e.target.value;
+                  setF((p) => ({ ...p, ...AI_RESET, ...parseAiQuery(text), aiQuery: text }));
+                }}
               />
-              <div className="range-readout">
-                <span>
-                  {f.aiWeightMin === 0 && f.aiWeightMax === 200
-                    ? "Any weight" : `${f.aiWeightMin}–${f.aiWeightMax} g`}
-                </span>
-                <span className="range-max">0–200 g</span>
-              </div>
-
-              <hr style={AI_DIVIDER} />
-              <div className="stepper-label">Size (longest side)</div>
-              <RangeSlider
-                min={0} max={120} step={5}
-                value={[f.aiSizeMin, f.aiSizeMax]}
-                onChange={([lo, hi]) => setF((p) => ({ ...p, aiSizeMin: lo, aiSizeMax: hi }))}
-              />
-              <div className="range-readout">
-                <span>
-                  {f.aiSizeMin === 0 && f.aiSizeMax === 120
-                    ? "Any size" : `${f.aiSizeMin}–${f.aiSizeMax} mm`}
-                </span>
-                <span className="range-max">0–120 mm</span>
-              </div>
-
-              <hr style={AI_DIVIDER} />
-              <div className="stepper-label">Input voltage</div>
-              <RangeSlider
-                min={0} max={60} step={1}
-                value={[f.aiVoltMin, f.aiVoltMax]}
-                onChange={([lo, hi]) => setF((p) => ({ ...p, aiVoltMin: lo, aiVoltMax: hi }))}
-              />
-              <div className="range-readout">
-                <span>
-                  {f.aiVoltMin === 0 && f.aiVoltMax === 60
-                    ? "Any voltage" : `${f.aiVoltMin}–${f.aiVoltMax} V`}
-                </span>
-                <span className="range-max">0–60 V</span>
-              </div>
-
-              <hr style={AI_DIVIDER} />
-              <label className="toggle">
-                <input type="checkbox" checked={f.aiHasOsd} onChange={(e) => set("aiHasOsd", e.target.checked)} />
-                <span className="toggle-mark" aria-hidden />
-                <span className="toggle-label">Has OSD</span>
-              </label>
-              <label className="toggle">
-                <input type="checkbox" checked={f.aiHasWireless} onChange={(e) => set("aiHasWireless", e.target.checked)} />
-                <span className="toggle-mark" aria-hidden />
-                <span className="toggle-label">Has wireless</span>
-              </label>
-              <label className="toggle">
-                <input type="checkbox" checked={f.aiHasBlackbox} onChange={(e) => set("aiHasBlackbox", e.target.checked)} />
-                <span className="toggle-mark" aria-hidden />
-                <span className="toggle-label">Has blackbox flash</span>
-              </label>
+              {(() => {
+                const chips = aiFilterChips(f);
+                return chips.length ? (
+                  <div className="ai-chips">
+                    <span className="ai-chips-label">Interpreted as</span>
+                    {chips.map((c) => <span key={c} className="ai-chip">{c}</span>)}
+                  </div>
+                ) : f.aiQuery ? (
+                  <p className="ai-card-hint">Nothing recognised yet — try weight, size, voltage, OSD, wireless or blackbox.</p>
+                ) : null;
+              })()}
             </div>
           ) : (
             <p className="ai-card-hint">
@@ -949,29 +973,6 @@ function BoolCell({ on }: { on: boolean }) {
     <td className={"td-bool " + (on ? "td-bool-yes" : "td-bool-no")}>
       {on ? "✓" : "—"}
     </td>
-  );
-}
-
-// Two-thumb range with a draggable middle track (drag to slide the whole
-// window), via rc-slider.
-function RangeSlider({
-  min, max, step, value, onChange,
-}: {
-  min: number; max: number; step: number; value: [number, number];
-  onChange: (v: [number, number]) => void;
-}) {
-  return (
-    <div className="range-slider">
-      <Slider
-        range={{ draggableTrack: true }}
-        allowCross={false}
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        onChange={(v) => onChange(v as [number, number])}
-      />
-    </div>
   );
 }
 
