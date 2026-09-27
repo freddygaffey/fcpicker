@@ -43,6 +43,20 @@ jobs:
             libraries/AP_HAL_Linux/hwdef
           sparse-checkout-cone-mode: false
 
+      # Without the wiki, build_docs_map() finds nothing and every board falls
+      # back to a GitHub README URL — which the first run of this workflow duly
+      # reported as 190 boards "changing" their docs_url. The drift was entirely
+      # an artefact of the checkout, so the wiki has to be here too.
+      - name: Checkout the ArduPilot wiki (shallow, sparse)
+        uses: actions/checkout@v4
+        with:
+          repository: ArduPilot/ardupilot_wiki
+          path: ardupilot_wiki
+          fetch-depth: 1
+          sparse-checkout: |
+            common/source/docs
+          sparse-checkout-cone-mode: false
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -54,6 +68,8 @@ jobs:
         run: ln -s "$GITHUB_WORKSPACE/ardupilot" "$HOME/ardupilot"
 
       - name: Re-run the parser over the committed catalog
+        env:
+          ARDUPILOT_WIKI_ROOT: ${{ github.workspace }}/ardupilot_wiki
         run: python tools/build.py
 
       - name: Summarise drift

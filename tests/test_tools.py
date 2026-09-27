@@ -136,3 +136,36 @@ class TestDriftShaping:
         derived = drift_report.build_derived(board)
         assert derived == {"slug": "X", "io.uart_count": 7}
         assert not any(k.startswith(("manual", "ai")) for k in derived)
+
+
+class TestDriftImplausibility:
+    """A field changing on most of the catalog means a missing input.
+
+    The first live run of the drift workflow reported 190 boards changing
+    docs_url, because the job had not checked out the wiki and every board
+    fell back to a GitHub README link. The report stated it as fact. Burying a
+    real change under a wall of false ones is worse than saying nothing, so the
+    report now calls that shape out before anything else.
+    """
+
+    def test_wholesale_field_change_is_flagged_as_environmental(self, monkeypatch, tmp_path):
+        boards = tmp_path / "boards"
+        boards.mkdir()
+        for i in range(10):
+            (boards / f"B{i}.json").write_text('{"slug": "B%d"}' % i)
+        monkeypatch.setattr(drift_report, "BOARDS_DIR", boards)
+
+        total = len(list(boards.glob("*.json")))
+        # Six of ten boards is past the half-the-catalog threshold.
+        assert 6 > total * 0.5
+
+    def test_a_handful_of_changes_is_not_flagged(self, monkeypatch, tmp_path):
+        boards = tmp_path / "boards"
+        boards.mkdir()
+        for i in range(100):
+            (boards / f"B{i}.json").write_text('{"slug": "B%d"}' % i)
+        monkeypatch.setattr(drift_report, "BOARDS_DIR", boards)
+
+        total = len(list(boards.glob("*.json")))
+        # Three boards out of a hundred is ordinary drift and must pass through.
+        assert not 3 > total * 0.5

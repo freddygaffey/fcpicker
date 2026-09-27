@@ -120,7 +120,36 @@ def main() -> int:
 
     drifted = bool(per_board or added or removed)
 
+    # A field changing on most of the catalog at once is almost never real
+    # drift — it means the run was missing an input. The first live run of this
+    # reported 190 boards "changing" docs_url because the workflow had not
+    # checked out the wiki, so match_docs_url() fell back to README links for
+    # everything. Reporting that as drift is worse than reporting nothing: it
+    # buries any genuine change and trains the reader to dismiss the issue.
+    total_boards = len(list(BOARDS_DIR.glob("*.json")))
+    suspicious = [
+        (field, n) for field, n in field_hits.items()
+        if total_boards and n > total_boards * 0.5
+    ]
+
     lines: list[str] = []
+    if suspicious:
+        lines.append("## Probable environment problem, not drift\n")
+        lines.append(
+            "These fields changed on more than half the catalog at once, which "
+            "points at a missing input rather than a real change:\n"
+        )
+        lines += [
+            f"- `{field}` — {n} of {total_boards} boards"
+            for field, n in sorted(suspicious, key=lambda x: -x[1])
+        ]
+        lines.append(
+            "\n`docs_url` and `repo_url` collapsing to GitHub README links across "
+            "the board means the ArduPilot wiki was not available to the run, so "
+            "build_docs_map() matched nothing. Check the wiki checkout before "
+            "reading anything below as a genuine change.\n"
+        )
+
     if not drifted:
         lines.append("No parser drift: a fresh build reproduces the committed catalog exactly.")
     else:
