@@ -2,7 +2,7 @@
   "slug": "SIYI_N7-ODID",
   "name": "SIYI_N7-ODID",
   "platform": "chibios",
-  "manufacturer": null,
+  "manufacturer": "SIYI",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"

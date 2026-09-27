@@ -17,6 +17,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass, field
@@ -31,8 +32,11 @@ from build import (  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "rangefinders"
 OUT_BUNDLE = ROOT / "frontend" / "public" / "rangefinders.json"
-AP_RF_DIR = Path.home() / "ardupilot" / "libraries" / "AP_RangeFinder"
-AP_PRX_DIR = Path.home() / "ardupilot" / "libraries" / "AP_Proximity"
+# Same override as build.py, so both halves of the pipeline can be pointed at
+# one checkout.
+_AP_ROOT = Path(os.environ.get("ARDUPILOT_ROOT", Path.home() / "ardupilot"))
+AP_RF_DIR = _AP_ROOT / "libraries" / "AP_RangeFinder"
+AP_PRX_DIR = _AP_ROOT / "libraries" / "AP_Proximity"
 
 ENUM_RE = re.compile(r"^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(\d+)\s*,", re.MULTILINE)
 CLASS_RE = re.compile(

@@ -379,6 +379,28 @@
       ]
     },
     {
+      "slug": "CoreWingF405WMiniV2",
+      "is_autopilot": true,
+      "images": [
+        "CoreWingF405WingMiniV2_Back.jpg",
+        "CoreWingF405WingMiniV2_Front.jpg",
+        "CoreWingF405WingMiniV2_pdb.jpg",
+        "CoreWingF405WingMiniV2_wiring.jpg",
+        "CoreWingF405WingMiniV2_wiring2.jpg"
+      ]
+    },
+    {
+      "slug": "CoreWingF405WingV2",
+      "is_autopilot": true,
+      "images": [
+        "CoreWingF405WingV2_Back.jpg",
+        "CoreWingF405WingV2_Front.jpg",
+        "CoreWingF405WingV2_pdb.jpg",
+        "CoreWingF405WingV2_wiring.jpg",
+        "CoreWingF405WingV2_wiring2.jpg"
+      ]
+    },
+    {
       "slug": "CrazyF405",
       "is_autopilot": true,
       "images": [
@@ -498,6 +520,16 @@
       "is_autopilot": true,
       "images": [
         "FlyFishRCF405-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "FlyingRCH7DPro",
+      "is_autopilot": true,
+      "images": [
+        "FlyingRCH7DPro_back.jpg",
+        "FlyingRCH7DPro_front.jpg",
+        "FlyingRCH7DPro_pinout_back.jpg",
+        "FlyingRCH7DPro_pinout_front.jpg"
       ]
     },
     {
@@ -1271,6 +1303,17 @@
       ]
     },
     {
+      "slug": "SVehicle-E2-mini",
+      "is_autopilot": true,
+      "images": [
+        "E2mini-PWM-pinouts.png",
+        "E2mini-TOP-pinouts.png",
+        "E2mini-Top.png",
+        "E2mini-pinouts-side.png",
+        "E2mini.png"
+      ]
+    },
+    {
       "slug": "SaamPixV1_1",
       "is_autopilot": true,
       "images": [
@@ -1555,6 +1598,18 @@
       "is_autopilot": true,
       "images": [
         "YJUAV_A6Ultra-pinout.jpg"
+      ]
+    },
+    {
+      "slug": "ZenFC743",
+      "is_autopilot": true,
+      "images": [
+        "zenfc_h743.png",
+        "zenfc_h743_dimensions.png",
+        "zenfc_h743_layout_back.png",
+        "zenfc_h743_layout_front.png",
+        "zenfc_h743_pinouts_back.png",
+        "zenfc_h743_pinouts_front.png"
       ]
     },
     {

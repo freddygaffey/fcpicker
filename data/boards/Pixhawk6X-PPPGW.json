@@ -277,23 +277,44 @@
     {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686-2",
-      "variant": "FMUV6_BOARD_HOLYBRO_6X_45686",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV8",
       "slot": "SPI2/CS:SP2_CS1",
       "chip_display": "ICM45686"
     },
     {
+      "chip": "LSM6DSV",
+      "bus": "SPI:lsm6dsv-2",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV8",
+      "slot": "SPI2/CS:SP2_CS1",
+      "chip_display": "LSM6DSV"
+    },
+    {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686-3",
-      "variant": "FMUV6_BOARD_HOLYBRO_6X_45686",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV8",
       "slot": "SPI3/CS:SP3_CS1",
       "chip_display": "ICM45686"
     },
     {
+      "chip": "LSM6DSV",
+      "bus": "SPI:lsm6dsv-3",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV8",
+      "slot": "SPI3/CS:SP3_CS1",
+      "chip_display": "LSM6DSV"
+    },
+    {
       "chip": "Invensensev3",
       "bus": "SPI:icm45686-1",
-      "variant": "FMUV6_BOARD_HOLYBRO_6X_45686",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV8",
       "slot": "SPI1/CS:SP1_CS1",
       "chip_display": "ICM45686"
+    },
+    {
+      "chip": "LSM6DSV",
+      "bus": "SPI:lsm6dsv-1",
+      "variant": "FMUV6_BOARD_HOLYBRO_6X_REV8",
+      "slot": "SPI1/CS:SP1_CS1",
+      "chip_display": "LSM6DSV"
     }
   ],
   "baros": [],

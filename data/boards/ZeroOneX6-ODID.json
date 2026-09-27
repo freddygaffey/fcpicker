@@ -2,7 +2,7 @@
   "slug": "ZeroOneX6-ODID",
   "name": "ZeroOneX6-ODID",
   "platform": "chibios",
-  "manufacturer": null,
+  "manufacturer": "ZeroOne",
   "mcu": {
     "family": "STM32H7xx",
     "part": "STM32H743xx"

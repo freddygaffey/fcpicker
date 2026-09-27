@@ -243,7 +243,7 @@
     "copter"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-thecube-overview.html",
-  "repo_url": null,
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/CubeGreen-solo/README.md",
   "manual": {
     "status": "not_started",
     "manufacturer": null,

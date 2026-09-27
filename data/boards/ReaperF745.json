@@ -186,7 +186,7 @@
     "blimp"
   ],
   "docs_url": "https://ardupilot.org/copter/docs/common-foxeerf745aio.html",
-  "repo_url": null,
+  "repo_url": "https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/ReaperF745/README.md",
   "manual": {
     "status": "not_started",
     "manufacturer": null,

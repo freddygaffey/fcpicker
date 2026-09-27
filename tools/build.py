@@ -29,10 +29,13 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship,
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 FRONTEND_PUBLIC = ROOT / "frontend" / "public"
-ARDUPILOT_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
+# Overridable like ARDUPILOT_WIKI_ROOT below, so a run can be pointed at a
+# clean checkout without disturbing whatever branch the working clone is on.
+ARDUPILOT_ROOT = Path(os.environ.get("ARDUPILOT_ROOT", Path.home() / "ardupilot"))
+ARDUPILOT_HWDEF = ARDUPILOT_ROOT / "libraries" / "AP_HAL_ChibiOS" / "hwdef"
 # ArduPilot also runs on Linux SoC boards (Raspberry Pi HATs, Navigator, etc.),
 # defined by a parallel hwdef tree with the same .dat syntax but no MCU line.
-ARDUPILOT_LINUX_HWDEF = Path.home() / "ardupilot" / "libraries" / "AP_HAL_Linux" / "hwdef"
+ARDUPILOT_LINUX_HWDEF = ARDUPILOT_ROOT / "libraries" / "AP_HAL_Linux" / "hwdef"
 # platform -> the AP_HAL_* subdirectory its hwdefs live under (for GitHub links).
 HAL_DIR = {"chibios": "AP_HAL_ChibiOS", "linux": "AP_HAL_Linux"}
 BEC_OVERRIDES = ROOT / "data" / "bec_overrides.json"

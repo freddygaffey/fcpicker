@@ -236,6 +236,13 @@
       "variant": null,
       "slot": null,
       "chip_display": null
+    },
+    {
+      "chip": "BMP388",
+      "bus": "I2C:0:0x76",
+      "variant": null,
+      "slot": null,
+      "chip_display": null
     }
   ],
   "compasses": [],

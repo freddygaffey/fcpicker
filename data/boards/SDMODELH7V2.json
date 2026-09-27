@@ -179,6 +179,13 @@
       "chip_display": "ICM42688"
     },
     {
+      "chip": "LSM6DSV",
+      "bus": "SPI:lsm6dsv",
+      "variant": null,
+      "slot": "SPI4/CS:mpu6000_CS",
+      "chip_display": "LSM6DSV"
+    },
+    {
       "chip": "BMI270",
       "bus": "SPI:bmi270",
       "variant": null,
