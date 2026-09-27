@@ -541,7 +541,8 @@
       "distributors_url": null,
       "country": "ES",
       "verified": true,
-      "ardupilot_partner": false
+      "ardupilot_partner": false,
+      "note": "erlerobotics.com serves an incomplete certificate chain. Most browsers fetch the missing intermediate and show no warning, so this is recorded rather than treated as broken."
     },
     {
       "id": "f4by team",
@@ -1078,8 +1079,9 @@
       "store_url": null,
       "distributors_url": null,
       "country": "TR",
-      "verified": true,
-      "ardupilot_partner": false
+      "verified": false,
+      "ardupilot_partner": false,
+      "note": "orbitteknoloji.com.tr serves an expired TLS certificate, so visitors get a browser security warning before the page loads. The site is the right company; the certificate is not our problem to fix, but the link should not be presented as checked while it does that."
     },
     {
       "id": "orqa",

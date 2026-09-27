@@ -48,6 +48,11 @@ REGISTRY = REPO_ROOT / "data" / "manufacturers.json"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 TIMEOUT = 20
+# Slow vendor hosts time out on a first attempt and answer fine on a second.
+# Reporting those as dead is how the checker loses its audience: two of the six
+# links in its first live report were simply slow, and a reader who finds a
+# working link in a "dead links" issue stops believing the other four.
+SLOW_RETRY_TIMEOUT = 45
 # A WAF turning us away says nothing about whether the link works for a person.
 BLOCKED_CODES = {401, 403, 405, 503}
 
@@ -80,7 +85,12 @@ def collect() -> list[tuple[str, str, str]]:
         for e in json.loads(REGISTRY.read_text())["manufacturers"]:
             for key in ("website", "store_url", "distributors_url"):
                 if e.get(key):
-                    out.append((e[key], f"manufacturer.{key}", e["id"]))
+                    # A URL already recorded as unverified, with a note saying
+                    # why, is documented rather than newly broken. Re-reporting
+                    # it every week is what turns a useful issue into one nobody
+                    # opens.
+                    prefix = "" if e.get("verified") else "known-unverified "
+                    out.append((e[key], f"{prefix}manufacturer.{key}", e["id"]))
 
     # One check per distinct URL; the owners are merged in the report.
     seen: dict[str, tuple[str, str, str]] = {}
@@ -94,6 +104,14 @@ def _is_throttled(url: str) -> bool:
 
 
 def probe(url: str) -> tuple[int | None, str | None]:
+    """Status and error, retrying once on a timeout before calling it dead."""
+    status, err = _probe_once(url)
+    if err == "timeout":
+        status, err = _probe_once(url, timeout=SLOW_RETRY_TIMEOUT)
+    return status, err
+
+
+def _probe_once(url: str, timeout: int = TIMEOUT) -> tuple[int | None, str | None]:
     """(status, error). HEAD first, then a ranged GET for hosts that refuse it.
 
     The error string is the real cause, not the exception class. "URLError"
@@ -107,17 +125,17 @@ def probe(url: str) -> tuple[int | None, str | None]:
         # produced the false 404s in the first place.
         with _throttle_lock:
             time.sleep(THROTTLE_DELAY)
-            status, err = _request(url)
+            status, err = _request(url, timeout)
             if status == 429:
                 time.sleep(5)
-                status, err = _request(url)
+                status, err = _request(url, timeout)
             if status == 429:
                 return None, "rate limited (inconclusive)"
             return status, err
-    return _request(url)
+    return _request(url, timeout)
 
 
-def _request(url: str) -> tuple[int | None, str | None]:
+def _request(url: str, timeout: int = TIMEOUT) -> tuple[int | None, str | None]:
     for method in ("HEAD", "GET"):
         req = urllib.request.Request(url, method=method, headers={
             "User-Agent": UA,
@@ -125,7 +143,7 @@ def _request(url: str) -> tuple[int | None, str | None]:
             **({"Range": "bytes=0-2048"} if method == "GET" else {}),
         })
         try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.status, None
         except urllib.error.HTTPError as e:
             if method == "HEAD" and e.code in {400, 403, 405, 501}:
@@ -173,6 +191,7 @@ def main() -> int:
     dead: list[tuple[str, str, str, str]] = []
     blocked: list[tuple[str, str, str, str]] = []
     tls: list[tuple[str, str, str, str]] = []
+    known: list[tuple[str, str, str, str]] = []
     ok = 0
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
@@ -187,6 +206,8 @@ def main() -> int:
             elif err == "rate limited (inconclusive)":
                 # Not a verdict either way; reporting it as dead would be a lie.
                 blocked.append((owner, kind, url, err))
+            elif kind.startswith("known-unverified"):
+                known.append((owner, kind, url, err or f"HTTP {status}"))
             elif err and err.startswith("TLS:"):
                 # The page is there; the certificate is the problem. That is the
                 # vendor's to fix and shows users a security warning, so it is
@@ -198,7 +219,8 @@ def main() -> int:
     if args.markdown:
         print(f"Checked **{len(targets)}** links: {ok} OK, "
               f"**{len(dead)} dead**, {len(tls)} with TLS problems, "
-              f"{len(blocked)} blocked by the host.\n")
+              f"{len(blocked)} blocked by the host, "
+              f"{len(known)} already recorded as unverified.\n")
         if dead:
             print("### Dead links\n")
             by_kind: dict[str, list] = defaultdict(list)
@@ -217,6 +239,12 @@ def main() -> int:
             for owner, kind, url, why in sorted(tls):
                 print(f"- `{owner}` ({kind}) — {why} — {url}")
             print()
+        if known:
+            print(f"<details><summary>Already recorded as unverified ({len(known)}) "
+                  "— documented in data/manufacturers.json, no action needed</summary>\n")
+            for owner, kind, url, why in sorted(known):
+                print(f"- `{owner}` — {why} — {url}")
+            print("\n</details>\n")
         if blocked:
             print("<details><summary>Blocked by the host "
                   f"({len(blocked)}) — usually a WAF, not a broken link</summary>\n")
@@ -225,7 +253,8 @@ def main() -> int:
             print("\n</details>")
     else:
         print(f"Checked {len(targets)} links: {ok} OK, {len(dead)} dead, "
-              f"{len(tls)} TLS problems, {len(blocked)} blocked by the host.\n")
+              f"{len(tls)} TLS problems, {len(blocked)} blocked by the host, "
+              f"{len(known)} already known unverified.\n")
         for owner, kind, url, why in sorted(tls):
             print(f"  TLS     {owner:28} {kind:26} {why:26} {url}")
         for owner, kind, url, why in sorted(dead):
